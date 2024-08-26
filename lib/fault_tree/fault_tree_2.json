@@ -1,0 +1,103 @@
+{
+    "fault_tree": [
+        {
+            "event": {
+                "eventId": "singlePane",
+                "probability": 0.895
+            }
+        },
+        {
+            "event": {
+                "eventId": "doubleMultiplePane",
+                "probability": 0.661
+            }
+        },
+        {
+            "event": {
+                "eventId": "temperedPane",
+                "probability": 0.661
+            }
+        },
+        {
+            "gate": {
+                "gateId": "glazingFailure",
+                "type": "XOR",
+                "inputs": {
+                    "eventIds": [
+                        "singlePane",
+                        "doubleMultiplePane",
+                        "temperedPane"
+                    ]
+                }
+            }
+        },
+        {
+            "event": {
+                "eventId": "glazingFailure",
+                "probability": 0
+            }
+        },
+        {
+            "event": {
+                "eventId": "noAllProtected",
+                "probability": 0.884
+            }
+        },
+        {
+            "event": {
+                "eventId": "pvc",
+                "probability": 0.665
+            }
+        },
+        {
+            "event": {
+                "eventId": "aluminium",
+                "probability": 0.243
+            }
+        },
+        {
+            "event": {
+                "eventId": "wood",
+                "probability": 0.066
+            }
+        },
+        {
+            "gate": {
+                "gateId": "shutterFailure",
+                "type": "XOR",
+                "inputs": {
+                    "eventIds": [
+                        "noAllProtected",
+                        "pvc",
+                        "aluminum",
+                        "wood"
+                    ]
+                }
+            }
+        },
+        {
+            "event": {
+                "eventId": "shutterFailure",
+                "probability": 0
+            }
+        },
+        {
+            "gate": {
+                "gateId": "glazingSystems",
+                "type": "AND",
+                "inputs": {
+                    "eventIds": [
+                        "glazingFailure",
+                        "shutterFailure"
+                    ]
+                }
+            }
+        },
+        {
+            "event": {
+                "eventId": "glazingSystems",
+                "probability": 0
+            }
+        }
+    ]
+}

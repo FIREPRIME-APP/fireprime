@@ -1,0 +1,150 @@
+{
+    "english": "Anglès",
+    "spanish": "Catellà",
+    "catalan": "Català",
+    "home": "FirePrime",
+    "questionnaire": "Qüestionari",
+    "preferedLang": "Idioma preferit",
+    "startFill": "Comprovi la vulnerabilitat de la seva casa amb un qüestionari",
+    "languages": "Idiomes",
+    "cancel": "Cancel·lar",
+    "next": "Següent",
+    "checkVuln": "Comprova la teva vulnerabilitat!",
+    "done": "Fet!",
+    "check": "Comprovar",
+
+    "addHouse": "Afegir casa",
+    "address": "Adreça",
+    "country": "País",
+
+    "lastResult": "Últim resultat",
+    "risk": "Risc",
+    "noResult": "No hi ha resultats",
+    "updateQuestionnaire": "Actualitza les respostes del qüestionari",
+    "update": "Actualitzar",
+    "fillQuestionnaire": "Comprova la vulnerabilitat de la teva casa amb un qüestionari!",
+    "fill": "Comprovar",
+    "continueQuestionnaire": "Continua el qüestionari per comprobar la vulnerabilitat de la teva casa",
+    "continue": "Continuar",
+    "resultsHistory": "Consulta el teu històric de resultats",        
+    "myResults": "Meus resultats",
+
+    "show_desc": "Mostrar descripció",
+    "hide_desc": "Ocultar descripció",
+    "other": "Altre",
+
+    "results": "Resultats",
+    "vulnerability": "La vulnerabilitat de la seva casa es de: ",
+    "structural_vulnerabilities": "Vulnerabilitats estructurals",
+    "combustible_facade_elements": "Elements combustibles de façana",
+    "glazing_systems": "Sistemes de vidre",
+    "roof": "Sostre",
+    "vents": "Ventilació",
+    "semi_confined": "Espai semiconfinat",
+
+    "material-1": {
+        "title": "Materials de façana",
+        "question": "Quins materials hi ha a l'envoltant exterior del vostre edifici (és a dir, parets exteriors, balcons, porxos, etc.)? (excepte persianes)",
+        "description": "Els elements combustibles de façana (per exemple, fusta, vinil) són vulnerables a tot tipus d'encesa d'incendi forestal. Fins i tot els focs o les flames de baixa intensitat poden encendre un element de façana de fusta o vinil, mentre que els maons i els elements de formigó resisteixen molt millor al foc. Els porxos de fusta comporten una gran superfície horitzontal sobre la qual poden aterrar les tintes (partícules ardents que provenen del foc). El seu contacte proper amb el terra del jardí també els fa vulnerables al contacte directe de la flama.",
+        "timber": "Fusta",
+        "vinylSiding": "Revestiment de vinil",
+        "concreteBricks": "Formigó o maons",
+        "Other": "Altres"
+    },
+    "roof-1": {
+        "title": "Sostre",
+        "question": "La coberta del teu sostre o el teu conjunt de teulada està fet de material resistent al foc (per exemple, rajoles d'argila, teules de formigó, composició de fibra de vidre d'asfalt, pissarra, etc.)?",
+        "description": "Quan la coberta de la coberta presenta buits, l'estructura que hi ha a sota queda exposada al foc. El foc també pot entrar per espais no segellats entre la coberta i les parets exteriors. La neteja dels residus del sostre i els canalons és clau per evitar l'encesa de combustibles que es puguin acumular (per exemple, agulles de pi seques).",
+        "roofFireRated": "Sí",
+        "roofNonFireRated": "No"
+    },
+    "roof-2": {
+        "title": "Sostre",
+        "question": "El teu sostre presenta algunes de les següents situacions? \n- Rajoles trencades o que falten \n- Làmines exposades \n- Espais no segellats entre el sostre i les parets exteriors \n- La neteja de les deixalles que s'amunteguen a la teulada o canalons no es realitza regularment",
+        "description": "Quan la coberta de la coberta presenta buits, l'estructura que hi ha a sota queda exposada al foc. El foc també pot entrar per espais no segellats entre la coberta i les parets exteriors. La neteja dels residus del sostre i els canalons és clau per evitar l'encesa de combustibles que es puguin acumular (per exemple, agulles de pi seques).",
+        "roofPoorlyMaintaned": "Sí",
+        "roofWellMaintained": "No"
+    },
+    "glazing-1": {
+        "title": "Vidres",
+        "question": "Quin tipus de vidre tenen les finestres i les portes de vidre de la teva casa?",
+        "description": "Les finestres i les portes de vidre són sovint un dels elements més exposats al foc. Els sistemes de vidre trencats són punts d'entrada per a les marques de foc i la calor, que poden provocar l'encesa de combustibles dins de la casa. Els sistemes de vidre d'un sol vidre resisteixen menys al foc i a l'exposició a la calor en comparació amb els sistemes de vidre doble o múltiple o el vidre temperat. Si el vostre edifici presenta més d'un tipus de sistemes de vidre, seleccioneu l'opció més representativa.",
+        "singlePane": "Sol panel",
+        "doublePane": "Doble/Multiple panel",
+        "tempered": "Vidre temperat"
+    },
+    "glazing-2": {
+        "title": "Vidres",
+        "question": "Les finestres estan protegides per persianes? En cas afirmatiu, de quin material estan fetes les persianes?",
+        "description": "Si les finestres estan protegides per persianes, la calor rebuda pel vidre es redueix, augmentant les possibilitats que el vidre no es trenqui. Les persianes de fusta i PVC són combustibles i es poden encendre o fondre (en cas de PVC). S'ha demostrat que les persianes d'alumini i antiincendis (per exemple, d'acer) resisteixen bé a l'exposició al foc forestal. Per bloquejar la calor que prové del foc, les persianes i les lames de la persiana han d'estar completament tancades.",
+        "notAllProtected": "No tots els sistemes de vidre estan protegits per persianes",
+        "wood": "Fusta",
+        "pvc": "PVC",
+        "aluminium": "Alumni",
+        "fireRated": "Materials resistents al foc"
+    },
+    "vents-1": {
+        "title": "Ventilació",
+        "question": "Tens obertures de ventilació sense protecció (és a dir, ventilacions sense cap tipus de pantalla)?",
+        "description": "Les obertures de ventilació són punts d'entrada potencials per a tintes que poden encendre l'edifici des de l'interior. Els tipus típics de ventilació que es troben a les cases són les obertures del sostre per a la ventilació de les golfes (per exemple, rajoles de ventilació, ventilacions de tancament d'aresta), xemeneies i obertures per a la ventilació de les cuines.",
+        "noVentProtection": "Sí",
+        "allProtected": "No, totes les obertures de ventilació estan protegides",
+        "noVents": "No hi ha obertures de ventilació"
+    },
+    "vents-2": {
+        "title": "Ventilació",
+        "question": "Quin tipus de protecció de ventilació hi ha?",
+        "description": "Els conductes de ventilació s'han de tapar amb malles de filferro resistents a la corrosió i no combustibles (per exemple, alumini, acer galvanitzat, acer inoxidable, coure, recobriment intumescent), amb una longitud característica prou petita per evitar el pas de tintes (< 2 mm).",
+        "combustibleProtection": "Combustible",
+        "nonCombGoodCond": "No combustible en bones condicions (sense danys)",
+        "nonCombBadCond": "No combustible en mal estat (rovellat o danyat)"
+    },
+    "semiConf-1": {
+        "title": "Espai semiconfinat",
+        "question": "Hi ha un espai semiconfinat adjacent a casa teva (és a dir, té almenys una paret en comú amb la casa) que contingui materials combustibles?",
+        "description": "Els espais semiconfinats són espais parcialment oberts, com els situats sota terrasses, porxos, cobertes, ràfecs o marquesines, o els espais tancats en coberts oberts. La presència de materials combustibles en aquests espais comporta una gran acumulació de calor, en cas d'encendre aquests materials, que pot provocar danys estructurals a l'embolcall de l'espai semiconfinat.",
+        "yesSemiConf": "Sí",
+        "noSemiConf": "No"
+    },
+    "semiConf-2": {
+        "title": "Espai semiconfinat",
+        "question": "Hi ha sistemes de vidre sense protecció (és a dir, sense persianes) (per exemple, portes o finestres de vidre) que connectin l'espai semiconfinat amb l'interior de l'edifici?",
+        "description": "Els sistemes de vidre sense protecció són un element molt feble pel que fa a la resistència al foc. Si s'encenen els elements de l'espai semiconfinat, el vidre podria trencar-se i permetre l'entrada del foc a l'interior de l'edifici.",
+        "glazingSystems": "Sí",
+        "noGlazingSystems": "No"
+    },
+    "semiConf-3": {
+        "title": "Espai semiconfinat",
+        "question": "De quins materials estan fetes les parets de l'espai semiconfinat?",
+        "description": "Els materials de l'envoltant combustible són els més febles al foc, ja que es poden encendre i provocar la propagació del foc per l'envoltant i cap a l'interior de l'edifici. Els materials no combustibles com l'alumini o l'acer són més resistents, però encara podrien fondre's o perdre força quan s'exposen a una dosi de calor prou gran. Els materials no combustibles com els maons o el formigó són els més resistents als efectes del foc.",
+        "combustibleEnvelope": "Materials combustibles (per exemple, fusta, revestiment de vinil)",
+        "nonCombThin": "Materials no combustibles com l'alumini o l'acer (per exemple, persianes sense vidre, com ara una porta de garatge)",
+        "nonCombThick": "Materials no combustibles com ara maons o formigó."
+    },
+
+    "roof-1-images": {
+        "spain-tiles": "Exemple de rajoles de fang",
+        "deafault-tiles": "Exemple de rajoles de formigó"
+    },
+
+    "roof-2-images": {
+        "spain-debris": "Exemple d'acumulació de deixalles al sostre i canalons",
+        "deafault-tiles": "Exemple de rajoles de fang ben col·locades i trencades"
+    },
+
+    "glazing-1-images": {
+        "spain-pane": "Sistemes de vidre simple, doble i triple",
+        "deafault-pane": "Sistemes de vidre simple, doble i triple"
+    },
+    "glazing-2-images": {
+        "spain-shutter": "Aquest tipus de persiana pot ser de PVC o d'alumini",
+        "deafault-shutter": "Persiana d'alumini. Per protegir el vidre del foc, els llistons s'han de tancar completament"
+    },
+    "vents-1-images": {
+        "spain-kitchenVent": "Exemple d'obertura de ventilació de cuina",
+        "deafault-kitchenVent": "Exemple d'obertura de ventilació de cuina"
+    }
+
+
+    
+}

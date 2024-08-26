@@ -1,0 +1,79 @@
+{
+    "events": [
+        {
+            "eventId": "singlePane",
+            "probability": 0.895
+        },
+        {
+            "eventId": "doubleMultiplePane",
+            "probability": 0.661
+        },
+        {
+            "eventId": "temperedPane",
+            "probability": 0.661
+        },
+        {
+            "eventId": "glazingFailure",
+            "probability": 0
+        },
+        {
+            "eventId": "noAllProtected",
+            "probability": 0.884
+        },
+        {
+            "eventId": "pvc",
+            "probability": 0.665
+        },
+        {
+            "eventId": "aluminium",
+            "probability": 0.243
+        },
+        {
+            "eventId": "wood",
+            "probability": 0.066
+        },
+        {
+            "eventId": "shutterFailure",
+            "probability": 0
+        },
+        {
+            "eventId": "glazingSystems",
+            "probability": 0
+        }
+    ],
+    "gates": [
+        {
+            "gateId": "glazingFailure",
+            "type": "XOR",
+            "inputs": {
+                "eventIds": [
+                    "singlePane",
+                    "doubleMultiplePane",
+                    "temperedPane"
+                ]
+            }
+        },
+        {
+            "gateId": "shutterFailure",
+            "type": "XOR",
+            "inputs": {
+                "eventIds": [
+                    "noAllProtected",
+                    "pvc",
+                    "aluminium",
+                    "wood"
+                ]
+            }
+        },
+        {
+            "gateId": "glazingSystems",
+            "type": "AND",
+            "inputs": {
+                "eventIds": [
+                    "glazingFailure",
+                    "shutterFailure"
+                ]
+            }
+        }
+    ]
+}

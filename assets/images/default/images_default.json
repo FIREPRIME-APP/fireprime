@@ -1,0 +1,44 @@
+{
+    "roof-1": [
+        {
+            "path": "assets/images/default/roof-1.jpg",
+            "description": "default-tiles"
+        }
+    ],
+    "roof-2": [
+        {
+            "path": "assets/images/default/roof-2.jpg",
+            "description": "default-tiles"
+        }
+    ],
+    "glazing-1": [
+        {
+            "path": "assets/images/default/glazing-1.jpg",
+            "description": "default-pane"
+        }
+    ],
+    "glazing-2": [
+        {
+            "path": "assets/images/default/glazing-2.jpg",
+            "description": "default-shutter"
+        }
+    ],
+    "vents-1": [
+        {
+            "path": "assets/images/default/vents-1.jpg",
+            "description": "default-kitchenVent"
+        }
+    ],
+    "fuels-close-3": [
+        {
+            "path": "assets/images/default/fuels-close-3.jpg",
+            "description": "fuels_close_3_other"
+        }
+    ],
+    "art-fuels-1": [
+        {
+            "path": "assets/images/default/art-fuels-1.jpg",
+            "description": "art_fuels_1_other"
+        }
+    ]
+}

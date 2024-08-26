@@ -1,0 +1,145 @@
+{
+    "english": "English",
+    "spanish": "Spanish",
+    "catalan": "Catalan",
+    "home": "FirePrime",
+    "questionnaire": "Questionnaire",
+    "preferedLang": "Prefered language",
+    "startFill": "Check your house vulnerability with a questionnaire",
+    "languages": "Languages",
+    "cancel": "Cancel",
+    "next": "Next",
+    "checkVuln": "Check your vulnerability!",
+    "done": "Done!",
+    "check": "Check",
+
+    
+    "addHouse": "Add house",
+    "address": "Address",
+    "country": "Country",
+
+    "lastResult": "Last result",
+    "risk": "Risk",
+    "noResult": "No results available",
+    "updateQuestionnaire": "Update your answers of the questionnaire",
+    "update": "Update",
+    "fillQuestionnaire": "Check your house vulnerability with a questionnaire!",
+    "fill": "Check",
+    "continueQuestionnaire": "Continue the questionnaire to check your house vulnerability",
+    "continue": "Continue",
+    "resultsHistory": "Check your results history",
+    "myResults": "My results",
+
+    "show_desc": "Show description",
+    "hide_desc": "Hide description",
+    "other": "Other",
+
+    "results": "Results",
+    "vulnerability": "Your house vulnerability is:",
+    "structural_vulnerabilities": "Structural vulnerabilities",
+    "combustible_facade_elements": "Combustible facade elements",
+    "glazing_systems": "Glazing systems",
+    "roof": "Roof",
+    "vents": "Vents",
+    "semi_confined": "Semi-confined space",
+
+    "material-1": {
+        "title": "Façade materials",
+        "question": "What materials are present on your building's exterior envelope (i.e., external walls, balconies, porches, etc.)? (excluding shutters)",
+        "description": "Combustible façade elements (e.g., timber, vinyl) are vulnerable to all types of wildfire ignitions. Even firebrands or low-intensity flames may ignite a timber or vinyl façade element, while bricks and concrete elements resist much better to fire. Wooden porches entail a large horizontal surface on which firebrands (burning particles that come from the fire) may land. Their close contact with the garden floor also makes them vulnerable to direct flame contact.",
+        "timber": "Timber",
+        "vinylSiding": "Vinyl siding",
+        "concreteBricks": "Concrete or bricks",
+        "other": "Other"
+    },
+    "roof-1": {
+        "title": "Roof",
+        "question": "Is your roof covering or your roof assembly made of fire-rated material (e.g. clay tiles, concrete tiles, asphalt glass fibre composition singles, slate, etc.)?",
+        "description": "When the roof covering presents gaps, the structure laying underneath is then exposed to the fire. The fire can also enter through unsealed spaces between the roof and external walls. The cleaning from debris of the roof and gutters is key to avoid ignition of fuels that may pile up (e.g., dried pine needles).",
+        "roofFireRated": "Yes",
+        "roofNonFireRated": "No"
+    },
+    "roof-2": {
+        "title": "Roof",
+        "question": "Does your roof present any of the following? \n- Broken or missing tiles \n- Exopsed sheeting \n- Unsealed spaces between the roof and external walls \n- Cleaning of debris piling up on roof or gutters is not regularly performed",
+        "description": "When the roof covering presents gaps, the structure laying underneath is then exposed to the fire. The fire can also enter through unsealed spaces between the roof and external walls. The cleaning from debris of the roof and gutters is key to avoid ignition of fuels that may pile up (e.g., dried pine needles).",
+        "roofPoorlyMaintaned": "Yes",
+        "roofWellMaintained": "No"
+    },
+    "glazing-1": {
+        "title": "Glazing systems",
+        "question": "What is the type of glazing of windows and glass doors?",
+        "description": "Windows and glass doors are frequently one of the most exposed elements to fire. Broken glazing systems are entry points for firebrands and heat, which can potentially trigger ignition of fuels inside the house. Single pane glazing systems resist less to fire and heat exposure compared to double or multiple pane systems or tempered glass. If your building presents more than one type of glazing systems, select the most representative option.",
+        "singlePane": "Single pane",
+        "doublePane": "Double/Multiple pane",
+        "tempered": "Tempered glass"
+    },
+    "glazing-2": {
+        "title": "Glazing systems",
+        "question": "Are all glazing systems protected by shutters? If yes, which material are the shutters made of?",
+        "description": "If windows are protected by shutters, then the heat received by the glass is reduced, increasing the chances that the glass will not break. Wood and PVC shutters are combustible and could ignite or melt (in case of PVC). Aluminium and fire-rated (e.g., steel) shutters have proven to resist well to wildfire exposure. To block the heat coming from the fire, shutters and shutter slats should be completely closed.",
+        "notAllProtected": "Not all glazing systems are protected by shutters ",
+        "wood": "Wood",
+        "aluminium": "Aluminium",
+        "pvc": "PVC",
+        "fireRated": "Fire rated materials"
+    },
+    "vents-1": {
+        "title": "Vents",
+        "question": "Do you have unprotected ventilation openings (i.e. vents without any type of screening)?",
+        "description": "Ventilation openings are potential entry points for firebrands that could ignite the building from inside. Typical types of vents found in houses are roof openings for attic ventilation (e.g. vent tiles, ridge closer vents), chimneys, and openings for the ventilation of kitchens.",
+        "noVentProtection": "Yes",
+        "allProtected": "No, they are all protected",
+        "noVents": "There are no vents"
+    },
+    "vents-2": {
+        "title": "Vents",
+        "question": "What type of vent protection is present?",
+        "description": "Vents should be screened with corrosion-resistant, non-combustible wire meshes (e.g. aluminium, galvanized steel, stainless steel, copper, intumescent coating), with a characteristic length small enough to prevent the pass of firebrands (< 2mm).",
+        "combustibleProtection": "Combustible",
+        "nonCombGoodCond": "Non-Combustible in good conditions (no damage)",
+        "nonCombBadCond": "Non-Combustible in bad condition (rusted or damaged)"
+    },
+    "semiConf-1": {
+        "title": "Semi-confined space",
+        "question": "Is there a semi-confined space adjacent to your house (i.e., it has at least one wall in common with the house) that contains combustible materials? ",
+        "description": "Semi-confined spaces are areas that are partially open, such as those located under terraces, porches, decks, eaves or canopies, or the spaces enclosed in open sheds. The presence of combustible materials in such spaces entails large heat accumulation, should these materials be ignited, leading potentially to structural damage of the envelope of the semi-confined space.",
+        "yesSemiConf": "Yes",
+        "noSemiConf": "No"
+    },
+    "semiConf-2": {
+        "title": "Semi-confined space",
+        "question": "Are there any unprotected (i.e., no shutters) glazing systems (e.g., glass doors or windows) connecting the semi-confined space with the interior of the building?",
+        "description": "Unprotected glazing systems are a very weak element when it comes to fire resistance. If the elements inside the semi-confined space are ignited, the glass could break and allow fire entrance inside the building.",
+        "glazingSystems": "Yes",
+        "noGlazingSystems": "No"
+    },
+    "semiConf-3": {
+        "title": "Semi-confined space",
+        "question": "What materials are the walls of the envelope made of? ",
+        "description": "Combustible envelope materials are the weakest to fire, as they can ignite and cause fire spread along the envelope and towards the inside of the building. Non-combustible materials such as aluminium or steel are more resistant, but could still melt or lose strength when exposed to a large enough heat dose. Non-combustible materials such as bricks or concrete are the most resistant to the effects of fire.",
+        "combustibleEnvelope": "Combustible materials (e.g., timber, vinyl siding)",
+        "nonCombThin": "Non-combustible materials such as aluminium or steel (e.g., shutters without glazing - such as a garage door)",
+        "nonCombThick": "Non-combustible materials such as bricks or concrete"
+    },
+    "roof-1-images": {
+        "spain-tiles": "Example of clay tiles",
+        "default-tiles": "Example of concrete tiles"
+    },
+    "roof-2-images": {
+        "spain-debris": "Example of debris accumulation on roof and gutter",
+        "default-tiles": "Example of well placed and broken clay tiles"
+    },
+    "glazing-1-images": {
+        "spain-pane": "Single, double and triple pane systems",
+        "default-pane": "Single, double and triple pane systems"
+    },
+    "glazing-2-images": {
+        "spain-shutter": "This type of shutter can be made either of PVC or aluminium",
+        "default-shutter": "Aluminium shutter. In order to protect the glazing from the fire, the slats should close completely"
+    },
+    "vents-1-images": {
+        "spain-kitchenVent": "Example of a kitchen ventilation opening",
+        "default-kitchenVent": "Example of a kitchen ventilation opening"
+    }
+}

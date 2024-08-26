@@ -1,0 +1,158 @@
+{
+    "id": "120",
+    "type": "navigable",
+    "rules": [
+        {
+            "type": "conditional",
+            "triggerStepIdentifier": {
+                "id": "4"
+            },
+            "values": {
+                "Yes": "5",
+                "No": "6"
+            }
+        },
+        {
+            "type": "direct",
+            "triggerStepIdentifier": {
+                "id": "1"
+            },
+            "destinationStepIdentifier": {
+                "id": "2"
+            }
+        },
+        {
+            "type": "direct",
+            "triggerStepIdentifier": {
+                "id": "2"
+            },
+            "destinationStepIdentifier": {
+                "id": "3"
+            }
+        },
+        {
+            "type": "direct",
+            "triggerStepIdentifier": {
+                "id": "3"
+            },
+            "destinationStepIdentifier": {
+                "id": "4"
+            }
+        },
+        {
+            "type": "direct",
+            "triggerStepIdentifier": {
+                "id": "5"
+            },
+            "destinationStepIdentifier": {
+                "id": "6"
+            }
+        },
+        {
+            "type": "direct",
+            "triggerStepIdentifier": {
+                "id": "6"
+            },
+            "destinationStepIdentifier": {
+                "id": "10"
+            }
+        }
+    ],
+    "steps": [
+        {
+            "stepIdentifier": {
+                "id": "1"
+            },
+            "type": "intro",
+            "title": "Questionnaire",
+            "text": "Check your house vulnerability with a questionnaire",
+            "buttonText": "Let's go!"
+        },
+        {
+            "stepIdentifier": {
+                "id": "2"
+            },
+            "type": "question",
+            "title": "What is your address?",
+            "answerFormat": {
+                "type": "text",
+                "defaultValue": "",
+                "hint": "Please enter your address"
+            }
+        },
+        {
+            "stepIdentifier": {
+                "id": "3"
+            },
+            "type": "question",
+            "title": "What is your windows protection? ",
+            "answerFormat": {
+                "type": "single",
+                "textChoices": [
+                    {
+                        "text": "FireProof",
+                        "value": "FireProof"
+                    },
+                    {
+                        "text": "Aluminium",
+                        "value": "Aluminium"
+                    },
+                    {
+                        "text": "Wood",
+                        "value": "Wood"
+                    },
+                    {
+                        "text": "noShutters",
+                        "value": "noShutters"
+                    }
+                ]
+            }
+        },
+        {
+            "stepIdentifier": {
+                "id": "4"
+            },
+            "type": "question",
+            "title": "Do you have a Semi-Confined space?",
+            "answerFormat": {
+                "type": "bool",
+                "positiveAnswer": "Yes",
+                "negativeAnswer": "No",
+                "result": "POSITIVE"
+            }
+        },
+        {
+            "stepIdentifier": {
+                "id": "5"
+            },
+            "type": "question",
+            "title": "Enter the combustible material coverage in the semi-confined space (% vol.)",
+            "answerFormat": {
+                "type": "integer",
+                "defaultValue": 25,
+                "hint": "Please enter the coverage"
+            }
+        },
+        {
+            "stepIdentifier": {
+                "id": "6"
+            },
+            "type": "question",
+            "title": "Ornamental fuel in ZONE 1: (%)",
+            "answerFormat": {
+                "type": "integer",
+                "defaultValue": 25,
+                "hint": "Please enter the ornamental fuel"
+            }
+        },
+        {
+            "stepIdentifier": {
+                "id": "10"
+            },
+            "type": "completion",
+            "text": "Thanks for taking the survey, we will contact you soon!",
+            "title": "Done!",
+            "buttonText": "Submit survey"
+        }
+    ]
+}

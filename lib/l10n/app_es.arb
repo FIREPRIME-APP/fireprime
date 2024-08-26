@@ -1,0 +1,236 @@
+{
+    "@@locale": "es",
+    "helloWorld": "¡Hola Mundo!",
+    "english": "Inglés",
+    "spanish": "Castellano",
+    "catalan": "Catalan",
+    "startFill": "Compruebe la vulnerabilidad de su casa con un cuestionario ",
+
+    "home": "Inicio",
+    "lang": "Idioma preferido",
+    "questionnaire": "Cuestionario",
+
+    "fill": "Rellena",
+    "changLang": "Idiomas",
+
+
+    "cancel": "Cancelar",
+    "next": "Siguiente",
+    "address": "¿Cuál es su dirección?",
+    "enterAddress": "Introduzca su dirección",
+    "windowsProtec": "¿Cuál es la protección de su ventana? ",
+    "fireProof": "A prueba de fuego",
+    "alumnium": "Aluminio",
+    "wood": "Madera",
+    "pvc": "PVC",
+    "noShutters": "Sin persianas",
+    "glazingThick": "Introduzca el grosor del acristalamiento (mm) ",
+    "roofMat": "¿Cómo es el material de su tejado?",
+    "nonComb": "No Combustible",
+    "roofMaint": "¿Cómo es el mantenimiento de tu tejado?",
+    "good": "Bueno",
+    "bad": "Malo",
+    "ventsProtec": "¿Cuál es la protección de su ventilación? ",
+    "none": "Ninguna",
+    "haveSemiConf": "¿Tiene un espacio semiconfinado?",
+    "yes": "Sí",
+    "no": "No",
+    "combMatSemiConf": "Introduzca la cobertura de material combustible en el espacio semiconfinado (% vol.)",
+    "envTypeSemiConf": "Qué tipo de envolvente tiene el espacio semiconfinado adyacente al edificio? ",
+    "combWalls": "Paredes combustibles",
+    "nonCombThin": "Delgado no combustible",
+    "nonCombThick": "Grueso no combustible",
+    "winCov": "¿Cuál es la cobertura de las ventanas en el espacio semiconfinado adyacente al edificio? (%)",
+    "ornZone1": "Combustible ornamental en ZONA 1: (%) ",
+    "artZone1": "Combustible artificial en ZONA 1: (%)",
+    "wildZone1": "Combustible forestal en ZONA 1: (%)",
+    "ornZone2": "Combustible ornamental en ZONA 2: (%)",
+    "artZone2": "Combustible artificial en ZONA 2: (%)",
+    "wildZone2": "Combustible forestal en ZONA 2: (%)",
+    "checkVuln": "¡Comprueba tu vulnerabilidad!",
+    "done": "¡Hecho!",
+    "check": "Comprobar",
+
+    "question": "{questionId, select, other{message} questionnaire{Cuestionario} startFill{Compruebe la vulnerabilidad de su casa con un cuestionario}}",
+    "@question": {
+        "description": "question",
+        "placeholders": {
+            "questionId": {
+              "type":"String"
+            }
+        }
+    },
+
+
+    "material": "Materiales de fachada",
+    "material_1_question": "¿Qué materiales están presentes en la envolvente exterior de su edificio (es decir, paredes exteriores, balcones, porches, etc.)? (excluidas las persianas)",
+    "timber": "Timber",
+    "vinyl": "Vinyl siding",
+    "concreteBricks": "Concrete or bricks",
+    
+    "roof": "Roof",
+    "roof_1_question": "Is your roof covering or your roof assembly made of fire-rated material (e.g. clay tiles, concrete tiles, asphalt glass fibre composition singles, slate, etc.)?",
+    "roof_1_description": "When the roof covering presents gaps, the structure laying underneath is then exposed to the fire. The fire can also enter through unsealed spaces between the roof and external walls. The cleaning from debris of the roof and gutters is key to avoid ignition of fuels that may pile up (e.g., dried pine needles).",
+    
+    "roof_2_question": "Does your roof present any of the following? \n- Broken or missing tiles \n- Exopsed sheeting \n- Unsealed spaces between the roof and external walls \n- Cleaning of debris piling up on roof or gutters is not regularly performed",
+    "roof_2_description": "When the roof covering presents gaps, the structure laying underneath is then exposed to the fire. The fire can also enter through unsealed spaces between the roof and external walls. The cleaning from debris of the roof and gutters is key to avoid ignition of fuels that may pile up (e.g., dried pine needles).",
+
+    "glazing": "Glazing systems",
+    "glazing_1_question": "What is the type of glazing of windows and glass doors?",
+    "glazing_1_description": "Windows and glass doors are frequently one of the most exposed elements to fire. Broken glazing systems are entry points for firebrands and heat, which can potentially trigger ignition of fuels inside the house. Single pane glazing systems resist less to fire and heat exposure compared to double or multiple pane systems or tempered glass. If your building presents more than one type of glazing systems, select the most representative option.",
+    "single_pane": "Single pane",
+    "doubleMultiple_pane": "Double/Multiple pane",
+    "tempered_glass": "Tempered glass",
+
+    "glazing_2_question": "Are all glazing systems protected by shutters? If yes, which material are the shutters made of?",
+    "glazing_2_description": "If windows are protected by shutters, then the heat received by the glass is reduced, increasing the chances that the glass will not break. Wood and PVC shutters are combustible and could ignite or melt (in case of PVC). Aluminium and fire-rated (e.g., steel) shutters have proven to resist well to wildfire exposure. To block the heat coming from the fire, shutters and shutter slats should be completely closed.",
+    "notAllProtected": "Not all glazing systems are protected by shutters ",
+    "fireRated": "Fire rated materials",
+
+    "vents": "Vents",
+    "vents_1_question": "Do you have unprotected ventilation openings (i.e. vents without any type of screening)?",
+    "vents_1_description": "Ventilation openings are potential entry points for firebrands that could ignite the building from inside. Typical types of vents found in houses are roof openings for attic ventilation (e.g. vent tiles, ridge closer vents), chimneys, and openings for the ventilation of kitchens.",
+    "noAllProtected": "No, they are all protected",
+    "noVents": "There are no vents",
+
+    "vents_2_question": "What type of vent protection is present?",
+    "vents_2_description": "Vents should be screened with corrosion-resistant, non-combustible wire meshes (e.g. aluminium, galvanized steel, stainless steel, copper, intumescent coating), with a characteristic length small enough to prevent the pass of firebrands (< 2mm).",
+    "comb": "Combustible",
+    "nonCombGood": "Non-Combustible in good conditions (no damage)",
+    "nonCombBad": "Non-Combustible in bad condition (rusted or damaged)",
+    
+    "semiConf": "Semi-confined space",
+    "semiConf_1_question": "Is there a semi-confined space adjacent to your house (i.e., it has at least one wall in common with the house) that contains combustible materials? ",
+    "semiConf_1_description": "Semi-confined spaces are areas that are partially open, such as those located under terraces, porches, decks, eaves or canopies, or the spaces enclosed in open sheds. The presence of combustible materials in such spaces entails large heat accumulation, should these materials be ignited, leading potentially to structural damage of the envelope of the semi-confined space.",
+    
+    "semiConf_2_question": "Are there any unprotected (i.e., no shutters) glazing systems (e.g., glass doors or windows) connecting the semi-confined space with the interior of the building?",
+    "semiConf_2_description": "Unprotected glazing systems are a very weak element when it comes to fire resistance. If the elements inside the semi-confined space are ignited, the glass could break and allow fire entrance inside the building.",
+  
+    "semiConf_3_question": "What materials are the walls of the envelope made of? ",
+    "semiConf_3_description": "Combustible envelope materials are the weakest to fire, as they can ignite and cause fire spread along the envelope and towards the inside of the building. Non-combustible materials such as aluminium or steel are more resistant, but could still melt or lose strength when exposed to a large enough heat dose. Non-combustible materials such as bricks or concrete are the most resistant to the effects of fire.",
+    "combMat": "Combustible materials (e.g., timber, vinyl siding)",
+    "nonCombAS": "Non-combustible materials such as aluminium or steel (e.g., shutters without glazing - such as a garage door)",
+    "nonCombBC": "Non-combustible materials such as bricks or concrete",
+
+    "fuels_close": "Fuels close to building",
+    "fuels_close_1a_question": "Are fuels such as ornamental vegetation or other types of combustible elements located at least 7 m from glazing systems?",
+    "fuels_close_1a_description": "Due to the weakness of glazing systems to fire, it is advised to place fuels (vegetation or other combustible items) at least 7 m from any single pane glazing system.",
+    
+    "fuels_close_2a_question": "Are fuels such as ornamental vegetation or other types of combustible elements located at least 5 m from the roof?",
+    "fuels_close_2a_description": "Due to the weakness of the roof to fire, it is advised to place fuels (vegetation or other combustible items) at least 5 m from it. This includes trees that might have branches that hang over the roof.",
+    
+    "fuels_close_1b_question": "Are all fuels (vegetation or other types of combustible elements) located at least 5 m from glazing systems or the roof?",
+    "fuels_close_1b_description": "Due to the weakness of glazing systems and the roof to fire, it is advised to place fuels (vegetation or other combustible items) at least 5 m from any double/multiple pane or tempered glazing system and from the roof. This includes trees that might have branches that hang over the roof.",
+    
+    "fuels_close_3_question": "Are all fuels stored so that they are not placed directly against the façade?",
+    "fuels_close_3_description": "When the façade includes combustible elements, it is important to not store any fuels against the façade or have any vegetation on it. ",
+    
+    "fuels_close_4_question": "Is there discontinuity of surface combustible elements within 10 m from the building?",
+    "fuels_close_4_description": "A non-continuous surface layer helps in slowing or stopping fire spread through surface fuels such as grass, litter or combustible mulch. To prevent fuel continuity, mulches such as gravel or pebbles can be used.",
+    "notApplicable": "Not applicable",
+    "fuels_close_5_question": "Is all wildland vegetation located at least 30 m from the building?",
+    "fuels_close_5_description": "When ignited, wildland vegetation can burn at a very high intensity. It is therefore recommended to reduce the amount of wildland vegetation as much as possible within a radius of 30 m from the building.",
+
+    "art_fuels": "Artificial fuels",
+
+    "art_fuels_1_question": "Are combustible materials (e.g., vegetation, storage spaces, combustible building systems) located at least 2 m from an LPG tank (this includes also canisters with a total volume > 0.5 m3)?",
+    "art_fuels_1_description": "When an above ground domestic Liquified Petroleum Gas (LPG) tank is exposed to the heat coming from a fire, the tank will heat up and pressurize. If the tank pressure reaches the Pressure Relief Valve (PRV) set point, this will open, releasing LPG that will immediately ignite forming a jet fire, which will worsen the heat load to the tank and its surroundings. In the worst case it may evolve into an explosion and the ignition of surrounding objects. It is therefore best to not have any combustible fuels located within 2 m from the tank.",
+    
+    "art_fuels_2_question": "Is the distance between artificial fuels or fuel packs at least 5 m?",
+    "art_fuels_2_description": "Even when located far from the wildfire, fuels can still be ignited by firebrands. It is important for fuels or fuel packs to be located at least 5 m from each other, so that if ignition of one happens, the fire does not spread to the other fuels.",
+    
+    "art_fuels_3_question": "In case of wild vegetation of mainly trees, are artificial fuels placed at a distance of minimum 20 m from these trees?",
+    "art_fuels_3_description": "When ignited, wildland vegetation can burn at a very high intensity. To avoid fire spread from this type of vegetation to other fuels, it is recommended to place artificial fuels at least 20 m from wildland trees.",
+    
+    "vegetation": "Vegetation",
+    
+    "vegetation_1_question": "Are there no highly flammable species (e.g. pine tree, eucalyptus, cypress, etc.) or vegetation with closely packed leaves and branches, fine textures, small, thin and narrow leaves, and high amounts of resins or oils located within 30 m from the building?",
+    "vegetation_1_description": "It is recommended to not have any highly flammable species on the property or within 30 m from the building. Examples of these species are: pine trees, eucalyptus, cypress.",
+    "plantsClose": "Plants with closely packed leaves and branches, fine textures, small, thin and narrow leaves (e.g., pine trees, cypress)",
+    "plantsHigh": "Plants with high levels of oils or resins",
+    "plantsLoose": "Plants with loose, stringy bark (e.g., eucalyptus)",
+    "plantsOpen": "Plants with open and loose, sparsely dense branching, that don't retain dead leaves and do not have high levels of oils or resins",
+
+
+    "vegetation_2_question": "Is there discontinuity between tree crowns, shrubs, hedges and other vegetation?",
+    "vegetation_2_description": "Vegetation located within 30 m from the building should be treated to create discontinuity to reduce fire intensity and spread along the vegetation. This helps in creating a defensible space around the building, in which vegetation is modified and managed to break up continuity and reduce the amount of fuel available to the fire.",
+
+    "vegetation_3_question": "Are low surface fuels max 10 cm deep?",
+    "vegetation_3_description": "The presence of a lawn is an important parameter for structure survivability in a wildfire, as it provides distancing between wildland fuels and the building. It is recommended to mow the lawn at a maximum grass length of 10 cm. ",
+    
+    "vegetation_4_question": "Is there no dead vegetation or vegetative debris?",
+    "vegetation_4_description": "Dead vegetation or vegetative debris should be periodically removed within the area of 30 m from the building. These fuels are very dry and will easily ignite when reached by the fire.",
+    
+    "vegetation_5_question": "Are trees pruned?",
+    "vegetation_5_description": "Tree branches should be pruned to increase vertical separation between fuels at the ground level and the canopy.",
+
+    "roof_images": "{roof_images, select, other{Missing description} roof_1_catalunya{Example of clay tiles} roof_1_other {Example of concrete tiles} roof_2_catalunya {Example of debris accumulation on roof and gutter} roof_2_other {Example of well placed and broken clay tiles}}",
+    "@roof_images": {
+        "description": "roof_images",
+        "placeholders": {
+            "roof_images": {
+              "type":"String",
+              "example":"Example" 
+            }
+        }
+    },
+
+    "glazing_images": "{glazing_images, select, other{Missing description} glazing_1_catalunya{Single, double and triple pane systems} glazing_1_other {Single, double and triple pane systems} glazing_2_catalunya{This type of shutter can be made either of PVC or aluminium} glazing_2_other {Aluminium shutter. In order to protect the glazing from the fire, the slats should close completely}}",
+    "@glazing_images": {
+        "description": "glazing_images",
+        "placeholders": {
+            "glazing_images": {
+              "type":"String",
+              "example":"1" 
+            }
+        }
+    },
+
+    "vents_images": "{vents_images, select, other{Missing description} vents_1_catalunya{Example of a kitchen ventilation opening} vents_1_other {Example of a kitchen ventilation opening}}",
+    "@vents_images": {
+        "description": "vents_images",
+        "placeholders": {
+            "vents_images": {
+              "type":"String",
+              "example":"1" 
+            }
+        }
+    },
+
+    "fuels_close_images": "{fuels_close_images, select, other{Missing description} fuels_close_3_catalunya{Example of combustible elements stored against a combustible facade} fuels_close_3_other{Example of combustible elements stored against a combustible facade}}",
+    "@fuels_close_images": {
+        "description": "fuels_close_images",
+        "placeholders": {
+            "fuels_close_images": {
+              "type":"String",
+              "example":"1" 
+            }
+        }
+    },
+
+    "art_fuels_images": "{art_fuels_images, select, other{Missing description} art_fuels_1_catalunya{Example of a badly placed tank} art_fuels_1_other{Example of an LPG tank located too close to a hedge}}",
+    "@art-fuels": {
+        "description": "art_fuels_images",
+        "placeholders": {
+            "art_fuels_images": {
+              "type":"String",
+              "example":"1" 
+            }
+        }
+    },
+    
+    "show_desc": "Muestra descripción",
+    "hide_desc": "Ocultar descripción",
+
+    "gauche_titles": "{gauche_titles, select, other{Falta título} structural_vulnerabilities{Vulnerabilidades estructurales} combustible_facade_elements{Elementos combustibles de fachana} glazing_systems{Sistemas de vidrio} roof{Techo} vents{Ventilación} semi_confined{Espacio semiconfinado}}",
+    "@gauche_titles": {
+        "description": "gauche_titles",
+        "placeholders": {
+            "gauche_titles": {
+              "type":"String",
+              "example":"1" 
+            }
+        }
+    }
+
+}

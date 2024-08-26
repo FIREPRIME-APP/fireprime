@@ -1,0 +1,149 @@
+{
+    "english": "Inglés",
+    "spanish": "Castellano",
+    "catalan": "Catalán",
+    "home": "FirePrime",
+    "questionnaire": "Cuestionario",
+    "preferedLang": "Idioma preferido",
+    "startFill": "Compruebe la vulnerabilidad de su casa con un cuestionario ",
+    "languages": "Idiomas",
+    "cancel": "Cancelar",
+    "next": "Siguiente",
+    "checkVuln": "¡Comprueba tu vulnerabilidad!",
+    "done": "¡Hecho!",
+    "check": "Comprobar",
+
+    "addHouse": "Añadir casa",
+    "address": "Dirección",
+    "country": "País",
+
+    "lastResult": "Último resultado",
+    "risk": "Riesgo",
+    "noResult": "No hay resultados",
+    "updateQuestionnaire": "Actualiza las respuestas del cuestionario",
+    "update": "Actualizar",
+    "fillQuestionnaire": "Comprueba la vulnerabilidad de su casa con un qüestionari!",
+    "fill": "Comprovar",
+    "continueQuestionnaire": "Continua el cuestionario para comprobar la vulnerabilidad de tu casa",
+    "continue": "Continuar",
+    "resultsHistory": "Consulta tu historial de resultados",
+    "myResults": "Mis resultados",
+
+    "show_desc": "Mostrar descripción",
+    "hide_desc": "Ocultar descripción",
+    "other": "Otro",
+
+    "results": "Resultados",
+    "vulnerability": "La vulnerabilidad de su casa es de:",
+    "structural_vulnerabilities": "Vulnerabilidades estructurales",
+    "combustible_facade_elements": "Elementos combustibles de fachada",
+    "glazing_systems": "Sistemas de vidrio",
+    "roof": "Techo",
+    "vents": "Ventilación",
+    "semi_confined": "Espacio semiconfinado",
+
+    "material-1": {
+        "title": "Materiales de fachada",
+        "question": "¿Qué materiales están presentes en la envolvente exterior de su edificio (es decir, paredes exteriores, balcones, porches, etc.)? (excluidas las persianas)",
+        "description": "Los elementos de fachada combustibles (por ejemplo, madera, vinilo) son vulnerables a todo tipo de incendios forestales. Incluso las teas o las llamas de baja intensidad pueden encender un elemento de fachada de madera o vinilo, mientras que los ladrillos y los elementos de hormigón resisten mucho mejor al fuego. Los porches de madera implican una gran superficie horizontal sobre la que pueden caer las teas (partículas ardientes que provienen del fuego). Su estrecho contacto con el suelo del jardín también los hace vulnerables al contacto directo con las llamas.",
+        "timber": "Madera",
+        "vinylSiding": "Revestimiento de vinilo",
+        "concreteBricks": "Hormigón o ladrillos",
+        "other": "Otros"
+    },
+    "roof-1": {
+        "title": "Techo",
+        "question": "¿Su cubierta o conjunto de cubierta está hecho de material ignífugo (por ejemplo, tejas de arcilla, tejas de hormigón, tejas de asfalto con composición de fibra de vidrio, pizarra, etc.)?",
+        "description": "Cuando la cubierta del techo presenta huecos, la estructura que se encuentra debajo queda expuesta al fuego. El fuego también puede entrar a través de espacios no sellados entre el techo y las paredes externas. La limpieza de escombros del techo y las canaletas es clave para evitar la ignición de combustibles que puedan acumularse (por ejemplo, agujas de pino secas).",
+        "roofFireRated": "Sí",
+        "roofNonFireRated": "No"
+    },
+    "roof-2": {
+        "title": "Techo",
+        "question": "¿Su techo presenta alguno de los siguientes problemas? \n- Tejas rotas o faltantes \n- Láminas expuestas \n- Espacios sin sellar entre el techo y las paredes externas \n- La limpieza de los escombros que se acumulan en el techo o las canaletas no se realiza con regularidad",
+        "description": "Cuando la cubierta del techo presenta huecos, la estructura que se encuentra debajo queda expuesta al fuego. El fuego también puede entrar a través de espacios no sellados entre el techo y las paredes externas. La limpieza de escombros del techo y las canaletas es clave para evitar la ignición de combustibles que puedan acumularse (por ejemplo, agujas de pino secas).",
+        "roofPoorlyMaintaned": "Sí",
+        "roofWellMaintained": "No"
+    },
+    "glazing-1": {
+        "title": "Vidrios",
+        "question": "¿Cuál es el tipo de acristalamiento de las ventanas y puertas de vidrio?",
+        "description": "Las ventanas y puertas de vidrio son frecuentemente uno de los elementos más expuestos al fuego. Los sistemas de acristalamiento rotos son puntos de entrada de tizones y calor, que pueden provocar la ignición de combustibles dentro de la casa. Los sistemas de acristalamiento de un solo panel resisten menos a la exposición al fuego y al calor en comparación con los sistemas de doble o múltiple panel o el vidrio templado. Si su edificio presenta más de un tipo de sistemas de acristalamiento, seleccione la opción más representativa.",
+        "singlePane": "Un panel solo",
+        "doublePane": "Doble/doubleMultiple_pane paneles",
+        "tempered": "Vidrio temprado"
+    },
+    "glazing-2": {
+        "title": "Vidrios",
+        "question": "¿Todos los sistemas de acristalamiento están protegidos por contraventanas? Si es así, ¿de qué material están hechas las contraventanas?",
+        "description": "Si las ventanas están protegidas por contraventanas, el calor que recibe el vidrio se reduce, lo que aumenta las posibilidades de que el vidrio no se rompa. Las contraventanas de madera y PVC son combustibles y podrían incendiarse o derretirse (en el caso del PVC). Las contraventanas de aluminio y resistentes al fuego (por ejemplo, de acero) han demostrado resistir bien la exposición a incendios forestales. Para bloquear el calor proveniente del fuego, las contraventanas y las lamas de las contraventanas deben estar completamente cerradas.",
+        "notAllProtected": "No todos los sistemas de acristalamiento están protegidos por contraventanas.",
+        "wood": "Madera",
+        "aluminium": "Alumnio",
+        "pvc": "PVC",
+        "fireRated": "Materiales resistentes al fuego"
+    },
+    "vents-1": {
+        "title": "Ventilación",
+        "question": "¿Tiene aberturas de ventilación sin protección (es decir, rejillas de ventilación sin ningún tipo de protección)?",
+        "description": "Las aberturas de ventilación son posibles puntos de entrada de tizones que podrían incendiar el edificio desde el interior. Los tipos de ventilación más habituales que se encuentran en las casas son las aberturas del tejado para la ventilación del ático (por ejemplo, tejas de ventilación, respiraderos para cerrar las cumbreras), las chimeneas y las aberturas para la ventilación de las cocinas.",
+        "noVentProtection": "Sí",
+        "allProtected": "No, todas están protegidas",
+        "noVents": "No hay aberturas de ventilación"
+    },
+    "vents-2": {
+        "title": "Ventilación",
+        "question": "¿Qué tipo de protección de ventilación está presente?",
+        "description": "Los respiraderos deben estar protegidos con mallas de alambre resistentes a la corrosión y no combustibles (por ejemplo, aluminio, acero galvanizado, acero inoxidable, cobre, revestimiento intumescente), con una longitud característica lo suficientemente pequeña para evitar el paso de tizones (< 2 mm).",
+        "combustibleProtection": "Combustible",
+        "nonCombGoodCond": "No combustible en buenas condiciones (sin daños)",
+        "nonCombBadCond": "No combustible en mal estado (oxidado o dañado)"
+    },
+    "semiConf-1": {
+        "title": "Espacio semiconfinado",
+        "question": "¿Hay un espacio semiconfinado adyacente a su casa (es decir, que tiene al menos una pared en común con la casa) que contenga materiales combustibles?",
+        "description": "Los espacios semiconfinados son áreas que se encuentran parcialmente abiertas, como las ubicadas debajo de terrazas, porches, cubiertas, aleros o marquesinas, o los espacios cerrados en cobertizos abiertos. La presencia de materiales combustibles en dichos espacios implica una gran acumulación de calor, en caso de que estos materiales se incendien, lo que puede provocar daños estructurales en la envoltura del espacio semiconfinado.",
+        "yesSemiConf": "Yes",
+        "noSemiConf": "No"
+    },
+    "semiConf-2": {
+        "title": "Espacio semiconfinado",
+        "question": "¿Hay algún sistema de acristalamiento sin protección (es decir, sin persianas) (por ejemplo, puertas o ventanas de vidrio) que conecte el espacio semiconfinado con el interior del edificio?",
+        "description": "Los sistemas de acristalamiento sin protección son un elemento muy débil en cuanto a resistencia al fuego. Si se incendian los elementos que se encuentran dentro del espacio semiconfinado, el vidrio podría romperse y permitir la entrada del fuego al interior del edificio.",
+        "glazingSystems": "Sí",
+        "noGlazingSystems": "No"
+    },
+    "semiConf-3": {
+        "title": "Espacio semiconfinado",
+        "question": "¿De qué materiales están hechas las paredes del sobre?",
+        "description": "Los materiales combustibles para la envoltura son los más débiles al fuego, ya que pueden incendiarse y hacer que el fuego se propague a lo largo de la envoltura y hacia el interior del edificio. Los materiales no combustibles, como el aluminio o el acero, son más resistentes, pero aún así podrían fundirse o perder resistencia al exponerse a una dosis de calor suficientemente grande. Los materiales no combustibles, como los ladrillos o el hormigón, son los más resistentes a los efectos del fuego.",
+        "combustibleEnvelope": "Materiales combustibles (por ejemplo, madera, revestimiento de vinilo)",
+        "nonCombThin": "Materiales no combustibles como el aluminio o el acero (por ejemplo, contraventanas sin vidrio, como una puerta de garaje)",
+        "nonCombThick": "Materiales no combustibles como ladrillos u hormigón"
+    },
+
+    "roof-1-images": {
+        "spain-tiles": "Ejemplo de tejas de barro",
+        "default-tiles": "Ejemplo de tejas de hormigón"
+    },
+
+    "roof-2-images": {
+        "spain-debris": "Ejemplo de acumulación de escombros en tejado y canalón",
+        "default-tiles": "Ejemplo de tejas de barro bien colocadas y rotas"
+    },
+
+    "glazing-1-images": {
+        "spain-pane": "Sistemas de vidrio simple, doble y triple",
+        "default-pane": "Sistemas de vidrio simple, doble y triple"
+    },
+    "glazing-2-images": {
+        "spain-shutter": "Este tipo de persiana puede ser de PVC o de aluminio",
+        "default-shutter": "Persiana de aluminio. Para proteger el acristalamiento del fuego, las lamas deben cerrarse completamente"
+    },
+    "vents-1-images": {
+        "spain-kitchenVent": "Ejemplo de abertura de ventilación de cocina",
+        "default-kitchenVent": "Ejemplo de abertura de ventilación de cocina"
+    }
+
+   
+}
