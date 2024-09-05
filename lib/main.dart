@@ -54,18 +54,18 @@ class MyApp extends StatelessWidget {
             debugShowCheckedModeBanner: false,
             title: 'FirePrime',
             theme: Theme.of(context).copyWith(
-              primaryColor: const Color.fromARGB(255, 199, 144, 85),
+              primaryColor: const Color.fromARGB(255, 86, 97, 123),
               appBarTheme: const AppBarTheme(
                 color: Colors.white,
                 iconTheme: IconThemeData(
-                  color: Color.fromARGB(255, 199, 144, 85),
+                  color: Color.fromARGB(255, 86, 97, 123),
                 ),
                 titleTextStyle: TextStyle(
                     color: Color.fromARGB(255, 86, 97, 123),
                     fontFamily: 'OpenSans'),
               ),
               iconTheme: const IconThemeData(
-                color: Color.fromARGB(255, 199, 144, 85),
+                color: Color.fromARGB(255, 86, 97, 123),
               ),
               textSelectionTheme: const TextSelectionThemeData(
                 cursorColor: Color.fromARGB(255, 86, 97, 123),
@@ -73,7 +73,7 @@ class MyApp extends StatelessWidget {
                 selectionHandleColor: Colors.white,
               ),
               cupertinoOverrideTheme: const CupertinoThemeData(
-                primaryColor: Color.fromARGB(255, 199, 144, 85),
+                primaryColor: Color.fromARGB(255, 86, 97, 123),
               ),
               outlinedButtonTheme: OutlinedButtonThemeData(
                 style: ButtonStyle(
@@ -89,7 +89,7 @@ class MyApp extends StatelessWidget {
                         );
                       }
                       return const BorderSide(
-                        color: Color.fromARGB(255, 199, 144, 85),
+                        color: Color.fromARGB(255, 86, 97, 123),
                         width: 2.0,
                       );
                     },
@@ -107,7 +107,7 @@ class MyApp extends StatelessWidget {
                             );
                       }
                       return Theme.of(context).textTheme.labelLarge?.copyWith(
-                            color: const Color.fromARGB(255, 199, 144, 85),
+                            color: const Color.fromARGB(255, 86, 97, 123),
                           );
                     },
                   ),
@@ -117,12 +117,12 @@ class MyApp extends StatelessWidget {
                 style: ButtonStyle(
                   textStyle: MaterialStateProperty.all(
                     Theme.of(context).textTheme.labelLarge?.copyWith(
-                          color: const Color.fromARGB(255, 199, 144, 85),
+                          color: const Color.fromARGB(255, 86, 97, 123),
                         ),
                   ),
                 ),
               ),
-              primaryColorLight: const Color.fromARGB(255, 199, 144, 85),
+              primaryColorLight: const Color.fromARGB(255, 86, 97, 123),
               textTheme: const TextTheme(
                 displayLarge: TextStyle(
                   color: Colors.black,
@@ -203,12 +203,19 @@ class MyApp extends StatelessWidget {
                   borderRadius: BorderRadius.all(Radius.circular(10.0)),
                   borderSide: BorderSide(
                     width: 2.0,
-                    color: Color.fromARGB(255, 199, 144, 85),
+                    color: Color.fromARGB(255, 86, 97, 123),
+                  ),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                  borderSide: BorderSide(
+                    width: 2.0,
+                    color: Color.fromARGB(255, 86, 97, 123),
                   ),
                 ),
               ),
               colorScheme: ColorScheme.fromSwatch(
-                primarySwatch: Colors.orange,
+                primarySwatch: Colors.blueGrey,
               )
                   .copyWith(
                     onPrimary: Colors.black,

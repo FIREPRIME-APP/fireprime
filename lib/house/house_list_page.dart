@@ -80,7 +80,7 @@ class _HouseListPageState extends State<HouseListPage> {
                       ElevatedButton.icon(
                         style: ElevatedButton.styleFrom(
                             backgroundColor:
-                                const Color.fromARGB(255, 199, 144, 85),
+                                const Color.fromARGB(255, 86, 97, 123),
                             elevation: 5.0),
                         onPressed: () {
                           Navigator.of(context).push(
@@ -142,7 +142,7 @@ class _HouseListPageState extends State<HouseListPage> {
                                 const Icon(
                                   Icons.house,
                                   size: 40,
-                                  color: Color.fromARGB(255, 199, 144, 85),
+                                  color: Color.fromARGB(255, 86, 97, 123),
                                 ),
                                 const SizedBox(
                                   width: 10,
@@ -177,7 +177,7 @@ class _HouseListPageState extends State<HouseListPage> {
                   child: Container(
                     width: 25,
                     decoration: const BoxDecoration(
-                      color: Color.fromARGB(255, 199, 144, 85),
+                      color: Color.fromARGB(255, 86, 97, 123),
                       borderRadius: BorderRadius.only(
                         topRight: Radius.circular(10),
                         bottomRight: Radius.circular(10),

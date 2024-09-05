@@ -3,6 +3,7 @@ import 'package:fireprime/controller/house_controller.dart';
 import 'package:fireprime/gauge.dart';
 import 'package:fireprime/house/house_list_page.dart';
 import 'package:fireprime/model/house.dart';
+import 'package:fireprime/model/questionnaire.dart';
 import 'package:fireprime/model/risk_assessment.dart';
 import 'package:fireprime/questionnaire/questionnaire_page.dart';
 import 'package:fireprime/result/historical_results_page.dart';
@@ -49,12 +50,18 @@ class _HousePageState extends State<HousePage> {
           double? lastProbability;
           Map<String, double> lastResults = {};
 
-          if (currentHouse.riskAssessments.isEmpty ||
-              !currentHouse.riskAssessments.last.completed) {
+          List<RiskAssessment> riskAssessments = currentHouse.riskAssessments;
+
+          if (riskAssessments.isEmpty) {
             lastProbability = null;
-          } else if (currentHouse.riskAssessments.last.completed) {
-            lastProbability = currentHouse.riskAssessments.last.probability;
-            lastResults = currentHouse.riskAssessments.last.results;
+          } else if (riskAssessments.last.completed) {
+            lastProbability = riskAssessments.last.probability;
+            lastResults = riskAssessments.last.results;
+          } else if (riskAssessments.length >= 2 &&
+              riskAssessments[riskAssessments.length - 2].completed) {
+            lastProbability =
+                riskAssessments[riskAssessments.length - 2].probability;
+            lastResults = riskAssessments[riskAssessments.length - 2].results;
           }
 
           return Padding(
@@ -89,7 +96,7 @@ class _HousePageState extends State<HousePage> {
                                 context.tr('lastResult'),
                                 style: const TextStyle(
                                     fontSize: 17,
-                                    color: Color.fromARGB(255, 199, 144, 85),
+                                    color: Color.fromARGB(255, 86, 97, 123),
                                     fontWeight: FontWeight.bold),
                               ),
                               const SizedBox(
@@ -167,13 +174,14 @@ class _HousePageState extends State<HousePage> {
                       currentHouse,
                       context.tr('updateQuestionnaire'),
                       context.tr('update'),
-                      const Color.fromARGB(255, 237, 178, 102),
+                      const Color.fromARGB(255, 184, 194, 219),
                       () {
                         Navigator.of(context).push(
                           MaterialPageRoute(
                             builder: (BuildContext context) {
+                              Questionnaire().setEnvironment(
+                                  currentHouse.environment); //TODO: CHECK
                               return QuestionnairePage(
-                                environment: currentHouse.environment,
                                 answers: house
                                     .getHouse(house.currentHouse!)
                                     .riskAssessments
@@ -191,14 +199,15 @@ class _HousePageState extends State<HousePage> {
                       currentHouse,
                       context.tr('fillQuestionnaire'),
                       context.tr('fill'),
-                      const Color.fromARGB(255, 237, 178, 102),
+                      const Color.fromARGB(255, 184, 194, 219),
                       () {
                         Navigator.of(context).push(
                           MaterialPageRoute(
                             builder: (BuildContext context) {
-                              return QuestionnairePage(
-                                environment: currentHouse.environment,
-                                answers: const {},
+                              Questionnaire()
+                                  .setEnvironment(currentHouse.environment);
+                              return const QuestionnairePage(
+                                answers: {},
                               );
                             },
                           ),
@@ -212,13 +221,14 @@ class _HousePageState extends State<HousePage> {
                       currentHouse,
                       context.tr('continueQuestionnaire'),
                       context.tr('continue'),
-                      const Color.fromARGB(255, 237, 178, 102),
+                      const Color.fromARGB(255, 184, 194, 219),
                       () {
                         Navigator.of(context).push(
                           MaterialPageRoute(
                             builder: (BuildContext context) {
+                              Questionnaire().setEnvironment(
+                                  currentHouse.environment); //TODO: CHECK
                               return QuestionnairePage(
-                                environment: currentHouse.environment,
                                 answers: house
                                     .getHouse(house.currentHouse!)
                                     .riskAssessments
@@ -238,7 +248,7 @@ class _HousePageState extends State<HousePage> {
                     currentHouse,
                     context.tr('resultsHistory'),
                     context.tr('myResults'),
-                    const Color.fromARGB(255, 243, 220, 195),
+                    const Color.fromARGB(255, 132, 149, 189),
                     () {
                       List<RiskAssessment> riskAssessments =
                           house.getRiskAssessments();
@@ -268,7 +278,7 @@ class _HousePageState extends State<HousePage> {
     return Container(
       width: double.infinity,
       decoration: BoxDecoration(
-        color: const Color.fromARGB(255, 199, 144, 85),
+        color: const Color.fromARGB(255, 86, 97, 123),
         borderRadius: BorderRadius.circular(15),
         boxShadow: [
           BoxShadow(
@@ -314,14 +324,14 @@ class _HousePageState extends State<HousePage> {
                   ),
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color.fromARGB(255, 199, 144, 85),
+                      backgroundColor: const Color.fromARGB(255, 112, 126, 158),
                       disabledBackgroundColor: Colors.grey.shade400,
                     ),
                     onPressed: enabled ? onPressed : null,
                     child: Text(
                       buttonText,
                       style: TextStyle(
-                          color: enabled ? Colors.black87 : Colors.black38,
+                          color: enabled ? Colors.black : Colors.black38,
                           fontSize: 16),
                     ),
                   ),

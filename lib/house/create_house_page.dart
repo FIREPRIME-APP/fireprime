@@ -52,9 +52,10 @@ class _CreateHousePageState extends State<CreateHousePage> {
                 TextField(
                   controller: _name,
                   decoration: const InputDecoration(
-                      border: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                  )),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                    ),
+                  ),
                 ),
                 const SizedBox(height: 10.0),
                 const Text(
@@ -102,11 +103,11 @@ class _CreateHousePageState extends State<CreateHousePage> {
                       if (_address.text.isEmpty) {
                         ScaffoldMessenger.of(context).showSnackBar(
                           const SnackBar(
-                            backgroundColor: Color.fromARGB(255, 244, 225, 205),
+                            backgroundColor: Color.fromARGB(255, 242, 246, 255),
                             content: Text(
                               'Please fill your house address',
                               style: TextStyle(
-                                  color: Color.fromARGB(255, 199, 144, 85),
+                                  color: Color.fromARGB(255, 86, 97, 123),
                                   fontSize: 16.0),
                             ),
                           ),

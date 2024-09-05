@@ -22,7 +22,6 @@ class HouseController with ChangeNotifier {
     houses = getHouses();
   }
 
-  //Connection with Boxes
   Future<bool> initialiseBox() async {
     final directory = await getApplicationSupportDirectory();
     Hive.init(directory.path);
@@ -39,7 +38,6 @@ class HouseController with ChangeNotifier {
   Map<dynamic, dynamic> getHouses() {
     houses = box.toMap();
     return houses;
-    //return houses;
   }
 
   List<dynamic> getHousesNames() {
@@ -80,14 +78,22 @@ class HouseController with ChangeNotifier {
 
   void setAnswers(DateTime iniDate, String version,
       Map<String, String?> answers, String finishReason) {
-    print('in setAnswers');
+    House house = houses[currentHouse];
     if (finishReason == 'Completed') {
-      houses[currentHouse]!
-          .riskAssessments
-          .add(RiskAssessment(iniDate, version, answers));
+      if (house.riskAssessments.last.completed) {
+        house.riskAssessments.add(RiskAssessment(iniDate, version, answers));
+      } else {
+        house.riskAssessments.last.answers = answers;
+      }
     } else {
-      print('in setAnswers else');
       if (houses[currentHouse]!.riskAssessments.isNotEmpty) {
+        if (houses[currentHouse]!.riskAssessments.last.completed) {
+          houses[currentHouse]!
+              .riskAssessments
+              .add(RiskAssessment(iniDate, version, answers));
+        } else {
+          houses[currentHouse]!.riskAssessments.last.answers = answers;
+        }
         houses[currentHouse]!.riskAssessments.last.answers = answers;
       } else {
         houses[currentHouse]!
