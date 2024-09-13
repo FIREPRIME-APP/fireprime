@@ -1,22 +1,22 @@
 {
     "roof-1": [
         {
-            "path": "assets/images/spain/roof-1.jpg",
-            "description": "spain-tiles"
+            "path": "assets/images/spain/roof-1.1.jpg",
+            "description": "spain-tiles-1"
         },
         {
-            "path": "assets/images/spain/roof-1.jpg",
-            "description": "spain-tiles"
-        },
-        {
-            "path": "assets/images/spain/roof-1.jpg",
-            "description": "spain-tiles"
+            "path": "assets/images/spain/roof-1.2.jpg",
+            "description": "spain-tiles-2"
         }
     ],
     "roof-2": [
         {
-            "path": "assets/images/spain/roof-2.jpg",
-            "description": "spain-debris"
+            "path": "assets/images/spain/roof-2.1.jpg",
+            "description": "spain-debris-1"
+        },
+        {
+            "path": "assets/images/spain/roof-2.2.jpg",
+            "description": "spain-debris-2"
         }
     ],
     "glazing-1": [
@@ -27,8 +27,12 @@
     ],
     "glazing-2": [
         {
-            "path": "assets/images/spain/glazing-2.jpg",
-            "description": "spain-shutter"
+            "path": "assets/images/spain/glazing-2.1.jpg",
+            "description": "spain-shutter-1"
+        },
+        {
+            "path": "assets/images/spain/glazing-2.2.jpg",
+            "description": "spain-shutter-2"
         }
     ],
     "vents-1": [

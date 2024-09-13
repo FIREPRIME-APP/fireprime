@@ -23,11 +23,11 @@
     "updateQuestionnaire": "Actualiza las respuestas del cuestionario",
     "update": "Actualizar",
     "fillQuestionnaire": "Comprueba la vulnerabilidad de su casa con un qüestionari!",
-    "fill": "Comprovar",
+    "fill": "Comprobar",
     "continueQuestionnaire": "Continua el cuestionario para comprobar la vulnerabilidad de tu casa",
     "continue": "Continuar",
     "resultsHistory": "Consulta tu historial de resultados",
-    "myResults": "Mis resultados",
+    "myResults": "Resultados",
 
     "show_desc": "Mostrar descripción",
     "hide_desc": "Ocultar descripción",
@@ -123,13 +123,15 @@
     },
 
     "roof-1-images": {
-        "spain-tiles": "Ejemplo de tejas de barro",
+        "spain-tiles-1": "Ejemplo de tejas de barro",
+        "spain-tiles-2": "Ejemplo de tejas de hormigón",
         "default-tiles": "Ejemplo de tejas de hormigón"
     },
 
     "roof-2-images": {
-        "spain-debris": "Ejemplo de acumulación de escombros en tejado y canalón",
-        "default-tiles": "Ejemplo de tejas de barro bien colocadas y rotas"
+        "spain-debris-1": "Ejemplo de tejas de barro bien colocadas y rotas",
+        "spain-debris-2": "Ejemplo de acumulación de escombros en tejado y canalón",
+        "default-debris": "Ejemplo de tejas de barro bien colocadas y rotas"
     },
 
     "glazing-1-images": {
@@ -137,8 +139,9 @@
         "default-pane": "Sistemas de vidrio simple, doble y triple"
     },
     "glazing-2-images": {
-        "spain-shutter": "Este tipo de persiana puede ser de PVC o de aluminio",
-        "default-shutter": "Persiana de aluminio. Para proteger el acristalamiento del fuego, las lamas deben cerrarse completamente"
+        "spain-shutter-1": "Persiana de PVC o de aluminio",
+        "spain-shutter-2": "Persiana de aluminio",
+        "default-shutter": "Persiana de aluminio"
     },
     "vents-1-images": {
         "spain-kitchenVent": "Ejemplo de abertura de ventilación de cocina",

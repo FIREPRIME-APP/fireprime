@@ -27,7 +27,7 @@
     "continueQuestionnaire": "Continua el qüestionari per comprobar la vulnerabilitat de la teva casa",
     "continue": "Continuar",
     "resultsHistory": "Consulta el teu històric de resultats",        
-    "myResults": "Meus resultats",
+    "myResults": "Resultats",
 
     "show_desc": "Mostrar descripció",
     "hide_desc": "Ocultar descripció",
@@ -123,26 +123,29 @@
     },
 
     "roof-1-images": {
-        "spain-tiles": "Exemple de rajoles de fang",
-        "deafault-tiles": "Exemple de rajoles de formigó"
+        "spain-tiles-1": "Exemple de rajoles de fang",
+        "spain-tiles-2": "Exemple de rajoles de formigó",
+        "default-tiles": "Exemple de rajoles de formigó"
     },
 
     "roof-2-images": {
-        "spain-debris": "Exemple d'acumulació de deixalles al sostre i canalons",
-        "deafault-tiles": "Exemple de rajoles de fang ben col·locades i trencades"
+        "spain-debris-1": "Exemple d'acumulació de deixalles al sostre i canalons",
+        "default-debris-2": "Exemple de rajoles de fang ben col·locades i trencades",
+        "default-debris": "Exemple de rajoles de fang ben col·locades i trencades"
     },
 
     "glazing-1-images": {
         "spain-pane": "Sistemes de vidre simple, doble i triple",
-        "deafault-pane": "Sistemes de vidre simple, doble i triple"
+        "default-pane": "Sistemes de vidre simple, doble i triple"
     },
     "glazing-2-images": {
-        "spain-shutter": "Aquest tipus de persiana pot ser de PVC o d'alumini",
-        "deafault-shutter": "Persiana d'alumini. Per protegir el vidre del foc, els llistons s'han de tancar completament"
+        "spain-shutter-1": "Persiana de PVC o d'alumini",
+        "deafault-shutter-2": "Persiana d'alumini",
+        "default-shutter": "Persiana d'alumini"
     },
     "vents-1-images": {
         "spain-kitchenVent": "Exemple d'obertura de ventilació de cuina",
-        "deafault-kitchenVent": "Exemple d'obertura de ventilació de cuina"
+        "default-kitchenVent": "Exemple d'obertura de ventilació de cuina"
     }
 
 

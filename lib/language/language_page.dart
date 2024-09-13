@@ -53,14 +53,14 @@ class _LanguagePageState extends State<LanguagePage> {
                           '${languages[index]} - ${languagesOriginal[index]}',
                           style: const TextStyle(
                               fontWeight: FontWeight.bold,
-                              color: Color.fromARGB(255, 199, 144, 85)),
+                              color: Color.fromARGB(255, 86, 97, 123)),
                         )
                       : Text(
                           '${languages[index]} - ${languagesOriginal[index]}'),
                   trailing: index == selectedIndex
                       ? const Icon(
                           Icons.check,
-                          color: Color.fromARGB(255, 199, 144, 85),
+                          color: Color.fromARGB(255, 86, 97, 123),
                         )
                       : null,
                   onTap: () {

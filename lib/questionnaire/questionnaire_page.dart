@@ -34,12 +34,17 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
     return Consumer<HouseController>(
       builder: (context, house, child) {
         Map<String, String?> answers = {};
-        if (house.getHouse(house.currentHouse!).riskAssessments.isNotEmpty) {
-          answers =
-              house.getHouse(house.currentHouse!).riskAssessments.last.answers;
+        if (house.currentHouse != null) {
+          if (house.getHouse(house.currentHouse!).riskAssessments.isNotEmpty) {
+            answers = house
+                .getHouse(house.currentHouse!)
+                .riskAssessments
+                .last
+                .answers;
+          }
         }
-
-        print('answers: $answers');
+        print('answersFromController: $answers');
+        print('answersFromWidget: ${widget.answers}');
         return Scaffold(
           body: Container(
             color: Colors.white,
@@ -55,9 +60,14 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                     final Task task = snapshot.data!;
                     return SurveyKit(
                       onResult: (SurveyResult result) {
-                        var results = _adaptedResult(result);
+                        print('onResult');
+
+                        print('afteradaptedResult');
+                        Map<String, String?> results = {};
 
                         if (result.finishReason == FinishReason.COMPLETED) {
+                          results = _adaptedResult(results, result);
+                          print('answers in completed: $results');
                           house.setAnswers(
                               result.startDate, '1.0', results, 'Completed');
                           faultTree.setSelectedOptions(results);
@@ -78,16 +88,14 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                           );
                         } else {
                           print('finishReason: ${result.finishReason}');
-                          House currentHouse =
-                              house.getHouse(house.currentHouse!);
-
-                          print(currentHouse.riskAssessments.last.completed);
-
+                          /*House currentHouse =
+                              house.getHouse(house.currentHouse!);*/
                           /* if (currentHouse.riskAssessments.isEmpty ||
                               !currentHouse.riskAssessments.last.completed) {*/
-                          print('answers in no completed: $widget.answers');
-                          house.setAnswers(result.startDate, '1.0',
-                              widget.answers, 'Not completed');
+                          results = _adaptedResult(answers, result);
+                          print('answers in no completed: $answers');
+                          house.setAnswers(result.startDate, '1.0', results,
+                              'Not completed');
                           // }
                           house.updateHouse();
                           Navigator.of(context).pop();
@@ -351,13 +359,13 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
   }
 
   Map<String, String?> _adaptedResult(
+    Map<String, String?> adaptedResult,
     SurveyResult result,
   ) {
-    Map<String, String?> adaptedResult = {};
+    print('adaptedResult');
 
     for (var stepResult in result.results) {
       for (var questionResult in stepResult.results) {
-        widget.answers[stepResult.id!.id] = questionResult.valueIdentifier;
         adaptedResult[stepResult.id!.id] = questionResult.valueIdentifier;
       }
     }

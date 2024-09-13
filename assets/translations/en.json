@@ -123,11 +123,13 @@
         "nonCombThick": "Non-combustible materials such as bricks or concrete"
     },
     "roof-1-images": {
-        "spain-tiles": "Example of clay tiles",
+        "spain-tiles-1": "Example of clay tiles",
+        "spain-tiles-2": "Example of concrete tiles",
         "default-tiles": "Example of concrete tiles"
     },
     "roof-2-images": {
-        "spain-debris": "Example of debris accumulation on roof and gutter",
+        "spain-debris-1": "Example of debris accumulation on roof and gutter",
+        "spain-debris-2": "Example of well placed and broken clay tiles",
         "default-tiles": "Example of well placed and broken clay tiles"
     },
     "glazing-1-images": {
@@ -135,8 +137,9 @@
         "default-pane": "Single, double and triple pane systems"
     },
     "glazing-2-images": {
-        "spain-shutter": "This type of shutter can be made either of PVC or aluminium",
-        "default-shutter": "Aluminium shutter. In order to protect the glazing from the fire, the slats should close completely"
+        "spain-shutter-1": "PVC or aluminium shutter",
+        "spain-shutter-2": "Aluminium shutter",
+        "default-shutter": "Aluminium shutter"
     },
     "vents-1-images": {
         "spain-kitchenVent": "Example of a kitchen ventilation opening",

@@ -1,3 +1,4 @@
+import 'package:fireprime/about_page.dart';
 import 'package:fireprime/controller/house_controller.dart';
 import 'package:fireprime/house/create_house_page.dart';
 import 'package:fireprime/house/house_page.dart';
@@ -44,16 +45,28 @@ class _HouseListPageState extends State<HouseListPage> {
                     children: [
                       Row(
                         children: [
-                          Expanded(
+                          const Expanded(
                             child: Center(
-                              child: Text(
-                                context.tr('home'),
-                                style:
-                                    Theme.of(context).textTheme.displayMedium!,
+                              child: Image(
+                                image: AssetImage(
+                                  'assets/images/logos/FIREPRIME_Logo_A.png',
+                                ),
+                                fit: BoxFit.contain,
                               ),
                             ),
                           ),
                           const Spacer(),
+                          IconButton(
+                              onPressed: () {
+                                Navigator.of(context).push(
+                                  MaterialPageRoute(
+                                    builder: (BuildContext context) {
+                                      return const AboutPage();
+                                    },
+                                  ),
+                                );
+                              },
+                              icon: const Icon(Icons.info)),
                           IconButton(
                             onPressed: () {
                               Navigator.of(context).push(
@@ -71,12 +84,13 @@ class _HouseListPageState extends State<HouseListPage> {
                       const SizedBox(
                         height: 20.0,
                       ),
-                      ...houses.entries.map((entry) {
-                        return Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 10.0),
-                          child: houseCard(entry.value, context),
-                        );
-                      }),
+                      if (houses.isNotEmpty)
+                        ...houses.entries.map((entry) {
+                          return Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 10.0),
+                            child: houseCard(entry.key, entry.value, context),
+                          );
+                        }),
                       ElevatedButton.icon(
                         style: ElevatedButton.styleFrom(
                             backgroundColor:
@@ -109,7 +123,7 @@ class _HouseListPageState extends State<HouseListPage> {
     ));
   }
 
-  Widget houseCard(House house, BuildContext context) {
+  Widget houseCard(String houseKey, House house, BuildContext context) {
     return Consumer<HouseController>(
       builder: (context, houseCtrl, child) {
         return SizedBox(
@@ -117,7 +131,7 @@ class _HouseListPageState extends State<HouseListPage> {
           child: GestureDetector(
             onTap: () {
               // houseCtrl.buttonVisible(house.name);
-              houseCtrl.setCurrentHouse(house.name);
+              houseCtrl.setCurrentHouse(houseKey);
               Navigator.of(context).push(
                 MaterialPageRoute(
                   builder: (BuildContext context) {

@@ -1,29 +1,40 @@
 import 'package:fireprime/controller/house_controller.dart';
-import 'package:fireprime/european_countries.dart';
 import 'package:fireprime/model/house.dart';
 import 'package:fireprime/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class CreateHousePage extends StatefulWidget {
-  const CreateHousePage({super.key});
+class EditHousePage extends StatefulWidget {
+  final String currentHouse;
+
+  const EditHousePage({super.key, required this.currentHouse});
 
   @override
-  State<CreateHousePage> createState() => _CreateHousePageState();
+  State<EditHousePage> createState() => _EditHousePageState();
 }
 
-class _CreateHousePageState extends State<CreateHousePage> {
+class _EditHousePageState extends State<EditHousePage> {
   final TextEditingController _name = TextEditingController();
   final TextEditingController _address = TextEditingController();
+  final TextEditingController _environment = TextEditingController();
 
-  String? _selectedEnvironment;
+  @override
+  void initState() {
+    super.initState();
+    final house = Provider.of<HouseController>(context, listen: false)
+        .getHouse(widget.currentHouse);
+
+    _name.text = house.name;
+    _address.text = house.address;
+    _environment.text = house.environment;
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Add house',
+          'Edit house',
           style: Theme.of(context).textTheme.titleLarge!,
         ),
         leading: IconButton(
@@ -41,7 +52,7 @@ class _CreateHousePageState extends State<CreateHousePage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Fill your house information',
+                  'Edit your house information',
                   style: Theme.of(context).textTheme.displayMedium!,
                 ),
                 const SizedBox(height: 30.0),
@@ -78,28 +89,22 @@ class _CreateHousePageState extends State<CreateHousePage> {
                   style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(height: 10.0),
-                DropdownButtonFormField<String>(
-                  value: _selectedEnvironment,
-                  onChanged: (String? newValue) {
-                    setState(() {
-                      _selectedEnvironment = newValue!;
-                    });
-                  },
-                  items: europeanCountries.map((String value) {
-                    return DropdownMenuItem<String>(
-                      value: value,
-                      child: Text(value),
-                    );
-                  }).toList(),
+                TextField(
+                  cursorColor: Theme.of(context).primaryColor,
+                  controller: _environment,
                   decoration: const InputDecoration(
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.all(Radius.circular(10.0)),
                     ),
                   ),
+                  enabled: false,
                 ),
                 const SizedBox(height: 20.0),
                 Center(
-                  child: OutlinedButton(
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color.fromARGB(255, 86, 97, 123),
+                        elevation: 5.0),
                     onPressed: () {
                       if (_name.text.isEmpty) {
                         ScaffoldMessenger.of(context).showSnackBar(
@@ -109,27 +114,21 @@ class _CreateHousePageState extends State<CreateHousePage> {
                         ScaffoldMessenger.of(context).showSnackBar(
                           Utils.snackBar('Please fill your house address'),
                         );
-                      } else if (_selectedEnvironment == null) {
+                      } else if (house.houses[house.currentHouse].name !=
+                              _name.text &&
+                          house.existsHouse(_name.text)) {
                         ScaffoldMessenger.of(context).showSnackBar(
-                          Utils.snackBar('Please select your house country'),
-                        );
-                      } else if (house.existsHouse(_name.text)) {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          Utils.snackBar('House name already used'),
+                          Utils.snackBar('House name already exists'),
                         );
                       } else if (_address.text.isNotEmpty &&
-                          _name.text.isNotEmpty &&
-                          _selectedEnvironment != null) {
-                        House newHouse = House(
-                            _name.text, _address.text, _selectedEnvironment!);
-                        house.addHouse(newHouse);
-
+                          _name.text.isNotEmpty) {
+                        house.editHouse(_name.text, _address.text);
                         Navigator.of(context).pop();
                       }
                     },
-                    child: Text(
-                      'Add house',
-                      style: TextStyle(color: Theme.of(context).primaryColor),
+                    child: const Text(
+                      'Edit',
+                      style: TextStyle(color: Colors.white),
                     ),
                   ),
                 )

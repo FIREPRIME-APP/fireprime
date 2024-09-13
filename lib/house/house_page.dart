@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:fireprime/controller/house_controller.dart';
 import 'package:fireprime/gauge.dart';
+import 'package:fireprime/house/edit_house_page.dart';
 import 'package:fireprime/house/house_list_page.dart';
 import 'package:fireprime/model/house.dart';
 import 'package:fireprime/model/questionnaire.dart';
@@ -26,10 +27,16 @@ class _HousePageState extends State<HousePage> {
         Provider.of<HouseController>(context, listen: false);
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: Image.asset(
+          'assets/images/logos/FIREPRIME_Logo_D.png',
+          fit: BoxFit.contain,
+          height: 45,
+        ),
+        /*Text(
           houseController.currentHouse!,
           style: Theme.of(context).textTheme.titleLarge!,
-        ),
+        ),*/
+        centerTitle: true,
         leading: IconButton(
           onPressed: () {
             Navigator.of(context).push(
@@ -42,11 +49,44 @@ class _HousePageState extends State<HousePage> {
           },
           icon: const Icon(Icons.arrow_back),
         ),
+        actions: [
+          PopupMenuButton<int>(
+            icon: const Icon(Icons.more_vert),
+            onSelected: (value) {
+              if (value == 0) {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (BuildContext context) {
+                      return EditHousePage(
+                        currentHouse: houseController.currentHouse!,
+                      );
+                    },
+                  ),
+                );
+              } else if (value == 1) {
+                deleteAlert(context);
+              }
+            },
+            itemBuilder: (BuildContext context) {
+              return [
+                PopupMenuItem(child: Text(context.tr('Edit')), value: 0),
+                PopupMenuItem(child: Text(context.tr('Delete')), value: 1),
+              ];
+            },
+          )
+        ],
       ),
       body: Consumer<HouseController>(
         builder: (context, house, child) {
-          House currentHouse = house.getHouse(house.currentHouse!);
-
+          print('${house.currentHouse}');
+          House currentHouse;
+          if (house.currentHouse != null) {
+            currentHouse = house.getHouse(house.currentHouse!);
+          } else {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          }
           double? lastProbability;
           Map<String, double> lastResults = {};
 
@@ -65,10 +105,18 @@ class _HousePageState extends State<HousePage> {
           }
 
           return Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20.0),
+            padding: const EdgeInsets.fromLTRB(20, 0, 20, 20),
             child: SingleChildScrollView(
               child: Column(
                 children: [
+                  Text(
+                    currentHouse.name,
+                    style: const TextStyle(
+                      fontSize: 20,
+                      color: Color.fromARGB(255, 86, 97, 123),
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
                   SizedBox(
                     width: double.infinity,
                     child: Card(
@@ -262,7 +310,7 @@ class _HousePageState extends State<HousePage> {
                         ),
                       );
                     },
-                    currentHouse.riskAssessments.length > 1 ? true : false,
+                    enableButton(currentHouse.riskAssessments),
                   ),
                 ],
               ),
@@ -360,5 +408,54 @@ class _HousePageState extends State<HousePage> {
         ],
       ),
     );
+  }
+
+  Future<void> deleteAlert(BuildContext context) {
+    return showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('Delete House'),
+          content: Text('Are you sure you want to delete this house?'),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: const Text('Cancel'),
+            ),
+            TextButton(
+              onPressed: () {
+                var houseCtrl =
+                    Provider.of<HouseController>(context, listen: false);
+                houseCtrl.deleteHouse();
+
+                Navigator.of(context).pop();
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (BuildContext context) {
+                      return const HouseListPage();
+                    },
+                  ),
+                );
+              },
+              child: const Text('Delete'),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  bool enableButton(List<RiskAssessment> riskAssessments) {
+    if (riskAssessments.isNotEmpty && riskAssessments.length > 1) {
+      if (riskAssessments.last.completed || riskAssessments.length > 2) {
+        return true;
+      } else {
+        return false;
+      }
+    } else {
+      return false;
+    }
   }
 }
