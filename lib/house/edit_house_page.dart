@@ -1,5 +1,5 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:fireprime/controller/house_controller.dart';
-import 'package:fireprime/model/house.dart';
 import 'package:fireprime/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -34,7 +34,7 @@ class _EditHousePageState extends State<EditHousePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Edit house',
+          context.tr('edit'),
           style: Theme.of(context).textTheme.titleLarge!,
         ),
         leading: IconButton(
@@ -52,13 +52,14 @@ class _EditHousePageState extends State<EditHousePage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Edit your house information',
+                  context.tr('editHouse'),
                   style: Theme.of(context).textTheme.displayMedium!,
                 ),
                 const SizedBox(height: 30.0),
-                const Text(
-                  'Name:',
-                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                Text(
+                  '${context.tr('name')}: ',
+                  style: const TextStyle(
+                      fontSize: 15, fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(height: 10.0),
                 TextField(
@@ -70,9 +71,10 @@ class _EditHousePageState extends State<EditHousePage> {
                   ),
                 ),
                 const SizedBox(height: 10.0),
-                const Text(
-                  'Address:',
-                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                Text(
+                  '${context.tr('address')}: ',
+                  style: const TextStyle(
+                      fontSize: 15, fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(height: 10.0),
                 TextField(
@@ -84,9 +86,10 @@ class _EditHousePageState extends State<EditHousePage> {
                   )),
                 ),
                 const SizedBox(height: 10.0),
-                const Text(
-                  'Country:',
-                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                Text(
+                  '${context.tr('country')}: ',
+                  style: const TextStyle(
+                      fontSize: 15, fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(height: 10.0),
                 TextField(
@@ -108,17 +111,17 @@ class _EditHousePageState extends State<EditHousePage> {
                     onPressed: () {
                       if (_name.text.isEmpty) {
                         ScaffoldMessenger.of(context).showSnackBar(
-                          Utils.snackBar('Please fill your house name'),
+                          Utils.snackBar(context.tr('plsFillName')),
                         );
                       } else if (_address.text.isEmpty) {
                         ScaffoldMessenger.of(context).showSnackBar(
-                          Utils.snackBar('Please fill your house address'),
+                          Utils.snackBar(context.tr('plsFillAddress')),
                         );
                       } else if (house.houses[house.currentHouse].name !=
                               _name.text &&
                           house.existsHouse(_name.text)) {
                         ScaffoldMessenger.of(context).showSnackBar(
-                          Utils.snackBar('House name already exists'),
+                          Utils.snackBar(context.tr('houseExists')),
                         );
                       } else if (_address.text.isNotEmpty &&
                           _name.text.isNotEmpty) {
@@ -126,9 +129,9 @@ class _EditHousePageState extends State<EditHousePage> {
                         Navigator.of(context).pop();
                       }
                     },
-                    child: const Text(
-                      'Edit',
-                      style: TextStyle(color: Colors.white),
+                    child: Text(
+                      context.tr('save'),
+                      style: const TextStyle(color: Colors.white),
                     ),
                   ),
                 )

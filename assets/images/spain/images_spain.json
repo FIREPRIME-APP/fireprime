@@ -41,16 +41,16 @@
             "description": "spain-kitchenVent"
         }
     ],
-    "fuels-close-3": [
+    "fuels-3": [
         {
             "path": "assets/images/spain/fuels-close-3.jpg",
-            "description": "fuels_close_3_spain"
+            "description": "spain-fuels-3"
         }
     ],
-    "art-fuels-1": [
+    "artFuels-1": [
         {
             "path": "assets/images/spain/art-fuels-1.jpg",
-            "description": "art_fuels_1_spain"
+            "description": "spain-artFuels-1"
         }
     ]
 }

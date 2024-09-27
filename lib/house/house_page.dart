@@ -28,9 +28,9 @@ class _HousePageState extends State<HousePage> {
     return Scaffold(
       appBar: AppBar(
         title: Image.asset(
-          'assets/images/logos/FIREPRIME_Logo_D.png',
+          'assets/images/logos/FIREPRIME_Logo_A.png',
           fit: BoxFit.contain,
-          height: 45,
+          height: 25,
         ),
         /*Text(
           houseController.currentHouse!,
@@ -69,8 +69,8 @@ class _HousePageState extends State<HousePage> {
             },
             itemBuilder: (BuildContext context) {
               return [
-                PopupMenuItem(child: Text(context.tr('Edit')), value: 0),
-                PopupMenuItem(child: Text(context.tr('Delete')), value: 1),
+                PopupMenuItem(value: 0, child: Text(context.tr('edit'))),
+                PopupMenuItem(value: 1, child: Text(context.tr('deleteHouse'))),
               ];
             },
           )
@@ -154,33 +154,38 @@ class _HousePageState extends State<HousePage> {
                                 Padding(
                                   padding: const EdgeInsets.symmetric(
                                       horizontal: 8.0),
-                                  child: Center(
-                                    child: Column(
-                                      children: [
-                                        Stack(
-                                          children: [
-                                            Container(
+                                  child: Column(
+                                    children: [
+                                      Stack(
+                                        children: [
+                                          Center(
+                                            child: Container(
                                               height: 100,
                                               width: 100,
                                               color: Colors.transparent,
                                               child: Gauge.radialGauge(
                                                   lastProbability * 100, 10, 4),
                                             ),
-                                            Positioned(
-                                              bottom: 0,
-                                              left: 10, //TODO: CENTER
+                                          ),
+                                          Column(children: [
+                                            const SizedBox(
+                                              height: 75,
+                                            ),
+                                            Center(
                                               child: tileText(
                                                   context.tr('risk'),
                                                   lastProbability * 100,
                                                   18),
-                                            )
-                                          ],
-                                        ),
-                                      ],
-                                    ),
-                                  ), /*tileText(context.tr('risk'),
-                                  lastProbability * 100, 20),*/
+                                            ),
+                                          ]),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
                                 ),
+                              /*tileText(context.tr('risk'),
+                                  lastProbability * 100, 20),*/
+
                               if (lastProbability == null)
                                 Padding(
                                   padding: const EdgeInsets.symmetric(
@@ -415,14 +420,17 @@ class _HousePageState extends State<HousePage> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text('Delete House'),
-          content: Text('Are you sure you want to delete this house?'),
+          title: Text(context.tr('deleteHouseWarning1'),
+              style:
+                  const TextStyle(fontSize: 15, fontWeight: FontWeight.bold)),
+          content: Text(context.tr('deleteHouseWarning2'),
+              style: const TextStyle(fontSize: 15)),
           actions: [
             TextButton(
               onPressed: () {
                 Navigator.of(context).pop();
               },
-              child: const Text('Cancel'),
+              child: Text(context.tr('cancel')),
             ),
             TextButton(
               onPressed: () {
@@ -439,7 +447,7 @@ class _HousePageState extends State<HousePage> {
                   ),
                 );
               },
-              child: const Text('Delete'),
+              child: Text(context.tr('delete')),
             ),
           ],
         );

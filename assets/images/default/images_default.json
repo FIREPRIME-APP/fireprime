@@ -8,7 +8,7 @@
     "roof-2": [
         {
             "path": "assets/images/default/roof-2.jpg",
-            "description": "default-tiles"
+            "description": "default-debris"
         }
     ],
     "glazing-1": [
@@ -29,16 +29,16 @@
             "description": "default-kitchenVent"
         }
     ],
-    "fuels-close-3": [
+    "fuels-3": [
         {
             "path": "assets/images/default/fuels-close-3.jpg",
-            "description": "fuels_close_3_other"
+            "description": "default-fuels-3"
         }
     ],
-    "art-fuels-1": [
+    "artFuels-1": [
         {
             "path": "assets/images/default/art-fuels-1.jpg",
-            "description": "art_fuels_1_other"
+            "description": "default-artFuels-1"
         }
     ]
 }

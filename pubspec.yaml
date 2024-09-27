@@ -46,6 +46,7 @@ dependencies:
   hive: ^2.2.3
   hive_flutter: ^1.1.0
   fl_chart: ^0.68.0
+  url_launcher: ^6.3.0
 
 dev_dependencies:
   flutter_test:
@@ -77,6 +78,7 @@ flutter:
     - assets/
     - assets/images/spain/
     - assets/images/default/
+  #  - assets/images/austria/
     - assets/images/logos/
     - assets/translations/
   #   - images/a_dot_ham.jpeg

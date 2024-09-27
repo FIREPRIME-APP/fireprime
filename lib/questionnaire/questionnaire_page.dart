@@ -1,7 +1,6 @@
 import 'package:fireprime/controller/house_controller.dart';
 import 'package:fireprime/controller/image_controller.dart';
 import 'package:fireprime/fault_tree/ifault_tree.dart';
-import 'package:fireprime/model/house.dart';
 import 'package:fireprime/model/questionnaire.dart';
 import 'package:fireprime/result/result_page.dart';
 import 'package:flutter/material.dart' hide Step;
@@ -382,7 +381,11 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
               auxResult[navigation['stepId']] = input;
               print(auxResult[navigation['stepId']]);
               print('navigation: ${navigation['nextStep']}');
-              return StepIdentifier(id: navigation['nextStep']);
+              if (navigation.containsKey('conditions')) {
+                return StepIdentifier(id: navigation['conditions'][input]);
+              } else {
+                return StepIdentifier(id: navigation['nextStep']);
+              }
             },
           ),
         );
