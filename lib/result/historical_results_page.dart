@@ -19,9 +19,14 @@ class _HistoricalResultsPageState extends State<HistoricalResultsPage> {
   @override
   void initState() {
     super.initState();
-    _touchedIndex = widget.riskAssessments.isNotEmpty
-        ? widget.riskAssessments.length - 1
-        : 0;
+    _touchedIndex = 0;
+    if (widget.riskAssessments.isNotEmpty) {
+      if (widget.riskAssessments.last.completed) {
+        _touchedIndex = widget.riskAssessments.length - 1;
+      } else if (widget.riskAssessments.length > 1) {
+        _touchedIndex = widget.riskAssessments.length - 2;
+      }
+    }
   }
 
   void _toggleLinearGauge(var spotIndex) {
@@ -36,7 +41,10 @@ class _HistoricalResultsPageState extends State<HistoricalResultsPage> {
   Widget build(BuildContext context) {
     List<FlSpot> spots = [];
     for (int i = 0; i < widget.riskAssessments.length; i++) {
-      spots.add(FlSpot(i.toDouble(), widget.riskAssessments[i].probability));
+      if (widget.riskAssessments[i].completed) {
+        spots.add(FlSpot(i.toDouble(), widget.riskAssessments[i].probability));
+      }
+      //spots.add(FlSpot(i.toDouble(), widget.riskAssessments[i].probability));
     }
     return Scaffold(
       appBar: AppBar(
@@ -104,7 +112,7 @@ class _HistoricalResultsPageState extends State<HistoricalResultsPage> {
           show: true,
           border: const Border(
               bottom: BorderSide(
-                  color: Color.fromARGB(255, 138, 94, 47), width: 2)),
+                  color: Color.fromARGB(255, 86, 97, 123), width: 2)),
         ),
         gridData: const FlGridData(
           show: false,
@@ -112,7 +120,7 @@ class _HistoricalResultsPageState extends State<HistoricalResultsPage> {
         lineBarsData: [
           LineChartBarData(
             spots: spots,
-            color: const Color.fromARGB(255, 199, 144, 85),
+            color: const Color.fromARGB(255, 127, 142, 176),
             barWidth: 5,
             isCurved: true,
             curveSmoothness: 0.5,
@@ -124,7 +132,7 @@ class _HistoricalResultsPageState extends State<HistoricalResultsPage> {
                 if (_touchedIndex == index) {
                   return FlDotCirclePainter(
                     radius: 8,
-                    color: const Color.fromARGB(255, 199, 144, 85),
+                    color: const Color.fromARGB(255, 86, 97, 123),
                     strokeWidth: 2,
                     strokeColor: Colors.white,
                   );
@@ -132,7 +140,7 @@ class _HistoricalResultsPageState extends State<HistoricalResultsPage> {
 
                 return FlDotCirclePainter(
                   radius: 4,
-                  color: const Color.fromARGB(255, 224, 174, 119),
+                  color: const Color.fromARGB(255, 134, 149, 185),
                   strokeWidth: 2,
                   strokeColor: Colors.white,
                 );
@@ -142,8 +150,8 @@ class _HistoricalResultsPageState extends State<HistoricalResultsPage> {
               show: true,
               gradient: const LinearGradient(
                 colors: [
-                  Color.fromARGB(255, 199, 144, 85),
-                  Color.fromARGB(255, 237, 203, 167)
+                  Color.fromARGB(255, 86, 97, 123),
+                  Color.fromARGB(255, 134, 149, 185)
                 ],
               ),
             ),

@@ -22,7 +22,6 @@ class HouseController with ChangeNotifier {
     houses = getHouses();
   }
 
-  //Connection with Boxes
   Future<bool> initialiseBox() async {
     final directory = await getApplicationSupportDirectory();
     Hive.init(directory.path);
@@ -37,9 +36,15 @@ class HouseController with ChangeNotifier {
   }
 
   Map<dynamic, dynamic> getHouses() {
+    print(box.toMap());
     houses = box.toMap();
     return houses;
-    //return houses;
+  }
+
+  void delete(String houseName) async {
+    houses.remove(houseName);
+    await box.delete(houseName);
+    notifyListeners();
   }
 
   List<dynamic> getHousesNames() {
@@ -53,6 +58,7 @@ class HouseController with ChangeNotifier {
   }
 
   House getHouse(String houseName) {
+    print('getHouse housename:' + houseName);
     return houses[houseName]!;
   }
 
@@ -68,7 +74,6 @@ class HouseController with ChangeNotifier {
   void addHouse(House house) async {
     print(box.values);
     houses[house.name] = house;
-    print('there');
     await box.put(house.name, house);
     notifyListeners();
   }
@@ -80,14 +85,27 @@ class HouseController with ChangeNotifier {
 
   void setAnswers(DateTime iniDate, String version,
       Map<String, String?> answers, String finishReason) {
-    print('in setAnswers');
+    House house = houses[currentHouse];
+
+    print(house.name);
     if (finishReason == 'Completed') {
-      houses[currentHouse]!
-          .riskAssessments
-          .add(RiskAssessment(iniDate, version, answers));
+      if (house.riskAssessments.isEmpty ||
+          house.riskAssessments.last.completed) {
+        print('isEmpty or Lastcompleted');
+        house.riskAssessments.add(RiskAssessment(iniDate, version, answers));
+      } else {
+        print('not isNotEmpty or not Lastcompleted');
+        house.riskAssessments.last.answers = answers;
+      }
     } else {
-      print('in setAnswers else');
       if (houses[currentHouse]!.riskAssessments.isNotEmpty) {
+        if (houses[currentHouse]!.riskAssessments.last.completed) {
+          houses[currentHouse]!
+              .riskAssessments
+              .add(RiskAssessment(iniDate, version, answers));
+        } else {
+          houses[currentHouse]!.riskAssessments.last.answers = answers;
+        }
         houses[currentHouse]!.riskAssessments.last.answers = answers;
       } else {
         houses[currentHouse]!
@@ -109,16 +127,34 @@ class HouseController with ChangeNotifier {
     notifyListeners();
   }
 
-  /*void setResults(double probability, Map<String, double> subProb) {
-    houses[currentHouse]!.riskAssessments.last.probability = probability;
-    houses[currentHouse]!.riskAssessments.last.results = subProb;
+  Future<void> editHouse(String name, String address) async {
+    print(currentHouse.toString());
+
+    houses[currentHouse].address = address;
+
+    if (houses[currentHouse].name != name) {
+      House editedHouse = houses[currentHouse];
+      editedHouse.name = name;
+      houses.remove(currentHouse);
+      await box.delete(currentHouse);
+      houses[name] = editedHouse;
+      currentHouse = name;
+    }
+
+    await box.put(currentHouse, houses[currentHouse]);
+
     notifyListeners();
   }
 
-  void setEndDate(DateTime endDate) {
-    houses[currentHouse]!.riskAssessments.last.fiDate = endDate;
+  Future<void> deleteHouse() async {
+    print('delete, currentHouse: $currentHouse');
+    houses.remove(currentHouse);
+    await box.delete(currentHouse);
+
+    print('houses: $houses');
+    currentHouse = null;
     notifyListeners();
-  }*/
+  }
 
   Map<String, double> getResults() {
     return houses[currentHouse]!.riskAssessments.last.results;
@@ -130,5 +166,14 @@ class HouseController with ChangeNotifier {
 
   List<RiskAssessment> getRiskAssessments() {
     return houses[currentHouse]!.riskAssessments;
+  }
+
+  void modifyHouse() {
+    currentHouse = 'House1';
+    notifyListeners();
+  }
+
+  bool existsHouse(String text) {
+    return houses.containsKey(text);
   }
 }

@@ -36,7 +36,6 @@ class _MyHomePageState extends State<MyHomePage> {
                   MaterialPageRoute(
                     builder: (BuildContext context) {
                       return const QuestionnairePage(
-                        environment: 'spain',
                         answers: {},
                       );
                     },

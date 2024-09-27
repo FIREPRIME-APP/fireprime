@@ -3,12 +3,14 @@ import 'package:provider/provider.dart';
 import 'package:fireprime/controller/language_change_controller.dart';
 import 'package:easy_localization/easy_localization.dart';
 
-enum Language { english, spanish, catalan }
+enum Language { english, spanish, catalan, german, swedish }
 
 const List<String> languagesOriginal = <String>[
   'English',
   'Castellano',
-  'Català'
+  'Català',
+  'Deutsch',
+  'Svenska'
 ];
 
 class LanguagePage extends StatefulWidget {
@@ -25,6 +27,8 @@ class _LanguagePageState extends State<LanguagePage> {
       context.tr('english'),
       context.tr('spanish'),
       context.tr('catalan'),
+      /* context.tr('german'),
+      context.tr('swedish')*/
     ];
     return Scaffold(
       appBar: AppBar(
@@ -53,14 +57,14 @@ class _LanguagePageState extends State<LanguagePage> {
                           '${languages[index]} - ${languagesOriginal[index]}',
                           style: const TextStyle(
                               fontWeight: FontWeight.bold,
-                              color: Color.fromARGB(255, 199, 144, 85)),
+                              color: Color.fromARGB(255, 86, 97, 123)),
                         )
                       : Text(
                           '${languages[index]} - ${languagesOriginal[index]}'),
                   trailing: index == selectedIndex
                       ? const Icon(
                           Icons.check,
-                          color: Color.fromARGB(255, 199, 144, 85),
+                          color: Color.fromARGB(255, 86, 97, 123),
                         )
                       : null,
                   onTap: () {
@@ -70,9 +74,18 @@ class _LanguagePageState extends State<LanguagePage> {
                     } else if (index == 1) {
                       provider.changeLanguage(
                           const Locale('es'), index, context);
-                    } else {
+                    } else if (index == 2) {
                       provider.changeLanguage(
                           const Locale('ca'), index, context);
+                      /*  } else if (index == 3) {
+                      provider.changeLanguage(
+                          const Locale('de'), index, context);
+                    } else if (index == 4) {
+                      provider.changeLanguage(
+                          const Locale('sv'), index, context);*/
+                    } else {
+                      provider.changeLanguage(
+                          const Locale('en'), index, context);
                     }
                   },
                 ),

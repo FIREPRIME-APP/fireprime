@@ -28,6 +28,7 @@ class FaultTree {
   Future<void> loadFaultTree(String path) async {
     String jsonString = await rootBundle.loadString('assets/fault_tree_1.json');
     final Map<String, dynamic> jsonMap = json.decode(jsonString);
+    print('load-fault-tree');
     topEvent = parseTree(jsonMap['fault_tree'][0]);
   }
 

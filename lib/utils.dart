@@ -57,4 +57,15 @@ class Utils {
           ]),
     );
   }
+
+  static SnackBar snackBar(String text) {
+    return SnackBar(
+      backgroundColor: const Color.fromARGB(255, 242, 246, 255),
+      content: Text(
+        text,
+        style: const TextStyle(
+            color: Color.fromARGB(255, 86, 97, 123), fontSize: 16.0),
+      ),
+    );
+  }
 }

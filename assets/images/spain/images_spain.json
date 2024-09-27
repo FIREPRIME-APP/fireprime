@@ -1,22 +1,22 @@
 {
     "roof-1": [
         {
-            "path": "assets/images/spain/roof-1.jpg",
-            "description": "spain-tiles"
+            "path": "assets/images/spain/roof-1.1.jpg",
+            "description": "spain-tiles-1"
         },
         {
-            "path": "assets/images/spain/roof-1.jpg",
-            "description": "spain-tiles"
-        },
-        {
-            "path": "assets/images/spain/roof-1.jpg",
-            "description": "spain-tiles"
+            "path": "assets/images/spain/roof-1.2.jpg",
+            "description": "spain-tiles-2"
         }
     ],
     "roof-2": [
         {
-            "path": "assets/images/spain/roof-2.jpg",
-            "description": "spain-debris"
+            "path": "assets/images/spain/roof-2.1.jpg",
+            "description": "spain-debris-1"
+        },
+        {
+            "path": "assets/images/spain/roof-2.2.jpg",
+            "description": "spain-debris-2"
         }
     ],
     "glazing-1": [
@@ -27,8 +27,12 @@
     ],
     "glazing-2": [
         {
-            "path": "assets/images/spain/glazing-2.jpg",
-            "description": "spain-shutter"
+            "path": "assets/images/spain/glazing-2.1.jpg",
+            "description": "spain-shutter-1"
+        },
+        {
+            "path": "assets/images/spain/glazing-2.2.jpg",
+            "description": "spain-shutter-2"
         }
     ],
     "vents-1": [
@@ -37,16 +41,16 @@
             "description": "spain-kitchenVent"
         }
     ],
-    "fuels-close-3": [
+    "fuels-3": [
         {
             "path": "assets/images/spain/fuels-close-3.jpg",
-            "description": "fuels_close_3_spain"
+            "description": "spain-fuels-3"
         }
     ],
-    "art-fuels-1": [
+    "artFuels-1": [
         {
             "path": "assets/images/spain/art-fuels-1.jpg",
-            "description": "art_fuels_1_spain"
+            "description": "spain-artFuels-1"
         }
     ]
 }

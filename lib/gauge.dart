@@ -110,7 +110,7 @@ class Gauge {
           linearGaugeBoxDecoration: LinearGaugeBoxDecoration(
               thickness: thickness,
               borderRadius: borderRadius,
-              backgroundColor: const Color.fromARGB(255, 244, 225, 205),
+              backgroundColor: const Color.fromARGB(255, 232, 235, 244),
               edgeStyle: LinearEdgeStyle.bothCurve),
         ),
       ],

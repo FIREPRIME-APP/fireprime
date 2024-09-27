@@ -1,8 +1,10 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:fireprime/controller/house_controller.dart';
 import 'package:fireprime/gauge.dart';
+import 'package:fireprime/house/edit_house_page.dart';
 import 'package:fireprime/house/house_list_page.dart';
 import 'package:fireprime/model/house.dart';
+import 'package:fireprime/model/questionnaire.dart';
 import 'package:fireprime/model/risk_assessment.dart';
 import 'package:fireprime/questionnaire/questionnaire_page.dart';
 import 'package:fireprime/result/historical_results_page.dart';
@@ -25,10 +27,16 @@ class _HousePageState extends State<HousePage> {
         Provider.of<HouseController>(context, listen: false);
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: Image.asset(
+          'assets/images/logos/FIREPRIME_Logo_A.png',
+          fit: BoxFit.contain,
+          height: 25,
+        ),
+        /*Text(
           houseController.currentHouse!,
           style: Theme.of(context).textTheme.titleLarge!,
-        ),
+        ),*/
+        centerTitle: true,
         leading: IconButton(
           onPressed: () {
             Navigator.of(context).push(
@@ -41,27 +49,74 @@ class _HousePageState extends State<HousePage> {
           },
           icon: const Icon(Icons.arrow_back),
         ),
+        actions: [
+          PopupMenuButton<int>(
+            icon: const Icon(Icons.more_vert),
+            onSelected: (value) {
+              if (value == 0) {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (BuildContext context) {
+                      return EditHousePage(
+                        currentHouse: houseController.currentHouse!,
+                      );
+                    },
+                  ),
+                );
+              } else if (value == 1) {
+                deleteAlert(context);
+              }
+            },
+            itemBuilder: (BuildContext context) {
+              return [
+                PopupMenuItem(value: 0, child: Text(context.tr('edit'))),
+                PopupMenuItem(value: 1, child: Text(context.tr('deleteHouse'))),
+              ];
+            },
+          )
+        ],
       ),
       body: Consumer<HouseController>(
         builder: (context, house, child) {
-          House currentHouse = house.getHouse(house.currentHouse!);
-
+          print('${house.currentHouse}');
+          House currentHouse;
+          if (house.currentHouse != null) {
+            currentHouse = house.getHouse(house.currentHouse!);
+          } else {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          }
           double? lastProbability;
           Map<String, double> lastResults = {};
 
-          if (currentHouse.riskAssessments.isEmpty ||
-              !currentHouse.riskAssessments.last.completed) {
+          List<RiskAssessment> riskAssessments = currentHouse.riskAssessments;
+
+          if (riskAssessments.isEmpty) {
             lastProbability = null;
-          } else if (currentHouse.riskAssessments.last.completed) {
-            lastProbability = currentHouse.riskAssessments.last.probability;
-            lastResults = currentHouse.riskAssessments.last.results;
+          } else if (riskAssessments.last.completed) {
+            lastProbability = riskAssessments.last.probability;
+            lastResults = riskAssessments.last.results;
+          } else if (riskAssessments.length >= 2 &&
+              riskAssessments[riskAssessments.length - 2].completed) {
+            lastProbability =
+                riskAssessments[riskAssessments.length - 2].probability;
+            lastResults = riskAssessments[riskAssessments.length - 2].results;
           }
 
           return Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20.0),
+            padding: const EdgeInsets.fromLTRB(20, 0, 20, 20),
             child: SingleChildScrollView(
               child: Column(
                 children: [
+                  Text(
+                    currentHouse.name,
+                    style: const TextStyle(
+                      fontSize: 20,
+                      color: Color.fromARGB(255, 86, 97, 123),
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
                   SizedBox(
                     width: double.infinity,
                     child: Card(
@@ -89,7 +144,7 @@ class _HousePageState extends State<HousePage> {
                                 context.tr('lastResult'),
                                 style: const TextStyle(
                                     fontSize: 17,
-                                    color: Color.fromARGB(255, 199, 144, 85),
+                                    color: Color.fromARGB(255, 86, 97, 123),
                                     fontWeight: FontWeight.bold),
                               ),
                               const SizedBox(
@@ -99,33 +154,38 @@ class _HousePageState extends State<HousePage> {
                                 Padding(
                                   padding: const EdgeInsets.symmetric(
                                       horizontal: 8.0),
-                                  child: Center(
-                                    child: Column(
-                                      children: [
-                                        Stack(
-                                          children: [
-                                            Container(
+                                  child: Column(
+                                    children: [
+                                      Stack(
+                                        children: [
+                                          Center(
+                                            child: Container(
                                               height: 100,
                                               width: 100,
                                               color: Colors.transparent,
                                               child: Gauge.radialGauge(
                                                   lastProbability * 100, 10, 4),
                                             ),
-                                            Positioned(
-                                              bottom: 0,
-                                              left: 10, //TODO: CENTER
+                                          ),
+                                          Column(children: [
+                                            const SizedBox(
+                                              height: 75,
+                                            ),
+                                            Center(
                                               child: tileText(
                                                   context.tr('risk'),
                                                   lastProbability * 100,
                                                   18),
-                                            )
-                                          ],
-                                        ),
-                                      ],
-                                    ),
-                                  ), /*tileText(context.tr('risk'),
-                                  lastProbability * 100, 20),*/
+                                            ),
+                                          ]),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
                                 ),
+                              /*tileText(context.tr('risk'),
+                                  lastProbability * 100, 20),*/
+
                               if (lastProbability == null)
                                 Padding(
                                   padding: const EdgeInsets.symmetric(
@@ -167,13 +227,14 @@ class _HousePageState extends State<HousePage> {
                       currentHouse,
                       context.tr('updateQuestionnaire'),
                       context.tr('update'),
-                      const Color.fromARGB(255, 237, 178, 102),
+                      const Color.fromARGB(255, 184, 194, 219),
                       () {
                         Navigator.of(context).push(
                           MaterialPageRoute(
                             builder: (BuildContext context) {
+                              Questionnaire().setEnvironment(
+                                  currentHouse.environment); //TODO: CHECK
                               return QuestionnairePage(
-                                environment: currentHouse.environment,
                                 answers: house
                                     .getHouse(house.currentHouse!)
                                     .riskAssessments
@@ -191,14 +252,15 @@ class _HousePageState extends State<HousePage> {
                       currentHouse,
                       context.tr('fillQuestionnaire'),
                       context.tr('fill'),
-                      const Color.fromARGB(255, 237, 178, 102),
+                      const Color.fromARGB(255, 184, 194, 219),
                       () {
                         Navigator.of(context).push(
                           MaterialPageRoute(
                             builder: (BuildContext context) {
-                              return QuestionnairePage(
-                                environment: currentHouse.environment,
-                                answers: const {},
+                              Questionnaire()
+                                  .setEnvironment(currentHouse.environment);
+                              return const QuestionnairePage(
+                                answers: {},
                               );
                             },
                           ),
@@ -212,13 +274,14 @@ class _HousePageState extends State<HousePage> {
                       currentHouse,
                       context.tr('continueQuestionnaire'),
                       context.tr('continue'),
-                      const Color.fromARGB(255, 237, 178, 102),
+                      const Color.fromARGB(255, 184, 194, 219),
                       () {
                         Navigator.of(context).push(
                           MaterialPageRoute(
                             builder: (BuildContext context) {
+                              Questionnaire().setEnvironment(
+                                  currentHouse.environment); //TODO: CHECK
                               return QuestionnairePage(
-                                environment: currentHouse.environment,
                                 answers: house
                                     .getHouse(house.currentHouse!)
                                     .riskAssessments
@@ -238,7 +301,7 @@ class _HousePageState extends State<HousePage> {
                     currentHouse,
                     context.tr('resultsHistory'),
                     context.tr('myResults'),
-                    const Color.fromARGB(255, 243, 220, 195),
+                    const Color.fromARGB(255, 132, 149, 189),
                     () {
                       List<RiskAssessment> riskAssessments =
                           house.getRiskAssessments();
@@ -252,7 +315,7 @@ class _HousePageState extends State<HousePage> {
                         ),
                       );
                     },
-                    currentHouse.riskAssessments.length > 1 ? true : false,
+                    enableButton(currentHouse.riskAssessments),
                   ),
                 ],
               ),
@@ -268,7 +331,7 @@ class _HousePageState extends State<HousePage> {
     return Container(
       width: double.infinity,
       decoration: BoxDecoration(
-        color: const Color.fromARGB(255, 199, 144, 85),
+        color: const Color.fromARGB(255, 86, 97, 123),
         borderRadius: BorderRadius.circular(15),
         boxShadow: [
           BoxShadow(
@@ -314,14 +377,14 @@ class _HousePageState extends State<HousePage> {
                   ),
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color.fromARGB(255, 199, 144, 85),
+                      backgroundColor: const Color.fromARGB(255, 112, 126, 158),
                       disabledBackgroundColor: Colors.grey.shade400,
                     ),
                     onPressed: enabled ? onPressed : null,
                     child: Text(
                       buttonText,
                       style: TextStyle(
-                          color: enabled ? Colors.black87 : Colors.black38,
+                          color: enabled ? Colors.black : Colors.black38,
                           fontSize: 16),
                     ),
                   ),
@@ -350,5 +413,57 @@ class _HousePageState extends State<HousePage> {
         ],
       ),
     );
+  }
+
+  Future<void> deleteAlert(BuildContext context) {
+    return showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text(context.tr('deleteHouseWarning1'),
+              style:
+                  const TextStyle(fontSize: 15, fontWeight: FontWeight.bold)),
+          content: Text(context.tr('deleteHouseWarning2'),
+              style: const TextStyle(fontSize: 15)),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: Text(context.tr('cancel')),
+            ),
+            TextButton(
+              onPressed: () {
+                var houseCtrl =
+                    Provider.of<HouseController>(context, listen: false);
+                houseCtrl.deleteHouse();
+
+                Navigator.of(context).pop();
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (BuildContext context) {
+                      return const HouseListPage();
+                    },
+                  ),
+                );
+              },
+              child: Text(context.tr('delete')),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  bool enableButton(List<RiskAssessment> riskAssessments) {
+    if (riskAssessments.isNotEmpty && riskAssessments.length > 1) {
+      if (riskAssessments.last.completed || riskAssessments.length > 2) {
+        return true;
+      } else {
+        return false;
+      }
+    } else {
+      return false;
+    }
   }
 }

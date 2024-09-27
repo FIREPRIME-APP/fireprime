@@ -45,7 +45,7 @@ class _ResultPageState extends State<ResultPage> {
         ),
       ),
       body: SingleChildScrollView(
-        padding: const EdgeInsets.all(15.0),
+        padding: const EdgeInsets.all(20.0),
         child: Column(
           children: [
             Text(context.tr('vulnerability'),
@@ -54,18 +54,12 @@ class _ResultPageState extends State<ResultPage> {
               child: Stack(
                 children: [
                   Center(
-                    child: GestureDetector(
-                      onTap: () {
-                        _toggleLinearGauge();
-                      },
-                      child: Container(
-                        height: 200,
-                        width: 200,
-                        padding: const EdgeInsets.all(20),
-                        color: Colors.transparent,
-                        child:
-                            Gauge.radialGauge(widget.probability * 100, 15, 6),
-                      ),
+                    child: Container(
+                      height: 200,
+                      width: 200,
+                      padding: const EdgeInsets.all(20),
+                      color: Colors.transparent,
+                      child: Gauge.radialGauge(widget.probability * 100, 15, 6),
                     ),
                   ),
                   Gauge.gaugeProbabilityText(widget.probability * 100,
@@ -93,11 +87,21 @@ class _ResultPageState extends State<ResultPage> {
                             );
                           },
                         ),
+                        const SizedBox(
+                          height: 12,
+                        ),
                       ],
                     ),
                   )
                 ],
               ),
+            ElevatedButton(
+                onPressed: () {
+                  _toggleLinearGauge();
+                },
+                child: _showLinearGauge
+                    ? Text(context.tr('hide_details'))
+                    : Text(context.tr('show_details'))),
           ],
         ),
       ),
