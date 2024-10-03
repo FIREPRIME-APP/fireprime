@@ -176,7 +176,10 @@ class _HouseListPageState extends State<HouseListPage> {
                                 context.tr('address'), house.address, 15),
                             const SizedBox(height: 10.0),
                             Utils.cardText(
-                                context.tr('country'), house.environment, 15),
+                                context.tr('country'),
+                                context.tr(
+                                    'european_countries.${house.environment}'),
+                                15),
                             const SizedBox(height: 10.0),
                           ],
                         ),

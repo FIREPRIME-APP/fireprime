@@ -17,6 +17,8 @@ class _CreateHousePageState extends State<CreateHousePage> {
   final TextEditingController _name = TextEditingController();
   final TextEditingController _address = TextEditingController();
 
+  Map<String, String> countries = {};
+
   String? _selectedEnvironment;
 
   bool _enabled = false;
@@ -42,6 +44,14 @@ class _CreateHousePageState extends State<CreateHousePage> {
 
   @override
   Widget build(BuildContext context) {
+    for (var country in europeanCountries) {
+      countries[country] = context.tr('european_countries.$country');
+    }
+
+    Map<String, String> sortedCountries = Map.fromEntries(
+        countries.entries.toList()
+          ..sort((e1, e2) => e1.value.compareTo(e2.value)));
+
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -69,7 +79,8 @@ class _CreateHousePageState extends State<CreateHousePage> {
                 const SizedBox(height: 30.0),
                 Text(
                   '${context.tr('name')}: ',
-                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                  style: const TextStyle(
+                      fontSize: 15, fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(height: 10.0),
                 TextField(
@@ -110,10 +121,10 @@ class _CreateHousePageState extends State<CreateHousePage> {
                       _checkInput();
                     });
                   },
-                  items: europeanCountries.map((String value) {
+                  items: sortedCountries.entries.map((entry) {
                     return DropdownMenuItem<String>(
-                      value: value,
-                      child: Text(value),
+                      value: entry.key,
+                      child: Text(entry.value),
                     );
                   }).toList(),
                   decoration: const InputDecoration(
@@ -150,6 +161,7 @@ class _CreateHousePageState extends State<CreateHousePage> {
                             } else if (_address.text.isNotEmpty &&
                                 _name.text.isNotEmpty &&
                                 _selectedEnvironment != null) {
+                              print(_selectedEnvironment);
                               House newHouse = House(_name.text, _address.text,
                                   _selectedEnvironment!);
                               house.addHouse(newHouse);

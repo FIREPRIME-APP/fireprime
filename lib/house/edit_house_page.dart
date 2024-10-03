@@ -26,11 +26,16 @@ class _EditHousePageState extends State<EditHousePage> {
 
     _name.text = house.name;
     _address.text = house.address;
-    _environment.text = house.environment;
+    //_environment.text = context.tr('european_countries.${house.environment}');
   }
 
   @override
   Widget build(BuildContext context) {
+    final house = Provider.of<HouseController>(context, listen: false)
+        .getHouse(widget.currentHouse);
+
+    _environment.text = context.tr('european_countries.${house.environment}');
+
     return Scaffold(
       appBar: AppBar(
         title: Text(
