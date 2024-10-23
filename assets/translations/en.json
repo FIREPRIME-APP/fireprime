@@ -65,6 +65,10 @@
     "vents": "Vents",
     "semi_confined": "Semi-confined space",
     
+    "improve": "Improve it!",
+    "mitigations_actions": "Mitigations Actions",
+    "no_mitigations": "No mitigations available",
+
     "about_firePrime": "About FirePrime",
     "about_projText1": "FirePrime App ",
     "about_projText2": "has been developed by the ",

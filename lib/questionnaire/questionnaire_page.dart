@@ -81,7 +81,7 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                             MaterialPageRoute(
                               builder: (BuildContext context) {
                                 return ResultPage(
-                                    probability: probability, subProb: subProb);
+                                    house: house.getHouse(house.currentHouse!));
                               },
                             ),
                           );

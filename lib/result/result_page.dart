@@ -1,14 +1,18 @@
 import 'package:fireprime/gauge.dart';
 import 'package:fireprime/house/house_page.dart';
+import 'package:fireprime/mitigation/mitigation_menu_page.dart';
+import 'package:fireprime/model/house.dart';
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 
 class ResultPage extends StatefulWidget {
-  final Map<String, double> subProb;
-  final double probability;
+  //final Map<String, double> subProb;
+  //final double probability;
+  final House house;
 
   const ResultPage(
-      {super.key, required this.probability, required this.subProb});
+      {super.key,
+      required this.house /*required this.probability, required this.subProb*/});
 
   @override
   State<ResultPage> createState() => _ResultPageState();
@@ -16,6 +20,44 @@ class ResultPage extends StatefulWidget {
 
 class _ResultPageState extends State<ResultPage> {
   bool _showLinearGauge = false;
+
+  double probability = 0.0;
+  Map<String, double> subProb = {};
+
+  double? lastProbability;
+  Map<String, double> lastSubProb = {};
+
+  @override
+  void initState() {
+    super.initState();
+
+    int riskAsssessmentsSize = widget.house.riskAssessments.length;
+    if (widget.house.riskAssessments.last.completed) {
+      probability = widget.house.riskAssessments.last.probability;
+      subProb = widget.house.riskAssessments.last.results;
+
+      if (riskAsssessmentsSize > 1) {
+        lastProbability =
+            widget.house.riskAssessments[riskAsssessmentsSize - 2].probability;
+        lastSubProb =
+            widget.house.riskAssessments[riskAsssessmentsSize - 2].results;
+      }
+    } else {
+      if (riskAsssessmentsSize > 1) {
+        probability =
+            widget.house.riskAssessments[riskAsssessmentsSize - 2].probability;
+        subProb =
+            widget.house.riskAssessments[riskAsssessmentsSize - 2].results;
+
+        if (riskAsssessmentsSize > 2) {
+          lastProbability = widget
+              .house.riskAssessments[riskAsssessmentsSize - 3].probability;
+          lastSubProb =
+              widget.house.riskAssessments[riskAsssessmentsSize - 3].results;
+        }
+      }
+    }
+  }
 
   void _toggleLinearGauge() {
     setState(() {
@@ -59,10 +101,10 @@ class _ResultPageState extends State<ResultPage> {
                       width: 200,
                       padding: const EdgeInsets.all(20),
                       color: Colors.transparent,
-                      child: Gauge.radialGauge(widget.probability * 100, 15, 6),
+                      child: Gauge.radialGauge(probability * 100, 15, 6),
                     ),
                   ),
-                  Gauge.gaugeProbabilityText(widget.probability * 100,
+                  Gauge.gaugeProbabilityText(probability * 100,
                       context.tr('structural_vulnerabilities'), 20),
                 ],
               ),
@@ -74,16 +116,38 @@ class _ResultPageState extends State<ResultPage> {
                   Card(
                     child: Column(
                       children: [
-                        ...widget.subProb.entries.map(
+                        ...subProb.entries.map(
                           (entry) {
-                            return Padding(
-                              padding: const EdgeInsets.all(12.0),
-                              child: Gauge.linearGaugeProb(
-                                  context.tr(entry.key),
-                                  entry.value * 100,
-                                  25,
-                                  15,
-                                  30),
+                            return Column(
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.all(12.0),
+                                  child: Gauge.linearGaugeProb(
+                                      context.tr(entry.key),
+                                      entry.value * 100,
+                                      25,
+                                      15,
+                                      30,
+                                      lastSubProb.isNotEmpty &&
+                                              lastSubProb.containsKey(entry.key)
+                                          ? lastSubProb[entry.key]! * 100
+                                          : null),
+                                ),
+                                ElevatedButton(
+                                    child: Text(context.tr('improve')),
+                                    onPressed: () {
+                                      Navigator.of(context).push(
+                                        MaterialPageRoute(
+                                          builder: (BuildContext context) {
+                                            print(entry.key);
+                                            return MitigationMenuPage(
+                                              mitigationId: entry.key,
+                                            );
+                                          },
+                                        ),
+                                      );
+                                    }),
+                              ],
                             );
                           },
                         ),
@@ -107,13 +171,4 @@ class _ResultPageState extends State<ResultPage> {
       ),
     );
   }
-}
-
-void main() {
-  runApp(const MaterialApp(
-    home: ResultPage(
-      probability: 0.2,
-      subProb: {'Structural Vulnerability': 0.2, 'Roof': 0.3, 'Glazing': 0.8},
-    ),
-  ));
 }

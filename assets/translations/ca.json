@@ -76,6 +76,9 @@
     "vents": "Ventilació",
     "semi_confined": "Espai semiconfinat",
 
+    "improve": "Millora-ho!",
+    "mitigations_actions": "Accions de mitigació",
+    "no_mitigations": "No hi ha accions de mitigació disponible",
 
     "european_countries": {
         "albania": "Albània",

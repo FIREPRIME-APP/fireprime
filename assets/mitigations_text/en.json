@@ -1,0 +1,51 @@
+{
+    "glazing_systems": {
+        "title": "Glazing Systems",
+        "mitigations_menu": [
+            {
+                "title": "Glazing failure",
+                "mitigations": [
+                    {
+                        "title": "Change your glazing",
+                        "description": "Change your glazing to a double pane or tempered glass."
+                    },
+                    {
+                        "title": "Another mitigation",
+                        "description": "Some text..."
+                    }
+                ]
+            },
+            {
+                "title": "Shutter failure",
+                "mitigations": [
+                    {
+                        "title": "Change your shutters",
+                        "description": "Change your shutters to fire rated shutters."
+                    },
+                    {
+                        "title": "Another mitigation",
+                        "description": "Some text..."
+                    }
+                ]
+            }
+        ]
+    },
+    "combustible_facade_elements": {
+        "title": "Combustible Facade Elements",
+        "mitigations_menu": [
+            {
+                "title": "Combustible facade elements",
+                "mitigations": [
+                    {
+                        "title": "Change your facade elements",
+                        "description": "Change your facade elements to concrete bricks."
+                    },
+                    {
+                        "title": "Another mitigation",
+                        "description": "Some text..."
+                    }
+                ]
+            }
+        ]
+    }
+}

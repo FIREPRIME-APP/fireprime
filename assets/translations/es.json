@@ -47,7 +47,8 @@
 
     "show_desc": "Mostrar descripción",
     "hide_desc": "Ocultar descripción",
-
+    "other": "Otro",
+    
     "show_details": "Mostrar detalles",
     "hide_details": "Ocultar detalles",
 
@@ -62,10 +63,8 @@
     "and": "y ",
     "about_devText3": "y con el apoyo consultivo de ",
 
-    "other": "Otro",
     "results": "Resultados",
     "vulnerability": "La vulnerabilidad de su casa es de:",
-    
     "structural_vulnerabilities": "Vulnerabilidades estructurales",
     "combustible_facade_elements": "Elementos combustibles de fachada",
     "non_combustible_foundation": "Cimentación no combustible",
@@ -74,6 +73,10 @@
     "roof": "Techo",
     "vents": "Ventilación",
     "semi_confined": "Espacio semiconfinado",
+
+    "improve": "Mejóralo",
+    "mitigations_actions": "Acciones de mitigación",
+    "no_mitigations": "No hay acciones de mitigación disponibles",
 
     "european_countries": {
         "albania": "Albania",

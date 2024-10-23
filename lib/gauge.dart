@@ -10,7 +10,7 @@ class Gauge {
         start: 0,
         end: 100,
         thickness: thickness,
-        trackStyle: TrackStyle(
+        trackStyle: const TrackStyle(
           labelStyle: TextStyle(color: Colors.black),
           showLabel: false,
           showPrimaryRulers: false,
@@ -49,7 +49,7 @@ class Gauge {
         child: Column(
           children: [
             Text(
-              probability.toStringAsFixed(2),
+              probability.toStringAsFixed(0),
               style: const TextStyle(fontSize: 15),
             ),
             SizedBox(height: space),
@@ -63,12 +63,36 @@ class Gauge {
     );
   }
 
-  static Widget linearGaugeProb(String title, double probability,
-      double pointerSize, double thickness, double borderRadius) {
+  static Widget linearGaugeProb(
+      String title,
+      double probability,
+      double pointerSize,
+      double thickness,
+      double borderRadius,
+      double? lastProbability) {
+    print('lastProbability: $lastProbability');
     return Column(
       children: [
-        Text('$title: ${probability.toStringAsFixed(0)} %',
-            style: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold)),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 8.0),
+          child: Row(
+            children: [
+              Expanded(
+                child: Text(
+                  '$title: ${probability.toStringAsFixed(0)}',
+                  style: const TextStyle(
+                      fontSize: 15, fontWeight: FontWeight.bold),
+                ),
+              ),
+              const SizedBox(
+                width: 5,
+              ),
+              lastProbability != null
+                  ? comparisonIcon(probability, lastProbability)
+                  : const SizedBox(width: 0),
+            ],
+          ),
+        ),
         const SizedBox(height: 10),
         LinearGauge(
           gaugeOrientation: GaugeOrientation.horizontal,
@@ -115,5 +139,23 @@ class Gauge {
         ),
       ],
     );
+  }
+
+  static Icon comparisonIcon(double probability, double lastProbability) {
+    if (probability > lastProbability) {
+      return const Icon(Icons.arrow_upward, color: Colors.red, size: 25);
+    } else if (probability < lastProbability) {
+      return const Icon(
+        Icons.arrow_downward,
+        color: Colors.green,
+        size: 25,
+      );
+    } else {
+      return const Icon(
+        Icons.remove,
+        color: Color.fromARGB(255, 86, 97, 123),
+        size: 25,
+      );
+    }
   }
 }

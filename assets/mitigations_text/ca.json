@@ -1,0 +1,51 @@
+{
+    "glazing_systems": {
+        "title": "Sistema de vidre",
+        "mitigations_menu": [
+            {
+                "title": "Falla de vidre",
+                "mitigations": [
+                    {
+                        "title": "Canvia el vidre",
+                        "description": "Text en català"
+                    },
+                    {
+                        "title": "Altres",
+                        "description": "Textos"
+                    }
+                ]
+            },
+            {
+                "title": "Falles de persianes",
+                "mitigations": [
+                    {
+                        "title": "Canvia les persianes",
+                        "description": "Més text en català"
+                    },
+                    {
+                        "title": "Altres",
+                        "description": "Textos textos..."
+                    }
+                ]
+            }
+        ]
+    },
+    "combustible_facade_elements": {
+        "title": "Elements de façana combustibles",
+        "mitigations_menu": [
+            {
+                "title": "Elements de façana combustibles",
+                "mitigations": [
+                    {
+                        "title": "Canvia els elements de façana",
+                        "description": "Canvia els elements de façana per elements que no siguin combustibles, com per exemple maons de formigó."
+                    },
+                    {
+                        "title": "Més",
+                        "description": "Text...."
+                    }
+                ]
+            }
+        ]
+    }
+}

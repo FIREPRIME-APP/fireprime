@@ -16,6 +16,9 @@ class HistoricalResultsPage extends StatefulWidget {
 class _HistoricalResultsPageState extends State<HistoricalResultsPage> {
   int _touchedIndex = -1;
 
+  double? lastProbability;
+  Map<String, double> lastSubProb = {};
+
   @override
   void initState() {
     super.initState();
@@ -26,6 +29,11 @@ class _HistoricalResultsPageState extends State<HistoricalResultsPage> {
       } else if (widget.riskAssessments.length > 1) {
         _touchedIndex = widget.riskAssessments.length - 2;
       }
+
+      if (_touchedIndex > 0) {
+        lastProbability = widget.riskAssessments[_touchedIndex - 1].probability;
+        lastSubProb = widget.riskAssessments[_touchedIndex - 1].results;
+      }
     }
   }
 
@@ -33,6 +41,14 @@ class _HistoricalResultsPageState extends State<HistoricalResultsPage> {
     setState(
       () {
         _touchedIndex = spotIndex;
+        if (_touchedIndex > 0) {
+          lastProbability =
+              widget.riskAssessments[_touchedIndex - 1].probability;
+          lastSubProb = widget.riskAssessments[_touchedIndex - 1].results;
+        } else {
+          lastProbability = null;
+          lastSubProb = {};
+        }
       },
     );
   }
@@ -86,13 +102,23 @@ class _HistoricalResultsPageState extends State<HistoricalResultsPage> {
                               100,
                           20,
                           15,
-                          20),
+                          20,
+                          lastProbability != null
+                              ? lastProbability! * 100
+                              : null),
                       const Divider(color: Colors.grey, thickness: 1.5),
                       ...widget.riskAssessments[_touchedIndex].results.entries
                           .map(
                         (entry) {
-                          return Gauge.linearGaugeProb(context.tr(entry.key),
-                              entry.value * 100, 20, 15, 20);
+                          return Gauge.linearGaugeProb(
+                              context.tr(entry.key),
+                              entry.value * 100,
+                              20,
+                              15,
+                              20,
+                              lastSubProb.containsKey(entry.key)
+                                  ? lastSubProb[entry.key]! * 100
+                                  : null);
                         },
                       )
                     ],
@@ -209,7 +235,7 @@ class _HistoricalResultsPageState extends State<HistoricalResultsPage> {
     String text;
 
     if (roundedValue % 5 == 0) {
-      text = '${(value * 100).toInt()} % ';
+      text = '${(value * 100).toInt()} ';
     } else {
       text = '';
     }

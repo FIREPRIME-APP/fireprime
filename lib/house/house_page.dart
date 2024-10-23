@@ -126,10 +126,7 @@ class _HousePageState extends State<HousePage> {
                             Navigator.of(context).push(
                               MaterialPageRoute(
                                 builder: (BuildContext context) {
-                                  return ResultPage(
-                                    probability: lastProbability!,
-                                    subProb: lastResults,
-                                  );
+                                  return ResultPage(house: currentHouse);
                                 },
                               ),
                             );
@@ -406,7 +403,7 @@ class _HousePageState extends State<HousePage> {
               text: '${context.tr(title)}: ',
               style: const TextStyle(fontWeight: FontWeight.bold)),
           TextSpan(
-            text: '${value.toStringAsFixed(0)}%',
+            text: value.toStringAsFixed(0),
             style: TextStyle(
                 color: Utils.textColor(value), fontWeight: FontWeight.bold),
           ),
