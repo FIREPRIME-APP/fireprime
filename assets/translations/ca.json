@@ -21,8 +21,8 @@
     "address": "Adreça",
     "country": "País",
 
-    "lastResult": "Últim resultat",
-    "risk": "Risc",
+    "lastResult": "Última avaluació",
+    "risk": "Vulnerabilitat",
     "noResult": "No hi ha resultats",
     "updateQuestionnaire": "Actualitza les respostes del qüestionari",
     "update": "Actualitzar",
@@ -76,9 +76,25 @@
     "vents": "Ventilació",
     "semi_confined": "Espai semiconfinat",
 
+    "glazing_failure": "Falla de vidre",
+    "shutter_failure": "Falla de persiana",
+    "roof_material": "Material del sostre",
+    "roof_maintenance": "Manteniment del sostre",
+    
+
     "improve": "Millora-ho!",
-    "mitigations_actions": "Accions de mitigació",
-    "no_mitigations": "No hi ha accions de mitigació disponible",
+    "mitigations_actions": "Accions de millora",
+    "no_mitigations": "No hi ha accions de millora disponible",
+
+    "selectedOption": "L'opció seleccionada és: ",
+    "actualSituation": "SITUACIÓ ACTUAL",
+    "applyImprovement": "APLICACIÓ DE MILLORES",
+    "improveOptions": "Millora la vulnerabilitat seleccionant una de les següents opcions: ",
+    "totalVulnerability": "Vulnerabilitat total",
+    "before": "Abans",
+    "now": "Ara",
+    
+
 
     "european_countries": {
         "albania": "Albània",

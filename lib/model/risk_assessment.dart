@@ -20,6 +20,8 @@ class RiskAssessment {
   late double probability = -1;
   @HiveField(6)
   late Map<String, double> results = {};
+  @HiveField(7)
+  late Map<String, Map<String, double>> subNodeProbabilities = {};
 
   RiskAssessment(this.iniDate, this.version, this.answers);
 }

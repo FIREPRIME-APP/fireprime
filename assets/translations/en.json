@@ -20,8 +20,8 @@
     "address": "Address",
     "country": "Country",
     
-    "lastResult": "Last result",
-    "risk": "Risk",
+    "lastResult": "Last avaluation",
+    "risk": "Vulnerability",
     "noResult": "No results available",
     "updateQuestionnaire": "Update your answers of the questionnaire",
     "update": "Update",
@@ -64,10 +64,22 @@
     "roof": "Roof",
     "vents": "Vents",
     "semi_confined": "Semi-confined space",
-    
+    "glazing_failure": "Glazing failure",
+    "shutter_failure": "Shutter failure",
+    "roof_material": "Roof material",
+    "roof_maintenance": "Roof maintenance",
+
     "improve": "Improve it!",
-    "mitigations_actions": "Mitigations Actions",
-    "no_mitigations": "No mitigations available",
+    "mitigations_actions": "Improvement Actions",
+    "no_mitigations": "No improvements available",
+
+    "selectedOption": "The selected option is: ",
+    "actualSituation": "ACTUAL SITUATION",
+    "applyImprovement": "APPLICATION OF IMPROVEMENTS",
+    "improveOptions": "Improve the vulnerability selecting one of the following options: ",
+    "totalVulnerability": "Total vulnerability",
+    "before": "Before",
+    "now": "Now",
 
     "about_firePrime": "About FirePrime",
     "about_projText1": "FirePrime App ",

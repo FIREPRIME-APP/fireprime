@@ -2,6 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:fireprime/controller/environment_controller.dart';
 import 'package:fireprime/controller/house_controller.dart';
 import 'package:fireprime/controller/image_controller.dart';
+import 'package:fireprime/fault_tree/fault_tree.dart';
 import 'package:fireprime/house/house_list_page.dart';
 import 'package:fireprime/model/house.dart';
 import 'package:fireprime/model/risk_assessment.dart';
@@ -35,6 +36,11 @@ void main() async {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
+
+  Future<void> _loadFaultTree() async {
+    final FaultTree faultTree = FaultTree();
+    await faultTree.loadFaultTree('assets/fault_tree_1.json');
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -242,7 +248,22 @@ class MyApp extends StatelessWidget {
               Locale('ca'),
             ],*/
             locale: provider.appLocale, //provider.appLocale,
-            home: const HouseListPage(),
+            home: FutureBuilder<void>(
+              future: _loadFaultTree(),
+              builder: (context, snapshot) {
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return const Scaffold(
+                    body: Center(child: CircularProgressIndicator()),
+                  );
+                } else if (snapshot.hasError) {
+                  return const Scaffold(
+                    body: Center(child: Text('Error loading fault tree')),
+                  );
+                } else {
+                  return const HouseListPage();
+                }
+              },
+            ),
           );
         },
       ),

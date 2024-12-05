@@ -1,6 +1,6 @@
 //import 'dart:convert';
 
-import 'package:fireprime/fault_tree/ifault_tree.dart';
+import 'package:fireprime/fault_tree/fault_tree.dart';
 import 'package:flutter/material.dart';
 //import 'package:flutter/services.dart';
 

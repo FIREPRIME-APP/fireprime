@@ -121,7 +121,7 @@
                                     "input_events": [
                                         {
                                             "type": "event",
-                                            "event_id": "roof_mateiral", 
+                                            "event_id": "roof_material", 
                                             "gate": [
                                                 {
                                                     "type": "xor_gate",

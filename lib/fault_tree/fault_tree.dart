@@ -17,7 +17,6 @@ class FaultTree {
   static final FaultTree _instance = FaultTree._internal();
 
   late Node topEvent;
-  Map<String, double> probabilities = {};
 
   FaultTree._internal();
 
@@ -60,6 +59,33 @@ class FaultTree {
     }
   }
 
+  Node? getNode(String eventId) {
+    return findNode(topEvent, eventId);
+  }
+
+  Node? findNode(Node node, String eventId) {
+    if (node.id == eventId && node is IntermediateEvent) {
+      return node;
+    }
+
+    if (node is Gate) {
+      for (var inputEvent in node.inputEvents) {
+        Node? result = findNode(inputEvent, eventId);
+        if (result != null) {
+          return result;
+        }
+      }
+    }
+
+    if (node is IntermediateEvent) {
+      Node? result = findNode(node.gate, eventId);
+      if (result != null) {
+        return result;
+      }
+    }
+    return null;
+  }
+
   void traverseTree(Node node, int level) {
     String indent = ' ' * level * 2;
     if (node is BasicEvent) {
@@ -86,6 +112,65 @@ class FaultTree {
       }
     }
     return probabilities;
+  }
+
+  Map<String, double> getBasicEvents(Node node, String id) {
+    Map<String, double> basicEvents = {};
+    if (node is IntermediateEvent && node.id == id) {
+      for (int i = 0; i < node.gate.inputEvents.length; ++i) {
+        Node event = node.gate.inputEvents[i];
+        if (event is BasicEvent) {
+          basicEvents[event.id] = event.probability;
+        }
+      }
+    } else {
+      if (node is Gate) {
+        for (var inputEvent in node.inputEvents) {
+          basicEvents = getBasicEvents(inputEvent, id);
+          if (basicEvents.isNotEmpty) {
+            break;
+          }
+        }
+      } else if (node is IntermediateEvent) {
+        basicEvents = getBasicEvents(node.gate, id);
+      }
+    }
+    return basicEvents;
+  }
+
+  IntermediateEvent? findIntermediateEvent(Node node, String eventId) {
+    if (node is IntermediateEvent && node.id == eventId) {
+      return node;
+    }
+
+    if (node is Gate) {
+      for (var inputEvent in node.inputEvents) {
+        var foundEvent = findIntermediateEvent(inputEvent, eventId);
+        if (foundEvent != null) {
+          return foundEvent;
+        }
+      }
+    }
+
+    // Si el nodo es un IntermediateEvent, revisa su gate asociado
+    if (node is IntermediateEvent) {
+      var foundEvent = findIntermediateEvent(node.gate, eventId);
+      if (foundEvent != null) {
+        return foundEvent;
+      }
+    }
+
+    // Devuelve null si no se encuentra el nodo
+    return null;
+  }
+
+  Map<String, double> getSubNodeProbabilities(String eventId) {
+    IntermediateEvent? event = findIntermediateEvent(topEvent, eventId);
+    if (event != null) {
+      return getProbabilities(event);
+    } else {
+      return {};
+    }
   }
 
   void printTree() {
@@ -187,6 +272,7 @@ class OrGate extends Gate {
 
   @override
   double calculateProbability() {
+    selectedInputs = [];
     if (inputEvents[0] is BasicEvent) {
       Map<String, String?> selectedOptions = SelectedOptions().selectedOptions;
       for (var event in inputEvents) {

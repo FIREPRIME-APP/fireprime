@@ -112,6 +112,21 @@ class _HouseListPageState extends State<HouseListPage> {
                           style: const TextStyle(color: Colors.white),
                         ),
                       ),
+                      ElevatedButton.icon(
+                        style: ElevatedButton.styleFrom(
+                            backgroundColor:
+                                const Color.fromARGB(255, 86, 97, 123),
+                            elevation: 5.0),
+                        onPressed: () {
+                          //TODO
+                        },
+                        icon: const Icon(Icons.info_outline_rounded,
+                            color: Colors.white),
+                        label: Text(
+                          context.tr('More information'),
+                          style: const TextStyle(color: Colors.white),
+                        ),
+                      ),
                     ],
                   ),
                 ),

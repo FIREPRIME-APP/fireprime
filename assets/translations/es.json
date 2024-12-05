@@ -18,8 +18,8 @@
     "fillInfo": "Rellena la información de la casa",
     "address": "Dirección",
     "country": "País",
-    "lastResult": "Último resultado",
-    "risk": "Riesgo",
+    "lastResult": "Última avaluación",
+    "risk": "Vulnerabilidad",
     "noResult": "No hay resultados",
     "updateQuestionnaire": "Actualiza las respuestas del cuestionario",
     "update": "Actualizar",
@@ -73,10 +73,25 @@
     "roof": "Techo",
     "vents": "Ventilación",
     "semi_confined": "Espacio semiconfinado",
+    "glazing_failure": "Fallo de vidrio",
+    "shutter_failure": "Fallo de persiana",
+    "roof_material": "Material del techo",
+    "roof_maintenance": "Mantenimiento del techo",
+
 
     "improve": "Mejóralo",
-    "mitigations_actions": "Acciones de mitigación",
-    "no_mitigations": "No hay acciones de mitigación disponibles",
+    "mitigations_actions": "Acciones de mejora",
+    "no_mitigations": "No hay acciones de mejora disponibles",
+
+
+    "selectedOption": "La opción seleccionada és: ",
+    "actualSituation": "SITUACIÓN ACTUAL",
+    "applyImprovement": "APLICACIÓN DE MEJORAS",
+    "improveOptions": "Mejora la vulnerabilitat escogiendo una de las siguientes opciones: ",
+    "totalVulnerability": "Vulnerabilidad total",
+    "before": "Antes",
+    "now": "Ahora",
+
 
     "european_countries": {
         "albania": "Albania",

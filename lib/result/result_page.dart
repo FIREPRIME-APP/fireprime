@@ -1,3 +1,4 @@
+import 'package:fireprime/fault_tree/fault_tree.dart';
 import 'package:fireprime/gauge.dart';
 import 'package:fireprime/house/house_page.dart';
 import 'package:fireprime/mitigation/mitigation_menu_page.dart';
@@ -27,6 +28,9 @@ class _ResultPageState extends State<ResultPage> {
   double? lastProbability;
   Map<String, double> lastSubProb = {};
 
+  Map<String, String?> answers = {};
+  Map<String, Map<String, double>> subNodeProbabilities = {};
+
   @override
   void initState() {
     super.initState();
@@ -35,6 +39,9 @@ class _ResultPageState extends State<ResultPage> {
     if (widget.house.riskAssessments.last.completed) {
       probability = widget.house.riskAssessments.last.probability;
       subProb = widget.house.riskAssessments.last.results;
+      answers = widget.house.riskAssessments.last.answers;
+      subNodeProbabilities =
+          widget.house.riskAssessments.last.subNodeProbabilities;
 
       if (riskAsssessmentsSize > 1) {
         lastProbability =
@@ -43,11 +50,16 @@ class _ResultPageState extends State<ResultPage> {
             widget.house.riskAssessments[riskAsssessmentsSize - 2].results;
       }
     } else {
+      //To get the comparison with the last completed risk assessment
       if (riskAsssessmentsSize > 1) {
         probability =
             widget.house.riskAssessments[riskAsssessmentsSize - 2].probability;
         subProb =
             widget.house.riskAssessments[riskAsssessmentsSize - 2].results;
+        answers =
+            widget.house.riskAssessments[riskAsssessmentsSize - 2].answers;
+        subNodeProbabilities = widget.house
+            .riskAssessments[riskAsssessmentsSize - 2].subNodeProbabilities;
 
         if (riskAsssessmentsSize > 2) {
           lastProbability = widget
@@ -118,11 +130,13 @@ class _ResultPageState extends State<ResultPage> {
                       children: [
                         ...subProb.entries.map(
                           (entry) {
+                            Map<String, dynamic> options =
+                                canImprove(entry.key, entry.value);
                             return Column(
                               children: [
                                 Padding(
                                   padding: const EdgeInsets.all(12.0),
-                                  child: Gauge.linearGaugeProb(
+                                  child: Gauge.linearGaugeWithTitle(
                                       context.tr(entry.key),
                                       entry.value * 100,
                                       25,
@@ -133,20 +147,26 @@ class _ResultPageState extends State<ResultPage> {
                                           ? lastSubProb[entry.key]! * 100
                                           : null),
                                 ),
-                                ElevatedButton(
+                                if (checkIfCanImprove(options))
+                                  ElevatedButton(
                                     child: Text(context.tr('improve')),
                                     onPressed: () {
                                       Navigator.of(context).push(
                                         MaterialPageRoute(
                                           builder: (BuildContext context) {
-                                            print(entry.key);
                                             return MitigationMenuPage(
                                               mitigationId: entry.key,
+                                              improvementOptions: options,
+                                              answers: answers,
+                                              selectedMitigationProb:
+                                                  entry.value,
+                                              totalRisk: probability,
                                             );
                                           },
                                         ),
                                       );
-                                    }),
+                                    },
+                                  ),
                               ],
                             );
                           },
@@ -170,5 +190,81 @@ class _ResultPageState extends State<ResultPage> {
         ),
       ),
     );
+  }
+
+  Map<String, dynamic> canImprove(
+      String mitigationId, double selectedMitigationProb) {
+    Map<String, dynamic> improvementOptions = {};
+
+    Node? node = FaultTree().getNode(mitigationId);
+
+    Map<String, dynamic> options = {};
+    Map<String, double> basicEvents = {};
+
+    if (node != null && node is IntermediateEvent) {
+      if (node.gate.inputEvents[0] is BasicEvent) {
+        Map<String, double> selectedOptions = {};
+
+        basicEvents = FaultTree().getBasicEvents(node, node.id);
+        print(node.gate.id);
+        options = getOptions(basicEvents, selectedOptions);
+
+        if (options.isNotEmpty) {
+          improvementOptions[node.id] = {
+            'improvementOptions': options['improvementOptions'],
+            'selectedOptions': options['selectedOptions']
+          };
+        }
+      } else {
+        for (var event in node.gate.inputEvents) {
+          Map<String, double> selectedOptions = {};
+
+          basicEvents = FaultTree().getBasicEvents(event, event.id);
+
+          options = getOptions(basicEvents, selectedOptions);
+
+          if (options.isNotEmpty) {
+            improvementOptions[event.id] = {
+              'improvementOptions': options['improvementOptions'],
+              'selectedOptions': options['selectedOptions']
+            };
+          }
+        }
+      }
+    }
+    print(improvementOptions);
+    return improvementOptions;
+  }
+
+  Map<String, dynamic> getOptions(Map<String, double> basicEvents,
+      Map<String, double> selectedProbabilities) {
+    Set<String> options = {};
+
+    for (var basicEvent in basicEvents.entries) {
+      if (answers.containsValue(basicEvent.key)) {
+        selectedProbabilities[basicEvent.key] = basicEvent.value;
+      }
+    }
+
+    for (var basicEvent in basicEvents.entries) {
+      for (var selectedProbability in selectedProbabilities.entries) {
+        if (basicEvent.value < selectedProbability.value) {
+          options.add(basicEvent.key);
+        }
+      }
+    }
+    return {
+      'improvementOptions': options,
+      'selectedOptions': selectedProbabilities
+    };
+  }
+
+  checkIfCanImprove(Map<String, dynamic> options) {
+    for (var entry in options.entries) {
+      if (entry.value['improvementOptions'].isNotEmpty) {
+        return true;
+      }
+    }
+    return false;
   }
 }

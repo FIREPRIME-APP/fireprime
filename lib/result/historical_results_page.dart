@@ -96,7 +96,7 @@ class _HistoricalResultsPageState extends State<HistoricalResultsPage> {
                             fontSize: 20, fontWeight: FontWeight.bold),
                       ),
                       const SizedBox(height: 20),
-                      Gauge.linearGaugeProb(
+                      Gauge.linearGaugeWithTitle(
                           context.tr('structural_vulnerabilities'),
                           widget.riskAssessments[_touchedIndex].probability *
                               100,
@@ -110,7 +110,7 @@ class _HistoricalResultsPageState extends State<HistoricalResultsPage> {
                       ...widget.riskAssessments[_touchedIndex].results.entries
                           .map(
                         (entry) {
-                          return Gauge.linearGaugeProb(
+                          return Gauge.linearGaugeWithTitle(
                               context.tr(entry.key),
                               entry.value * 100,
                               20,

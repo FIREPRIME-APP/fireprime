@@ -287,6 +287,18 @@ class Questionnaire {
 
   String environment = 'default';
 
+  Map<String, dynamic> getOptions(questionId) {
+    Map<String, dynamic> options = {};
+
+    for (var question in questions) {
+      if (question['stepId'] == questionId) {
+        options[questionId] = question['textChoices'];
+        break;
+      }
+    }
+    return options;
+  }
+
   void setEnvironment(String environment) {
     this.environment = environment;
   }

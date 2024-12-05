@@ -117,11 +117,17 @@ class HouseController with ChangeNotifier {
     notifyListeners();
   }
 
-  void setCompleted(bool completed, double probability,
-      Map<String, double> subProb, DateTime endDate) {
+  void setCompleted(
+      bool completed,
+      double probability,
+      Map<String, double> subProb,
+      Map<String, Map<String, double>> subNodeProbabilities,
+      DateTime endDate) {
     houses[currentHouse]!.riskAssessments.last.completed = completed;
     houses[currentHouse]!.riskAssessments.last.probability = probability;
     houses[currentHouse]!.riskAssessments.last.results = subProb;
+    houses[currentHouse]!.riskAssessments.last.subNodeProbabilities =
+        subNodeProbabilities;
     houses[currentHouse]!.riskAssessments.last.fiDate = endDate;
 
     notifyListeners();

@@ -63,14 +63,14 @@ class Gauge {
     );
   }
 
-  static Widget linearGaugeProb(
+  static Widget linearGaugeWithTitle(
       String title,
       double probability,
       double pointerSize,
       double thickness,
       double borderRadius,
       double? lastProbability) {
-    print('lastProbability: $lastProbability');
+    // print('lastProbability: $lastProbability');
     return Column(
       children: [
         Padding(
@@ -93,50 +93,9 @@ class Gauge {
             ],
           ),
         ),
+        linearGauge(
+            probability, pointerSize, thickness, borderRadius, lastProbability),
         const SizedBox(height: 10),
-        LinearGauge(
-          gaugeOrientation: GaugeOrientation.horizontal,
-          rulers: RulerStyle(
-            rulerPosition: RulerPosition.bottom,
-            showPrimaryRulers: false,
-            showSecondaryRulers: false,
-          ),
-          pointers: [
-            Pointer(
-              height: pointerSize,
-              width: pointerSize,
-              isInteractive: false,
-              value: probability,
-              color: Utils.pointerColor(probability),
-              shape: PointerShape.circle,
-              pointerPosition: PointerPosition.center,
-              animationType: Easing.legacyDecelerate,
-            )
-          ],
-          customLabels: const [
-            CustomRulerLabel(text: '0', value: 0),
-            CustomRulerLabel(text: '25', value: 25),
-            CustomRulerLabel(text: '50', value: 50),
-            CustomRulerLabel(text: '75', value: 75),
-            CustomRulerLabel(text: '100', value: 100),
-          ],
-          valueBar: [
-            ValueBar(
-              linearGradient: Utils.linearGradientProb(probability),
-              value: probability,
-              valueBarThickness: thickness,
-              borderRadius: borderRadius,
-              edgeStyle: LinearEdgeStyle.bothCurve,
-              enableAnimation: true,
-              animationType: Easing.legacyDecelerate,
-            ),
-          ],
-          linearGaugeBoxDecoration: LinearGaugeBoxDecoration(
-              thickness: thickness,
-              borderRadius: borderRadius,
-              backgroundColor: const Color.fromARGB(255, 232, 235, 244),
-              edgeStyle: LinearEdgeStyle.bothCurve),
-        ),
       ],
     );
   }
@@ -157,5 +116,52 @@ class Gauge {
         size: 25,
       );
     }
+  }
+
+  static Widget linearGauge(double probability, double pointerSize,
+      double thickness, double borderRadius, double? lastProbability) {
+    return LinearGauge(
+      gaugeOrientation: GaugeOrientation.horizontal,
+      rulers: RulerStyle(
+        rulerPosition: RulerPosition.bottom,
+        showPrimaryRulers: false,
+        showSecondaryRulers: false,
+      ),
+      pointers: [
+        Pointer(
+          height: pointerSize,
+          width: pointerSize,
+          isInteractive: false,
+          value: probability,
+          color: Utils.pointerColor(probability),
+          shape: PointerShape.circle,
+          pointerPosition: PointerPosition.center,
+          animationType: Easing.legacyDecelerate,
+        )
+      ],
+      customLabels: const [
+        CustomRulerLabel(text: '0', value: 0),
+        CustomRulerLabel(text: '25', value: 25),
+        CustomRulerLabel(text: '50', value: 50),
+        CustomRulerLabel(text: '75', value: 75),
+        CustomRulerLabel(text: '100', value: 100),
+      ],
+      valueBar: [
+        ValueBar(
+          linearGradient: Utils.linearGradientProb(probability),
+          value: probability,
+          valueBarThickness: thickness,
+          borderRadius: borderRadius,
+          edgeStyle: LinearEdgeStyle.bothCurve,
+          enableAnimation: true,
+          animationType: Easing.legacyDecelerate,
+        ),
+      ],
+      linearGaugeBoxDecoration: LinearGaugeBoxDecoration(
+          thickness: thickness,
+          borderRadius: borderRadius,
+          backgroundColor: const Color.fromARGB(255, 232, 235, 244),
+          edgeStyle: LinearEdgeStyle.bothCurve),
+    );
   }
 }

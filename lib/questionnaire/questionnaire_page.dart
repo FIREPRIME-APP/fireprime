@@ -1,6 +1,6 @@
 import 'package:fireprime/controller/house_controller.dart';
 import 'package:fireprime/controller/image_controller.dart';
-import 'package:fireprime/fault_tree/ifault_tree.dart';
+import 'package:fireprime/fault_tree/fault_tree.dart';
 import 'package:fireprime/model/questionnaire.dart';
 import 'package:fireprime/result/result_page.dart';
 import 'package:flutter/material.dart' hide Step;
@@ -25,10 +25,9 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
 
   @override
   Widget build(BuildContext context) {
-    print('environment: ${questionnaire.environment}');
+    // print('environment: ${questionnaire.environment}');
 
     FaultTree faultTree = FaultTree();
-    faultTree.loadFaultTree('assets/fault_tree_1.json');
 
     return Consumer<HouseController>(
       builder: (context, house, child) {
@@ -42,8 +41,8 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                 .answers;
           }
         }
-        print('answersFromController: $answers');
-        print('answersFromWidget: ${widget.answers}');
+        //  print('answersFromController: $answers');
+        //  print('answersFromWidget: ${widget.answers}');
         return Scaffold(
           body: Container(
             color: Colors.white,
@@ -59,14 +58,13 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                     final Task task = snapshot.data!;
                     return SurveyKit(
                       onResult: (SurveyResult result) {
-                        print('onResult');
+                        // print('onResult');
 
-                        print('afteradaptedResult');
+                        //print('afteradaptedResult');
                         Map<String, String?> results = {};
 
                         if (result.finishReason == FinishReason.COMPLETED) {
                           results = _adaptedResult(results, result);
-                          print('answers in completed: $results');
                           house.setAnswers(
                               result.startDate, '1.0', results, 'Completed');
                           faultTree.setSelectedOptions(results);
@@ -74,8 +72,18 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                               .calculateProbability(faultTree.topEvent);
                           Map<String, double> subProb =
                               faultTree.getProbabilities(faultTree.topEvent);
-                          house.setCompleted(
-                              true, probability, subProb, result.endDate);
+
+                          Map<String, Map<String, double>>
+                              subNodeProbabilities = {};
+
+                          for (var element in subProb.entries) {
+                            Map<String, double> probabilities =
+                                faultTree.getSubNodeProbabilities(element.key);
+                            subNodeProbabilities[element.key] = probabilities;
+                          }
+
+                          house.setCompleted(true, probability, subProb,
+                              subNodeProbabilities, result.endDate);
                           house.updateHouse();
                           Navigator.of(context).push(
                             MaterialPageRoute(

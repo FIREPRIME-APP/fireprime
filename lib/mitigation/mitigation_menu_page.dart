@@ -1,14 +1,29 @@
 import 'dart:convert';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:fireprime/fault_tree/fault_tree.dart';
 import 'package:fireprime/house/house_list_page.dart';
-import 'package:fireprime/mitigation/mitigation_page.dart';
+import 'package:fireprime/mitigation/mitigation_actions.dart';
+import 'package:fireprime/mitigation/mitigation_page.dart ';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class MitigationMenuPage extends StatefulWidget {
   final String mitigationId;
 
-  const MitigationMenuPage({super.key, required this.mitigationId});
+  final Map<String, String?> answers;
+  final Map<String, dynamic> improvementOptions;
+
+  final double selectedMitigationProb;
+  final double totalRisk;
+
+  const MitigationMenuPage({
+    super.key,
+    required this.mitigationId, //'glazing system'
+    required this.answers, // userSelected Answers
+    required this.improvementOptions, // possible improvements
+    required this.selectedMitigationProb, // probability mitigationId
+    required this.totalRisk,
+  }); // total risk
 
   @override
   State<MitigationMenuPage> createState() => _MitigationMenuPageState();
@@ -19,6 +34,10 @@ class _MitigationMenuPageState extends State<MitigationMenuPage> {
   Widget build(BuildContext context) {
     Locale currentLocale = Localizations.localeOf(context);
     String languageCode = currentLocale.languageCode;
+
+    print(widget.improvementOptions);
+
+    print(widget.selectedMitigationProb);
 
     return Scaffold(
       appBar: AppBar(
@@ -47,7 +66,137 @@ class _MitigationMenuPageState extends State<MitigationMenuPage> {
           )
         ],
       ),
-      body: FutureBuilder<Map<String, dynamic>>(
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            if (widget.improvementOptions.isNotEmpty) //
+              ...widget.improvementOptions.entries.map(
+                (entry) => entry.value['improvementOptions'].isNotEmpty
+                    ? Padding(
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 8.0, horizontal: 20.0),
+                        child: SizedBox(
+                          width: double.infinity,
+                          child: Card(
+                            child: GestureDetector(
+                              onTap: () {
+                                Navigator.of(context).push(
+                                  MaterialPageRoute(
+                                    builder: (BuildContext context) {
+                                      Node? mitigationNode = FaultTree()
+                                          .getNode(widget.mitigationId);
+
+                                      List<String> affectedQuestions = widget
+                                          .answers.keys
+                                          .where((answerKey) => entry
+                                              .value['selectedOptions']
+                                              .containsKey(
+                                                  widget.answers[answerKey]))
+                                          .toList();
+                                      print(
+                                          'afectedQuestions: $affectedQuestions');
+                                      return MitigationActions(
+                                        answers: widget.answers,
+                                        selectedProbability:
+                                            widget.selectedMitigationProb,
+                                        totalRisk: widget.totalRisk,
+                                        mitigationNode: mitigationNode,
+                                        improvementOptions:
+                                            entry.value['improvementOptions'],
+                                        affectedQuestions: affectedQuestions,
+                                      );
+                                    },
+                                  ),
+                                );
+                              },
+                              child: Padding(
+                                padding: const EdgeInsets.symmetric(
+                                    vertical: 16.0, horizontal: 15.0),
+                                child: Row(
+                                  children: [
+                                    Expanded(
+                                      child: Text(
+                                        context.tr(entry.key),
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .titleMedium!,
+                                      ),
+                                    ),
+                                    const Icon(Icons.arrow_right,
+                                        color: Color.fromARGB(255, 86, 97, 123),
+                                        size: 30),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      )
+                    : const SizedBox.shrink(),
+              ),
+            /*...widget.options!.entries.map(
+                  (entry) => ListTile(
+                    title: Text(entry.key),
+                    subtitle: Text(entry.value.toString()),
+                    onTap: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (BuildContext context) {
+                            Node? mitigationNode =
+                                FaultTree().getNode(widget.mitigationId);
+
+                            Map<String, double> basicEvents = FaultTree()
+                                .getBasicEvents(
+                                    FaultTree().topEvent, entry.key);
+
+                            List<String> affectedQuestions = widget.answers.keys
+                                .where((answerKey) => basicEvents
+                                    .containsKey(widget.answers[answerKey]))
+                                .toList();
+
+                            return MitigationActions(
+                              answers: widget.answers,
+                              affectedQuestions: affectedQuestions,
+                              basicEvents: basicEvents,
+                              selectedProbability:
+                                  widget.selectedMitigationProb,
+                              totalRisk: widget.totalRisk,
+                              mitigationNode: mitigationNode,
+                              options: widget.options,
+                            );
+                          },
+                        ),
+                      );
+                    },
+                  ),
+                )*/
+            //else
+            /* ListTile(
+              title: Text(widget.mitigationId.toString()),
+              subtitle: Text(widget.selectedMitigationProb.toString()),
+              onTap: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (BuildContext context) {
+                      return const MitigationActions(
+                        answers: {}, affectedQuestions: [],
+                        basicEvents: {},
+                        selectedProbability: 0.0,
+                        totalRisk: 0.0,
+                        mitigationNode: null,
+                        options: {},
+                        //answers: widget.answers[widget.mitigationId],
+                        //options: widget.options
+                      );
+                    },
+                  ),
+                );
+              },
+            ),*/
+          ],
+        ),
+      ),
+      /*FutureBuilder<Map<String, dynamic>>(
         future: _loadMitigations(languageCode),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
@@ -146,7 +295,7 @@ class _MitigationMenuPageState extends State<MitigationMenuPage> {
             ),
           );
         },
-      ),
+      ),*/
     );
   }
 
