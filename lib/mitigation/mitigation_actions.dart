@@ -152,7 +152,7 @@ class _MitigationActionsState extends State<MitigationActions> {
               SizedBox(
                 height: 10,
               ),
-              Text(context.tr('yourRisks'),
+              Text(context.tr('totalVulnerability'),
                   style: const TextStyle(
                       fontWeight: FontWeight.bold, fontSize: 18.0)),
               const SizedBox(

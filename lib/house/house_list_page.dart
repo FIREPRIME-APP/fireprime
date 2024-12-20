@@ -1,5 +1,6 @@
 import 'package:fireprime/about_page.dart';
 import 'package:fireprime/controller/house_controller.dart';
+import 'package:fireprime/device_service.dart';
 import 'package:fireprime/house/create_house_page.dart';
 import 'package:fireprime/house/house_page.dart';
 import 'package:fireprime/language/language_page.dart';
@@ -30,6 +31,9 @@ class _HouseListPageState extends State<HouseListPage> {
         } else if (snapshot.hasError) {
           return const Center(child: Text('Error'));
         } else {
+          WidgetsBinding.instance.addPostFrameCallback((_) async {
+            await saveDeviceData(context);
+          });
           return Consumer<HouseController>(
             builder: (context, house, child) {
               var houses = house.getHouses();

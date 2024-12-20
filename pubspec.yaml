@@ -48,6 +48,10 @@ dependencies:
   fl_chart: ^0.68.0
   url_launcher: ^6.3.0
   smooth_page_indicator: ^1.2.0+3
+  firebase_core: ^3.4.0
+  device_info_plus: ^10.1.2
+  crypto: ^3.0.3
+  cloud_firestore: ^5.4.0
 
 dev_dependencies:
   flutter_test:
