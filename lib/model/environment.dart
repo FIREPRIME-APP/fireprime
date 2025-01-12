@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:fireprime/customised_image.dart';
+import 'package:fireprime/model/customised_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:easy_localization/easy_localization.dart';

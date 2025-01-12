@@ -1,17 +1,16 @@
 import 'dart:convert';
 
+import 'package:fireprime/fault_tree/gates/and_gate.dart';
+import 'package:fireprime/fault_tree/events/basic_event.dart';
+import 'package:fireprime/fault_tree/gates/gate.dart';
+import 'package:fireprime/fault_tree/events/intermediate_event.dart';
+import 'package:fireprime/fault_tree/node.dart';
+import 'package:fireprime/fault_tree/gates/or_gate.dart';
+import 'package:fireprime/fault_tree/gates/xor_gate.dart';
+import 'package:fireprime/fault_tree/selectedOptions.dart';
+import 'package:fireprime/model/event_probability.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
-class SelectedOptions {
-  static final SelectedOptions _options = SelectedOptions._internal();
-  late Map<String, String?> selectedOptions;
-
-  factory SelectedOptions() {
-    return _options;
-  }
-
-  SelectedOptions._internal();
-}
 
 class FaultTree {
   static final FaultTree _instance = FaultTree._internal();
@@ -28,13 +27,13 @@ class FaultTree {
     String jsonString = await rootBundle.loadString('assets/fault_tree_1.json');
     final Map<String, dynamic> jsonMap = json.decode(jsonString);
     print('load-fault-tree');
-    topEvent = parseTree(jsonMap['fault_tree'][0]);
+    topEvent = _parseTree(jsonMap['fault_tree'][0]);
   }
 
-  Node parseTree(Map<String, dynamic> faultTree) {
+  Node _parseTree(Map<String, dynamic> faultTree) {
     if (faultTree['type'] == 'event') {
       if (faultTree.containsKey('gate')) {
-        Gate gate = parseTree(faultTree['gate'][0]) as Gate;
+        Gate gate = _parseTree(faultTree['gate'][0]) as Gate;
         return IntermediateEvent(faultTree['event_id'], gate);
       } else {
         return BasicEvent(faultTree['event_id'], faultTree['probability']);
@@ -43,7 +42,7 @@ class FaultTree {
       List<Node> inputEvents = [];
       if (faultTree.containsKey('input_events')) {
         inputEvents = (faultTree['input_events'] as List)
-            .map((event) => parseTree(event))
+            .map((event) => _parseTree(event))
             .toList();
       }
       if (faultTree['type'] == 'xor_gate') {
@@ -86,7 +85,7 @@ class FaultTree {
     return null;
   }
 
-  void traverseTree(Node node, int level) {
+  /*void traverseTree(Node node, int level) {
     String indent = ' ' * level * 2;
     if (node is BasicEvent) {
       print('${indent}Basic Event: ${node.id}, ${node.probability}');
@@ -99,9 +98,9 @@ class FaultTree {
         traverseTree(inputEvent, level + 1);
       }
     }
-  }
+  }*/
 
-  Map<String, double> getProbabilities(Node node) {
+  /*Map<String, double> getProbabilities(Node node) {
     Map<String, double> probabilities = {};
     if (node is IntermediateEvent) {
       for (int i = 0; i < node.gate.inputEvents.length; ++i) {
@@ -112,7 +111,7 @@ class FaultTree {
       }
     }
     return probabilities;
-  }
+  }*/
 
   Map<String, double> getBasicEvents(Node node, String id) {
     Map<String, double> basicEvents = {};
@@ -138,7 +137,7 @@ class FaultTree {
     return basicEvents;
   }
 
-  IntermediateEvent? findIntermediateEvent(Node node, String eventId) {
+  /*IntermediateEvent? findIntermediateEvent(Node node, String eventId) {
     if (node is IntermediateEvent && node.id == eventId) {
       return node;
     }
@@ -163,19 +162,69 @@ class FaultTree {
     // Devuelve null si no se encuentra el nodo
     return null;
   }
-
-  Map<String, double> getSubNodeProbabilities(String eventId) {
+*/
+  /*Map<String, double> getSubNodeProbabilities(String eventId) {
     IntermediateEvent? event = findIntermediateEvent(topEvent, eventId);
     if (event != null) {
       return getProbabilities(event);
     } else {
       return {};
     }
-  }
+  }*/
 
-  void printTree() {
-    traverseTree(topEvent, 0);
+  /*Map<String, double> getNodeProbabilitiesByLevel(
+      Node node, int level, Map<String, double> probabilities) {
+    if (level == 0) {
+      if (node is IntermediateEvent) {
+        probabilities[node.id] = node.probability;
+      }
+    } else {
+      if (node is Gate) {
+        for (var inputEvent in node.inputEvents) {
+          probabilities =
+              getNodeProbabilitiesByLevel(inputEvent, level - 1, probabilities);
+        }
+      } else if (node is IntermediateEvent) {
+        probabilities =
+            getNodeProbabilitiesByLevel(node.gate, level, probabilities);
+      }
+    }
+    return probabilities;
+  }*/
+/*
+  Map<String, Node> getSubNodes(Node node, Map<String, Node> subNodes) {
+    if (node is IntermediateEvent) {
+      for (int i = 0; i < node.gate.inputEvents.length; ++i) {
+        Node event = node.gate.inputEvents[i];
+        if (event is IntermediateEvent) {
+          subNodes[event.id] = event;
+        }
+      }
+    }
+    return subNodes;
+  }*/
+
+  /*int getDepth(Node node, int depth) {
+    if (node is BasicEvent) {
+      return depth;
+    } else if (node is IntermediateEvent) {
+      return getDepth(node.gate, depth + 1);
+    } else if (node is Gate) {
+      int maxDepth = 0;
+      for (var inputEvent in node.inputEvents) {
+        int currentDepth = getDepth(inputEvent, depth);
+        if (currentDepth > maxDepth) {
+          maxDepth = currentDepth;
+        }
+      }
+      return maxDepth;
+    }
+    return 0;
   }
+*/
+  /*void printTree() {
+    traverseTree(topEvent, 0);
+  }*/
 
   void setSelectedOptions(Map<String, String?> selectedOptions) {
     SelectedOptions().selectedOptions = selectedOptions;
@@ -184,110 +233,81 @@ class FaultTree {
   double calculateProbability(Node node) {
     return node.calculateProbability();
   }
-}
 
-abstract class Node {
-  String id;
-  Node(this.id);
-
-  double calculateProbability();
-}
-
-class BasicEvent extends Node {
-  double probability;
-  BasicEvent(super.id, this.probability);
-
-  @override
-  double calculateProbability() {
-    return probability;
-  }
-}
-
-class IntermediateEvent extends Node {
-  double probability = 0.0;
-  Gate gate;
-
-  IntermediateEvent(super.id, this.gate);
-
-  @override
-  double calculateProbability() {
-    probability = gate.calculateProbability();
-    return probability;
-  }
-}
-
-class Gate extends Node {
-  List<Node> inputEvents;
-  String gateType = 'gate';
-  Gate(super.id, this.inputEvents);
-
-  @override
-  double calculateProbability() {
-    return 0.0;
-  }
-}
-
-class AndGate extends Gate {
-  AndGate(super.id, super.inputEvents) {
-    super.gateType = 'and_gate';
-  }
-
-  @override
-  double calculateProbability() {
-    double probability = 1.0;
-    for (var event in inputEvents) {
-      probability *= event.calculateProbability();
-    }
-    print("$id: $probability");
-    return probability;
-  }
-}
-
-class XorGate extends Gate {
-  XorGate(super.id, super.inputEvents) {
-    super.gateType = 'xor_gate';
-  }
-
-  @override
-  double calculateProbability() {
-    Map<String, String?> selectedOptions = SelectedOptions().selectedOptions;
-    double probability = 0.0;
-    for (var event in inputEvents) {
-      if (selectedOptions.containsValue(event.id)) {
-        probability = event.calculateProbability();
-        break;
-      }
-    }
-    print("$id: $probability");
-    return probability;
-  }
-}
-
-class OrGate extends Gate {
-  List<Node> selectedInputs = [];
-
-  OrGate(super.id, super.inputEvents) {
-    super.gateType = 'or_gate';
-  }
-
-  @override
-  double calculateProbability() {
-    selectedInputs = [];
-    if (inputEvents[0] is BasicEvent) {
-      Map<String, String?> selectedOptions = SelectedOptions().selectedOptions;
-      for (var event in inputEvents) {
-        if (selectedOptions.containsValue(event.id)) {
-          selectedInputs.add(event);
-        }
-      }
+  double getProbability(Node node) {
+    if (node is IntermediateEvent) {
+      return node.probability;
     } else {
-      selectedInputs = inputEvents;
+      return 0.0;
     }
-    double probability = 1.0;
-    for (var event in selectedInputs) {
-      probability *= (1 - event.calculateProbability());
+  }
+
+  Map<String, EventProbability> getAllNodePorbabilities(
+      Node node, Map<String, EventProbability> allProbabilities) {
+    if (node is BasicEvent) {
+      allProbabilities[node.id] =
+          EventProbability(node.id, node.getProbability(), null);
+    } else if (node is IntermediateEvent) {
+      Map<String, EventProbability> subEvents = {};
+
+      for (var event in node.gate.inputEvents) {
+        subEvents = getAllNodePorbabilities(event, subEvents);
+      }
+      allProbabilities[node.id] =
+          EventProbability(node.id, node.getProbability(), subEvents);
     }
-    print("$id: ${1 - probability}");
-    return probability = 1 - probability;
+    return allProbabilities;
+  }
+}
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  Map<String, String?> selectedOptions = {
+    "bece70fd-793f-40b7-98c0-7c2fdff51731": "instruction",
+    "Q1": "0comb",
+    "Q3": "roofFireRated",
+    "Q4-2": "roofWellMaintained-2",
+    "Q5": "doublePane",
+    "Q6": "aluminiumShutters",
+    "Q7": "noVents",
+    "Q8": "yesSemiConf",
+    "Q9": "glazingSystems",
+    "Q10": "nonCombThick",
+    "Q11-2": "5farFromGlazing",
+    "Q12": "farFromRoof",
+    "Q14": "discontSurf",
+    "Q15": "noLPG",
+    "Q16": "spacingMore5",
+    "Q17": "placedIn20",
+    "Q18": "vegIn30",
+    "Q19": "highFlam",
+    "Q20": "contVeg",
+    "Q21": "lowSurfaceMore10",
+    "Q22": "deadVeg",
+    "Q23": "noPurning",
+    "Q24": "chainLink",
+    "completionStep": "completion"
+  };
+
+  FaultTree faultTree = FaultTree();
+  await faultTree.loadFaultTree('assets/fault_tree_1.json');
+  faultTree.setSelectedOptions(selectedOptions);
+
+  print(faultTree.calculateProbability(faultTree.topEvent));
+
+  print('-----------------');
+  var allProbabilities =
+      faultTree.getAllNodePorbabilities(faultTree.topEvent, {});
+  printProbabilities(allProbabilities);
+}
+
+void printProbabilities(Map<String, EventProbability> probabilities) {
+  for (var key in probabilities.keys) {
+    EventProbability event = probabilities[key]!;
+    print('${event.eventId}: ${event.probability}');
+    if (event.subEvents != null) {
+      printProbabilities(event.subEvents!);
+    }
   }
 }

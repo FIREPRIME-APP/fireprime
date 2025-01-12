@@ -1,56 +1,56 @@
 {
-    "roof-1": [
+    "Q3": [
         {
-            "path": "assets/images/spain/roof-1.1.jpg",
-            "description": "spain-tiles-1"
+            "path": "assets/images/spain/Q3.1.jpg",
+            "description": "spain-Q3_1"
         },
         {
-            "path": "assets/images/spain/roof-1.2.jpg",
-            "description": "spain-tiles-2"
+            "path": "assets/images/spain/Q3.2.jpg",
+            "description": "spain-Q3_2"
         }
     ],
-    "roof-2": [
+    "Q4": [
         {
-            "path": "assets/images/spain/roof-2.1.jpg",
-            "description": "spain-debris-1"
+            "path": "assets/images/spain/Q4.1.jpg",
+            "description": "spain-Q4_1"
         },
         {
-            "path": "assets/images/spain/roof-2.2.jpg",
-            "description": "spain-debris-2"
+            "path": "assets/images/spain/Q4.2.jpg",
+            "description": "spain-Q4_2"
         }
     ],
-    "glazing-1": [
+    "Q5": [
         {
-            "path": "assets/images/spain/glazing-1.jpg",
-            "description": "spain-pane"
+            "path": "assets/images/spain/Q5.jpg",
+            "description": "spain-Q5"
         }
     ],
-    "glazing-2": [
+    "Q6": [
         {
-            "path": "assets/images/spain/glazing-2.1.jpg",
-            "description": "spain-shutter-1"
+            "path": "assets/images/spain/Q6.1.jpg",
+            "description": "spain-Q6_1"
         },
         {
-            "path": "assets/images/spain/glazing-2.2.jpg",
-            "description": "spain-shutter-2"
+            "path": "assets/images/spain/Q6.2.jpg",
+            "description": "spain-Q6_2"
         }
     ],
-    "vents-1": [
+    "Q7": [
         {
-            "path": "assets/images/spain/vents-1.jpg",
-            "description": "spain-kitchenVent"
+            "path": "assets/images/spain/Q7.jpg",
+            "description": "spain-Q7"
         }
     ],
-    "fuels-3": [
+    "Q13": [
         {
-            "path": "assets/images/spain/fuels-close-3.jpg",
-            "description": "spain-fuels-3"
+            "path": "assets/images/spain/Q13.jpg",
+            "description": "spain-Q13"
         }
     ],
-    "artFuels-1": [
+    "Q15": [
         {
-            "path": "assets/images/spain/art-fuels-1.jpg",
-            "description": "spain-artFuels-1"
+            "path": "assets/images/spain/Q15.jpg",
+            "description": "spain-Q15"
         }
     ]
 }

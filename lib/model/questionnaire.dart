@@ -9,15 +9,16 @@ class Questionnaire {
   String version = '1.0';
 
   List<Map<String, dynamic>> questions = [
-    /* {
-      'stepId': 'material-1',
-      'textChoices': ['100comb', 'more50comb', '50comb', 'less50comb', '0comb'],
+    {
+      'stepId': 'Q1',
+      'textChoices': ['100comb', 'more50comb', 'less50comb', '0comb'],
       'otherOption': false,
+      'type': 'singleChoice',
     },
     {
-      'stepId': 'material-2',
+      'stepId': 'Q2',
       'textChoices': [
-        'foundComb',
+        'height0',
         'height0to20',
         'height21to40',
         'height41to60',
@@ -26,55 +27,67 @@ class Questionnaire {
         'heightMore100'
       ],
       'otherOption': false,
-    },*/
-    {
+      'type': 'singleChoice',
+    },
+    /*{
       'stepId': 'material-1',
       'textChoices': ['timber', 'vinylSiding', 'concreteBricks'],
       'otherOption': true,
-    },
+    },*/
     {
-      'stepId': 'roof-1',
+      'stepId': 'Q3',
       'textChoices': ['roofFireRated', 'roofNonFireRated'],
       'otherOption': false,
+      'type': 'singleChoice',
     },
     {
-      'stepId': 'roof-2',
-      'textChoices': ['roofPoorlyMaintaned', 'roofWellMaintained'],
+      'stepId': 'Q4-1',
+      'textChoices': ['roofPoorlyMaintaned-1', 'roofWellMaintained-1'],
       'otherOption': false,
+      'type': 'singleChoice',
     },
     {
-      'stepId': 'glazing-1',
+      'stepId': 'Q4-2',
+      'textChoices': ['roofPoorlyMaintaned-2', 'roofWellMaintained-2'],
+      'otherOption': false,
+      'type': 'singleChoice',
+    },
+    {
+      'stepId': 'Q5',
       'textChoices': ['singlePane', 'doublePane', 'tempered'],
       'otherOption': false,
+      'type': 'singleChoice',
     },
     {
-      'stepId': 'glazing-2',
+      'stepId': 'Q6',
       'textChoices': [
-        'notAllProtected',
-        'wood',
-        'aluminium',
-        'pvc',
-        'fireRated'
+        'noShutters',
+        'pvcShutters',
+        'woodShutters',
+        'aluminiumShutters',
+        'fireRatedShutters'
       ],
-      'otherOption': false
-    },
-    {
-      'stepId': 'vents-1',
-      'textChoices': ['noVentProtection', 'allProtected', 'noVents'],
-      'otherOption': false
+      'otherOption': false,
+      'type': 'singleChoice',
     },
     /* {
-      'stepId': 'vents-1',
+      'stepId': 'Q7',
+      'textChoices': ['noVentProtection', 'allProtected', 'noVents'],
+      'otherOption': false
+    },*/
+    {
+      'stepId': 'Q7',
       'textChoices': [
         'noVents',
         'noVentProtection',
         'ventCombProtection',
-        'ventNonCombBadCond',
-        'ventNonCombGoodCond'
+        'nonCombBadCond',
+        'nonCombGoodCond'
       ],
-      'otherOption': false
-    },*/
-    {
+      'otherOption': false,
+      'type': 'singleChoice',
+    },
+    /* {
       'stepId': 'vents-2',
       'textChoices': [
         'combustibleProtection',
@@ -82,105 +95,115 @@ class Questionnaire {
         'nonCombGoodCond'
       ],
       'otherOption': false
-    },
+    },*/
     {
-      'stepId': 'semiConf-1',
+      'stepId': 'Q8',
       'textChoices': ['yesSemiConf', 'noSemiConf'],
       'otherOption': false,
+      'type': 'singleChoice',
     },
     {
-      'stepId': 'semiConf-2',
+      'stepId': 'Q9',
       'textChoices': ['glazingSystems', 'noGlazingSystems'],
-      'otherOption': false
+      'otherOption': false,
+      'type': 'singleChoice',
     },
     {
-      'stepId': 'semiConf-3',
+      'stepId': 'Q10',
       'textChoices': ['combustibleEnvelope', 'nonCombThin', 'nonCombThick'],
-      'otherOption': false
-    },
-    /* {
-      'stepId': 'fuels-1a',
-      'textChoices': ['7closeToGlazing', '7farFromGlazing'],
-      'otherOption': false
+      'otherOption': false,
+      'type': 'singleChoice',
     },
     {
-      'stepId': 'fuels-1b',
-      'textChoices': ['5closeToGlazing', '5farFromGlazing'],
-      'otherOption': false
+      'stepId': 'Q11-1',
+      'textChoices': ['7farFromGlazing', '7closeToGlazing'],
+      'otherOption': false,
+      'type': 'singleChoice',
     },
     {
-      'stepId': 'fuels-2',
-      'textChoices': ['closeToRoof', 'farFromRoof'],
-      'otherOption': false
+      'stepId': 'Q11-2',
+      'textChoices': ['5farFromGlazing', '5closeToGlazing'],
+      'otherOption': false,
+      'type': 'singleChoice',
     },
     {
-      'stepId': 'fuels-3',
+      'stepId': 'Q12',
+      'textChoices': ['farFromRoof', 'closeToRoof'],
+      'otherOption': false,
+      'type': 'singleChoice',
+    },
+    {
+      'stepId': 'Q13',
       'textChoices': ['fuelsAgainstFacade', 'fuelsNotAgainstFacade'],
-      'otherOption': false
+      'otherOption': false,
+      'type': 'singleChoice',
     },
     {
-      'stepId': 'fuels-4',
+      'stepId': 'Q14',
       'textChoices': ['discontSurf', 'contSurf'],
-      'otherOption': false
+      'otherOption': false,
+      'type': 'singleChoice',
     },
     {
-      'stepId': 'artFuels-1',
-      'textChoices': ['closeToLPG', 'farFromLPG', 'noLPG'],
-      'otherOption': false
+      'stepId': 'Q15',
+      'textChoices': ['farFromLPG', 'closeToLPG', 'noLPG'],
+      'otherOption': false,
+      'type': 'singleChoice',
     },
     {
-      'stepId': 'artFuels-2',
-      'textChoices': ['spacingLess5', 'spacingMore5', 'noSpacing'],
-      'otherOption': false
+      'stepId': 'Q16',
+      'textChoices': ['spacingMore5', 'spacingLess5', 'noSpacing'],
+      'otherOption': false,
+      'type': 'singleChoice',
     },
     {
-      'stepId': 'artFuels-3',
-      'textChoices': ['placedIn20', 'placedFurther20', 'noPlacement'],
-      'otherOption': false
+      'stepId': 'Q17',
+      'textChoices': ['placedFurther20', 'placedIn20', 'noPlacement'],
+      'otherOption': false,
+      'type': 'singleChoice',
     },
     {
-      'stepId': 'vegetation-1',
+      'stepId': 'Q18',
       'textChoices': ['vegIn30', 'noVegIn30', 'noApplicableVegIn30'],
-      'otherOption': false
+      'otherOption': false,
+      'type': 'singleChoice',
     },
     {
-      'stepId': 'vegetation-2',
-      'textChoices': [
-        'closelyLeaves',
-        'highOils',
-        'looseBark',
-        'denseBranching',
-        'grass',
-        'noVeg'
-      ],
-      'otherOption': false
+      'stepId': 'Q19',
+      'textChoices': ['highFlam', 'mediumFlam', 'lowFlam', 'grass', 'noVeg'],
+      'otherOption': false,
+      'type': 'singleChoice',
     },
     {
-      'stepId': 'vegetation-3',
+      'stepId': 'Q20',
       'textChoices': ['discontVeg', 'contVeg', 'noApplicableDiscVeg'],
-      'otherOption': false
+      'otherOption': false,
+      'type': 'singleChoice',
     },
     {
-      'stepId': 'vegetation-4',
+      'stepId': 'Q21',
       'textChoices': [
         'lowSurfaceLess10',
         'lowSurfaceMore10',
         'noLowSurface',
       ],
-      'otherOption': false
+      'otherOption': false,
+      'type': 'singleChoice',
     },
     {
-      'stepId': 'vegetation-5',
+      'stepId': 'Q22',
       'textChoices': ['deadVeg', 'noDeadVeg'],
-      'otherOption': false
+      'otherOption': false,
+      'type': 'singleChoice',
     },
     {
-      'stepId': 'vegetation-6',
-      'textChoices': ['puring', 'noPuring', 'noApplicablePuring'],
-      'otherOption': false
+      'stepId': 'Q23',
+      'textChoices': ['purning', 'noPurning', 'noApplicablePurning'],
+      'otherOption': false,
+      'type': 'singleChoice',
     },
     {
-      'stepId': 'vegetation-7',
+      'stepId': 'Q24',
       'textChoices': [
         'woodenFence',
         'Hedgerow',
@@ -190,33 +213,49 @@ class Questionnaire {
         'concreteLess2',
         'noDelimitation'
       ],
-      'otherOption': false
-    },*/
+      'otherOption': false,
+      'type': 'multipleChoice',
+    },
   ];
 
   List<Map<String, dynamic>> navigations = [
+    {
+      'stepId': 'Q1',
+      'type': 'saveResult',
+      'conditions': {
+        '100comb': 'Q2',
+        'more50comb': 'Q2',
+        'less50comb': 'Q2',
+        '0comb': 'Q3',
+      },
+    },
+    {
+      'stepId': 'Q3',
+      'type': 'conditional',
+      'conditions': {
+        'roofFireRated': 'Q4-2',
+        'roofNonFireRated': 'Q4-1',
+      },
+    },
+    {
+      'stepId': 'Q4-1',
+      'type': 'conditional',
+      'conditions': {
+        'roofPoorlyMaintaned-1': 'Q5',
+        'roofWellMaintained-1': 'Q5',
+      },
+    },
     /*{
       'stepId': 'material-1',
       'type': 'saveResult',
-      'conditions': {
-        '100comb': 'material-2',
-        'more50comb': 'material-2',
-        '50comb': 'material-2',
-        'less50comb': 'roof-1',
-        '0comb': 'roof-1',
-      },
+      'nextStep': 'roof-1',
     },*/
     {
-      'stepId': 'material-1',
+      'stepId': 'Q5',
       'type': 'saveResult',
-      'nextStep': 'roof-1',
+      'nextStep': 'Q6',
     },
-    {
-      'stepId': 'glazing-1',
-      'type': 'saveResult',
-      'nextStep': 'glazing-2',
-    },
-    {
+    /*{
       'stepId': 'vents-1',
       'type': 'conditional',
       'conditions': {
@@ -224,22 +263,22 @@ class Questionnaire {
         'noVents': 'semiConf-1',
         'allProtected': 'vents-2',
       },
-    },
+    },*/
     {
-      'stepId': 'semiConf-1',
+      'stepId': 'Q8',
       'type': 'conditionalSavedResult',
       'conditions': {
-        'yesSemiConf': 'semiConf-2',
+        'yesSemiConf': 'Q9',
       },
       'savedResult': {
-        'id': 'glazing-1',
+        'id': 'Q5',
         'conditions': {
-          'singlePane': 'completionStep',
-          'doublePane': 'completionStep',
-          'tempered': 'completionStep',
+          'singlePane': 'Q11-1',
+          'doublePane': 'Q11-2',
+          'tempered': 'Q11-2',
         },
       }
-    }
+    },
     /* {
       'stepId': 'semiConf-1',
       'type': 'conditionalSavedResult',
@@ -255,34 +294,33 @@ class Questionnaire {
         },
       }
     },*/
-    /* {
-      'stepId': 'semiConf-3',
+    {
+      'stepId': 'Q10',
       'type': 'conditionalSavedResult',
       'conditions': {},
       'savedResult': {
-        'id': 'glazing-1',
+        'id': 'Q5',
         'conditions': {
-          'singlePane': 'fuels-1a',
-          'doublePane': 'fuels-1b',
-          'tempered': 'fuels-1b',
+          'singlePane': 'Q11-1',
+          'doublePane': 'Q11-2',
+          'tempered': 'Q11-2',
         },
       }
     },
     {
-      'stepId': 'fuels-2',
+      'stepId': 'Q12',
       'type': 'conditionalSavedResult',
       'conditions': {},
       'savedResult': {
-        'id': 'material-1',
+        'id': 'Q1',
         'conditions': {
-          '100comb': 'fuels-3',
-          'more50comb': 'fuels-3',
-          '50comb': 'fuels-3',
-          'less50comb': 'fuels-4',
-          '0comb': 'fuels-4',
+          '100comb': 'Q13',
+          'more50comb': 'Q13',
+          'less50comb': 'Q13',
+          '0comb': 'Q14',
         },
       }
-    },*/
+    },
   ];
 
   String environment = 'default';

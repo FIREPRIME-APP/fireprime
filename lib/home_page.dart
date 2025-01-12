@@ -1,7 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:fireprime/house/house_list_page.dart';
-import 'package:fireprime/language/language_page.dart';
-import 'package:fireprime/questionnaire/questionnaire_page.dart';
+import 'package:fireprime/pages/house/house_list_page.dart';
+import 'package:fireprime/pages/language/language_page.dart';
+import 'package:fireprime/pages/questionnaire/questionnaire_page.dart';
 import 'package:flutter/material.dart';
 
 class MyHomePage extends StatefulWidget {

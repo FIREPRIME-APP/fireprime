@@ -1,44 +1,44 @@
 {
-    "roof-1": [
+    "Q3": [
         {
-            "path": "assets/images/default/roof-1.jpg",
-            "description": "default-tiles"
+            "path": "assets/images/default/Q3.jpg",
+            "description": "default-Q3"
         }
     ],
-    "roof-2": [
+    "Q4": [
         {
-            "path": "assets/images/default/roof-2.jpg",
-            "description": "default-debris"
+            "path": "assets/images/default/Q4.jpg",
+            "description": "default-Q4"
         }
     ],
-    "glazing-1": [
+    "Q5": [
         {
-            "path": "assets/images/default/glazing-1.jpg",
-            "description": "default-pane"
+            "path": "assets/images/default/Q5.jpg",
+            "description": "default-Q5"
         }
     ],
-    "glazing-2": [
+    "Q6": [
         {
-            "path": "assets/images/default/glazing-2.jpg",
-            "description": "default-shutter"
+            "path": "assets/images/default/Q6.jpg",
+            "description": "default-Q6"
         }
     ],
-    "vents-1": [
+    "Q7": [
         {
-            "path": "assets/images/default/vents-1.jpg",
-            "description": "default-kitchenVent"
+            "path": "assets/images/default/Q7.jpg",
+            "description": "default-Q7"
         }
     ],
-    "fuels-3": [
+    "Q13": [
         {
-            "path": "assets/images/default/fuels-close-3.jpg",
-            "description": "default-fuels-3"
+            "path": "assets/images/default/Q13.jpg",
+            "description": "default-Q13"
         }
     ],
-    "artFuels-1": [
+    "Q15": [
         {
-            "path": "assets/images/default/art-fuels-1.jpg",
-            "description": "default-artFuels-1"
+            "path": "assets/images/default/Q15.jpg",
+            "description": "default-Q15"
         }
     ]
 }

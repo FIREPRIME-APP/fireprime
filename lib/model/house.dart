@@ -1,4 +1,3 @@
-import 'package:fireprime/model/risk_assessment.dart';
 import 'package:hive/hive.dart';
 
 part 'house.g.dart';
@@ -12,8 +11,10 @@ class House {
   @HiveField(2)
   String environment;
 
-  @HiveField(3)
-  List<RiskAssessment> riskAssessments = [];
+  // @HiveField(3)
+  // List<RiskAssessment> riskAssessments = [];
 
+  @HiveField(3)
+  List<String> riskAssessmentIds = [];
   House(this.name, this.address, this.environment);
 }

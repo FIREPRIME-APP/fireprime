@@ -1,13 +1,16 @@
+import 'package:fireprime/model/event_probability.dart';
 import 'package:hive/hive.dart';
 
 part 'risk_assessment.g.dart';
 
 @HiveType(typeId: 1)
 class RiskAssessment {
+  // @HiveField(0)
+  String id = '';
   @HiveField(0)
   DateTime iniDate;
   @HiveField(1)
-  String version;
+  String version; //innecessario TODO
   @HiveField(2)
   Map<String, String?> answers;
 
@@ -19,9 +22,16 @@ class RiskAssessment {
   @HiveField(5)
   late double probability = -1;
   @HiveField(6)
-  late Map<String, double> results = {};
+  late Map<String, double> results = {}; //innecesario TODO
   @HiveField(7)
-  late Map<String, Map<String, double>> subNodeProbabilities = {};
+  late Map<String, Map<String, double>> subNodeProbabilities =
+      {}; //innecesario TODO
+  @HiveField(8)
+  late Map<String, EventProbability>? allProbabilities = {};
 
   RiskAssessment(this.iniDate, this.version, this.answers);
+
+  void setId(String id) {
+    this.id = id;
+  }
 }

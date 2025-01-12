@@ -43,7 +43,7 @@ class Utils {
     return Colors.red;
   }
 
-  static Widget cardText(String title, String text, double size) {
+  /*static Widget cardText(String title, String text, double size) {
     return RichText(
       text: TextSpan(
           style: TextStyle(
@@ -57,7 +57,7 @@ class Utils {
           ]),
     );
   }
-
+*/
   static SnackBar snackBar(String text) {
     return SnackBar(
       backgroundColor: const Color.fromARGB(255, 242, 246, 255),

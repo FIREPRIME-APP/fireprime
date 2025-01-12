@@ -1,40 +1,38 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'house.dart';
+part of 'event_probability.dart';
 
 // **************************************************************************
 // TypeAdapterGenerator
 // **************************************************************************
 
-class HouseAdapter extends TypeAdapter<House> {
+class EventProbabilityAdapter extends TypeAdapter<EventProbability> {
   @override
-  final int typeId = 0;
+  final int typeId = 2;
 
   @override
-  House read(BinaryReader reader) {
+  EventProbability read(BinaryReader reader) {
     final numOfFields = reader.readByte();
     final fields = <int, dynamic>{
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
-    return House(
+    return EventProbability(
       fields[0] as String,
-      fields[1] as String,
-      fields[2] as String,
-    )..riskAssessmentIds = (fields[3] as List).cast<String>();
+      fields[1] as double,
+      (fields[2] as Map?)?.cast<String, EventProbability>(),
+    );
   }
 
   @override
-  void write(BinaryWriter writer, House obj) {
+  void write(BinaryWriter writer, EventProbability obj) {
     writer
-      ..writeByte(4)
-      ..writeByte(0)
-      ..write(obj.name)
-      ..writeByte(1)
-      ..write(obj.address)
-      ..writeByte(2)
-      ..write(obj.environment)
       ..writeByte(3)
-      ..write(obj.riskAssessmentIds);
+      ..writeByte(0)
+      ..write(obj.eventId)
+      ..writeByte(1)
+      ..write(obj.probability)
+      ..writeByte(2)
+      ..write(obj.subEvents);
   }
 
   @override
@@ -43,7 +41,7 @@ class HouseAdapter extends TypeAdapter<House> {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is HouseAdapter &&
+      other is EventProbabilityAdapter &&
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }

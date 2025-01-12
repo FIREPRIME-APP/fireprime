@@ -1,24 +1,27 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:firebase_app_check/firebase_app_check.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:fireprime/controller/environment_controller.dart';
-import 'package:fireprime/controller/house_controller.dart';
-import 'package:fireprime/controller/image_controller.dart';
+import 'package:fireprime/model/event_probability.dart';
+import 'package:fireprime/providers/environment_provider.dart';
+import 'package:fireprime/providers/house_provider.dart';
+import 'package:fireprime/providers/images_provider.dart';
 import 'package:fireprime/fault_tree/fault_tree.dart';
-import 'package:fireprime/house/house_list_page.dart';
+import 'package:fireprime/pages/house/house_list_page.dart';
 import 'package:fireprime/model/house.dart';
 import 'package:fireprime/model/risk_assessment.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart' hide Step;
 import 'package:hive/hive.dart';
 import 'package:provider/provider.dart';
-import 'package:fireprime/controller/language_change_controller.dart';
-import 'firebase_options.dart';
+import 'package:fireprime/providers/language_change_controller.dart';
+import 'firebase/firebase_options.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
   Hive.registerAdapter(HouseAdapter());
   Hive.registerAdapter(RiskAssessmentAdapter());
+  Hive.registerAdapter(EventProbabilityAdapter());
   try {
     await Firebase.initializeApp(
       options: DefaultFirebaseOptions.currentPlatform,
@@ -26,8 +29,18 @@ void main() async {
   } catch (e) {
     print('Error initializing Firebase: $e');
   }
+  await FirebaseAppCheck.instance.activate(
+    //androidProvider: AndroidProvider.playIntegrity,
+    //appleProvider: AppleProvider.deviceCheck,
+    androidProvider: AndroidProvider.debug,
+  );
 
-  //await saveDeviceData();
+  try {
+    String? appCheckToken = await FirebaseAppCheck.instance.getToken();
+    print("App Check Token: $appCheckToken");
+  } catch (e) {
+    print("Error App Check: $e");
+  }
 
   runApp(
     EasyLocalization(
@@ -59,19 +72,19 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(
           create: (_) =>
-              LanguageChangeController(selectedIndex: 0, context: context),
+              LanguageChangeProvider(selectedIndex: 0, context: context),
         ),
         ChangeNotifierProvider(
-          create: (_) => EnvironmentController(),
+          create: (_) => EnvironmentProvider(),
         ),
         ChangeNotifierProvider(
-          create: (_) => HouseController(),
+          create: (_) => HouseProvider(),
         ),
         ChangeNotifierProvider(
-          create: (_) => ImageController(),
+          create: (_) => ImagesProvider(),
         ),
       ],
-      child: Consumer<LanguageChangeController>(
+      child: Consumer<LanguageChangeProvider>(
         builder: (context, provider, child) {
           return MaterialApp(
             debugShowCheckedModeBanner: false,

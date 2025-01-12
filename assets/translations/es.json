@@ -5,6 +5,11 @@
     "german": "Alemán",
     "swedish": "Sueco",
     "home": "FirePrime",
+
+    "privacy_title": "Privacidad de datos",
+    "privacy_text": "La información proporcionada por el usuario se almacena localmente en el dispositivo y no se comparte con terceros. El usuario puede eliminar los datos en cualquier momento eliminando la aplicación. Solo se registran las interacciones con la aplicación de forma anónima.",
+    "agreed": "Entendido",
+
     "questionnaire": "Cuestionario",
     "preferedLang": "Idioma preferido",
     "startFill": "Compruebe la vulnerabilidad de su casa respondiendo a unas preguntas",
@@ -14,10 +19,14 @@
     "checkVuln": "¡Comprueba tu vulnerabilidad!",
     "done": "¡Hecho!",
     "check": "Comprobar",
+
     "addHouse": "Añadir casa",
     "fillInfo": "Rellena la información de la casa",
     "address": "Dirección",
     "country": "País",
+    
+    "more_info": "Más información",
+
     "lastResult": "Última avaluación",
     "risk": "Vulnerabilidad",
     "noResult": "No hay resultados",
@@ -27,8 +36,12 @@
     "fill": "Comprobar",
     "continueQuestionnaire": "Continua el cuestionario para comprobar la vulnerabilidad de tu casa",
     "continue": "Continuar",
+    "max_multiple_choices": "Puedes seleccionar como máximo hasta",
+    "options": "opciones",
+
     "resultsHistory": "Consulta tu historial de resultados",
     "myResults": "Resultados",
+
     
 
     "edit": "Editar casa",
@@ -76,15 +89,40 @@
     "glazing_failure": "Fallo de vidrio",
     "shutter_failure": "Fallo de persiana",
     "roof_material": "Material del techo",
-    "roof_maintenance": "Mantenimiento del techo",
+    "roof_maintenance-1": "Mantenimiento del techo",
+    "roof_maintenance-2": "Mantenimiento del techo",
 
+    "fire_reaches_building": "El fuego cerca del edificio",
+
+    "fuels_close_to_building": "Combustibles cerca del edificio",
+    "fuels_glazing_systems": "Combustibles frente a sistemas de vidrio",
+    "fuels_roof": "Combustibles frente al tejado",
+    "fuels_combustible_facade": "Combustibles almacenados contra fachada combustible",
+    "surface_fuels": "Combustibles superficiales",
+
+
+    "artificial_fuels": "Combustibles artificiales",
+    "fuelsLPG": "Combustibles frente al depósito de GLP",
+    "space_art_fuels": "Espaciado entre combustibles artificiales",
+    "fuel_close_to_trees": "Combustibles cerca de árboles",
+
+    "vegetation": "Vegetación",
+    "wildland_vegetation": "Vegetación silvestre",
+    "vegetation_type": "Tipo de vegetación",
+    "vegetation_continuity": "Continuidad de la vegetación",
+    "surface_fuel_depth": "Profundidad del combustible superficial",
+    "dead_vegetation": "Vegetación muerta",
+    "tree_pruning": "Poda de árboles",
+
+    "property_perimeter": "Perímetro de la propiedad",
+    "details": "Detalles",
 
     "improve": "Mejóralo",
     "mitigations_actions": "Acciones de mejora",
     "no_mitigations": "No hay acciones de mejora disponibles",
 
 
-    "selectedOption": "La opción seleccionada és: ",
+    "selectedOption": "La opción que habías seleccionado és: ",
     "actualSituation": "SITUACIÓN ACTUAL",
     "applyImprovement": "APLICACIÓN DE MEJORAS",
     "improveOptions": "Mejora la vulnerabilitat escogiendo una de las siguientes opciones: ",
@@ -154,21 +192,49 @@
         "concreteBricks": "Hormigón o ladrillos",
         "other": "Otros"
     },
-    "roof-1": {
+    "Q1": {
+        "title": "Exterior envolvente",
+        "question": "¿Qué porcentaje del envolvente exterior del edificio (es decir, paredes externas, balcones - excluyendo las persianas) está hecho de materiales combustibles?",
+        "description": "Los elementos de fachada combustibles, hechos de materiales como madera o vinilo, son vulnerables a todos los tipos de ignición por incendios forestales. Los materiales no combustibles, como ladrillos y hormigón, resisten mucho mejor el fuego.",
+        "100comb": "100% combustible",
+        "more50comb": "Más o igual del 50% combustible ",
+        "less50comb": "Menos del 50% combustible",
+        "0comb": "0% combustible"
+    },
+    "Q2": {
+        "title": "Exterior envolvente",
+        "question": "¿Existe una cimentación no combustible?",
+        "description": "",
+        "height0": "No, la cimentación también es combustible",
+        "height0to20": "Sí, con una altura entre 0 y 20 cm",
+        "height21to40": "Sí, con una altura entre 21 y 40 cm",
+        "height41to60": "Sí, con una altura entre 41 y 60 cm",
+        "height61to80": "Sí, con una altura entre 61 y 80 cm",
+        "height81to100": "Sí, con una altura entre 81 cm y 1 m",
+        "heightMore100": "Sí, con una altura de más de 1 m"
+    },
+    "Q3": {
         "title": "Cubierta",
         "question": "¿Su cubierta o conjunto de cubierta están hechos de materiales resistentes al fuego (por ejemplo, tejas de arcilla, tejas de hormigón, tejas de asfalto con composición de fibra de vidrio, pizarra, etc.)?",
         "description": "Cuando la cubierta del techo presenta huecos, la estructura que se encuentra debajo queda expuesta al fuego. El fuego también puede entrar a través de espacios no sellados entre el techo y las paredes externas. La limpieza de escombros del techo y las canaletas es clave para evitar la ignición de combustibles que puedan acumularse (por ejemplo, agujas de pino secas).",
         "roofFireRated": "Sí",
         "roofNonFireRated": "No"
     },
-    "roof-2": {
+    "Q4-1": {
         "title": "Cubierta",
         "question": "¿Tu tejado presenta alguno de los siguientes problemas? \n- Tejas rotas o faltantes \n- Láminas expuestas \n- Espacios sin sellar entre la cubierta y las paredes externas \n- La limpieza de los residuos que se acumulan en el techo o canelones no se realiza regularmente",
         "description": "Cuando la cubierta presenta huecos, la estructura interior queda expuesta al fuego. El fuego también puede entrar a través de espacios no sellados entre el techo y las paredes externas. La limpieza de escombros del techo y los canelones es clave para evitar la ignición de combustibles que pueden acumularse (por ejemplo, agujas de pino secas).",
-        "roofPoorlyMaintaned": "Sí",
-        "roofWellMaintained": "No"
+        "roofPoorlyMaintaned-1": "Sí",
+        "roofWellMaintained-1": "No"
     },
-    "glazing-1": {
+    "Q4-2": {
+        "title": "Cubierta",
+        "question": "¿Tu tejado presenta alguno de los siguientes problemas? \n- Tejas rotas o faltantes \n- Láminas expuestas \n- Espacios sin sellar entre la cubierta y las paredes externas \n- La limpieza de los residuos que se acumulan en el techo o canelones no se realiza regularmente",
+        "description": "Cuando la cubierta presenta huecos, la estructura interior queda expuesta al fuego. El fuego también puede entrar a través de espacios no sellados entre el techo y las paredes externas. La limpieza de escombros del techo y los canelones es clave para evitar la ignición de combustibles que pueden acumularse (por ejemplo, agujas de pino secas).",
+        "roofPoorlyMaintaned-2": "Sí",
+        "roofWellMaintained-2": "No"
+    },
+    "Q5": {
         "title": "Vidiros",
         "question": "¿Qué tipo de vidrio tienen las ventanas y puertas de vidrio?",
         "description": "Las ventanas y las puertas de vidrio son a menudo uno de los elementos más expuestos al fuego. Los sistemas de vidrio roto son puntos de entrada para las brasas y el calor, lo que puede provocar la ignición de combustibles dentro de la casa. Los sistemas de vidrio simple resisten menos al fuego y al calor comparados con los sistemas de vidrio doble o múltiple, o con el vidrio templado. Si el edificio tiene más de un tipo de sistema de vidrio, selecciona la opción más representativa.",
@@ -176,23 +242,25 @@
         "doublePane": "Vidrio doble o múltiple",
         "tempered": "Vidrio templado"
     },
-    "glazing-2": {
+    "Q6": {
         "title": "Vidrios",
         "question": "¿Todos los sistemas de vidrio están protegidos con persianas? Si es así, ¿de qué material están hechas las persianas?",
         "description": "Si las ventanas están protegidas con persianas, el calor recibido por el vidrio se reduce, aumentando las posibilidades de que el vidrio no se rompa. Las persianas de madera y PVC son combustibles y podrían encenderse o derretirse (en el caso del PVC). Las persianas de aluminio y con clasificación de resistencia al fuego (por ejemplo, de acero) han demostrado resistir bien la exposición al fuego forestal. Para bloquear el calor proveniente del fuego, las persianas y las láminas deben estar completamente cerradas.",
-        "notAllProtected": "No todos los sistemas de vidrio están protegidos con persianas",
-        "wood": "Madera",
-        "pvc": "PVC",
-        "aluminium": "Aluminio",
-        "fireRated": "Materiales resistentes al fuego"
+        "noShutters": "No todos los sistemas de vidrio están protegidos con persianas",
+        "woodShutters": "Madera",
+        "pvcShutters": "PVC",
+        "aluminiumShutters": "Aluminio",
+        "fireRatedShutters": "Materiales resistentes al fuego"
     },
-    "vents-1": {
+    "Q7": {
         "title": "Ventilación",
-        "question": "¿Tiene aberturas de ventilación sin protección (es decir, rejillas de ventilación sin ningún tipo de protección)?",
-        "description": "Las aberturas de ventilación son posibles puntos de entrada de tizones que podrían incendiar el edificio desde el interior. Los tipos de ventilación más habituales que se encuentran en las casas son las aberturas del tejado para la ventilación del ático (por ejemplo, tejas de ventilación, respiraderos para cerrar las cumbreras), las chimeneas y las aberturas para la ventilación de las cocinas.",
-        "noVentProtection": "Sí",
-        "allProtected": "No, todas están protegidas",
-        "noVents": "No hay aberturas de ventilación"
+        "question": "¿Tiene aberturas de ventilación sin protección (es decir, ventilaciones sin ningún tipo de rejilla)?",
+        "description": "Las aberturas de ventilación son posibles puntos de entrada para brasas que podrían incendiar el edificio desde el interior. Los tipos típicos de respiraderos que se encuentran en las casas son las aberturas en los techos para la ventilación del ático (por ejemplo, tejas de ventilación, respiraderos en la cumbrera), chimeneas y aberturas para la ventilación de cocinas.",
+        "noVents": "No hay ventaliciones",
+        "noVentProtection": "No hay protección en los ventilaciones",
+        "ventCombProtection": "La protección es combustible",
+        "nonCombGoodCond": "La protección no es combustible y está en buenas condiciones (sin daños)",
+        "nonCombBadCond": "La protección no es combustible, pero está oxidada o dañada"
     },
     "vents-2": {
         "title": "Ventilación",
@@ -202,21 +270,21 @@
         "nonCombGoodCond": "No combustible en buenas condiciones (sin daños)",
         "nonCombBadCond": "No combustible en mal estado (oxidado o dañado)"
     },
-    "semiConf-1": {
+    "Q8": {
         "title": "Espacio semi-confinado",
         "question": "¿Hay un espacio semi-confinado adyacente a tu casa (es decir, que comparte al menos una pared con la casa) que contenga materiales combustibles?",
         "description": "Los espacios semi-confinados son áreas parcialmente abiertas, como las situadas bajo terrazas, porches, tarimas, aleros o marquesinas, o espacios cerrados en cobertizos abiertos. La presencia de materiales combustibles en estos espacios supone una gran acumulación de calor, y si estos materiales se encienden, puede provocar daños estructurales en el envolvente del espacio semi-confinado.",
         "yesSemiConf": "Sí",
         "noSemiConf": "No"
     },
-    "semiConf-2": {
+    "Q9": {
         "title": "Espacio semi-confinado",
         "question": "¿Hay algún sistema de vidrio no protegido (es decir, sin persianas) (por ejemplo, puertas de vidrio o ventanas) que conecte el espacio semi-confinado con el interior del edificio?",
         "description": "Los sistemas de vidrio no protegidos son un elemento muy débil en cuanto a la resistencia al fuego. Si los elementos dentro del espacio semi-confinado se encienden, el vidrio podría romperse y permitir la entrada del fuego en el edificio.",
         "glazingSystems": "Sí",
         "noGlazingSystems": "No"
     },
-    "semiConf-3": {
+    "Q10": {
         "title": "Espacio semi-confinado",
         "question": "¿De qué materiales están hechas las paredes del espacio semi-confinado?",
         "description": "Los materiales combustibles del espacio semi-confinado son los más vulnerables al fuego, ya que se pueden encender y provocar la propagación del fuego por el envolvente y hacia el interior del edificio. Los materiales no combustibles, como el aluminio o el acero, son más resistentes, pero aún podrían fundirse o perder resistencia cuando se exponen a una dosis de calor lo suficientemente alta. Los materiales no combustibles como los ladrillos o el hormigón son los más resistentes a los efectos del fuego.",
@@ -224,85 +292,85 @@
         "nonCombThin": "Materiales no combustibles como el aluminio o el acero (por ejemplo, persianas sin vidrio, como una puerta de garaje)",
         "nonCombThick": "Materiales no combustibles como ladrillos o hormigón."
     },
-    "fuels-1a": {
+    "Q11": {
         "title": "Combustibles",
         "question": "¿Los combustibles, como la vegetación ornamental u otros tipos de elementos combustibles, están al menos a 7 m de los sistemas de vidrio?",
         "description": "Debido a la debilidad de los sistemas de vidrio ante el fuego, se recomienda colocar los combustibles (vegetación u otros elementos combustibles) lo más lejos posible de los sistemas de vidrio. También deben considerarse las terrazas y tarimas de madera, ya que representan una gran superficie horizontal sobre la que pueden caer brasas (partículas encendidas que provienen del fuego). Su contacto cercano con el suelo del jardín también las hace vulnerables al contacto directo con las llamas.",
-        "7closeToGlazing": "Sí",
-        "7farFromGlazing": "No"
+        "7farFromGlazing": "Sí",
+        "7closeToGlazing": "No"
     },
-    "fuels-1b": {
+    "Q12": {
         "title": "Combustibles",
         "question": "¿Todos los combustibles (vegetación u otros tipos de elementos combustibles) están al menos a 5 m de los sistemas de vidrio?",
         "description": "Debido a la debilidad de los sistemas de vidrio ante el fuego, se recomienda colocar los combustibles (vegetación u otros elementos combustibles) lo más lejos posible de los sistemas de vidrio. También deben considerarse las terrazas y tarimas de madera, ya que representan una gran superficie horizontal sobre la que pueden caer brasas (partículas encendidas que provienen del fuego). Su contacto cercano con el suelo del jardín también las hace vulnerables al contacto directo con las llamas.",
-        "5closeToGlazing": "Sí",
-        "5farFromGlazing": "No"
+        "5farFromGlazing": "Sí",
+        "5closeToGlazing": "No"
     },
-    "fuels-2": {
+    "Q13": {
         "title": "Combustibles",
         "question": "¿Los combustibles, como la vegetación ornamental u otros tipos de elementos combustibles, están al menos a 5 m del techo?",
         "description": "Debido a la vulnerabilidad del techo ante el fuego, se recomienda colocar los combustibles (vegetación u otros elementos combustibles) a al menos 5 m del techo. Esto incluye árboles que pueden tener ramas colgando sobre el techo.",
-        "closeToRoof": "Sí",
-        "farFromRoof": "No"
+        "farFromRoof": "Sí",
+        "closeToRoof": "No"
     },
-    "fuels-3": {
+    "Q14": {
         "title": "Combustibles",
         "question": "¿Los combustibles (vegetación artificial e inflamable) están colocados de manera que no se encuentren directamente contra la fachada que contiene elementos combustibles? (esto incluye tarimas combustibles).",
         "description": "Cuando la fachada incluye elementos combustibles, es importante no almacenar combustibles contra la fachada ni tener vegetación cerca.",
         "fuelsAgainstFacade": "Sí",
         "fuelsNotAgainstFacade": "No"
     },
-    "fuels-4": {
+    "Q15": {
         "title": "Combustibles",
         "question": "¿Hay discontinuidad de elementos combustibles superficiales dentro de los 10 m del edificio?",
         "description": "Una capa superficial no continua ayuda a ralentizar o detener la propagación del fuego a través de combustibles superficiales como la hierba, las hojas caídas o el mantillo combustible. Para evitar la continuidad del combustible, se pueden utilizar materiales como grava o guijarros.",
         "discontSurf": "Sí",
         "contSurf": "No"
     },
-    "artFuels-1": {
+    "Q16": {
         "title": "Combustibles artificiales",
         "question": "¿Los materiales combustibles (por ejemplo, vegetación, áreas de almacenamiento, sistemas de construcción combustibles) están al menos a 2 m de un depósito de gas licuado de petróleo (GLP) sobre el suelo (esto también incluye bidones con un volumen total > 0,5 m³)?",
         "description": "Cuando un depósito de gas licuado de petróleo (GLP) doméstico sobre el suelo se expone al calor de un incendio, el depósito se calienta y aumenta la presión. Si la presión del depósito alcanza el punto de configuración de la válvula de seguridad (PRV), esta se abrirá, liberando GLP que se encenderá inmediatamente, formando un fuego a chorro, lo que empeorará la carga térmica sobre el depósito y sus alrededores. En el peor de los casos, esto puede evolucionar hacia una explosión y la ignición de objetos circundantes. Por lo tanto, es mejor no tener combustibles situados a menos de 2 m del depósito.",
-        "closeToLPG": "Sí",
-        "farFromLPG": "No",
+        "farFromLPG": "Sí",
+        "closeToLPG": "No",
         "noLPG": "No aplicable"
     },
-    "artFuels-2": {
+    "Q17": {
         "title": "Combustibles artificiales",
         "question": "¿La distancia entre los combustibles artificiales o paquetes de combustible es de al menos 5 m?",
         "description": "Aunque estén lejos del incendio forestal, los combustibles aún pueden encenderse por brasas. Es importante que los combustibles o los paquetes de combustible estén al menos a 5 m unos de otros, de manera que si uno se enciende, el fuego no se propague a los demás.",
-        "spacingLess5": "Sí",
-        "spacingMore5": "No",
+        "spacingMore5": "Sí",
+        "spacingLess5": "No",
         "noSpacing": "No aplicable"
     },
-    "artFuels-3": {
+    "Q18": {
         "title": "Combustibles artificiales",
         "question": "En el caso de vegetación salvaje formada principalmente por árboles situados a más de 30 m del edificio, ¿los combustibles artificiales situados en la zona de ignición del hogar están colocados a una distancia mínima de 20 m de estos árboles?",
         "description": "Cuando la vegetación salvaje se enciende, puede arder con una intensidad muy alta. Para evitar la propagación del fuego de esta vegetación a otros combustibles, se recomienda colocar los combustibles artificiales a al menos 20 m de los árboles salvajes.",
-        "placedIn20": "Sí",
-        "placedFurther20": "No",
+        "placedFurther20": "Sí",
+        "placedIn20": "No",
         "noPlacement": "No aplicable"
     },
-    "vegetation-1": {
+    "Q19": {
         "title": "Vegetación",
         "question": "¿Toda la vegetación salvaje está situada al menos a 30 m del edificio?",
         "description": "Cuando se enciende, la vegetación salvaje puede arder con una intensidad muy alta. Por lo tanto, se recomienda reducir la cantidad de vegetación salvaje tanto como sea posible en un radio de 30 m alrededor del edificio.",
-        "vegIn30": "Sí",
-        "noVegIn30": "No",
+        "noVegIn30": "Sí",
+        "vegIn30": "No",
         "noApplicableVegIn30": "No aplicable"
     },
-    "vegetation-2": {
+    "Q20": {
         "title": "Vegetación",
         "question": "¿Qué tipo de vegetación hay a menos de 30 m del edificio?",
         "description": "Se recomienda no tener especies altamente inflamables en la propiedad o dentro de los 30 m del edificio. Ejemplos de estas especies son: pinos, eucaliptos, cipreses.",
-        "closelyLeaves": "Plantas con hojas y ramas muy juntas, texturas finas, hojas pequeñas, finas y estrechas (por ejemplo, pinos, cipreses)",
-        "highOils": "Plantas con altos niveles de aceites o resinas",
-        "looseBark": "Plantas con corteza suelta y fibrosa (por ejemplo, eucaliptos)",
-        "denseBranching": "Plantas con ramificación abierta y poco densa, que no retienen hojas muertas y no tienen altos niveles de aceites o resinas",
+        "highFlam": "Plantas con hojas y ramas muy juntas, texturas finas, hojas pequeñas, finas y estrechas (por ejemplo, pinos, cipreses)",
+        "mediumFlam": "Plantas con altos niveles de aceites o resinas",
+        "lowFlam": "Plantas con corteza suelta y fibrosa (por ejemplo, eucaliptos)",
+        "": "Plantas con ramificación abierta y poco densa, que no retienen hojas muertas y no tienen altos niveles de aceites o resinas",
         "grass": "Césped",
         "noVeg": "No hay vegetación"
     },
-    "vegetation-3": {
+    "Q21": {
         "title": "Vegetación",
         "question": "¿Hay discontinuidad entre las copas de los árboles, arbustos, setos y otras vegetaciones?",
         "description": "La vegetación situada a menos de 30 m del edificio debe tratarse para crear discontinuidad y reducir la intensidad del fuego y su propagación a través de la vegetación. Esto ayuda a crear un espacio defendible alrededor del edificio, donde la vegetación se modifica y gestiona para romper la continuidad y reducir la cantidad de combustible disponible para el fuego.",
@@ -310,7 +378,7 @@
         "contVeg": "No",
         "noApplicableDiscVeg": "No aplicable"
     },
-    "vegetation-4": {
+    "Q22": {
         "title": "Vegetación",
         "question": "¿Los combustibles superficiales bajos (por ejemplo, césped) tienen una profundidad máxima de 10 cm?",
         "description": "La presencia de césped es un parámetro importante para la supervivencia de una estructura durante un incendio forestal, ya que proporciona distancia entre los combustibles salvajes y el edificio. Se recomienda cortar el césped a una longitud máxima de 10 cm.",
@@ -318,23 +386,23 @@
         "lowSurfaceMore10": "No",
         "noLowSurface": "No aplicable"
     },
-    "vegetation-5": {
+    "Q23": {
         "title": "Vegetación",
         "question": "¿Hay vegetación muerta o restos vegetales?",
         "description": "La vegetación muerta o los restos vegetales deben eliminarse periódicamente dentro del área de 30 metros alrededor del edificio. Estos combustibles están muy secos y pueden encenderse fácilmente cuando llegan las llamas.",
         "deadVeg": "Sí",
         "noDeadVeg": "No"
     },
-    "vegetation-6": {
+    "Q24": {
         "title": "Vegetación",
         "question": "¿Están podados los árboles?",
         "description": "Las ramas de los árboles deben podarse para aumentar la separación vertical entre los combustibles a nivel del suelo y la copa de los árboles.",
-        "puring": "Sí",
-        "noPuring": "No",
-        "noApplicablePuring": "No aplicable"
+        "purning": "Sí",
+        "noPurning": "No",
+        "noApplicablePurning": "No aplicable"
     },
-    "vegetation-7": {
-        "title": "Vegetación",
+    "Q25": {
+        "title": "Perímetro de la propiedad",
         "question": "¿Qué se utiliza para delimitar tu propiedad y separarla de las propiedades vecinas?",
         "description": "",
         "woodenFence": "Valla de madera",
@@ -347,50 +415,55 @@
     },
 
     "material-2-images":  {
-        "austria-material-2.1": "Buildings entirely made of wood",
-        "austria-material-2.3": "Buildings partly made of wood",
-        "austria-material-2.5": "Wooden elements",
-        "austria-material-2.7": "Attached wooden buildings"
+        "austria-material-2_1": "Buildings entirely made of wood",
+        "austria-material-2_3": "Buildings partly made of wood",
+        "austria-material-2_5": "Wooden elements",
+        "austria-material-2_7": "Attached wooden buildings"
     },
-    "roof-1-images": {
-        "spain-tiles-1": "Ejemplo de tejas de barro",
-        "spain-tiles-2": "Ejemplo de tejas de hormigón",
-        "default-tiles": "Ejemplo de tejas de hormigón"
+    "Q3-images": {
+        "spain-Q3_1": "Ejemplo de tejas de barro",
+        "spain-Q3_2": "Ejemplo de tejas de hormigón",
+        "default-Q3": "Ejemplo de tejas de hormigón"
     },
-    "roof-2-images": {
-        "spain-debris-1": "Ejemplo de tejas de barro bien colocadas y rotas",
-        "spain-debris-2": "Ejemplo de acumulación de escombros en tejado y canalón",
-        "default-debris": "Ejemplo de tejas de barro bien colocadas y rotas"
+    "Q4-1-images": {
+        "spain-Q4_1": "Ejemplo de tejas de barro bien colocadas y rotas",
+        "spain-Q4_2": "Ejemplo de acumulación de escombros en tejado y canalón",
+        "default-Q4": "Ejemplo de tejas de barro bien colocadas y rotas"
     },
-    "glazing-1-images": {
-        "spain-pane": "Sistemas de vidrio simple, doble y triple",
-        "default-pane": "Sistemas de vidrio simple, doble y triple"
+    "Q4-2-images": {
+        "spain-Q4_1": "Ejemplo de tejas de barro bien colocadas y rotas",
+        "spain-Q4_2": "Ejemplo de acumulación de escombros en tejado y canalón",
+        "default-Q4": "Ejemplo de tejas de barro bien colocadas y rotas"
     },
-    "glazing-2-images": {
-        "spain-shutter-1": "Persiana de PVC o de aluminio",
-        "spain-shutter-2": "Persiana de aluminio",
-        "default-shutter": "Persiana de aluminio"
+    "Q5-images": {
+        "spain-Q5": "Sistemas de vidrio simple, doble y triple",
+        "default-Q5": "Sistemas de vidrio simple, doble y triple"
     },
-    "vents-1-images": {
-        "spain-kitchenVent": "Ejemplo de abertura de ventilación de cocina",
-        "default-kitchenVent": "Ejemplo de abertura de ventilación de cocina"
+    "Q6-images": {
+        "spain-Q6_1": "Persiana de PVC o de aluminio",
+        "spain-Q6_2": "Persiana de aluminio",
+        "default-Q6": "Persiana de aluminio"
+    },
+    "Q7-images": {
+        "spain-Q7": "Ejemplo de abertura de ventilación de cocina",
+        "default-Q7": "Ejemplo de abertura de ventilación de cocina"
     },
     "fuels-1a-images": {
-        "austria-fuels-1.1": "",
-        "austria-fuels-1.2": "",
-        "austria-fuels-1.3": ""
+        "austria-fuels-1_1": "",
+        "austria-fuels-1_2": "",
+        "austria-fuels-1_3": ""
     },
     "fuels-1b-images": {
-        "austria-fuels-1.1": "",
-        "austria-fuels-1.2": "",
-        "austria-fuels-1.3": ""
+        "austria-fuels-1_1": "",
+        "austria-fuels-1_2": "",
+        "austria-fuels-1_3": ""
     },
-    "fuels-3-images": {
-        "spain-fuels-3": "Combustibles cerca de la fachada",
-        "default-fuels-3": "Combustibles cerca de la fachada"
+    "Q13-images": {
+        "spain-Q13": "Combustibles cerca de la fachada",
+        "default-Q13": "Combustibles cerca de la fachada"
     },
-    "artFuels-1-images": {
-        "spain-artFuels-1": "Dipósito de tanque mal ubicado",
-        "default-artFuels-1": "Dipósito de GLP demasiado cerca de una tanca"
+    "Q15-images": {
+        "spain-Q15": "Dipósito de tanque mal ubicado",
+        "default-Q15": "Dipósito de GLP demasiado cerca de una tanca"
     }
 }
