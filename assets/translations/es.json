@@ -28,7 +28,7 @@
     "more_info": "Más información",
 
     "lastResult": "Última avaluación",
-    "risk": "Vulnerabilidad",
+    "vulnerability": "Vulnerabilidad",
     "noResult": "No hay resultados",
     "updateQuestionnaire": "Actualiza las respuestas del cuestionario",
     "update": "Actualizar",
@@ -77,7 +77,7 @@
     "about_devText3": "y con el apoyo consultivo de ",
 
     "results": "Resultados",
-    "vulnerability": "La vulnerabilidad de su casa es de:",
+    "vulnerability_text": "La vulnerabilidad de su casa es de:",
     "structural_vulnerabilities": "Vulnerabilidades estructurales",
     "combustible_facade_elements": "Elementos combustibles de fachada",
     "non_combustible_foundation": "Cimentación no combustible",
@@ -292,42 +292,42 @@
         "nonCombThin": "Materiales no combustibles como el aluminio o el acero (por ejemplo, persianas sin vidrio, como una puerta de garaje)",
         "nonCombThick": "Materiales no combustibles como ladrillos o hormigón."
     },
-    "Q11": {
+    "Q11-1": {
         "title": "Combustibles",
         "question": "¿Los combustibles, como la vegetación ornamental u otros tipos de elementos combustibles, están al menos a 7 m de los sistemas de vidrio?",
         "description": "Debido a la debilidad de los sistemas de vidrio ante el fuego, se recomienda colocar los combustibles (vegetación u otros elementos combustibles) lo más lejos posible de los sistemas de vidrio. También deben considerarse las terrazas y tarimas de madera, ya que representan una gran superficie horizontal sobre la que pueden caer brasas (partículas encendidas que provienen del fuego). Su contacto cercano con el suelo del jardín también las hace vulnerables al contacto directo con las llamas.",
         "7farFromGlazing": "Sí",
         "7closeToGlazing": "No"
     },
-    "Q12": {
+    "Q11-2": {
         "title": "Combustibles",
         "question": "¿Todos los combustibles (vegetación u otros tipos de elementos combustibles) están al menos a 5 m de los sistemas de vidrio?",
         "description": "Debido a la debilidad de los sistemas de vidrio ante el fuego, se recomienda colocar los combustibles (vegetación u otros elementos combustibles) lo más lejos posible de los sistemas de vidrio. También deben considerarse las terrazas y tarimas de madera, ya que representan una gran superficie horizontal sobre la que pueden caer brasas (partículas encendidas que provienen del fuego). Su contacto cercano con el suelo del jardín también las hace vulnerables al contacto directo con las llamas.",
         "5farFromGlazing": "Sí",
         "5closeToGlazing": "No"
     },
-    "Q13": {
+    "Q12": {
         "title": "Combustibles",
         "question": "¿Los combustibles, como la vegetación ornamental u otros tipos de elementos combustibles, están al menos a 5 m del techo?",
         "description": "Debido a la vulnerabilidad del techo ante el fuego, se recomienda colocar los combustibles (vegetación u otros elementos combustibles) a al menos 5 m del techo. Esto incluye árboles que pueden tener ramas colgando sobre el techo.",
         "farFromRoof": "Sí",
         "closeToRoof": "No"
     },
-    "Q14": {
+    "Q13": {
         "title": "Combustibles",
         "question": "¿Los combustibles (vegetación artificial e inflamable) están colocados de manera que no se encuentren directamente contra la fachada que contiene elementos combustibles? (esto incluye tarimas combustibles).",
         "description": "Cuando la fachada incluye elementos combustibles, es importante no almacenar combustibles contra la fachada ni tener vegetación cerca.",
         "fuelsAgainstFacade": "Sí",
         "fuelsNotAgainstFacade": "No"
     },
-    "Q15": {
+    "Q14": {
         "title": "Combustibles",
         "question": "¿Hay discontinuidad de elementos combustibles superficiales dentro de los 10 m del edificio?",
         "description": "Una capa superficial no continua ayuda a ralentizar o detener la propagación del fuego a través de combustibles superficiales como la hierba, las hojas caídas o el mantillo combustible. Para evitar la continuidad del combustible, se pueden utilizar materiales como grava o guijarros.",
         "discontSurf": "Sí",
         "contSurf": "No"
     },
-    "Q16": {
+    "Q15": {
         "title": "Combustibles artificiales",
         "question": "¿Los materiales combustibles (por ejemplo, vegetación, áreas de almacenamiento, sistemas de construcción combustibles) están al menos a 2 m de un depósito de gas licuado de petróleo (GLP) sobre el suelo (esto también incluye bidones con un volumen total > 0,5 m³)?",
         "description": "Cuando un depósito de gas licuado de petróleo (GLP) doméstico sobre el suelo se expone al calor de un incendio, el depósito se calienta y aumenta la presión. Si la presión del depósito alcanza el punto de configuración de la válvula de seguridad (PRV), esta se abrirá, liberando GLP que se encenderá inmediatamente, formando un fuego a chorro, lo que empeorará la carga térmica sobre el depósito y sus alrededores. En el peor de los casos, esto puede evolucionar hacia una explosión y la ignición de objetos circundantes. Por lo tanto, es mejor no tener combustibles situados a menos de 2 m del depósito.",
@@ -335,7 +335,7 @@
         "closeToLPG": "No",
         "noLPG": "No aplicable"
     },
-    "Q17": {
+    "Q16": {
         "title": "Combustibles artificiales",
         "question": "¿La distancia entre los combustibles artificiales o paquetes de combustible es de al menos 5 m?",
         "description": "Aunque estén lejos del incendio forestal, los combustibles aún pueden encenderse por brasas. Es importante que los combustibles o los paquetes de combustible estén al menos a 5 m unos de otros, de manera que si uno se enciende, el fuego no se propague a los demás.",
@@ -343,7 +343,7 @@
         "spacingLess5": "No",
         "noSpacing": "No aplicable"
     },
-    "Q18": {
+    "Q17": {
         "title": "Combustibles artificiales",
         "question": "En el caso de vegetación salvaje formada principalmente por árboles situados a más de 30 m del edificio, ¿los combustibles artificiales situados en la zona de ignición del hogar están colocados a una distancia mínima de 20 m de estos árboles?",
         "description": "Cuando la vegetación salvaje se enciende, puede arder con una intensidad muy alta. Para evitar la propagación del fuego de esta vegetación a otros combustibles, se recomienda colocar los combustibles artificiales a al menos 20 m de los árboles salvajes.",
@@ -351,7 +351,7 @@
         "placedIn20": "No",
         "noPlacement": "No aplicable"
     },
-    "Q19": {
+    "Q18": {
         "title": "Vegetación",
         "question": "¿Toda la vegetación salvaje está situada al menos a 30 m del edificio?",
         "description": "Cuando se enciende, la vegetación salvaje puede arder con una intensidad muy alta. Por lo tanto, se recomienda reducir la cantidad de vegetación salvaje tanto como sea posible en un radio de 30 m alrededor del edificio.",
@@ -359,7 +359,7 @@
         "vegIn30": "No",
         "noApplicableVegIn30": "No aplicable"
     },
-    "Q20": {
+    "Q19": {
         "title": "Vegetación",
         "question": "¿Qué tipo de vegetación hay a menos de 30 m del edificio?",
         "description": "Se recomienda no tener especies altamente inflamables en la propiedad o dentro de los 30 m del edificio. Ejemplos de estas especies son: pinos, eucaliptos, cipreses.",
@@ -370,7 +370,7 @@
         "grass": "Césped",
         "noVeg": "No hay vegetación"
     },
-    "Q21": {
+    "Q20": {
         "title": "Vegetación",
         "question": "¿Hay discontinuidad entre las copas de los árboles, arbustos, setos y otras vegetaciones?",
         "description": "La vegetación situada a menos de 30 m del edificio debe tratarse para crear discontinuidad y reducir la intensidad del fuego y su propagación a través de la vegetación. Esto ayuda a crear un espacio defendible alrededor del edificio, donde la vegetación se modifica y gestiona para romper la continuidad y reducir la cantidad de combustible disponible para el fuego.",
@@ -378,7 +378,7 @@
         "contVeg": "No",
         "noApplicableDiscVeg": "No aplicable"
     },
-    "Q22": {
+    "Q21": {
         "title": "Vegetación",
         "question": "¿Los combustibles superficiales bajos (por ejemplo, césped) tienen una profundidad máxima de 10 cm?",
         "description": "La presencia de césped es un parámetro importante para la supervivencia de una estructura durante un incendio forestal, ya que proporciona distancia entre los combustibles salvajes y el edificio. Se recomienda cortar el césped a una longitud máxima de 10 cm.",
@@ -386,14 +386,14 @@
         "lowSurfaceMore10": "No",
         "noLowSurface": "No aplicable"
     },
-    "Q23": {
+    "Q22": {
         "title": "Vegetación",
         "question": "¿Hay vegetación muerta o restos vegetales?",
         "description": "La vegetación muerta o los restos vegetales deben eliminarse periódicamente dentro del área de 30 metros alrededor del edificio. Estos combustibles están muy secos y pueden encenderse fácilmente cuando llegan las llamas.",
         "deadVeg": "Sí",
         "noDeadVeg": "No"
     },
-    "Q24": {
+    "Q23": {
         "title": "Vegetación",
         "question": "¿Están podados los árboles?",
         "description": "Las ramas de los árboles deben podarse para aumentar la separación vertical entre los combustibles a nivel del suelo y la copa de los árboles.",
@@ -401,7 +401,7 @@
         "noPurning": "No",
         "noApplicablePurning": "No aplicable"
     },
-    "Q25": {
+    "Q24": {
         "title": "Perímetro de la propiedad",
         "question": "¿Qué se utiliza para delimitar tu propiedad y separarla de las propiedades vecinas?",
         "description": "",

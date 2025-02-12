@@ -164,7 +164,7 @@ class Questionnaire {
     },
     {
       'stepId': 'Q18',
-      'textChoices': ['vegIn30', 'noVegIn30', 'noApplicableVegIn30'],
+      'textChoices': ['noVegIn30', 'vegIn30', 'noApplicableVegIn30'],
       'otherOption': false,
       'type': 'singleChoice',
     },
@@ -306,6 +306,14 @@ class Questionnaire {
           'tempered': 'Q11-2',
         },
       }
+    },
+    {
+      'stepId': 'Q11-1',
+      'type': 'conditional',
+      'conditions': {
+        "7farFromGlazing": "Q12",
+        '7closeToGlazing': 'Q12',
+      },
     },
     {
       'stepId': 'Q12',

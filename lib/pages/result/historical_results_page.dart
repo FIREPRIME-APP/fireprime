@@ -1,6 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:fireprime/firebase/event_manage.dart';
-import 'package:fireprime/gauge.dart';
+import 'package:fireprime/widgets/gauge.dart';
 import 'package:fireprime/model/event_probability.dart';
 import 'package:fireprime/model/risk_assessment.dart';
 import 'package:fl_chart/fl_chart.dart';
@@ -26,7 +26,6 @@ class _HistoricalResultsPageState extends State<HistoricalResultsPage> {
   Map<String, EventProbability> subProbabilities = {};
 
   List<RiskAssessment> riskAssessmentsToShow = [];
-//TODO SETSTATE TO INITSTATE
   @override
   void initState() {
     super.initState();

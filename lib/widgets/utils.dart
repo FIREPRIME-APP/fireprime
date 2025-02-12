@@ -43,21 +43,6 @@ class Utils {
     return Colors.red;
   }
 
-  /*static Widget cardText(String title, String text, double size) {
-    return RichText(
-      text: TextSpan(
-          style: TextStyle(
-              fontSize: size, color: Colors.black, fontFamily: 'OpenSans'),
-          children: <TextSpan>[
-            TextSpan(
-                text: '$title: ',
-                style: const TextStyle(
-                    fontWeight: FontWeight.bold, fontFamily: 'OpenSans')),
-            TextSpan(text: text)
-          ]),
-    );
-  }
-*/
   static SnackBar snackBar(String text) {
     return SnackBar(
       backgroundColor: const Color.fromARGB(255, 242, 246, 255),

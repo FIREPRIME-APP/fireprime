@@ -1,4 +1,4 @@
-package com.example.test_questionnaire_survey_kit
+package com.fireprime.fireprime
 
 import io.flutter.embedding.android.FlutterActivity
 

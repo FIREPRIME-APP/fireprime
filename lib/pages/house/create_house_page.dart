@@ -3,7 +3,7 @@ import 'package:fireprime/firebase/event_manage.dart';
 import 'package:fireprime/providers/house_provider.dart';
 import 'package:fireprime/constants.dart';
 import 'package:fireprime/model/house.dart';
-import 'package:fireprime/utils.dart';
+import 'package:fireprime/widgets/utils.dart';
 import 'package:fireprime/widgets/input_field.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';

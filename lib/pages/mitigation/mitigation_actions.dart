@@ -2,7 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:fireprime/fault_tree/fault_tree.dart';
 import 'package:fireprime/fault_tree/node.dart';
 import 'package:fireprime/firebase/event_manage.dart';
-import 'package:fireprime/gauge.dart';
+import 'package:fireprime/widgets/gauge.dart';
 import 'package:flutter/material.dart';
 import 'package:geekyants_flutter_gauges/geekyants_flutter_gauges.dart';
 
@@ -111,7 +111,6 @@ class _MitigationActionsState extends State<MitigationActions> {
                     ],
                   ],
                 ),
-
               linearGaugeWithValue(widget.selectedProbability),
               const Divider(color: Colors.grey),
               Text(context.tr('applyImprovement'),
@@ -119,7 +118,6 @@ class _MitigationActionsState extends State<MitigationActions> {
                       fontSize: 20.0, fontWeight: FontWeight.bold)),
               Text(context.tr('improveOptions'),
                   style: const TextStyle(fontSize: 15.0)),
-
               for (var question in widget.affectedQuestions)
                 ListView.separated(
                   shrinkWrap: true,
@@ -164,40 +162,15 @@ class _MitigationActionsState extends State<MitigationActions> {
                         trailing: _selectedChoice == option
                             ? const Icon(Icons.check)
                             : null);
-                    // }
-                    //  return const SizedBox.shrink();
                   },
                   separatorBuilder: (context, index) =>
                       const Divider(color: Colors.grey),
                 ),
-              /*Column(
-                children: [],
-              ),*/
               const Divider(color: Colors.grey),
-
               _newMitigationRisk != null
                   ? linearGaugeWithValue(_newMitigationRisk!)
                   : linearGaugeWithValue(widget.selectedProbability),
-
-              /*Text(
-                context.tr('yourRisks'),
-                style: const TextStyle(fontSize: 18.0),
-              ),
               const SizedBox(
-                height: 10,
-              ),
-              const Divider(color: Colors.grey),
-              Gauge.linearGaugeProb(context.tr('beforeTotalRisk'),
-                  widget.totalRisk * 100, 25, 15, 30, null),
-              _newTotalRisk != null
-                  ? Gauge.linearGaugeProb(context.tr('newTotalRisk'),
-                      _newTotalRisk! * 100, 25, 15, 30, null)
-                  : Gauge.linearGaugeProb(context.tr('newTotalRisk'),
-                      widget.totalRisk * 100, 25, 15, 30, null),
-              const SizedBox(
-                height: 10,
-              ),*/
-              SizedBox(
                 height: 10,
               ),
               Text(context.tr('totalVulnerability'),
@@ -206,10 +179,6 @@ class _MitigationActionsState extends State<MitigationActions> {
               const SizedBox(
                 height: 10,
               ),
-              // Stack(
-              //children: [
-              // Center(
-              // child:
               _newTotalRisk != null
                   ? radialGauge(
                       _newTotalRisk!,
@@ -219,43 +188,7 @@ class _MitigationActionsState extends State<MitigationActions> {
                       widget.totalRisk,
                       widget.totalRisk,
                     ),
-              //  ),
-              /* Center(
-                    child: Column(
-                      children: [
-                        const SizedBox(height: 210),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Container(
-                              width: 10,
-                              height: 10,
-                              color: Color.fromARGB(255, 86, 97, 123),
-                            ),
-                            const SizedBox(width: 5),
-                            Text(
-                                '${context.tr('beforeTotalRisk')}: ${(widget.totalRisk * 100).toStringAsFixed(0)}',
-                                style: const TextStyle(fontSize: 15.0)),
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            Container(
-                              width: 10,
-                              height: 10,
-                              color: Color.fromARGB(255, 137, 155, 197),
-                            ),
-                            Text(
-                                '${context.tr('newTotalRisk')}: ${(_newTotalRisk! * 100).toStringAsFixed(0)}',
-                                style: const TextStyle(fontSize: 15.0)),
-                          ],
-                        ),
-                      ],
-                    ),
-                  )*/
             ],
-            // ),
-            // ],
           ),
         ),
       ),
@@ -319,9 +252,10 @@ class _MitigationActionsState extends State<MitigationActions> {
           child: Column(
             children: [
               const SizedBox(height: 100),
-              gaugelegend(newRisk, 'now', Color.fromARGB(255, 137, 155, 197)),
               gaugelegend(
-                  beforeRisk, 'before', Color.fromARGB(255, 86, 97, 123)),
+                  newRisk, 'now', const Color.fromARGB(255, 137, 155, 197)),
+              gaugelegend(
+                  beforeRisk, 'before', const Color.fromARGB(255, 86, 97, 123)),
             ],
           ),
         )
@@ -338,7 +272,7 @@ class _MitigationActionsState extends State<MitigationActions> {
           height: 10,
           color: color,
         ),
-        SizedBox(width: 5),
+        const SizedBox(width: 5),
         Text('${context.tr(text)}: ${(risk * 100).toStringAsFixed(0)}',
             style: const TextStyle(fontSize: 15.0)),
       ],

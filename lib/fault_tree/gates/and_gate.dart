@@ -9,7 +9,9 @@ class AndGate extends Gate {
   double calculateProbability() {
     double probability = 1.0;
     for (var event in inputEvents) {
-      probability *= event.calculateProbability();
+      if (event.calculateProbability() != 0) {
+        probability *= event.calculateProbability();
+      }
     }
     print("$id: $probability");
     return probability;

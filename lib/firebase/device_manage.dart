@@ -5,12 +5,12 @@ import 'dart:io';
 import 'package:crypto/crypto.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+//import 'package:shared_preferences/shared_preferences.dart';
 
-Future<bool> canSaveEventData() async {
-  SharedPreferences prefs = await SharedPreferences.getInstance();
-  return prefs.getBool('accepted_privacy') ?? false;
-}
+/*Future<bool> canSaveEventData() async {
+  //SharedPreferences prefs = await SharedPreferences.getInstance();
+  //return prefs.getBool('accepted_privacy') ?? false;
+}*/
 
 Future<String> getDeviceId() async {
   final deviceInfo = DeviceInfoPlugin();
@@ -51,9 +51,9 @@ bool isSmartphone(BuildContext context) {
 }
 
 Future<void> saveDeviceData(BuildContext context) async {
-  if (await canSaveEventData() == false) {
+/*  if (await canSaveEventData() == false) {
     return;
-  }
+  }*/
   final deviceId = await getDeviceId();
 
   if (!context.mounted) {

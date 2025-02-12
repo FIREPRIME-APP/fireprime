@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:easy_localization/easy_localization.dart';
 import 'package:fireprime/pages/information/about_page.dart';
 import 'package:fireprime/constants.dart';
@@ -11,7 +9,7 @@ import 'package:fireprime/pages/language/language_page.dart';
 import 'package:fireprime/widgets/house_card.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+//import 'package:shared_preferences/shared_preferences.dart';
 
 class HouseListPage extends StatefulWidget {
   const HouseListPage({super.key});
@@ -21,7 +19,7 @@ class HouseListPage extends StatefulWidget {
 }
 
 class _HouseListPageState extends State<HouseListPage> {
-  bool _showPopup = false;
+  // bool _showPopup = false;
 
   @override
   void initState() {
@@ -120,18 +118,6 @@ class _HouseListPageState extends State<HouseListPage> {
         ),
       ),
       const Spacer(),
-      /*IconButton(
-          onPressed: () {
-            saveEventdata(screenId: 'house_list', buttonId: 'about');
-            Navigator.of(context).push(
-              MaterialPageRoute(
-                builder: (BuildContext context) {
-                  return const AboutPage();
-                },
-              ),
-            );
-          },
-          icon: const Icon(Icons.info)),*/
       IconButton(
         onPressed: () {
           saveEventdata(screenId: 'house_list', buttonId: 'change_language');
@@ -220,98 +206,6 @@ class _HouseListPageState extends State<HouseListPage> {
           ],
         );
       },
-    );
-  }*/
-
-  /* Widget houseCard(HouseProvider houseProvider, String houseKey, House house) {
-    // return Consumer<HouseProvider>(
-    //  builder: (context, houseCtrl, child) {
-    return SizedBox(
-      width: MediaQuery.of(context).size.width,
-      child: GestureDetector(
-        onTap: () async {
-          await saveEventdata(
-              screenId: 'house_list', buttonId: '${house.name}_card');
-          houseProvider.setCurrentHouse(houseKey);
-          Navigator.of(context).push(
-            MaterialPageRoute(
-              builder: (BuildContext context) {
-                return const HousePage();
-              },
-            ),
-          );
-        },
-        child: Stack(
-          children: [
-            Card(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(20, 8, 20, 8),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Row(
-                          children: [
-                            const Icon(
-                              Icons.house,
-                              size: 40,
-                              color: Constants.blueDark,
-                            ),
-                            const SizedBox(
-                              width: 10,
-                            ),
-                            Text(
-                              house.name,
-                              style: const TextStyle(
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold,
-                                fontFamily: 'OpenSans',
-                              ),
-                            ),
-                          ],
-                        ),
-                        const SizedBox(height: 10.0),
-                        CardText(
-                            title: context.tr('address'),
-                            text: house.address,
-                            size: 15),
-                        const SizedBox(height: 10.0),
-                        CardText(
-                            title: context.tr('country'),
-                            text: context
-                                .tr('european_countries.${house.environment}'),
-                            size: 15),
-                        const SizedBox(height: 10.0),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Positioned(
-              bottom: 3,
-              top: 3,
-              right: 0,
-              child: Container(
-                width: 25,
-                decoration: const BoxDecoration(
-                  color: Constants.blueDark,
-                  borderRadius: BorderRadius.only(
-                    topRight: Radius.circular(10),
-                    bottomRight: Radius.circular(10),
-                  ),
-                ),
-                child: const Icon(Icons.arrow_right,
-                    color: Colors.white, size: 24),
-              ),
-            )
-          ],
-        ),
-      ),
-      //    );
-      //  },
     );
   }*/
 }

@@ -5,11 +5,12 @@ Future<void> saveEventdata({
   required String screenId,
   required String buttonId,
 }) async {
-  if (await canSaveEventData() == false) {
-    return;
-  }
+  // if (await canSaveEventData() == false) {
+  //   return;
+  // }
   final eventRef = FirebaseFirestore.instance.collection('events').doc();
   final deviceId = await getDeviceId();
+  print('...');
   try {
     await eventRef.set({
       'device_id': deviceId,

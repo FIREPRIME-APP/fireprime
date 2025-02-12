@@ -1,7 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:fireprime/firebase/event_manage.dart';
 import 'package:fireprime/providers/house_provider.dart';
-import 'package:fireprime/utils.dart';
+import 'package:fireprime/widgets/utils.dart';
 import 'package:fireprime/widgets/input_field.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -33,7 +33,6 @@ class _EditHousePageState extends State<EditHousePage> {
 
     _name.addListener(_checkInput);
     _address.addListener(_checkInput);
-    //_environment.text = context.tr('european_countries.${house.environment}');
   }
 
   void _handleEditHouse(HouseProvider house) {

@@ -2,7 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:fireprime/constants.dart';
 import 'package:fireprime/firebase/event_manage.dart';
 import 'package:fireprime/providers/house_provider.dart';
-import 'package:fireprime/gauge.dart';
+import 'package:fireprime/widgets/gauge.dart';
 import 'package:fireprime/pages/house/edit_house_page.dart';
 import 'package:fireprime/pages/house/house_list_page.dart';
 import 'package:fireprime/model/house.dart';
@@ -11,7 +11,7 @@ import 'package:fireprime/model/risk_assessment.dart';
 import 'package:fireprime/pages/questionnaire/questionnaire_page.dart';
 import 'package:fireprime/pages/result/historical_results_page.dart';
 import 'package:fireprime/pages/result/result_page.dart';
-import 'package:fireprime/utils.dart';
+import 'package:fireprime/widgets/utils.dart';
 import 'package:fireprime/widgets/card_text.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -27,16 +27,6 @@ class _HousePageState extends State<HousePage> {
   @override
   Widget build(BuildContext context) {
     final houseProvider = Provider.of<HouseProvider>(context, listen: true);
-    //final House currentHouse;
-
-    /* if (houseProvider.currentHouse != null) {
-      currentHouse = houseProvider.getHouse(houseProvider.currentHouse!);
-    } else {
-      return const Center(
-        child: CircularProgressIndicator(),
-      );
-    }*/
-
     return Scaffold(
       appBar: AppBar(
         title: Image.asset(
@@ -97,22 +87,7 @@ class _HousePageState extends State<HousePage> {
               child: CircularProgressIndicator(),
             );
           }
-          /*  double? lastProbability;
-          Map<String, double> lastResults = {};
 
-          List<RiskAssessment> riskAssessments = currentHouse.riskAssessments;
-
-          if (riskAssessments.isEmpty) {
-            lastProbability = null;
-          } else if (riskAssessments.last.completed) {
-            lastProbability = riskAssessments.last.probability;
-            lastResults = riskAssessments.last.results;
-          } else if (riskAssessments.length >= 2 &&
-              riskAssessments[riskAssessments.length - 2].completed) {
-            lastProbability =
-                riskAssessments[riskAssessments.length - 2].probability;
-            lastResults = riskAssessments[riskAssessments.length - 2].results;
-          }*/
           RiskAssessment? riskAssessment;
 
           if (currentHouse.riskAssessmentIds.isNotEmpty) {

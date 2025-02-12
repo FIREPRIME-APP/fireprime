@@ -4,27 +4,23 @@ import 'package:fireprime/fault_tree/fault_tree.dart';
 import 'package:fireprime/fault_tree/events/intermediate_event.dart';
 import 'package:fireprime/fault_tree/node.dart';
 import 'package:fireprime/firebase/event_manage.dart';
-import 'package:fireprime/gauge.dart';
+import 'package:fireprime/widgets/gauge.dart';
 import 'package:fireprime/model/event_probability.dart';
 import 'package:fireprime/model/risk_assessment.dart';
 import 'package:fireprime/pages/house/house_page.dart';
 import 'package:fireprime/pages/mitigation/mitigation_menu_page.dart';
 import 'package:fireprime/model/house.dart';
 import 'package:fireprime/providers/house_provider.dart';
-import 'package:fireprime/utils.dart';
+import 'package:fireprime/widgets/utils.dart';
 import 'package:fireprime/widgets/card_text.dart';
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:provider/provider.dart';
 
 class ResultPage extends StatefulWidget {
-  //final Map<String, double> subProb;
-  //final double probability;
   final House house;
 
-  const ResultPage(
-      {super.key,
-      required this.house /*required this.probability, required this.subProb*/});
+  const ResultPage({super.key, required this.house});
 
   @override
   State<ResultPage> createState() => _ResultPageState();
@@ -32,18 +28,15 @@ class ResultPage extends StatefulWidget {
 
 class _ResultPageState extends State<ResultPage> {
   double probability = 0.0;
-  //Map<String, double> subProb = {};
 
   double? lastProbability;
 
   Map<String, String?> answers = {};
-  //Map<String, Map<String, double>> subNodeProbabilities = {};
 
   Map<String, EventProbability>? allProbabilities = {};
   Map<String, EventProbability>? lastAllProbabilities = {};
 
   Map<String, bool> _showLinearGauge = {};
-  //Map<String, Node> subNodes = {};
   Map<String, EventProbability> subProbabilities = {};
   Map<String, EventProbability> lastSubProbabilities = {};
 
@@ -57,7 +50,6 @@ class _ResultPageState extends State<ResultPage> {
     RiskAssessment? oldRiskAssessment = houseProvider.getOldRiskAssessment();
 
     if (riskAssessment != null) {
-      // topEvent = riskAssessment.topEvent;
       probability = riskAssessment.probability;
       allProbabilities = riskAssessment.allProbabilities;
       answers = riskAssessment.answers;
@@ -67,8 +59,6 @@ class _ResultPageState extends State<ResultPage> {
           subProbabilities[subEntry.key] = subEntry.value;
         }
       }
-
-      //subNodes = FaultTree().getSubNodes(topEvent!, {});
     }
 
     if (oldRiskAssessment != null) {
@@ -81,50 +71,11 @@ class _ResultPageState extends State<ResultPage> {
       }
 
       print(lastSubProbabilities);
-
-      // lastTopEvent = oldRiskAssessment.topEvent;
-
-      // lastSubProb = FaultTree().getProbabilities(lastTopEvent!);
     }
 
     for (var entry in subProbabilities.entries) {
       _showLinearGauge[entry.key] = false;
     }
-
-    /*int riskAsssessmentsSize = widget.house.riskAssessments.length;
-    if (widget.house.riskAssessments.last.completed) {
-      probability = widget.house.riskAssessments.last.probability;
-      subProb = widget.house.riskAssessments.last.results;
-      answers = widget.house.riskAssessments.last.answers;
-      subNodeProbabilities =
-          widget.house.riskAssessments.last.subNodeProbabilities;
-
-      if (riskAsssessmentsSize > 1) {
-        lastProbability =
-            widget.house.riskAssessments[riskAsssessmentsSize - 2].probability;
-        lastSubProb =
-            widget.house.riskAssessments[riskAsssessmentsSize - 2].results;
-      }
-    } else {
-      //To get the comparison with the last completed risk assessment
-      if (riskAsssessmentsSize > 1) {
-        probability =
-            widget.house.riskAssessments[riskAsssessmentsSize - 2].probability;
-        subProb =
-            widget.house.riskAssessments[riskAsssessmentsSize - 2].results;
-        answers =
-            widget.house.riskAssessments[riskAsssessmentsSize - 2].answers;
-        subNodeProbabilities = widget.house
-            .riskAssessments[riskAsssessmentsSize - 2].subNodeProbabilities;
-
-        if (riskAsssessmentsSize > 2) {
-          lastProbability = widget
-              .house.riskAssessments[riskAsssessmentsSize - 3].probability;
-          lastSubProb =
-              widget.house.riskAssessments[riskAsssessmentsSize - 3].results;
-        }
-      }
-    }*/
   }
 
   void _toggleLinearGauge(String key) {
@@ -294,55 +245,7 @@ class _ResultPageState extends State<ResultPage> {
                                 ],
                               );
                             },
-                          )
-                          /* ...subProb.entries.map(
-                            (entry) {
-                              Map<String, dynamic> options =
-                                  canImprove(entry.key, entry.value);
-                              return Column(
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.all(12.0),
-                                    child: Gauge.linearGaugeWithTitle(
-                                        context.tr(entry.key),
-                                        entry.value * 100,
-                                        25,
-                                        15,
-                                        30,
-                                        lastSubProb.isNotEmpty &&
-                                                lastSubProb
-                                                    .containsKey(entry.key)
-                                            ? lastSubProb[entry.key]! * 100
-                                            : null),
-                                  ),
-                                  if (checkIfCanImprove(options))
-                                    ElevatedButton(
-                                      child: Text(context.tr('improve')),
-                                      onPressed: () {
-                                        saveEventdata(
-                                            screenId: 'result_page',
-                                            buttonId: 'mitigation');
-                                        Navigator.of(context).push(
-                                          MaterialPageRoute(
-                                            builder: (BuildContext context) {
-                                              return MitigationMenuPage(
-                                                mitigationId: entry.key,
-                                                improvementOptions: options,
-                                                answers: answers,
-                                                selectedMitigationProb:
-                                                    entry.value,
-                                                totalRisk: probability,
-                                              );
-                                            },
-                                          ),
-                                        );
-                                      },
-                                    ),
-                                ],
-                              );
-                            },
-                          ),*/
-                          ,
+                          ),
                           const SizedBox(
                             height: 12,
                           ),
@@ -351,13 +254,6 @@ class _ResultPageState extends State<ResultPage> {
                     )
                   ],
                 ),
-            /* ElevatedButton(
-                onPressed: () {
-                  _toggleLinearGauge();
-                },
-                child: _showLinearGauge
-                    ? Text(context.tr('hide_details'))
-                    : Text(context.tr('show_details'))),*/
           ],
         ),
       ),

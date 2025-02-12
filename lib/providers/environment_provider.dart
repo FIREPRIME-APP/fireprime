@@ -1,4 +1,4 @@
-import 'package:fireprime/model/environment.dart';
+/*import 'package:fireprime/model/environment.dart';
 import 'package:flutter/material.dart';
 
 class EnvironmentProvider with ChangeNotifier {
@@ -33,4 +33,4 @@ class EnvironmentProvider with ChangeNotifier {
   void addHouse() {
     notifyListeners();
   }
-}
+}*/
