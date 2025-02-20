@@ -29,7 +29,7 @@
     "country": "País",
 
     "lastResult": "Última avaluació",
-    "vulnerability": "Vulnerabilitat",
+    "risk": "Risc",
     "noResult": "No hi ha resultats",
     "updateQuestionnaire": "Actualitza les respostes del qüestionari",
     "update": "Actualitzar",
@@ -77,10 +77,10 @@
     "about_devText3": "i amb el suport consultiu de ",
 
     "results": "Resultats",
-    "vulnerability_text": "La vulnerabilitat de la seva casa es de: ",
+    "risk_text": "El risc de la seva casa és de: ",
     "non_combustible_foundation": "Fonamentació no combustible",
     "exterior_envelope": "Tancament de l'edifici",
-    "structural_vulnerabilities": "Vulnerabilitats estructurals",
+    "structural_vulnerabilities": "Vulnerabilitat estructurals",
     "combustible_facade_elements": "Elements combustibles de façana",
     "glazing_systems": "Sistemes de vidre",
     "roof": "Sostre",
@@ -115,6 +115,13 @@
     "tree_pruning": "Poda d'arbres",
     "property_perimeter": "Perímetre de la propietat",
     "details": "Detalls",
+    "hide": "Ocultar",
+    "hazard": "Factor Hazard",
+    "hazard_info": "Aquest valor depèn de la localització de casa seva.",
+    "house_vulnerability": "Vulnerabilitat casa",
+    "risk_info": "Aquest valor depen del factor Hazard i el risc de la teva casa.",
+
+    "calculating": "Calculant el resultat",
 
     "improve": "Millora-ho!",
     "mitigations_actions": "Accions de millora",

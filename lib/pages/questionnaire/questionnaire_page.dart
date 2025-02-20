@@ -4,11 +4,11 @@ import 'package:fireprime/model/event_probability.dart';
 import 'package:fireprime/model/house.dart';
 import 'package:fireprime/model/risk_assessment.dart';
 import 'package:fireprime/pages/questionnaire/multiple_choice_image.dart';
+import 'package:fireprime/pages/result/results_loading_page.dart';
 import 'package:fireprime/providers/house_provider.dart';
 import 'package:fireprime/providers/images_provider.dart';
 import 'package:fireprime/fault_tree/fault_tree.dart';
 import 'package:fireprime/model/questionnaire.dart';
-import 'package:fireprime/pages/result/result_page.dart';
 import 'package:flutter/material.dart' hide Step;
 import 'package:provider/provider.dart';
 import 'package:survey_kit/survey_kit.dart';
@@ -25,6 +25,13 @@ class QuestionnairePage extends StatefulWidget {
 }
 
 class _QuestionnairePageState extends State<QuestionnairePage> {
+  @override
+  void initState() {
+    super.initState();
+    // final houseProvider = Provider.of<HouseProvider>(context, listen: false);
+    // houseProvider.getHazardValue();
+  }
+
   Map<String?, String?> auxResult = {};
 
   Questionnaire questionnaire = Questionnaire();
@@ -43,9 +50,12 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
           House house = houseProvider.getHouse(houseProvider.currentHouse!);
           if (house.riskAssessmentIds.isNotEmpty) {
             riskAssessment = houseProvider.getLastRiskAssessment();
-            answers = riskAssessment!.answers;
+            if (riskAssessment?.answers != null) {
+              answers = riskAssessment!.answers;
+            }
           }
         }
+
         //  print('answersFromController: $answers');
         //  print('answersFromWidget: ${widget.answers}');
         return Scaffold(
@@ -63,9 +73,6 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                     final Task task = snapshot.data!;
                     return SurveyKit(
                       onResult: (SurveyResult result) async {
-                        // print('onResult');
-
-                        //print('afteradaptedResult');
                         Map<String, String?> results = {};
 
                         if (result.finishReason == FinishReason.COMPLETED) {
@@ -88,38 +95,22 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                           Map<String, EventProbability> allProbabilities =
                               faultTree.getAllNodePorbabilities(topEvent, {});
 
-                          /*  List<Node> nodes =
-                              faultTree.getSubNodes(topEvent, []);
-                          print('nodes: $nodes');
-                          print('depth: ${faultTree.getDepth(topEvent, 0)}');
-*/
-                          /* for (int i = 0; i < nodes.length; ++i) {
-                            List<Node> subNodes =
-                                faultTree.getSubNodes(nodes[i], []);
-                            for (int i = 0; i < subNodes.length; ++i) {
-                              int subNodeDepth =
-                                  faultTree.getDepth(subNodes[i], 0);
-                              print(
-                                  'subNodesDepth ${subNodes[i].id}: $subNodeDepth');
-                            }
-                            print('subNodes: $subNodes');
-                          }*/
-                          /* Map<String, double> subProb =
-                              faultTree.getProbabilities(faultTree.topEvent);
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (BuildContext context) {
+                                return ResultsLoadingPage(
+                                    house: houseProvider.getHouse(
+                                      houseProvider.currentHouse!,
+                                    ),
+                                    probability: probability,
+                                    allProbabilities: allProbabilities,
+                                    endDate: result.endDate);
+                              },
+                            ),
+                          );
 
-                          print('subProb: $subProb');
-
-                          Map<String, Map<String, double>>
-                              subNodeProbabilities = {};
-
-                          for (var element in subProb.entries) {
-                            Map<String, double> probabilities =
-                                faultTree.getSubNodeProbabilities(element.key);
-                            subNodeProbabilities[element.key] = probabilities;
-                          }
-
-                          print('subNodeProbabilities: $subNodeProbabilities');
-*/
+                          //await houseProvider.getHazardValue();
+/*
                           await houseProvider.setCompleted(true, probability,
                               allProbabilities, result.endDate);
                           houseProvider.updateHouse();
@@ -131,21 +122,16 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                         .getHouse(houseProvider.currentHouse!));
                               },
                             ),
-                          );
+                          );*/
                         } else {
                           print('finishReason: ${result.finishReason}');
                           saveEventdata(
                               screenId: 'questionnaire_page',
                               buttonId: 'cancel');
-                          /*House currentHouse =
-                              house.getHouse(house.currentHouse!);*/
-                          /* if (currentHouse.riskAssessments.isEmpty ||
-                              !currentHouse.riskAssessments.last.completed) {*/
                           results = _adaptedResult(answers, result);
                           print('answers in no completed: $answers');
                           await houseProvider.setAnswers(result.startDate,
                               '1.0', results, 'Not completed');
-                          // }
                           houseProvider.updateHouse();
                           Navigator.of(context).pop();
                         }
@@ -184,155 +170,9 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
 
     List<Step> steps = setSteps();
 
-    final NavigableTask task = NavigableTask(
-        id: TaskIdentifier(),
-        steps:
-            steps/*<Step>[
-        InstructionStep(
-          title: context.tr('questionnaire'),
-          text: context.tr('startFill'),
-          showAppBar: true,
-        ),
-        buildSingleChoiceImageStep(
-            stepId: 'material-1',
-            textChoices: ['timber', 'vinylSiding', 'concreteBricks'],
-            otherOption: true),
-        buildSingleChoiceImageStep(
-            stepId: 'roof-1',
-            textChoices: ['roofFireRated', 'roofNonFireRated'],
-            otherOption: false),
-        buildSingleChoiceImageStep(
-            stepId: 'roof-2',
-            textChoices: ['roofPoorlyMaintaned', 'roofWellMaintained'],
-            otherOption: false),
-        buildSingleChoiceImageStep(
-            stepId: 'glazing-1',
-            textChoices: ['singlePane', 'doublePane', 'tempered'],
-            otherOption: false),
-        buildSingleChoiceImageStep(
-            stepId: 'glazing-2',
-            textChoices: [
-              'notAllProtected',
-              'wood',
-              'aluminium',
-              'pvc',
-              'fireRated'
-            ],
-            otherOption: false),
-        buildSingleChoiceImageStep(
-            stepId: 'vents-1',
-            textChoices: ['noVentProtection', 'allProtected', 'noVents'],
-            otherOption: false),
-        buildSingleChoiceImageStep(
-            stepId: 'vents-2',
-            textChoices: [
-              'combustibleProtection',
-              'nonCombBadCond',
-              'nonCombGoodCond'
-            ],
-            otherOption: false),
-        buildSingleChoiceImageStep(
-            stepId: 'semiConf-1',
-            textChoices: ['yesSemiConf', 'noSemiConf'],
-            otherOption: false),
-        buildSingleChoiceImageStep(
-            stepId: 'semiConf-2',
-            textChoices: ['glazingSystems', 'noGlazingSystems'],
-            otherOption: false),
-        buildSingleChoiceImageStep(
-            stepId: 'semiConf-3',
-            textChoices: ['combustibleEnvelope', 'nonCombThin', 'nonCombThick'],
-            otherOption: false),
-        CompletionStep(
-          stepIdentifier: StepIdentifier(id: 'completionStep'),
-          text: context.tr('checkVuln'),
-          title: context.tr('done'),
-          buttonText: context.tr('check'),
-        ),
-      ],*/
-        );
-
+    final NavigableTask task =
+        NavigableTask(id: TaskIdentifier(), steps: steps);
     addNavigationRules(task);
-
-    /* task.addNavigationRule(
-      forTriggerStepIdentifier: StepIdentifier(id: 'material-1'),
-      navigationRule: ConditionalNavigationRule(
-        resultToStepIdentifierMapper: (String? input) {
-          auxResult['material-1'] = input;
-
-          return StepIdentifier(id: 'roof-1');
-        },
-      ),
-    );
-    task.addNavigationRule(
-      forTriggerStepIdentifier: StepIdentifier(id: 'glazing-1'),
-      navigationRule: ConditionalNavigationRule(
-        resultToStepIdentifierMapper: (String? input) {
-          auxResult['glazing-1'] = input;
-          // print(auxResult);
-          return StepIdentifier(id: 'glazing-2');
-        },
-      ),
-    );
-    task.addNavigationRule(
-      forTriggerStepIdentifier: StepIdentifier(id: 'vents-1'),
-      navigationRule: ConditionalNavigationRule(
-        resultToStepIdentifierMapper: (String? input) {
-          if (input == 'noVentProtection' || input == 'noVents') {
-            return StepIdentifier(id: 'semiConf-1');
-            //return StepIdentifier(id: 'vents-2');
-          } else {
-            return StepIdentifier(id: 'vents-2');
-          }
-        },
-      ),
-    );
-    task.addNavigationRule(
-      forTriggerStepIdentifier: StepIdentifier(id: 'semiConf-1'),
-      navigationRule: ConditionalNavigationRule(
-        resultToStepIdentifierMapper: (String? input) {
-          if (input == 'yesSemiConf') {
-            return StepIdentifier(id: 'semiConf-2');
-            //return StepIdentifier(id: 'vents-2');
-          } else {
-            if (auxResult['glazing-1'] == 'singlePane') {
-              return StepIdentifier(id: 'completionStep'); //TODO
-              //return StepIdentifier(id: 'fuels-close-1a');
-            } else {
-              return StepIdentifier(id: 'completionStep'); //TODO
-              //return StepIdentifier(id: 'fuels-close-1b');
-            }
-          }
-        },
-      ),
-    );*/
-    /*task.addNavigationRule(
-      forTriggerStepIdentifier: StepIdentifier(id: 'fuels-close-2a'),
-      navigationRule: ConditionalNavigationRule(
-        resultToStepIdentifierMapper: (String? input) {
-          if (auxResult['material-1'] == 'timber' ||
-              auxResult['material-1'] == 'vinylSiding') {
-            return StepIdentifier(id: 'fuels-close-3');
-          } else {
-            return StepIdentifier(id: 'fuels-close-4');
-          }
-        },
-      ),
-    );*/
-    /* task.addNavigationRule(
-      forTriggerStepIdentifier: StepIdentifier(id: 'fuels-close-1b'),
-      navigationRule: ConditionalNavigationRule(
-        resultToStepIdentifierMapper: (String? input) {
-          if (auxResult['material-1'] == 'timber' ||
-              auxResult['material-1'] == 'vinylSiding') {
-            return StepIdentifier(id: 'fuels-close-3');
-          } else {
-            return StepIdentifier(id: 'fuels-close-4');
-          }
-        },
-      ),
-    );*/
-    // print('after');
     return Future<Task>.value(task);
   }
 

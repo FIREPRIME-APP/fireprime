@@ -11,6 +11,7 @@ import 'package:fireprime/pages/house/house_page.dart';
 import 'package:fireprime/pages/mitigation/mitigation_menu_page.dart';
 import 'package:fireprime/model/house.dart';
 import 'package:fireprime/providers/house_provider.dart';
+import 'package:fireprime/widgets/info_dialog.dart';
 import 'package:fireprime/widgets/utils.dart';
 import 'package:fireprime/widgets/card_text.dart';
 import 'package:flutter/material.dart';
@@ -27,9 +28,12 @@ class ResultPage extends StatefulWidget {
 }
 
 class _ResultPageState extends State<ResultPage> {
-  double probability = 0.0;
+  double risk = 0.0;
 
   double? lastProbability;
+
+  double hazard = 1.0;
+  double vulnerability = 0.0;
 
   Map<String, String?> answers = {};
 
@@ -39,6 +43,18 @@ class _ResultPageState extends State<ResultPage> {
   Map<String, bool> _showLinearGauge = {};
   Map<String, EventProbability> subProbabilities = {};
   Map<String, EventProbability> lastSubProbabilities = {};
+
+  bool _showFactors = false;
+
+  bool _toggleFactors() {
+    setState(() {
+      _showFactors = !_showFactors;
+      for (var entry in _showLinearGauge.entries) {
+        _showLinearGauge[entry.key] = false;
+      }
+    });
+    return _showFactors;
+  }
 
   @override
   void initState() {
@@ -50,8 +66,14 @@ class _ResultPageState extends State<ResultPage> {
     RiskAssessment? oldRiskAssessment = houseProvider.getOldRiskAssessment();
 
     if (riskAssessment != null) {
-      probability = riskAssessment.probability;
+      risk = riskAssessment.risk;
       allProbabilities = riskAssessment.allProbabilities;
+      if (riskAssessment.hazard != null) {
+        hazard = riskAssessment.hazard!;
+      } else {
+        hazard = 1.0;
+      }
+      vulnerability = riskAssessment.vulnerability!;
       answers = riskAssessment.answers;
 
       for (var entry in allProbabilities!.entries) {
@@ -62,7 +84,7 @@ class _ResultPageState extends State<ResultPage> {
     }
 
     if (oldRiskAssessment != null) {
-      lastProbability = oldRiskAssessment.probability;
+      lastProbability = oldRiskAssessment.risk;
       lastAllProbabilities = oldRiskAssessment.allProbabilities;
       for (var entry in lastAllProbabilities!.entries) {
         for (var subEntry in entry.value.subEvents!.entries) {
@@ -124,7 +146,7 @@ class _ResultPageState extends State<ResultPage> {
         padding: const EdgeInsets.all(20.0),
         child: Column(
           children: [
-            Text(context.tr('vulnerability_text'),
+            Text(context.tr('risk_text'),
                 style: Theme.of(context).textTheme.titleLarge!),
             Card(
               child: Stack(
@@ -135,11 +157,33 @@ class _ResultPageState extends State<ResultPage> {
                       width: 200,
                       padding: const EdgeInsets.all(20),
                       color: Colors.transparent,
-                      child: Gauge.radialGauge(probability * 100, 15, 6),
+                      child: Gauge.radialGauge(risk * 100, 15, 6),
                     ),
                   ),
-                  Gauge.gaugeProbabilityText(
-                      probability * 100, context.tr('vulnerability'), 20),
+                  Gauge.gaugeProbabilityText(risk * 100, context.tr('risk'), 20,
+                      context.tr('risk_info')),
+                  /*  Padding(
+                    padding: const EdgeInsets.only(top: 150),
+                    child: Row(
+                      children: [
+                        Text(
+                          context.tr('vulnerability'),
+                          style: const TextStyle(
+                              fontSize: 15, fontWeight: FontWeight.bold),
+                        ),
+                        const SizedBox(
+                          width: 5,
+                        ),
+                        InfoDialog(
+                          icon: Icons.info_outline,
+                          iconSize: 18.0,
+                          text: context.tr('hazard_info'),
+                          fontSize: 15,
+                        ),
+                      ],
+                    ),
+                  ),*/
+
                   Padding(
                     padding: const EdgeInsets.fromLTRB(20, 0, 10, 20),
                     child: Column(
@@ -147,41 +191,119 @@ class _ResultPageState extends State<ResultPage> {
                         const SizedBox(
                           height: 200,
                         ),
-                        for (var entry in subProbabilities.entries)
-                          Row(
-                            children: [
-                              Expanded(
-                                child: CardText(
-                                  title: context.tr(entry.key),
-                                  text: (entry.value.probability * 100)
-                                      .toStringAsFixed(0),
+                        const Divider(
+                          thickness: 1.5,
+                          color: Colors.grey,
+                        ),
+                        Row(
+                          children: [
+                            CardText(
+                                title: context.tr('hazard'),
+                                text: (hazard * 100).toStringAsFixed(0),
+                                size: 15,
+                                color: Colors.black),
+                            const SizedBox(
+                              width: 5,
+                            ),
+                            InfoDialog(
+                                icon: Icons.info_outline,
+                                iconSize: 15,
+                                text: context.tr('hazard_info'),
+                                fontSize: 12)
+                          ],
+                        ),
+                        const SizedBox(
+                          height: 15,
+                        ),
+                        Gauge.linearGauge((hazard * 100), 20, 15, 15, null),
+                        const SizedBox(
+                          height: 15,
+                        ),
+                        Row(
+                          children: [
+                            Expanded(
+                              child: CardText(
+                                  title: context.tr('house_vulnerability'),
+                                  text:
+                                      (vulnerability * 100).toStringAsFixed(0),
                                   size: 15,
-                                  color: Utils.textColor(
-                                    (entry.value.probability * 100),
-                                  ),
+                                  color: Utils.textColor(vulnerability * 100)),
+                            ),
+                            const SizedBox(
+                              width: 5,
+                            ),
+                            TextButton(
+                              onPressed: () {
+                                _toggleFactors();
+                              },
+                              child: Text(
+                                _showFactors
+                                    ? context.tr('hide')
+                                    : context.tr('details'),
+                                style: const TextStyle(
+                                  color: Constants.blueDark,
+                                  fontSize: 15,
+                                  fontStyle: FontStyle.italic,
                                 ),
                               ),
-                              const SizedBox(
-                                width: 10,
-                              ),
-                              TextButton(
-                                onPressed: () {
-                                  saveEventdata(
-                                      screenId: 'result_page',
-                                      buttonId: 'show_details');
-                                  _toggleLinearGauge(entry.key);
-                                },
-                                child: Text(
-                                  context.tr('details'),
-                                  style: const TextStyle(
-                                    color: Constants.blueDark,
-                                    fontSize: 15,
-                                    fontStyle: FontStyle.italic,
-                                  ),
-                                ),
-                              ),
-                            ],
+                            ),
+                          ],
+                        ),
+                        Gauge.linearGauge(
+                            (vulnerability * 100), 20, 15, 15, null),
+                        const SizedBox(
+                          height: 15,
+                        ),
+                        if (_showFactors) ...[
+                          const Divider(
+                            color: Colors.grey,
+                            thickness: 1.5,
                           ),
+                          for (var entry in subProbabilities.entries)
+                            Column(
+                              children: [
+                                Row(
+                                  children: [
+                                    Expanded(
+                                      child: CardText(
+                                        title: context.tr(entry.key),
+                                        text: (entry.value.probability * 100)
+                                            .toStringAsFixed(0),
+                                        size: 15,
+                                        color: Utils.textColor(
+                                          (entry.value.probability * 100),
+                                        ),
+                                      ),
+                                    ),
+                                    const SizedBox(
+                                      width: 10,
+                                    ),
+                                    TextButton(
+                                      onPressed: () {
+                                        saveEventdata(
+                                            screenId: 'result_page',
+                                            buttonId: 'show_details');
+                                        _toggleLinearGauge(entry.key);
+                                      },
+                                      child: Text(
+                                        _showLinearGauge[entry.key] != null &&
+                                                _showLinearGauge[entry.key]!
+                                            ? context.tr('hide')
+                                            : context.tr('details'),
+                                        style: const TextStyle(
+                                          color: Constants.blueDark,
+                                          fontSize: 15,
+                                          fontStyle: FontStyle.italic,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                Gauge.linearGauge(entry.value.probability * 100,
+                                    20, 15, 15, null)
+                              ],
+                            ),
+                        ],
                       ],
                     ),
                   ),
@@ -189,7 +311,7 @@ class _ResultPageState extends State<ResultPage> {
               ),
             ),
             for (var entry in _showLinearGauge.entries)
-              if (entry.value)
+              if (entry.value && _showFactors)
                 Column(
                   children: [
                     const Divider(color: Colors.grey, thickness: 1.5),
@@ -235,7 +357,9 @@ class _ResultPageState extends State<ResultPage> {
                                                 answers: answers,
                                                 selectedMitigationProb:
                                                     subProb.value.probability,
-                                                totalRisk: probability,
+                                                houseVulnerability:
+                                                    vulnerability,
+                                                hazard: hazard,
                                               );
                                             },
                                           ),

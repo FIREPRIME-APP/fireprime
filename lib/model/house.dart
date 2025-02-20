@@ -17,4 +17,7 @@ class House {
   @HiveField(3)
   List<String> riskAssessmentIds = [];
   House(this.name, this.address, this.environment);
+
+  @HiveField(4)
+  double? hazard = 1.0;
 }

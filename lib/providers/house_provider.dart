@@ -1,3 +1,4 @@
+import 'package:fireprime/hazard/hazard.dart';
 import 'package:fireprime/model/event_probability.dart';
 import 'package:fireprime/model/house.dart';
 import 'package:fireprime/model/risk_assessment.dart';
@@ -20,6 +21,7 @@ class HouseProvider with ChangeNotifier {
   }
 
   Future<void> _init() async {
+    print('init');
     await initialiseBox();
     houses = getHouses();
   }
@@ -49,13 +51,18 @@ class HouseProvider with ChangeNotifier {
     return riskAssessmentBox.toMap();
   }
 
+  Future<void> deleteRiskAssessment(String id) async {
+    await riskAssessmentBox.delete(id);
+    notifyListeners();
+  }
+
   /*Future<void> deleteRiskAssessments() async {
     riskAssessmentBox.clear();
     final raId = await Hive.openBox<int>('riskAssessmentIds');
     raId.clear();
   }*/
 
-  void delete(String houseName) async {
+  Future<void> delete(String houseName) async {
     houses.remove(houseName);
     await box.delete(houseName);
     notifyListeners();
@@ -65,9 +72,10 @@ class HouseProvider with ChangeNotifier {
     return houses.keys.toList();
   }*/
 
-  void updateHouse() async {
+  Future<void> updateHouse() async {
     print('updating house');
     await box.put(currentHouse, houses[currentHouse]);
+    print(houses[currentHouse].riskAssessmentIds);
     notifyListeners();
   }
 
@@ -125,6 +133,16 @@ class HouseProvider with ChangeNotifier {
 
   void setCurrentHouse(String houseId) {
     currentHouse = houseId;
+    notifyListeners();
+  }
+
+  Future<void> getHazardValue() async {
+    House house = houses[currentHouse]!;
+    double hazard = await getHazard(house.environment);
+    if (hazard != -1.0) {
+      house.hazard = hazard;
+    }
+    await box.put(currentHouse, house);
     notifyListeners();
   }
 
@@ -201,7 +219,7 @@ class HouseProvider with ChangeNotifier {
 
   Future<void> setCompleted(
     bool completed,
-    double probability,
+    double vulnerability,
     Map<String, EventProbability> allProbabilities,
     DateTime endDate,
   ) async {
@@ -209,11 +227,16 @@ class HouseProvider with ChangeNotifier {
     String raId = house.riskAssessmentIds.last;
     RiskAssessment riskAssessment = riskAssessmentBox.get(raId);
     riskAssessment.completed = completed;
-    riskAssessment.probability = probability;
+    riskAssessment.vulnerability = vulnerability;
     riskAssessment.allProbabilities = allProbabilities;
     riskAssessment.fiDate = endDate;
-    await updateRiskAssesment(raId, riskAssessment);
 
+    await getHazardValue();
+
+    riskAssessment.hazard = house.hazard;
+    riskAssessment.risk = house.hazard! * vulnerability;
+    await updateRiskAssesment(raId, riskAssessment);
+    await updateHouse();
     notifyListeners();
   }
 
@@ -281,10 +304,12 @@ class HouseProvider with ChangeNotifier {
 
   RiskAssessment? getLastRiskAssessment() {
     House house = houses[currentHouse]!;
+    //print('getLastIds:' + house.riskAssessmentIds.last);
     if (house.riskAssessmentIds.isEmpty) {
       return null;
     } else {
       String id = house.riskAssessmentIds.last;
+      //print(riskAssessmentBox.get(id));
       return riskAssessmentBox.get(id);
     }
   }
@@ -297,13 +322,13 @@ class HouseProvider with ChangeNotifier {
       if (riskAssessment == null) {
         return null;
       } else if (riskAssessment.completed) {
-        return riskAssessment.probability;
+        return riskAssessment.risk;
       } else if (house.riskAssessmentIds.length >= 2) {
         String raId =
             house.riskAssessmentIds[house.riskAssessmentIds.length - 2];
         RiskAssessment riskAssessment2 = riskAssessmentBox.get(raId);
         if (riskAssessment2.completed) {
-          return riskAssessment2.probability;
+          return riskAssessment2.risk;
         }
       }
     }

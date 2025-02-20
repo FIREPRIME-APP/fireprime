@@ -28,7 +28,7 @@
     "more_info": "More information",
     
     "lastResult": "Last avaluation",
-    "vulnerability": "Vulnerability",
+    "risk": "Risk",
     "noResult": "No results available",
     "updateQuestionnaire": "Update your answers of the questionnaire",
     "update": "Update",
@@ -66,7 +66,7 @@
     "hide_details": "Hide details",
 
     "results": "Results",
-    "vulnerability_text": "Your house vulnerability is:",
+    "risk_text": "Your house risk is:",
     "structural_vulnerabilities": "Structural vulnerabilities",
     "non_combustible_foundation": "Non combustible foundation",
     "exterior_envelope": "Exterior envelope",
@@ -104,8 +104,16 @@
     "tree_pruning": "Tree pruning",
     
     "property_perimeter": "Property perimeter",
-
     "details": "Details",
+    "hide": "Hide",
+
+    "hazard": "Hazard factor",
+    "hazard_info": "This value depends on your house localization.",
+    "house_vulnerability": "House vulnerability",
+    "risk_info": "This value depends on the Hazard factor and your house risk.",
+
+    "calculating": "Calculating the result",
+
 
     "improve": "Improve it!",
     "mitigations_actions": "Improvement Actions",

@@ -89,7 +89,8 @@ class _HousePageState extends State<HousePage> {
           }
 
           RiskAssessment? riskAssessment;
-
+          print('currenthouse riskIds:');
+          print(currentHouse.riskAssessmentIds);
           if (currentHouse.riskAssessmentIds.isNotEmpty) {
             riskAssessment = houseProvider.getLastRiskAssessment();
           }
@@ -335,7 +336,7 @@ class _HousePageState extends State<HousePage> {
                             ),
                             Center(
                               child: CardText(
-                                title: context.tr('vulnerability'),
+                                title: context.tr('risk'),
                                 text:
                                     (lastProbability * 100).toStringAsFixed(0),
                                 size: 18,

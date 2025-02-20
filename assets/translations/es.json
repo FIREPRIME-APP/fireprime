@@ -28,7 +28,7 @@
     "more_info": "Más información",
 
     "lastResult": "Última avaluación",
-    "vulnerability": "Vulnerabilidad",
+    "risk": "Riesgo",
     "noResult": "No hay resultados",
     "updateQuestionnaire": "Actualiza las respuestas del cuestionario",
     "update": "Actualizar",
@@ -77,8 +77,8 @@
     "about_devText3": "y con el apoyo consultivo de ",
 
     "results": "Resultados",
-    "vulnerability_text": "La vulnerabilidad de su casa es de:",
-    "structural_vulnerabilities": "Vulnerabilidades estructurales",
+    "risk_text": "El riesgo de su casa es de:",
+    "structural_vulnerabilities": "Vulnerabilidad estructural",
     "combustible_facade_elements": "Elementos combustibles de fachada",
     "non_combustible_foundation": "Cimentación no combustible",
     "exterior_envelope": "Envolvente de edificación",
@@ -116,6 +116,13 @@
 
     "property_perimeter": "Perímetro de la propiedad",
     "details": "Detalles",
+    "hide": "Ocultar",
+    "hazard": "Factor Hazard",
+    "hazard_info": "Este valor depende de la localización de su casa.",
+    "house_vulnerability": "Vulnerabilidad casa",
+    "risk_info": "Este valor depende del factor Hazard y de su riesgo de la casa.",
+    "calculating": "Calculando el resultado",
+
 
     "improve": "Mejóralo",
     "mitigations_actions": "Acciones de mejora",

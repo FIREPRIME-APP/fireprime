@@ -1,3 +1,4 @@
+import 'package:fireprime/widgets/info_dialog.dart';
 import 'package:fireprime/widgets/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:geekyants_flutter_gauges/geekyants_flutter_gauges.dart';
@@ -42,7 +43,7 @@ class Gauge {
   }
 
   static Widget gaugeProbabilityText(
-      double probability, String description, double space) {
+      double probability, String description, double space, String info) {
     return Padding(
       padding: const EdgeInsets.only(top: 120),
       child: Center(
@@ -53,9 +54,23 @@ class Gauge {
               style: const TextStyle(fontSize: 15),
             ),
             SizedBox(height: space),
-            Text(
-              description,
-              style: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text(
+                  description,
+                  style: const TextStyle(
+                      fontSize: 15, fontWeight: FontWeight.bold),
+                ),
+                const SizedBox(width: 5),
+                InfoDialog(
+                  icon: Icons.info_outline,
+                  iconSize: 20.0,
+                  text: info,
+                  fontSize: 12,
+                ),
+              ],
             ),
           ],
         ),
@@ -71,6 +86,7 @@ class Gauge {
       double borderRadius,
       double? lastProbability) {
     // print('lastProbability: $lastProbability');
+
     return Column(
       children: [
         Padding(

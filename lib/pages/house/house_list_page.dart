@@ -24,6 +24,7 @@ class _HouseListPageState extends State<HouseListPage> {
   @override
   void initState() {
     super.initState();
+
     // _checkIfAcceptedPrivacy();
   }
 
@@ -47,6 +48,7 @@ class _HouseListPageState extends State<HouseListPage> {
   @override
   Widget build(BuildContext context) {
     final houseProvider = Provider.of<HouseProvider>(context, listen: false);
+
     // houseProvider.deleteRiskAssessments();
 
     return Scaffold(
@@ -64,6 +66,19 @@ class _HouseListPageState extends State<HouseListPage> {
               }*/
               saveDeviceData(context);
             });
+
+            /* var houses = houseProvider.getHouses();
+            print('houses:');
+            print(houses);
+*/
+            /* var risks = houseProvider.getRiskAssessmentsBox();
+            if (risks.isNotEmpty)
+              risks.forEach((key, value) {
+                houseProvider.deleteRiskAssessment(key);
+                print('key: $key');
+                print('value: ${value.iniDate}');
+              });
+            */
             return Consumer<HouseProvider>(
               builder: (context, houseProvider, child) {
                 final houses = houseProvider.getHouses();
@@ -137,6 +152,19 @@ class _HouseListPageState extends State<HouseListPage> {
   Widget _buildFooter(BuildContext context) {
     return Column(
       children: [
+        /* ElevatedButton(
+            child: Text('eliminar'),
+            onPressed: () {
+              final houseProvider =
+                  Provider.of<HouseProvider>(context, listen: false);
+
+              houseProvider.getHouses().forEach((key, value) async {
+                await houseProvider.delete(key);
+              });
+              houseProvider.getRiskAssessmentsBox().forEach((key, value) async {
+                await houseProvider.deleteRiskAssessment(key);
+              });
+            }),*/
         ElevatedButton.icon(
           style: ElevatedButton.styleFrom(
               backgroundColor: Constants.blueDark, elevation: 5.0),

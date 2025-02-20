@@ -15,7 +15,9 @@ class MitigationMenuPage extends StatefulWidget {
   final Map<String, dynamic> improvementOptions;
 
   final double selectedMitigationProb;
-  final double totalRisk;
+  final double houseVulnerability;
+
+  final double hazard;
 
   const MitigationMenuPage({
     super.key,
@@ -23,7 +25,8 @@ class MitigationMenuPage extends StatefulWidget {
     required this.answers, // userSelected Answers
     required this.improvementOptions, // possible improvements
     required this.selectedMitigationProb, // probability mitigationId
-    required this.totalRisk,
+    required this.houseVulnerability,
+    required this.hazard,
   }); // total risk
 
   @override
@@ -102,11 +105,13 @@ class _MitigationMenuPageState extends State<MitigationMenuPage> {
                                         answers: widget.answers,
                                         selectedProbability:
                                             widget.selectedMitigationProb,
-                                        totalRisk: widget.totalRisk,
+                                        houseVulnerability:
+                                            widget.houseVulnerability,
                                         mitigationNode: mitigationNode,
                                         improvementOptions:
                                             entry.value['improvementOptions'],
                                         affectedQuestions: affectedQuestions,
+                                        hazard: widget.hazard,
                                       );
                                     },
                                   ),

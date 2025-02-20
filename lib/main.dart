@@ -1,8 +1,9 @@
+//import 'dart:io';
+
 import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_app_check/firebase_app_check.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:fireprime/model/event_probability.dart';
-//import 'package:fireprime/providers/environment_provider.dart';
 import 'package:fireprime/providers/house_provider.dart';
 import 'package:fireprime/providers/images_provider.dart';
 import 'package:fireprime/fault_tree/fault_tree.dart';
@@ -15,6 +16,8 @@ import 'package:hive/hive.dart';
 import 'package:provider/provider.dart';
 import 'package:fireprime/providers/language_change_controller.dart';
 import 'firebase/firebase_options.dart';
+//import 'package:timezone/data/latest.dart' as tz;
+//import 'package:timezone/timezone.dart' as tz;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -42,6 +45,15 @@ void main() async {
     print("Error App Check: $e");
   }
 
+  /*tz.initializeTimeZones();
+  final cet = tz.getLocation('Europe/Berlin');
+  final now = tz.TZDateTime.now(cet);
+  final cutoff = tz.TZDateTime(cet, 2025, 2, 19, 10, 0);
+
+  if (now.isBefore(cutoff)) {
+    exit(0);
+  }
+*/
   runApp(
     EasyLocalization(
       supportedLocales: const [
@@ -260,7 +272,7 @@ class MyApp extends StatelessWidget {
             ),
             localizationsDelegates: context.localizationDelegates,
             /*const [
-              //AppLocalizations.delegate,
+              //AppLocalizations.delegate, 
               GlobalMaterialLocalizations.delegate,
               GlobalWidgetsLocalizations.delegate,
               GlobalCupertinoLocalizations.delegate,

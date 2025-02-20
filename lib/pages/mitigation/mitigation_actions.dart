@@ -12,17 +12,19 @@ class MitigationActions extends StatefulWidget {
     required this.answers,
     required this.affectedQuestions,
     required this.selectedProbability,
-    required this.totalRisk,
+    required this.houseVulnerability,
     this.mitigationNode,
     required this.improvementOptions,
+    required this.hazard,
   });
 
   final Map<String, dynamic> answers;
   final Set<String> improvementOptions;
   final List<String> affectedQuestions;
   final double selectedProbability;
-  final double totalRisk;
+  final double houseVulnerability;
   final Node? mitigationNode;
+  final double hazard;
 
   @override
   State<MitigationActions> createState() => _MitigationActionsState();
@@ -30,7 +32,7 @@ class MitigationActions extends StatefulWidget {
 
 class _MitigationActionsState extends State<MitigationActions> {
   String? _selectedChoice;
-  double? _newTotalRisk;
+  double? _newVulnerability;
   double? _newMitigationRisk;
 
   Map<String, List<String>> _options = {};
@@ -142,7 +144,7 @@ class _MitigationActionsState extends State<MitigationActions> {
                               }
                               auxAnswers[question] = option;
                               FaultTree().setSelectedOptions(auxAnswers);
-                              _newTotalRisk = FaultTree()
+                              _newVulnerability = FaultTree()
                                   .calculateProbability(FaultTree().topEvent);
 
                               if (widget.mitigationNode != null) {
@@ -179,14 +181,14 @@ class _MitigationActionsState extends State<MitigationActions> {
               const SizedBox(
                 height: 10,
               ),
-              _newTotalRisk != null
+              _newVulnerability != null
                   ? radialGauge(
-                      _newTotalRisk!,
-                      widget.totalRisk,
+                      _newVulnerability!,
+                      widget.houseVulnerability,
                     )
                   : radialGauge(
-                      widget.totalRisk,
-                      widget.totalRisk,
+                      widget.houseVulnerability,
+                      widget.houseVulnerability,
                     ),
             ],
           ),
@@ -214,7 +216,7 @@ class _MitigationActionsState extends State<MitigationActions> {
     );
   }
 
-  Widget radialGauge(double newRisk, double beforeRisk) {
+  Widget radialGauge(double newVunlerability, double beforeVulnerability) {
     return Stack(
       children: [
         Center(
@@ -234,12 +236,12 @@ class _MitigationActionsState extends State<MitigationActions> {
               ),
               valueBar: [
                 RadialValueBar(
-                  value: newRisk * 100,
+                  value: newVunlerability * 100,
                   valueBarThickness: 13,
                   color: const Color.fromARGB(255, 137, 155, 197),
                 ),
                 RadialValueBar(
-                  value: beforeRisk * 100,
+                  value: beforeVulnerability * 100,
                   valueBarThickness: 13,
                   color: const Color.fromARGB(255, 86, 97, 123),
                   radialOffset: 13,
@@ -252,10 +254,10 @@ class _MitigationActionsState extends State<MitigationActions> {
           child: Column(
             children: [
               const SizedBox(height: 100),
-              gaugelegend(
-                  newRisk, 'now', const Color.fromARGB(255, 137, 155, 197)),
-              gaugelegend(
-                  beforeRisk, 'before', const Color.fromARGB(255, 86, 97, 123)),
+              gaugelegend(newVunlerability, 'now',
+                  const Color.fromARGB(255, 137, 155, 197)),
+              gaugelegend(beforeVulnerability, 'before',
+                  const Color.fromARGB(255, 86, 97, 123)),
             ],
           ),
         )

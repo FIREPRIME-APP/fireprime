@@ -1,4 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:fireprime/constants.dart';
 import 'package:fireprime/firebase/event_manage.dart';
 import 'package:fireprime/widgets/gauge.dart';
 import 'package:fireprime/model/event_probability.dart';
@@ -18,7 +19,7 @@ class HistoricalResultsPage extends StatefulWidget {
 class _HistoricalResultsPageState extends State<HistoricalResultsPage> {
   int _touchedIndex = -1;
 
-  double? lastProbability;
+  double? lastRisk;
   Map<String, EventProbability>? lastAllProbabilities = {};
   Map<String, EventProbability>? allProbabilities = {};
 
@@ -26,6 +27,13 @@ class _HistoricalResultsPageState extends State<HistoricalResultsPage> {
   Map<String, EventProbability> subProbabilities = {};
 
   List<RiskAssessment> riskAssessmentsToShow = [];
+
+  double? lastHouseVulnerability;
+  double? lastHouseHazard;
+
+  bool _showDetails = false;
+  Map<String, bool> _showLinearGauge = {};
+
   @override
   void initState() {
     super.initState();
@@ -49,9 +57,12 @@ class _HistoricalResultsPageState extends State<HistoricalResultsPage> {
       }
 
       if (_touchedIndex > 0) {
-        lastProbability = riskAssessmentsToShow[_touchedIndex - 1].probability;
+        lastRisk = riskAssessmentsToShow[_touchedIndex - 1].risk;
         lastAllProbabilities =
             riskAssessmentsToShow[_touchedIndex - 1].allProbabilities;
+        lastHouseVulnerability =
+            riskAssessmentsToShow[_touchedIndex - 1].vulnerability;
+        lastHouseHazard = riskAssessmentsToShow[_touchedIndex - 1].hazard;
 
         for (var entry in lastAllProbabilities!.entries) {
           for (var subEntry in entry.value.subEvents!.entries) {
@@ -66,6 +77,10 @@ class _HistoricalResultsPageState extends State<HistoricalResultsPage> {
           subProbabilities[subEntry.key] = subEntry.value;
         }
       }
+    }
+
+    for (var entry in subProbabilities.entries) {
+      _showLinearGauge[entry.key] = false;
     }
   }
 
@@ -82,22 +97,31 @@ class _HistoricalResultsPageState extends State<HistoricalResultsPage> {
           }
         }
         if (_touchedIndex > 0) {
-          lastProbability =
-              riskAssessmentsToShow[_touchedIndex - 1].probability;
+          lastRisk = riskAssessmentsToShow[_touchedIndex - 1].risk;
           lastAllProbabilities =
               riskAssessmentsToShow[_touchedIndex - 1].allProbabilities;
+          lastHouseVulnerability =
+              riskAssessmentsToShow[_touchedIndex - 1].vulnerability;
+          lastHouseHazard = riskAssessmentsToShow[_touchedIndex - 1].hazard;
+
           for (var entry in lastAllProbabilities!.entries) {
             for (var subEntry in entry.value.subEvents!.entries) {
               lastSubProbabilities[subEntry.key] = subEntry.value;
             }
           }
         } else {
-          lastProbability = null;
+          lastRisk = null;
           lastAllProbabilities = {};
           lastSubProbabilities = {};
+          lastHouseVulnerability = null;
+          lastHouseHazard = null;
         }
+        _showLinearGauge.updateAll((key, value) => false);
+        _showDetails = false;
       },
     );
+    print('last:');
+    print(lastHouseVulnerability);
   }
 
   @override
@@ -105,7 +129,7 @@ class _HistoricalResultsPageState extends State<HistoricalResultsPage> {
     List<FlSpot> spots = [];
     for (int i = 0; i < riskAssessmentsToShow.length; i++) {
       if (riskAssessmentsToShow[i].completed) {
-        spots.add(FlSpot(i.toDouble(), riskAssessmentsToShow[i].probability));
+        spots.add(FlSpot(i.toDouble(), riskAssessmentsToShow[i].risk));
       }
       //spots.add(FlSpot(i.toDouble(), widget.riskAssessments[i].probability));
     }
@@ -146,46 +170,148 @@ class _HistoricalResultsPageState extends State<HistoricalResultsPage> {
                       ),
                       const SizedBox(height: 20),
                       Gauge.linearGaugeWithTitle(
-                          context.tr('vulnerability'),
-                          riskAssessmentsToShow[_touchedIndex].probability *
+                          context.tr('risk'),
+                          riskAssessmentsToShow[_touchedIndex].risk * 100,
+                          20,
+                          15,
+                          20,
+                          lastRisk != null ? lastRisk! * 100 : null),
+                      const Divider(color: Colors.grey, thickness: 1.5),
+
+                      Gauge.linearGaugeWithTitle(
+                          context.tr('hazard'),
+                          riskAssessmentsToShow[_touchedIndex].hazard! * 100,
+                          20,
+                          15,
+                          20,
+                          null),
+                      /* Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Row(
+                          children: [
+                            CardText(
+                              title: context.tr('hazard'),
+                              text:
+                                  riskAssessmentsToShow[_touchedIndex].hazard !=
+                                          null
+                                      ? (riskAssessmentsToShow[_touchedIndex]
+                                                  .hazard! *
+                                              100)
+                                          .toStringAsFixed(0)
+                                      : '100',
+                              size: 15,
+                              color: Colors.black,
+                            ),
+                            const SizedBox(width: 20),
+                          ],
+                        ),
+                      ),*/
+
+                      Gauge.linearGaugeWithTitle(
+                          context.tr('house_vulnerability'),
+                          riskAssessmentsToShow[_touchedIndex].vulnerability! *
                               100,
                           20,
                           15,
                           20,
-                          lastProbability != null
-                              ? lastProbability! * 100
+                          lastHouseVulnerability != null
+                              ? lastHouseVulnerability! * 100
                               : null),
-                      const Divider(color: Colors.grey, thickness: 1.5),
-                      for (var subEvent in subProbabilities.entries)
-                        Column(
-                          children: [
-                            Gauge.linearGaugeWithTitle(
-                              context.tr(subEvent.value.eventId),
-                              subEvent.value.probability * 100,
-                              20,
-                              15,
-                              20,
-                              getLastProbability(
-                                  lastAllProbabilities!, subEvent.key),
-                            ),
-                            if (subEvent.value.subEvents != null)
-                              for (var subProbEvent
-                                  in subEvent.value.subEvents!.entries)
-                                Gauge.linearGaugeWithTitle(
-                                  context.tr(subProbEvent.value.eventId),
-                                  subProbEvent.value.probability * 100,
-                                  20,
-                                  15,
-                                  20,
-                                  getLastProbability(
-                                      lastSubProbabilities, subProbEvent.key),
-                                ),
-                            const Divider(color: Colors.grey, thickness: 1.5),
-                          ],
+                      ElevatedButton(
+                        onPressed: () {
+                          setState(() {
+                            _showDetails = !_showDetails;
+                            for (var entry in _showLinearGauge.entries) {
+                              _showLinearGauge[entry.key] = false;
+                            }
+                          });
+                        },
+                        child: Text(
+                          _showDetails
+                              ? context.tr('hide')
+                              : context.tr('details'),
+                          style: const TextStyle(
+                            color: Constants.blueDark,
+                          ),
                         ),
-                      // for (var subEvent in subProbabilities.entries)
+                      ),
+                      //const Divider(color: Colors.grey, thickness: 1.5),
+                      if (_showDetails) ...[
+                        const Divider(color: Colors.grey, thickness: 1.5),
+                        for (var subEvent in subProbabilities.entries)
+                          Column(
+                            children: [
+                              Gauge.linearGaugeWithTitle(
+                                context.tr(subEvent.value.eventId),
+                                subEvent.value.probability * 100,
+                                20,
+                                15,
+                                20,
+                                getLastProbability(
+                                    lastAllProbabilities!, subEvent.key),
+                              ),
+                              ElevatedButton(
+                                onPressed: () {
+                                  _toggleDetailedLinearGauge(subEvent.key);
+                                },
+                                child: Text(
+                                    _showLinearGauge[subEvent.key] == true
+                                        ? context.tr('hide')
+                                        : context.tr('details')),
+                              ),
+                              /*  if (subEvent.value.subEvents != null)
+                                for (var subProbEvent
+                                    in subEvent.value.subEvents!.entries)
+                                  Gauge.linearGaugeWithTitle(
+                                    context.tr(subProbEvent.value.eventId),
+                                    subProbEvent.value.probability * 100,
+                                    20,
+                                    15,
+                                    20,
+                                    getLastProbability(
+                                        lastSubProbabilities, subProbEvent.key),
+                                  ),*/
+                              //  const Divider(color: Colors.grey, thickness: 1.5),
+                            ],
+                          ),
+
+                        // for (var subEvent in subProbabilities.entries)
+                      ],
+
+                      for (var entry in _showLinearGauge.entries)
+                        if (entry.value && _showDetails)
+                          Column(
+                            children: [
+                              const Divider(color: Colors.grey, thickness: 1.5),
+                              Text(
+                                context.tr(entry.key),
+                                style: const TextStyle(
+                                    fontSize: 15, fontWeight: FontWeight.bold),
+                              ),
+                              const SizedBox(
+                                height: 10,
+                              ),
+                              ...subProbabilities[entry.key]!
+                                  .subEvents!
+                                  .entries
+                                  .map(
+                                (subProbEvent) {
+                                  return Gauge.linearGaugeWithTitle(
+                                    context.tr(subProbEvent.value.eventId),
+                                    subProbEvent.value.probability * 100,
+                                    20,
+                                    15,
+                                    20,
+                                    getLastProbability(
+                                        lastSubProbabilities, subProbEvent.key),
+                                  );
+                                },
+                              ),
+                              Divider(color: Colors.grey, thickness: 1.5),
+                            ],
+                          )
                     ],
-                  )
+                  ),
               ],
             ),
           ),
@@ -342,5 +468,18 @@ class _HistoricalResultsPageState extends State<HistoricalResultsPage> {
       }
     }
     return null;
+  }
+
+  void _toggleDetailedLinearGauge(String key) {
+    if (_showLinearGauge.containsKey(key)) {
+      setState(() {
+        if (_showLinearGauge[key]!) {
+          _showLinearGauge[key] = false;
+        } else {
+          _showLinearGauge.updateAll((key, value) => false);
+          _showLinearGauge[key] = true;
+        }
+      });
+    }
   }
 }

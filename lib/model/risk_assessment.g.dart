@@ -23,18 +23,19 @@ class RiskAssessmentAdapter extends TypeAdapter<RiskAssessment> {
     )
       ..completed = fields[3] as bool
       ..fiDate = fields[4] as DateTime
-      ..probability = fields[5] as double
+      ..risk = fields[5] as double
       ..results = (fields[6] as Map).cast<String, double>()
       ..subNodeProbabilities = (fields[7] as Map).map((dynamic k, dynamic v) =>
           MapEntry(k as String, (v as Map).cast<String, double>()))
-      ..allProbabilities =
-          (fields[8] as Map?)?.cast<String, EventProbability>();
+      ..allProbabilities = (fields[8] as Map?)?.cast<String, EventProbability>()
+      ..vulnerability = fields[9] as double?
+      ..hazard = fields[10] as double?;
   }
 
   @override
   void write(BinaryWriter writer, RiskAssessment obj) {
     writer
-      ..writeByte(9)
+      ..writeByte(11)
       ..writeByte(0)
       ..write(obj.iniDate)
       ..writeByte(1)
@@ -46,13 +47,17 @@ class RiskAssessmentAdapter extends TypeAdapter<RiskAssessment> {
       ..writeByte(4)
       ..write(obj.fiDate)
       ..writeByte(5)
-      ..write(obj.probability)
+      ..write(obj.risk)
       ..writeByte(6)
       ..write(obj.results)
       ..writeByte(7)
       ..write(obj.subNodeProbabilities)
       ..writeByte(8)
-      ..write(obj.allProbabilities);
+      ..write(obj.allProbabilities)
+      ..writeByte(9)
+      ..write(obj.vulnerability)
+      ..writeByte(10)
+      ..write(obj.hazard);
   }
 
   @override

@@ -20,7 +20,7 @@ class RiskAssessment {
   @HiveField(4)
   late DateTime fiDate = DateTime.now();
   @HiveField(5)
-  late double probability = -1;
+  late double risk = -1;
   @HiveField(6)
   late Map<String, double> results = {}; //innecesario TODO
   @HiveField(7)
@@ -28,6 +28,10 @@ class RiskAssessment {
       {}; //innecesario TODO
   @HiveField(8)
   late Map<String, EventProbability>? allProbabilities = {};
+  @HiveField(9)
+  late double? vulnerability = -1.0;
+  @HiveField(10)
+  late double? hazard = 1.0;
 
   RiskAssessment(this.iniDate, this.version, this.answers);
 
