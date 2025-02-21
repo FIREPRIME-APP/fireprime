@@ -600,11 +600,6 @@
                                                                         },
                                                                         {
                                                                             "type": "event",
-                                                                            "event_id": "grass",
-                                                                            "probability": 0.0
-                                                                        },
-                                                                        {
-                                                                            "type": "event",
                                                                             "event_id": "noVeg",
                                                                             "probability": 0.0
                                                                         }

@@ -10,6 +10,7 @@ class ImagesProvider with ChangeNotifier {
   ImagesProvider();
 
   Future<void> getImagesJSON(String environment) async {
+    images = {};
     String envNameLower = environment.toLowerCase();
     String jsonString;
 
@@ -49,6 +50,7 @@ class ImagesProvider with ChangeNotifier {
         imagePath.add(CustomisedImage(images[question]![i].path, description));
       }
     }
+
     return imagePath;
   }
 }

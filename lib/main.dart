@@ -1,9 +1,11 @@
 //import 'dart:io';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_app_check/firebase_app_check.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:fireprime/model/event_probability.dart';
+import 'package:fireprime/pages/no_auth.dart';
 import 'package:fireprime/providers/house_provider.dart';
 import 'package:fireprime/providers/images_provider.dart';
 import 'package:fireprime/fault_tree/fault_tree.dart';
@@ -16,8 +18,6 @@ import 'package:hive/hive.dart';
 import 'package:provider/provider.dart';
 import 'package:fireprime/providers/language_change_controller.dart';
 import 'firebase/firebase_options.dart';
-//import 'package:timezone/data/latest.dart' as tz;
-//import 'package:timezone/timezone.dart' as tz;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -45,29 +45,43 @@ void main() async {
     print("Error App Check: $e");
   }
 
-  /*tz.initializeTimeZones();
-  final cet = tz.getLocation('Europe/Berlin');
-  final now = tz.TZDateTime.now(cet);
-  final cutoff = tz.TZDateTime(cet, 2025, 2, 19, 10, 0);
+  var snapshot = await FirebaseFirestore.instance
+      .collection('seguretat')
+      .doc('autoritzacio')
+      .get();
+  bool auth = snapshot.data()!['auth'];
 
-  if (now.isBefore(cutoff)) {
-    exit(0);
+  if (auth) {
+    runApp(
+      EasyLocalization(
+        supportedLocales: const [
+          Locale('en'),
+          Locale('ca'),
+          Locale('es'),
+          // Locale('de'),
+          // Locale('sv')
+        ],
+        path: 'assets/translations',
+        fallbackLocale: const Locale('en'),
+        child: const MyApp(),
+      ),
+    );
+  } else {
+    runApp(
+      EasyLocalization(
+        supportedLocales: const [
+          Locale('en'),
+          Locale('ca'),
+          Locale('es'),
+          // Locale('de'),
+          // Locale('sv')
+        ],
+        path: 'assets/translations',
+        fallbackLocale: const Locale('en'),
+        child: const NoAuth(),
+      ),
+    );
   }
-*/
-  runApp(
-    EasyLocalization(
-      supportedLocales: const [
-        Locale('en'),
-        Locale('ca'),
-        Locale('es'),
-        // Locale('de'),
-        // Locale('sv')
-      ],
-      path: 'assets/translations',
-      fallbackLocale: const Locale('en'),
-      child: const MyApp(),
-    ),
-  );
 }
 
 class MyApp extends StatelessWidget {

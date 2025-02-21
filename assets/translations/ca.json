@@ -5,6 +5,7 @@
     "german": "Alemany",
     "swedish": "Suec",
     "home": "FirePrime",
+    "no_auth": "El workshop començarà el 25 de febrer del 2025 a les 10 hores, si us plau, torna a obrir l'aplicació en aquell moment.",
 
     "privacy_title": "Privacitat de dades",
     "privacy_text": "La informació proporcionada per l'usuari s'emmagatzema localment al dispositiu i no es comparteix amb cap tercer. L'usuari pot eliminar les dades en qualsevol moment suprimint l'aplicació. Només es registren les interaccions amb l'aplicació de manera anònima.",
@@ -211,7 +212,7 @@
     "Q2": {
         "title": "Envoltant exterior",
         "question": "Hi ha una fonamentació no combustible?",
-        "description": "",
+        "description": "Tenir una base no combustible pot prevenir la ignició de l'envoltant en casos en què flames molt baixes (p. ex., foc propagant-se per la gespa) impactin en l'envoltant. Com més alta sigui la base no combustible, menor serà la probabilitat que les flames provinents de combustibles superficials causin la ignició dels elements de l'envoltant combustible.",
         "height0": "No, la fonamentació també és combustible",
         "height0to20": "Sí, amb una alçada entre 0 i 20 cm",
         "height21to40": "Sí, amb una alçada entre 21 i 40 cm",
@@ -368,12 +369,10 @@
         "title": "Vegetació",
         "question": "Quin tipus de vegetació hi ha a menys de 30 m de l'edifici?",
         "description": "Es recomana no tenir espècies altament inflamables a la propietat o dins de 30 m de l'edifici. Exemples d'aquestes espècies són: pins, eucaliptus, xiprers.",
-        "highFlam": "Plantes amb fulles i branques molt juntes, textures fines, fulles petites, fines i estretes (per exemple, pins, xiprers)",
-        "mediumFlam": "Plantes amb alts nivells d'olis o resines",
-        "lowFlam": "Plantes amb escorça solta i fibrosa (per exemple, eucaliptus)",
-        "": "Plantes amb ramificació oberta i poc densa, que no retenen fulles mortes i no tenen alts nivells d'olis o resines",
-        "grass": "Gespa",
-        "noVeg": "No hi ha vegetació"
+        "highFlam": "Altament inflamable (ex. pins, eucaliptus, xiprers, llorers)",
+        "mediumFlam": "Amb inflamabilitat mitjana (ex. baladre)",
+        "lowFlam": "Amb baixa inflamabilitat (ex. oliveres, lavanda, cítrics)",
+        "noVeg": "Sense vegetació"
     },
     "Q20": {
         "title": "Vegetació",
@@ -409,7 +408,7 @@
     "Q24": {
         "title": "Perímetre de la propietat",
         "question": "Què s'utilitza per delimitar la teva propietat i separar-la de les veïnes?",
-        "description": "",
+        "description": "Els murs o tanques de separació poden ajudar a protegir la propietat de les flames i la radiació provinents de les propietats veïnes quan estan fets de materials no combustibles, com el formigó o els maons, i quan tenen una alçada suficient.",
         "woodenFence": "Tanca de fusta",
         "Hedgerow": "Tanca vegetal",
         "metalPosts": "Tanca amb pilars metàl·lics",
@@ -424,6 +423,18 @@
         "austria-material-2_3": "Edificis parcialment de fusta",
         "austria-material-2_5": "Elements de fusta",
         "austria-material-2_7": "Edificis de fusta adjunts"
+    },
+    "Q1-images": {
+        "spain-Q1_1": "Exemple d'una façana que és més del 50% combustible",
+        "default-Q1_1": "Exemple d'una façana que és més del 50% combustible",
+        "spain-Q1_2": "Exemple d'una façana que és menys del 50% combustible",
+        "default-Q1_2": "Exemple d'una façana que és menys del 50% combustible",
+        "spain-Q1_3": "Exemple d'una façana que és 0% combustible",
+        "default-Q1_3": "Exemple d'una façana que és 0% combustible"
+    },
+    "Q2-images": {
+        "spain-Q2_1": "Habitatge amb una façana combustible i una base no combustible amb una altura de més d’1 m",
+        "default-Q2_1": "Habitatge amb una façana combustible i una base no combustible amb una altura de més d’1 m"
     },
 
     "Q3-images": {
@@ -456,7 +467,24 @@
         "spain-Q7": "Exemple d'obertura de ventilació de cuina",
         "default-Q7": "Exemple d'obertura de ventilació de cuina"
     },
-
+    "Q8-images": {
+        "spain-Q8_1": "Exemple d'un porxo on s'emmagatzemen materials combustibles",
+        "default-Q8_1": "Exemple d'un porxo on s'emmagatzemen materials combustibles",
+        "spain-Q8_2": "Exemple d'un espai semi-confinat per a l'emmagatzematge de fusta adjacent a l'habitatge",
+        "default-Q8_2": "Exemple d'un espai semi-confinat per a l'emmagatzematge de fusta adjacent a l'habitatge"
+    },
+    "Q10-images": {
+        "spain-Q10_1": "Exemple de murs que connecten l'espai semicerrat amb l'edifici fets de formigó",
+        "default-Q10_1": "Exemple de murs que connecten l'espai semicerrat amb l'edifici fets de formigó"
+    },
+    "Q11-1-images": {
+        "spain-Q11_1": "Vegetació situada a prop de finestres sense protecció",
+        "default-Q11_1": "Vegetació situada a prop de finestres sense protecció"
+    },
+    "Q11-2-images": {
+        "spain-Q11_1": "Vegetació situada a prop de finestres sense protecció",
+        "default-Q11_1": "Vegetació situada a prop de finestres sense protecció"
+    },
     "fuels-1a-images": {
         "austria-fuels-1_1": "",
         "austria-fuels-1_2": "",
@@ -467,12 +495,37 @@
         "austria-fuels-1_2": "",
         "austria-fuels-1_3": ""
     },
-    "Q13-images": {
-        "spain-Q13": "Combustibles a prop de la façana",
-        "default-Q13": "Combustibles a prop de la façana"
+   "Q13-images": {
+        "spain-Q13": "Elements combustibles emmagatzemats contra una façana combustible",
+        "default-Q13": "Elements combustibles emmagatzemats contra una façana combustible"
     },
+    "Q14-images": {
+        "spain-Q14_1": "Exemple de discontinuïtat del combustible",
+        "default-Q14_1": "Exemple de discontinuïtat del combustible"
+    },
+
     "Q15-images": {
-        "spain-Q15": "Dipòsit de tanc mal ubicat",
-        "default-Q15": "Dipòsit de GLP massa prop d'una tanca"
+        "spain-Q15_1": "",
+        "default-Q15_1": "",
+        "spain-Q15_2": "",
+        "default-Q15_2": ""
+    },
+    "Q18-images": {
+        "spain-Q18_1": "",
+        "default-Q18_1": "",
+        "spain-Q18_2": "",
+        "default-Q18_2": ""
+    },
+    "Q19-images": {
+        "spain-Q19_1": "",
+        "default-Q19_1": ""
+    },
+    "Q24-images": {
+        "spain-Q24_1": "",
+        "default-Q24_1": ""
+    },
+    "Q25-images": {
+        "spain-Q25_1": "Mur de formigó de menys de 2 m d'altura",
+        "default-Q25_1": "Mur de formigó de menys de 2 m d'altura"
     }
 }

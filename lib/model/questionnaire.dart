@@ -170,7 +170,7 @@ class Questionnaire {
     },
     {
       'stepId': 'Q19',
-      'textChoices': ['highFlam', 'mediumFlam', 'lowFlam', 'grass', 'noVeg'],
+      'textChoices': ['highFlam', 'mediumFlam', 'lowFlam', 'noVeg'],
       'otherOption': false,
       'type': 'singleChoice',
     },

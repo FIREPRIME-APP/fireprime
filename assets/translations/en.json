@@ -6,6 +6,8 @@
     "swedish": "Swedish",
     "home": "FirePrime",
 
+    "no_auth": "The workshop will start on February 25, 2025, at 10:00 AM. Please reopen the application at that time.",
+
     "privacy_title": "Data privacy",
     "privacy_text": "The information provided by the user is stored locally on the device and is not shared with any third party. The user can delete the data at any time by deleting the app. Only interactions with the app are logged anonymously",
     "agreed": "Agreed",
@@ -213,7 +215,7 @@
     "Q2": {
         "title": "Exterior envelope",
         "question": "Is there a non-combustible foundation?",
-        "description": "",
+        "description": "Having a non-combustible foundation can prevent envelope ignition in cases when very low flames (e.g., fire spreading through the grass lawn) impinge onto the envelope. The higher the non-combustible foundation, the less likely it is that flames coming from surface fuels will cause ignition of the elements of the combustible envelope.",
         "height0": "No, the foundation is also combustible",
         "height0to20": "Yes, with a height between 0 and 20 cm",
         "height21to40": "Yes, with a height between 21 and 40 cm",
@@ -372,11 +374,9 @@
         "title": "Vegetation",
         "question": "What type of vegetation is present within 30 m from the building?",
         "description": "It is recommended to not have any highly flammable species on the property or within 30 m from the building. Examples of these species are: pine trees, eucalyptus, cypress.",
-        "highFlam": "Plants with closely packed leaves and branches, fine textures, small, thin and narrow leaves (e.g., pine trees, cypress)",
-        "mediumFlam": "Plants with high levels of oils or resins",
-        "lowFlam": "Plants with loose, stringy bark (e.g., eucalyptus)",
-        "": "Plants with open and loose, sparsely dense branching, that don't retain dead leaves and do not have high levels of oils or resins",
-        "grass": "Grass",
+        "highFlam": "Highly flammable (e.g., pine trees, eucalyptus, cypress, laurel)",
+        "mediumFlam": "With medium flammability (e.g., oleander)",
+        "lowFlam": "With low flammability (e.g., olive trees, lavender, citrus trees)",
         "noVeg": "No vegetation"
     },
     "Q20": {
@@ -413,7 +413,7 @@
     "Q24": {
         "title": "Property perimeter",
         "question": "What is used to delimit your property and separate it from neighboring ones?",
-        "description": "",
+        "description": "Separation walls or fences can help to protect the property from flames and radiation coming from neighboring properties when they are made of non-combustible materials such as concrete or bricks and when they are sufficiently high.",
         "woodenFence": "Wooden fence",
         "Hedgerow": "Hedgerow",
         "metalPosts": "Fence with metal posts ",
@@ -428,6 +428,18 @@
         "austria-material-2_3": "Buildings partly made of wood",
         "austria-material-2_5": "Wooden elements",
         "austria-material-2_7": "Attached wooden buildings"
+    },
+    "Q1-images": {
+        "spain-Q1_1": "Examples a façade that is more than 50% combustible",
+        "default-Q1_1": "Examples a façade that is more than 50% combustible",
+        "spain-Q1_2": "Example of a façade that is less than 50% combustible",
+        "default-Q1_2": "Example of a façade that is less than 50% combustible",
+        "spain-Q1_3": "Example of a façade that is 0% combustible",
+        "default-Q1_3": "Example of a façade that is 0% combustible"
+    },
+    "Q2-images": {
+        "spain-Q2_1": "Home with a combustible façade and a non-combustible foundation with a height of more than 1 m",
+        "default-Q2_1": "Home with a combustible façade and a non-combustible foundation with a height of more than 1 m"
     },
     "Q3-images": {
         "spain-Q3_1": "Example of clay tiles",
@@ -457,6 +469,24 @@
         "spain-Q7": "Example of a kitchen ventilation opening",
         "default-Q7": "Example of a kitchen ventilation opening"
     },
+    "Q8-images": {
+        "spain-Q8_1": "Example of a porch in which combustible materials are stored",
+        "default-Q8_1": "Example of a porch in which combustible materials are stored",
+        "spain-Q8_2": "Example of a semi-confined space for wood storage that is adjacent to the house",
+        "default-Q8_2": "Example of a semi-confined space for wood storage that is adjacent to the house"
+    },
+    "Q10-images": {
+        "spain-Q10_1": "Example of walls that connect the semi-confined space with the building made of concrete",
+        "default-Q10_1": "Example of walls that connect the semi-confined space with the building made of concrete"        
+    },
+    "Q11-1-images": {
+        "spain-Q11_1": "Vegetation located close to unprotected windows",
+        "default-Q11_1": "Vegetation located close to unprotected windows"
+    },
+    "Q11-2-images": {
+        "spain-Q11_1": "Vegetation located close to unprotected windows",
+        "default-Q11_1": "Vegetation located close to unprotected windows"
+    },
     "Q11.1-images": {
         "austria-fuels-1_1": "",
         "austria-fuels-1_2": "",
@@ -468,11 +498,35 @@
         "austria-fuels-1_3": ""
     },
     "Q13-images": {
-        "spain-Q13": "Fuels near the facade",
-        "default-Q13": "Fuels near the facade"
+        "spain-Q13": "Combustible elements stored against a combustible facade",
+        "default-Q13": "Combustible elements stored against a combustible facade"
+    },
+    "Q14-images": {
+        "spain-Q14_1": "Example of fuel discontinuity",
+        "default-Q14_1": "Example of fuel discontinuity"
     },
     "Q15-images": {
-        "spain-Q15": "Badly placed tank",
-        "default-Q15": " LPG tank located too close to a hedge"
+        "spain-Q15_1": "",
+        "default-Q15_1": "",
+        "spain-Q15_2": "",
+        "default-Q15_2": ""
+    },
+    "Q18-images": {
+        "spain-Q18_1": "",
+        "default-Q18_1": "",
+        "spain-Q18_2": "",
+        "default-Q18_2": ""
+    },
+    "Q19-images": {
+        "spain-Q19_1": "",
+        "default-Q19_1": ""
+    },
+    "Q24-images": {
+        "spain-Q24_1": "",
+        "default-Q24_1": ""
+    },
+    "Q25-images": {
+        "spain-Q25_1": "Concrete wall that is less than 2 m high",
+        "default-Q25_1": "Concrete wall that is less than 2 m high"
     }
 }

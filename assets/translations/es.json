@@ -6,6 +6,9 @@
     "swedish": "Sueco",
     "home": "FirePrime",
 
+    "no_auth": "El workshop comenzará el 25 de febrero de 2025 a las 10:00. Por favor, vuelve a abrir la aplicación en ese momento.",
+
+
     "privacy_title": "Privacidad de datos",
     "privacy_text": "La información proporcionada por el usuario se almacena localmente en el dispositivo y no se comparte con terceros. El usuario puede eliminar los datos en cualquier momento eliminando la aplicación. Solo se registran las interacciones con la aplicación de forma anónima.",
     "agreed": "Entendido",
@@ -211,7 +214,7 @@
     "Q2": {
         "title": "Exterior envolvente",
         "question": "¿Existe una cimentación no combustible?",
-        "description": "",
+        "description": "Tener una base no combustible puede prevenir la ignición de la envolvente en casos en los que llamas muy bajas (p. ej., fuego propagándose por el césped) impacten en la envolvente. Cuanto más alta sea la base no combustible, menor será la probabilidad de que las llamas provenientes de combustibles superficiales causen la ignición de los elementos de la envolvente combustible.",
         "height0": "No, la cimentación también es combustible",
         "height0to20": "Sí, con una altura entre 0 y 20 cm",
         "height21to40": "Sí, con una altura entre 21 y 40 cm",
@@ -370,12 +373,10 @@
         "title": "Vegetación",
         "question": "¿Qué tipo de vegetación hay a menos de 30 m del edificio?",
         "description": "Se recomienda no tener especies altamente inflamables en la propiedad o dentro de los 30 m del edificio. Ejemplos de estas especies son: pinos, eucaliptos, cipreses.",
-        "highFlam": "Plantas con hojas y ramas muy juntas, texturas finas, hojas pequeñas, finas y estrechas (por ejemplo, pinos, cipreses)",
-        "mediumFlam": "Plantas con altos niveles de aceites o resinas",
-        "lowFlam": "Plantas con corteza suelta y fibrosa (por ejemplo, eucaliptos)",
-        "": "Plantas con ramificación abierta y poco densa, que no retienen hojas muertas y no tienen altos niveles de aceites o resinas",
-        "grass": "Césped",
-        "noVeg": "No hay vegetación"
+        "highFlam": "Altamente inflamable (ej. pinos, eucaliptos, cipreses, laureles)",
+        "mediumFlam": "Con inflamabilidad media (ej. adelfa)",
+        "lowFlam": "Con baja inflamabilidad (ej. olivos, lavanda, cítricos)",
+        "noVeg": "Sin vegetación"
     },
     "Q20": {
         "title": "Vegetación",
@@ -411,7 +412,7 @@
     "Q24": {
         "title": "Perímetro de la propiedad",
         "question": "¿Qué se utiliza para delimitar tu propiedad y separarla de las propiedades vecinas?",
-        "description": "",
+        "description": "Los muros o cercas de separación pueden ayudar a proteger la propiedad de las llamas y la radiación provenientes de propiedades vecinas cuando están hechos de materiales no combustibles, como el hormigón o los ladrillos, y cuando tienen una altura suficiente.",
         "woodenFence": "Valla de madera",
         "Hedgerow": "Seto vegetal",
         "metalPosts": "Valla con postes metálicos",
@@ -426,6 +427,18 @@
         "austria-material-2_3": "Buildings partly made of wood",
         "austria-material-2_5": "Wooden elements",
         "austria-material-2_7": "Attached wooden buildings"
+    },
+    "Q1-images": {
+        "spain-Q1_1": "Ejemplo de una fachada que es más del 50% combustible",
+        "default-Q1_1": "Ejemplo de una fachada que es más del 50% combustible",
+        "spain-Q1_2": "Ejemplo de una fachada que es menos del 50% combustible",
+        "default-Q1_2": "Ejemplo de una fachada que es menos del 50% combustible",
+        "spain-Q1_3": "Ejemplo de una fachada que es 0% combustible",
+        "default-Q1_3": "Ejemplo de una fachada que es 0% combustible"
+    },
+    "Q2-images": {
+        "spain-Q2_1": "Vivienda con una fachada combustible y una base no combustible con una altura de más de 1 m",
+        "default-Q2_1": "Vivienda con una fachada combustible y una base no combustible con una altura de más de 1 m"
     },
     "Q3-images": {
         "spain-Q3_1": "Ejemplo de tejas de barro",
@@ -455,6 +468,24 @@
         "spain-Q7": "Ejemplo de abertura de ventilación de cocina",
         "default-Q7": "Ejemplo de abertura de ventilación de cocina"
     },
+    "Q8-images": {
+        "spain-Q8_1": "Ejemplo de un porche en el que se almacenan materiales combustibles",
+        "default-Q8_1": "Ejemplo de un porche en el que se almacenan materiales combustibles",
+        "spain-Q8_2": "Ejemplo de un espacio semicerrado para el almacenamiento de madera adyacente a la vivienda",
+        "default-Q8_2": "Ejemplo de un espacio semicerrado para el almacenamiento de madera adyacente a la vivienda"
+    },
+    "Q10-images": {
+        "spain-Q10_1": "Ejemplo de muros que conectan el espacio semi-confinado con el edificio hechos de hormigón",
+        "default-Q10_1": "Ejemplo de muros que conectan el espacio semi-confinado con el edificio hechos de hormigón"
+    },
+    "Q11-1-images": {
+        "spain-Q11_1": "Vegetación ubicada cerca de ventanas sin protección",
+        "default-Q11_1": "Vegetación ubicada cerca de ventanas sin protección"
+    },
+    "Q11-2-images": {
+        "spain-Q11_1": "Vegetación ubicada cerca de ventanas sin protección",
+        "default-Q11_1": "Vegetación ubicada cerca de ventanas sin protección"
+    },
     "fuels-1a-images": {
         "austria-fuels-1_1": "",
         "austria-fuels-1_2": "",
@@ -466,11 +497,35 @@
         "austria-fuels-1_3": ""
     },
     "Q13-images": {
-        "spain-Q13": "Combustibles cerca de la fachada",
-        "default-Q13": "Combustibles cerca de la fachada"
+        "spain-Q13": "Elementos combustibles almacenados contra una fachada combustible",
+        "default-Q13": "Elementos combustibles almacenados contra una fachada combustible"
+    },
+    "Q14-images": {
+        "spain-Q14_1": "Ejemplo de discontinuidad del combustible",
+        "default-Q14_1": "Ejemplo de discontinuidad del combustible"
     },
     "Q15-images": {
-        "spain-Q15": "Dipósito de tanque mal ubicado",
-        "default-Q15": "Dipósito de GLP demasiado cerca de una tanca"
+        "spain-Q15_1": "",
+        "default-Q15_1": "",
+        "spain-Q15_2": "",
+        "default-Q15_2": ""
+    },
+    "Q18-images": {
+        "spain-Q18_1": "",
+        "default-Q18_1": "",
+        "spain-Q18_2": "",
+        "default-Q18_2": ""
+    },
+    "Q19-images": {
+        "spain-Q19_1": "",
+        "default-Q19_1": ""
+    },
+    "Q24-images": {
+        "spain-Q24_1": "",
+        "default-Q24_1": ""
+    },
+    "Q25-images": {
+        "spain-Q25_1": "Muro de hormigón de menos de 2 m de altura",
+        "default-Q25_1": "Muro de hormigón de menos de 2 m de altura"
     }
 }
