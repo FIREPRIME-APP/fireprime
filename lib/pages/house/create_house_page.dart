@@ -60,19 +60,19 @@ class _CreateHousePageState extends State<CreateHousePage> {
   void _handleAddHouse(HouseProvider house) {
     if (_name.text.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
-        Utils.snackBar(context.tr('plsFillName')),
+        Utils.snackBar(context.tr('warning_unfilled_name')),
       );
     } else if (_address.text.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
-        Utils.snackBar(context.tr('plsFillAddress')),
+        Utils.snackBar(context.tr('warning_unfilled_address')),
       );
     } else if (_selectedEnvironment == null) {
       ScaffoldMessenger.of(context).showSnackBar(
-        Utils.snackBar(context.tr('plsSelectCountry')),
+        Utils.snackBar(context.tr('warning_unselected_country')),
       );
     } else if (house.existsHouse(_name.text)) {
       ScaffoldMessenger.of(context).showSnackBar(
-        Utils.snackBar(context.tr('houseExists')),
+        Utils.snackBar(context.tr('warning_house_name_exists')),
       );
     } else if (_address.text.isNotEmpty &&
         _name.text.isNotEmpty &&
@@ -80,6 +80,17 @@ class _CreateHousePageState extends State<CreateHousePage> {
       print(_selectedEnvironment);
       saveEventdata(screenId: 'create_house_page', buttonId: 'create_house');
       House newHouse = House(_name.text, _address.text, _selectedEnvironment!);
+      //TODO GET THE LAT AND LONG BY THE ADDRESS
+      if (_selectedEnvironment == 'austria') {
+        newHouse.lat = 47.227035;
+        newHouse.long = 11.12915;
+      } else if (_selectedEnvironment == 'sweeden') {
+        newHouse.lat = 57.669210;
+        newHouse.long = 11.931152;
+      } else {
+        newHouse.lat = 41.412739;
+        newHouse.long = 2.130232;
+      }
       house.addHouse(newHouse);
 
       Navigator.of(context).pop();
@@ -93,7 +104,7 @@ class _CreateHousePageState extends State<CreateHousePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          context.tr('addHouse'),
+          context.tr('add_house'),
           style: Theme.of(context).textTheme.titleLarge!,
         ),
         leading: IconButton(
@@ -112,7 +123,7 @@ class _CreateHousePageState extends State<CreateHousePage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  context.tr('fillInfo'),
+                  context.tr('add_house_intro'),
                   style: Theme.of(context).textTheme.displayMedium!,
                 ),
                 const SizedBox(height: 30.0),
@@ -167,7 +178,7 @@ class _CreateHousePageState extends State<CreateHousePage> {
                         elevation: 5.0),
                     onPressed: _enabled ? () => _handleAddHouse(house) : null,
                     child: Text(
-                      context.tr('addHouse'),
+                      context.tr('add_house'),
                       style: const TextStyle(color: Colors.white),
                     ),
                   ),

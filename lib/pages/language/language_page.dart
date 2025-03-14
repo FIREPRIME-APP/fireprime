@@ -28,13 +28,14 @@ class _LanguagePageState extends State<LanguagePage> {
       context.tr('english'),
       context.tr('spanish'),
       context.tr('catalan'),
-      /* context.tr('german'),
-      context.tr('swedish')*/
+      context.tr('german'),
+      /*context.tr('swedish')*/
     ];
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          context.tr('preferedLang'), //AppLocalizations.of(context)!.lang,
+          context
+              .tr('language_page_title'), //AppLocalizations.of(context)!.lang,
           style: Theme.of(context).textTheme.titleLarge!,
         ),
         leading: IconButton(
@@ -81,10 +82,11 @@ class _LanguagePageState extends State<LanguagePage> {
                       saveEventdata(screenId: 'language_page', buttonId: 'ca');
                       language.changeLanguage(
                           const Locale('ca'), index, context);
-                      /*  } else if (index == 3) {
-                      provider.changeLanguage(
+                    } else if (index == 3) {
+                      language.changeLanguage(
                           const Locale('de'), index, context);
-                    } else if (index == 4) {
+                      //}
+                      /*else if (index == 4) {
                       provider.changeLanguage(
                           const Locale('sv'), index, context);*/
                     } else {

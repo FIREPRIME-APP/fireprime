@@ -217,7 +217,7 @@ class HouseProvider with ChangeNotifier {
     notifyListeners();
   }*/
 
-  Future<void> setCompleted(
+  Future<double> setCompleted(
     bool completed,
     double vulnerability,
     Map<String, EventProbability> allProbabilities,
@@ -238,6 +238,7 @@ class HouseProvider with ChangeNotifier {
     await updateRiskAssesment(raId, riskAssessment);
     await updateHouse();
     notifyListeners();
+    return riskAssessment.risk;
   }
 
   Future<void> editHouse(String name, String address) async {

@@ -4,13 +4,13 @@ class CardText extends StatelessWidget {
   final String title;
   final String text;
   final double size;
-  final Color color;
+  final Color? color;
   const CardText(
       {super.key,
       required this.title,
       required this.text,
       required this.size,
-      required this.color});
+      this.color});
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +27,7 @@ class CardText extends StatelessWidget {
             text: text,
             style: TextStyle(
               fontFamily: 'OpenSans',
-              color: color,
+              color: color ?? Colors.black,
             ),
           )
         ],

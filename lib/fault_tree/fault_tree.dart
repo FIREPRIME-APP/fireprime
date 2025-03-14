@@ -36,7 +36,13 @@ class FaultTree {
         Gate gate = _parseTree(faultTree['gate'][0]) as Gate;
         return IntermediateEvent(faultTree['event_id'], gate);
       } else {
-        return BasicEvent(faultTree['event_id'], faultTree['probability']);
+        BasicEvent(faultTree['event_id'], faultTree['probability']);
+        if (faultTree['depends_on'] != null) {
+          return BasicEvent(faultTree['event_id'], faultTree['probability'])
+            ..dependsOn = faultTree['depends_on'];
+        } else {
+          return BasicEvent(faultTree['event_id'], faultTree['probability']);
+        }
       }
     } else {
       List<Node> inputEvents = [];

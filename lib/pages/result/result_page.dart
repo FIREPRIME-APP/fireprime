@@ -4,6 +4,7 @@ import 'package:fireprime/fault_tree/fault_tree.dart';
 import 'package:fireprime/fault_tree/events/intermediate_event.dart';
 import 'package:fireprime/fault_tree/node.dart';
 import 'package:fireprime/firebase/event_manage.dart';
+import 'package:fireprime/pages/mitigation/mitigation_page.dart';
 import 'package:fireprime/widgets/gauge.dart';
 import 'package:fireprime/model/event_probability.dart';
 import 'package:fireprime/model/risk_assessment.dart';
@@ -125,7 +126,7 @@ class _ResultPageState extends State<ResultPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          context.tr('results'),
+          context.tr('result'),
           style: Theme.of(context).textTheme.titleLarge!,
         ),
         leading: IconButton(
@@ -146,7 +147,7 @@ class _ResultPageState extends State<ResultPage> {
         padding: const EdgeInsets.all(20.0),
         child: Column(
           children: [
-            Text(context.tr('risk_text'),
+            Text(context.tr('result_intro'),
                 style: Theme.of(context).textTheme.titleLarge!),
             Card(
               child: Stack(
@@ -223,16 +224,22 @@ class _ResultPageState extends State<ResultPage> {
                           children: [
                             Expanded(
                               child: CardText(
-                                  title: context.tr('house_vulnerability'),
-                                  text:
-                                      (vulnerability * 100).toStringAsFixed(0),
-                                  size: 15,
-                                  color: Utils.textColor(vulnerability * 100)),
+                                title: context.tr('house_vulnerability'),
+                                text: (vulnerability * 100).toStringAsFixed(0),
+                                size: 15,
+                                color:
+                                    null, //Utils.textColor(vulnerability * 100)
+                              ),
                             ),
                             const SizedBox(
                               width: 5,
                             ),
-                            TextButton(
+                            ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                  backgroundColor: _showFactors
+                                      ? const Color.fromARGB(255, 223, 225, 228)
+                                      : const Color.fromARGB(
+                                          255, 252, 252, 252)),
                               onPressed: () {
                                 _toggleFactors();
                               },
@@ -242,8 +249,7 @@ class _ResultPageState extends State<ResultPage> {
                                     : context.tr('details'),
                                 style: const TextStyle(
                                   color: Constants.blueDark,
-                                  fontSize: 15,
-                                  fontStyle: FontStyle.italic,
+                                  fontSize: 13,
                                 ),
                               ),
                             ),
@@ -266,19 +272,33 @@ class _ResultPageState extends State<ResultPage> {
                                   children: [
                                     Expanded(
                                       child: CardText(
-                                        title: context.tr(entry.key),
-                                        text: (entry.value.probability * 100)
-                                            .toStringAsFixed(0),
-                                        size: 15,
-                                        color: Utils.textColor(
-                                          (entry.value.probability * 100),
-                                        ),
-                                      ),
+                                          title: context.tr(entry.key),
+                                          text: (entry.value.probability * 100)
+                                              .toStringAsFixed(0),
+                                          size: 15,
+                                          color: null //Utils.textColor(
+                                          //(entry.value.probability * 100),
+                                          //),
+                                          ),
                                     ),
                                     const SizedBox(
                                       width: 10,
                                     ),
-                                    TextButton(
+                                    ElevatedButton(
+                                      style: ElevatedButton.styleFrom(
+                                          backgroundColor: _showLinearGauge[
+                                                          entry.key] !=
+                                                      null &&
+                                                  _showLinearGauge[entry.key]!
+                                              ? const Color.fromARGB(
+                                                  255, 223, 225, 228)
+                                              : const Color.fromARGB(
+                                                  255,
+                                                  252,
+                                                  252,
+                                                  252) /*const Color.fromARGB(
+                                              255, 196, 202, 217)*/
+                                          ),
                                       onPressed: () {
                                         saveEventdata(
                                             screenId: 'result_page',
@@ -292,8 +312,7 @@ class _ResultPageState extends State<ResultPage> {
                                             : context.tr('details'),
                                         style: const TextStyle(
                                           color: Constants.blueDark,
-                                          fontSize: 15,
-                                          fontStyle: FontStyle.italic,
+                                          fontSize: 13,
                                         ),
                                       ),
                                     ),
@@ -309,6 +328,26 @@ class _ResultPageState extends State<ResultPage> {
                   ),
                 ],
               ),
+            ),
+            const SizedBox(
+              height: 15,
+            ),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                  backgroundColor: Constants.blueDark, elevation: 5.0),
+              child: Text(
+                context.tr('check_improvements'),
+                style: const TextStyle(color: Colors.white),
+              ),
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (BuildContext context) {
+                      return MitigationPage(answers: answers);
+                    },
+                  ),
+                );
+              },
             ),
             for (var entry in _showLinearGauge.entries)
               if (entry.value && _showFactors)
@@ -326,9 +365,9 @@ class _ResultPageState extends State<ResultPage> {
                               .entries
                               .map(
                             (subProb) {
-                              Map<String, dynamic> options = canImprove(
+                              /* Map<String, dynamic> options = canImprove(
                                   subProb.key, subProb.value.probability);
-                              print(options);
+                              print(options);*/
                               return Column(
                                 children: [
                                   Padding(
@@ -341,7 +380,7 @@ class _ResultPageState extends State<ResultPage> {
                                         30,
                                         getLastSubProb(entry.key, subProb.key)),
                                   ),
-                                  if (checkIfCanImprove(options))
+                                  /* if (checkIfCanImprove(options))
                                     ElevatedButton(
                                       child: Text(context.tr('improve')),
                                       onPressed: () {
@@ -365,7 +404,7 @@ class _ResultPageState extends State<ResultPage> {
                                           ),
                                         );
                                       },
-                                    )
+                                    )*/
                                 ],
                               );
                             },
@@ -384,7 +423,7 @@ class _ResultPageState extends State<ResultPage> {
     );
   }
 
-  Map<String, dynamic> canImprove(
+  /*Map<String, dynamic> canImprove(
       String mitigationId, double selectedMitigationProb) {
     Map<String, dynamic> improvementOptions = {};
 
@@ -463,7 +502,7 @@ class _ResultPageState extends State<ResultPage> {
       }
     }
     return canImprove;
-  }
+  }*/
 
   double? getLastSubProb(String key1, String key2) {
     if (lastSubProbabilities.containsKey(key1)) {

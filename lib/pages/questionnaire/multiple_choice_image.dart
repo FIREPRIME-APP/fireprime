@@ -115,12 +115,17 @@ class _CustomViewState extends State<MultipleChoiceImageView> {
       },
       isValid: widget.questionStep.isOptional || _selectedChoices.isNotEmpty,
       title: widget.questionStep.title.isNotEmpty
-          ? Text(
-              widget.questionStep.title,
-              style: Theme.of(context).textTheme.titleLarge,
+          ? Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                widget.questionStep.title,
+                style: Theme.of(context).textTheme.titleLarge,
+                textAlign: TextAlign.center,
+              ),
             )
           : const SizedBox.shrink(),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
             padding:
@@ -130,19 +135,24 @@ class _CustomViewState extends State<MultipleChoiceImageView> {
               style: Theme.of(context).textTheme.bodyMedium,
             ),
           ),
+          const SizedBox(height: 10),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20.0),
-            child: Text(
-                '${context.tr('max_multiple_choices')} ${_multipleChoiceAnswerFormat.maxAnswers} ${context.tr('options')}',
-                style: const TextStyle(fontSize: 15)),
+            padding: const EdgeInsets.only(left: 20.0),
+            child: const Text('max_multiple_choices',
+                    // '${context.tr('max_multiple_choices', _multipleChoiceAnswerFormat.maxAnswers)}',
+                    style: TextStyle(fontSize: 13),
+                    textAlign: TextAlign.justify)
+                .tr(args: [_multipleChoiceAnswerFormat.maxAnswers.toString()]),
           ),
-          TextButton(
-            onPressed: _toggleDescription,
-            child: Text(
-              _showDescription
-                  ? context.tr('hide_desc')
-                  : context.tr('show_desc'),
-              style: TextStyle(color: Theme.of(context).primaryColor),
+          Center(
+            child: TextButton(
+              onPressed: _toggleDescription,
+              child: Text(
+                _showDescription
+                    ? context.tr('hide_descdescription')
+                    : context.tr('show_description'),
+                style: TextStyle(color: Theme.of(context).primaryColor),
+              ),
             ),
           ),
           if (_showDescription) showDescription(),

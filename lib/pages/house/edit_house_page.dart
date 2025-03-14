@@ -38,16 +38,16 @@ class _EditHousePageState extends State<EditHousePage> {
   void _handleEditHouse(HouseProvider house) {
     if (_name.text.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
-        Utils.snackBar(context.tr('plsFillName')),
+        Utils.snackBar(context.tr('warning_unfilled_name')),
       );
     } else if (_address.text.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
-        Utils.snackBar(context.tr('plsFillAddress')),
+        Utils.snackBar(context.tr('warning_unfilled_address')),
       );
     } else if (house.houses[house.currentHouse].name != _name.text &&
         house.existsHouse(_name.text)) {
       ScaffoldMessenger.of(context).showSnackBar(
-        Utils.snackBar(context.tr('houseExists')),
+        Utils.snackBar(context.tr('warning_house_name_exists')),
       );
     } else if (_address.text.isNotEmpty && _name.text.isNotEmpty) {
       house.editHouse(_name.text, _address.text);
@@ -78,7 +78,7 @@ class _EditHousePageState extends State<EditHousePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          context.tr('edit'),
+          context.tr('edit_house'),
           style: Theme.of(context).textTheme.titleLarge!,
         ),
         leading: IconButton(
@@ -97,7 +97,7 @@ class _EditHousePageState extends State<EditHousePage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  context.tr('editHouse'),
+                  context.tr('edit_house_intro'),
                   style: Theme.of(context).textTheme.displayMedium!,
                 ),
                 const SizedBox(height: 30.0),

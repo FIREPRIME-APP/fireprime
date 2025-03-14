@@ -3,6 +3,7 @@ import 'package:fireprime/firebase/event_manage.dart';
 import 'package:fireprime/model/event_probability.dart';
 import 'package:fireprime/model/house.dart';
 import 'package:fireprime/model/risk_assessment.dart';
+import 'package:fireprime/pages/questionnaire/customised_intro.dart';
 import 'package:fireprime/pages/questionnaire/multiple_choice_image.dart';
 import 'package:fireprime/pages/result/results_loading_page.dart';
 import 'package:fireprime/providers/house_provider.dart';
@@ -102,9 +103,10 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                     house: houseProvider.getHouse(
                                       houseProvider.currentHouse!,
                                     ),
-                                    probability: probability,
+                                    vulnerability: probability,
                                     allProbabilities: allProbabilities,
-                                    endDate: result.endDate);
+                                    endDate: result.endDate,
+                                    answers: results);
                               },
                             ),
                           );
@@ -145,8 +147,19 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                       themeData: Theme.of(context),
                       surveyProgressbarConfiguration:
                           SurveyProgressConfiguration(
-                        backgroundColor: Colors.white,
-                      ),
+                              backgroundColor: Colors.white,
+                              showLabel: true,
+                              label: (from, to) => Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Text(
+                                      '[$from / $to]',
+                                      style: const TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 13.0,
+                                      ),
+                                    ),
+                                  ),
+                              progressbarColor: Colors.grey.shade200),
                     );
                   }
                   return const CircularProgressIndicator.adaptive();
@@ -203,7 +216,7 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
     List<Step> steps = [
       InstructionStep(
           title: context.tr('questionnaire'),
-          text: context.tr('startFill'),
+          text: context.tr('questionnaire_intro'),
           showAppBar: true)
     ];
 
@@ -222,13 +235,21 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
               textChoices: questions['textChoices'],
               otherOption: questions['otherOption']),
         );
+      } else if (questions['type'] == 'instructionStep') {
+        steps.add(
+          IntroductionCustomisedStep(
+            stepIdentifier: StepIdentifier(id: questions['stepId']),
+            title: context.tr('${questions['stepId']}.title'),
+            text: context.tr('${questions['stepId']}.text'),
+          ),
+        );
       }
     }
 
     steps.add(
       CompletionStep(
         stepIdentifier: StepIdentifier(id: 'completionStep'),
-        title: context.tr('checkVuln'),
+        title: context.tr('questionnaire_finish_text'),
         text: context.tr('done'),
         buttonText: context.tr('check'),
       ),
@@ -296,16 +317,20 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
           ),
         );
       } else if (navigation['type'] == 'conditionalSavedResult') {
+        print(navigation['stepId']);
         task.addNavigationRule(
           forTriggerStepIdentifier: StepIdentifier(id: navigation['stepId']),
           navigationRule: ConditionalNavigationRule(
             resultToStepIdentifierMapper: (String? input) {
+              print('input: $input');
               if (navigation['conditions'].containsKey(input)) {
                 return StepIdentifier(id: navigation['conditions'][input]);
               } else {
+                print('----');
                 String? auxInput = auxResult[navigation['savedResult']['id']];
                 if (navigation['savedResult']['conditions']
                     .containsKey(auxInput)) {
+                  print('auxInput: $auxInput');
                   return StepIdentifier(
                       id: navigation['savedResult']['conditions'][auxInput]);
                 } else {

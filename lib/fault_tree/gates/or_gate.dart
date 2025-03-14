@@ -1,4 +1,5 @@
 import 'package:fireprime/fault_tree/events/basic_event.dart';
+import 'package:fireprime/fault_tree/fault_tree.dart';
 import 'package:fireprime/fault_tree/gates/gate.dart';
 import 'package:fireprime/fault_tree/node.dart';
 import 'package:fireprime/fault_tree/selectedOptions.dart';
@@ -30,7 +31,21 @@ class OrGate extends Gate {
     }
     double probability = 1.0;
     for (var event in selectedInputs) {
-      probability *= (1 - event.calculateProbability());
+      if (event is BasicEvent && event.dependsOn != null) {
+        String dependsOn = event.dependsOn!;
+        Node? node = FaultTree().getNode(dependsOn);
+        if (node != null) {
+          print('node: ${node.id}');
+          print('node-probability: ${node.calculateProbability()}');
+          probability *= (1 - node.calculateProbability());
+          print(probability);
+        }
+      } else {
+        print('event: ${event.id}');
+        print('event-probability: ${event.calculateProbability()}');
+        probability *= (1 - event.calculateProbability());
+      }
+      //probability *= (1 - event.calculateProbability());
     }
     print("$id: ${1 - probability}");
     return probability = 1 - probability;

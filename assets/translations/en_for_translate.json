@@ -1,15 +1,24 @@
 {
+    HOME PAGE / HOUSE LIST PAGE
+    Buttons
     "add_house": "Add house",
     "more_info": "More information",
-    
+
+    ------------------------------------------------
+
+    LANGUAGE PAGE
     "language_page_title": "Prefered language",
-   
+    Text
     "english": "English",
     "spanish": "Spanish",
     "catalan": "Catalan",
     "german": "German",
     "swedish": "Swedish",
 
+    ------------------------------------------------
+
+    ADD HOUSE PAGE
+    Text
     "add_house_intro": "Fill in the information of your house",
     "name": "Name",
     "address": "Address",
@@ -18,7 +27,7 @@
     "warning_unfilled_address": "Please fill in the address of the house",
     "warning_unselected_country": "Please select the country of the house",
     "warning_house_name_exists": "House name already used",
-    
+    List of Countires
     "european_countries": {
         "albania": "Albania",
         "andorra": "Andorra",
@@ -71,19 +80,26 @@
         "vaticanCity": "Vatican City"
     },
 
-    
+    ------------------------------------------------
+
+    MORE INFORMATION PAGE
     "more_info_title": "About Fireprime",
+    Text
     "fireprime": "Fireprime",
     "about_text": "Fireprime App has been developed by the GESSI Research Group within the EU Fireprime project, under the grant agreement UCPM-101140381-FIREPRIME funded by the EU Union Civil Protection Knowledge Network program.",
     "about_text2": "The app has been implemented by Huihui Xu under the supervion of Marc Oriol and Lidia Lopez and the advisory support of Xavier Franch.",
     "privacy_title": "Data privacy",
     "privacy_text": "The information provided by the user is stored locally on the device and is not shared with any third party. The user can delete the data at any time by deleting the app. Only interactions with the app are logged anonymously",
-
+    
+    ------------------------------------------------
+    
+    HOUSE PAGE
+    Text
     "last_evaluation": "Last evaluation",
     "risk": "Risk",
     "no_results_available": "No results available",
 
-    "start_questionnaire_intro": "Check your house risk with a questionnaire!",
+    "start_questionnaire_intro": "Check  your house risk with a questionnaire!",
     "update_questionnaire_intro": "Update your answers of the questionnaire",
     "continue_questionnaire_intro": "Continue the questionnaire to check your house vulnerability",
     
@@ -92,6 +108,7 @@
     "delete_house_warning_intro": "Are you sure you want to delete this house?",
     "delete_house_warning_text": "Deleting the house will also delete all information related to the risk assessments and it cannot be recovered.",
 
+    Buttons
     "details": "Details",
     "check": "Check",
     "update": "Update",
@@ -102,11 +119,19 @@
     "delete_house": "Delete house",
     "cancel": "Cancel",
     "delete": "Delete",
+    
+    ------------------------------------------------
 
+    EDIT HOUSE PAGE
+    Text
     "edit_house_intro": "Edit your house information",
     
+    Buttons
     "save": "Save",
+    
+    ------------------------------------------------
 
+    QUESTIONNAIRE PAGE
     "questionnaire": "Questionnaire",
     "questionnaire_intro": "The questionnaire consists of two parts: the first focuses on the building characteristics and the second on its surroundings.",
     "next": "Next",
@@ -119,14 +144,19 @@
 
     "calculating":"Calculating the result",
     
+    ------------------------------------------------
+
+    RESULT PAGE
+    Text
     "result": "Result",
     "result_intro": "Your house risk is:",
 
-    "risk_info": "This value depends on the Hazard factor and your house vulnerability.",
+    "risk_info": "This value depends on the Hazard factor and your house vulnerrability.",
     "hazard_info": "This value depends on your house localization.",
     "hazard": "Hazard factor",
     "house_vulnerability": "House vulnerability",
     
+    FaultTree
     "structural_vulnerabilities": "Structural vulnerabilities",
     "non_combustible_foundation": "Non combustible foundation",
     "exterior_envelope": "Exterior envelope",
@@ -160,17 +190,23 @@
     "tree_pruning": "Tree pruning",
     "property_perimeter": "Property perimeter",
     "slope": "Slope",
-
+    
+    Buttons
     "hide": "Hide",
-    "mitigation_intro": "Check the improvements to reduce the risk of your house",
     "check_improvements": "Check improvements!",
     
+    ------------------------------------------------
+
+    MITIGATION PAGE
+    Text
     "mitigation_title": "Improvements",
 
+    ------------------------------------------------
 
+    QUESTIONNAIRE QUESTIONS AND DESCRPTIONS (WIP - NEEDS TO BE UPDATED)
     "Q1": {
         "title": "Exterior envelope",
-        "question": "What percentage of the building's exterior envelope surface (i.e., external walls, balconies - excluding windows, window shutters, porches and the roof) is made of combustible materials?",
+        "question": "What percentage of the building's exterior envelope (i.e., external walls, balconies - excluding window shutters and porches) is made of combustible materials?",
         "description": "Materials such as timber or vinyl are combustible, while concrete, stones and bricks are non-combustible.",
         "100comb": "100% combustible",
         "more50comb": "More or equal to than 50% combustible",
@@ -191,28 +227,28 @@
     },
     "Q3": {
         "title": "Roof",
-        "question": "Is your roof covering or assembly made of non-combustible and fire resistant materials (e.g. clay tiles, concrete tiles, asphalt glass fibre compostion singles, slate, etc.) ?",
+        "question": "Is your roof covering or your roof assembly made of fire-rated materials (e.g. clay tiles, concrete tiles, asphalt glass fibre composition singles, slate, etc.)?",
         "description": "Examples of fire-rated roof coverings are shown in the following pictures:",
         "roofFireRated": "Yes",
-        "roofNonFireRated": "No, some parts are made of non-fire rated materials (e.g., timber)"
+        "roofNonFireRated": "No, some parts are made of non-fire rated materials"
     },
     "Q4-1": {
         "title": "Roof",
-        "question": "Does your roof present any of the following? \n- Broken or missing tiles \n- Exopsed sheeting (part of the roof on which tiles are installed upon) \n- Unsealed spaces between the roof and external walls \n- Cleaning of debris piling up on roof or gutters is not regularly performed",
+        "question": "Does your roof present any of the following? \n- Broken or missing tiles \n- Exopsed sheeting \n- Unsealed spaces between the roof and external walls \n- Cleaning of debris piling up on roof or gutters is not regularly performed",
         "description": "",
         "roofPoorlyMaintaned-1": "Yes",
         "roofWellMaintained-1": "No"
     },
     "Q4-2": {
         "title": "Roof",
-        "question": "Does your roof present any of the following? \n- Broken or missing tiles \n- Exopsed sheeting (part of the roof on which tiles are installed upon) \n- Unsealed spaces between the roof and external walls \n- Cleaning of debris piling up on roof or gutters is not regularly performed",
+        "question": "Does your roof present any of the following? \n- Broken or missing tiles \n- Exopsed sheeting \n- Unsealed spaces between the roof and external walls \n- Cleaning of debris piling up on roof or gutters is not regularly performed",
         "description": "",
         "roofPoorlyMaintaned-2": "Yes",
         "roofWellMaintained-2": "No"
     },
     "Q5": {
         "title": "Glazing systems",
-        "question": "What is the most commonly used type of glazing for windows and glass doors?",
+        "question": "What is the type of glazing of windows and glass doors?",
         "description": "If your building presents more than one type of glazing systems, select the most representative option.",
         "singlePane": "Single pane",
         "doublePane": "Double/Multiple pane",
@@ -222,8 +258,8 @@
         "title": "Glazing systems",
         "question": "Are all glazing systems protected by shutters? If yes, which material are the shutters made of?",
         "description": "Shutters can protect the glazing from the impact of the fire. Important: to block the heat coming from the fire, shutters and shutter slats should be completely closed.",
-        "noShutters": "Not all glazing systems are protected by shutters",
-        "woodShutters": "Timber",
+        "noShutters": "Not all glazing systems are protected by shutters ",
+        "woodShutters": "Wood",
         "aluminiumShutters": "Aluminium",
         "pvcShutters": "PVC",
         "fireRatedShutters": "Fire rated materials"
@@ -231,7 +267,7 @@
     "Q7": {
         "title": "Vents",
         "question": "What type of protection is placed in front of ventilation openings?",
-        "description": "Typical types of vents found in houses are roof openings for attic ventilation (e.g. vent tiles, ridge closer vents), chimneys, and openings for the ventilation of kitchens.",
+        "description": "Typical types of vents found in houses are roof openings for attic ventilation (e.g. vent tiles, ridge closer vents), chimneys, and openings for the ventilation of kitchens. ",
         "noVents": "There are no vents",
         "noVentProtection": "There is no vent protection",
         "ventCombProtection": "The protection is combustible",
@@ -240,14 +276,14 @@
     },
     "Q8": {
         "title": "Semi-confined space adjacent to house",
-        "question": "Is there a semi-confined space adjacent to your house (i.e., it has at least one wall in common with the house) that contains objects that are combustible?",
-        "description": "Semi-confined spaces are partially open areas, such as those located under terraces, porches, decks, eaves or canopies, or the spaces enclosed in open sheds.",
+        "question": "Is there a semi-confined space adjacent to your house (i.e., it has at least one wall in common with the house) that contains combustible materials?",
+        "description": "Semi-confined spaces are areas that are partially open, such as those located under terraces, porches, decks, eaves or canopies, or the spaces enclosed in open sheds.",
         "yesSemiConf": "Yes",
         "noSemiConf": "No"
     },
     "Q9": {
         "title": "Semi-confined space adjacent to house",
-        "question": "Are there any glass doors or windows connecting the semi-confined space to the interior of the building, that are not protected by shutters? ",
+        "question": "Are there any unprotected (i.e., no shutters) glazing systems (e.g., glass doors or windows) connecting the semi-confined space with the interior of the building?",
         "description": "",
         "glazingSystemsSinglePane": "Yes, with single pane glazing",
         "glazingSystemsMultiplePane": "Yes, with multiple pane glazing",
@@ -256,7 +292,7 @@
     },
     "Q10": {
         "title": "Semi-confined space",
-        "question": "What materials are the walls of the envelope shared with the building made of?",
+        "question": "What materials are the walls of the envelope that are shared with the building made of?",
         "description": "",
         "combustibleEnvelope": "Combustible materials (e.g., timber, vinyl siding)",
         "nonCombThin": "Non-combustible materials such as aluminium or steel (e.g., shutters without glazing - such as a garage door)",
@@ -268,43 +304,42 @@
     },
     "Q11-1": {
         "title": "Fuels located close to the building",
-        "question": "Are fuels such as vegetation, wooden decks or other combustible elements located at least 7 m from glass doors or windows?",
-        "description": "Wooden decks (not porches) should be also considered in this question, as they might be ignited by firebrands or flames coming from the garden. Also combustible human-made fuels (e.g., plastic or wooden garden furniture) should be considered.",
+        "question": "Are fuels such as ornamental vegetation or other types of combustible elements located at least 7 m from glazing systems?",
+        "description": "Wooden decks (not porches) should be also considered in this question, as they might be ignited by firebrands or flames coming from the garden. Also combustible man-made fuels (e.g., plastic or wooden garden furniture) should be considered.",
         "7farFromGlazing": "Yes",
         "7closeToGlazing": "No"
     },
     "Q11-2": {
         "title": "Fuels",
-        "question": "Are fuels such as vegetation, wooden decks or other combustible elements located at least 5 m from glass doors or windows?",
-        "description": "Wooden decks (not porches) should be also considered in this question, as they might be ignited by firebrands or flames coming from the garden. Also combustible human-made fuels (e.g., plastic or wooden garden furniture) should be considered.",
+        "question": "Are all fuels (vegetation or other types of combustible elements) located at least 5 m from glazing systems?",
+        "description": "Wooden decks (not porches) should be also considered in this question, as they might be ignited by firebrands or flames coming from the garden. Also combustible man-made fuels (e.g., plastic or wooden garden furniture) should be considered. ",
         "5farFromGlazing": "Yes",
         "5closeToGlazing": "No"
     },
     "Q12": {
         "title": "Fuels",
-        "question": "Are fuels such as vegetation or other combustible elements located at least 5 m from the roof?",
-        "description": "Trees with branches hanging over the roof should be considered as fuels located close to the roof.",
+        "question": "Are fuels such as ornamental vegetation or other types of combustible elements located at least 5 m from the roof?",
+        "description": "Trees that have branches that hang over the roof should be considered as fuels located close to the roof.",
         "farFromRoof": "Yes",
         "closeToRoof": "No"
     },
     "Q13": {
         "title": "Fuels",
-        "question": "Are fuels (combustible objects and flammable vegetation) placed so that they are not   located directly against the façade containing combustible elements? (this includes combustible decks).",
+        "question": "Are fuels (artificial and flammable vegetation) placed so that they are not located directly against the façade that contains combustible elements? (this includes combustible decks).",
         "description": "Timber decks can also be considered as fuels that can be attached to the building envelope, especially if the foundation is combustible.",
         "fuelsAgainstFacade": "Yes",
-        "fuelsNotAgainstFacade": "No, fuels are attached to the facade"
+        "fuelsNotAgainstFacade": "No"
     },
     "Q14": {
         "title": "Fuels",
-        "question": "Is there a continuous area of grass or other combustible surface materials within 10 meters from the building? Is there discontinuity of surface combustible elements within 10 m from the building?",
-        "description": "An example of a continuous surface of combustible elements is a grass lawn with no interruptions within the 10 m radius around the building.",
-        "contSurf": "Yes",
-        "discontSurf": "No",
-        "noApplicableContSurf": "Not applicable"
+        "question": "Is there discontinuity of surface combustible elements within 10 m from the building?",
+        "description": "An example of a continuous surface of combustible elements is a grass lawn that has no interruptions within the 10 m radius around the building.",
+        "discontSurf": "Yes",
+        "contSurf": "No, there is a continuous combustible surface"
     },
     "Q15": {
         "title": "Artificial fuels",
-        "question": "Are all combustible materials, such as vegetation, storage spaces, combustible decks or porches, kept at least 2 m away from an above ground Liquified Petroleum Gas (LPG) tank, including canisters with a total volume greater than 0.5 m3)?",
+        "question": "Are combustible materials (e.g., vegetation, storage spaces, combustible building systems) located at least 2 m from an above ground Liquified Petroleum Gas (LPG) tank (this includes also canisters with a total volume > 0.5 m3)?",
         "description": "The following images show examples of fuels located close to LPG tanks.",
         "farFromLPG": "Yes",
         "closeToLPG": "No",
@@ -312,15 +347,15 @@
     },
     "Q16": {
         "title": "Artificial fuels",
-        "question": "Are artificial fuels (e.g., garden furniture, garden sheds, pool covers, etc.) or fuel packs (i.e., different artificial fuels placed together) spaced at least 5 m apart?",
+        "question": "Is the distance between artificial fuels or fuel packs at least 5 m?",
         "description": "",
         "spacingMore5": "Yes",
         "spacingLess5": "No",
-        "noSpacing": "Not applicable (there are no artificial fuels on my property)"
+        "noSpacing": "Not applicable"
     },
     "Q17": {
         "title": "Artificial fuels",
-        "question": "Are artificial fuels located at least 20 m away from a forest with highly flammable vegetation?",
+        "question": "In case of wild vegetation of mainly trees located further than 30 m from the building, are artificial fuels located in the Home Ignition Zone placed at a distance of minimum 20 m from these trees?",
         "description": "Artificial fuels such as cars, garden furniture, garden sheds can be located close to wildland vegetation even if this vegetation is not located within the property.",
         "placedFurther20": "Yes",
         "placedIn20": "No",
@@ -339,50 +374,50 @@
         "description": "",
         "highFlam": "Highly flammable (e.g., pine trees, eucalyptus, cypress, laurel)",
         "mediumFlam": "With medium flammability (e.g., oleander)",
-        "lowFlam": "With low flammability (e.g., olive trees, citrus trees)",
+        "lowFlam": "With low flammability (e.g., olive trees, lavender, citrus trees)",
         "noVeg": "No vegetation"
     },
     "Q20": {
         "title": "Vegetation",
-        "question": "Is there discontinuity  between   tree crowns, shrubs, hedges and other vegetation?",
-        "description": "Horizontal discontinuity means to increase the distance between vegetation. This can be obtained by separating groups of vegetation from each other.",
+        "question": "Is there discontinuity between tree crowns, shrubs, hedges and other vegetation?",
+        "description": "Horizontal discontinuity means to increase the distance between vegetation groups. This can be obtained by separating groups of vegetation from each other. ",
         "discontVeg": "Yes",
         "contVeg": "No",
         "noApplicableDiscVeg": "Not applicable"
     },
     "Q21": {
         "title": "Vegetation",
-        "question": "Is there vertical continuity between tree crowns and other vegetation located below the trees, such as shrubs and grass?",
-        "description": "Pruning means removing the lower branches of a tree (...and reducing the density of the branches/leaves as well as cutting branches that touch the building?)",
-        "noPurning": "Yes",
-        "purning": "No",
-        "noApplicablePurning": "Not applicable (there are no trees on my property)"
-    },
-    "Q22": {
-        "title": "Vegetation",
-        "question": "Is low vegetation (e.g., grass, small shrubs) max 10 cm high?",
+        "question": "Is low vegetation (e.g., grass, small shrubs) max 10 cm deep?",
         "description": "An example of low surface fuels is a grass lawn.",
         "lowSurfaceLess10": "Yes",
         "lowSurfaceMore10": "No",
-        "noLowSurface": "Not applicable (there is no low vegetation on my property)"
+        "noLowSurface": "Not applicable"
+    },
+    "Q22": {
+        "title": "Vegetation",
+        "question": "Is there dead vegetation or vegetative debris?",
+        "description": "Dead vegetative debris are dead leaves, pine needles, etc. ",
+        "deadVeg": "Yes",
+        "noDeadVeg": "No",
+        "noApplicableDeadVeg": "Not aplicable"
     },
     "Q23": {
         "title": "Vegetation",
-        "question": "Is there dead vegetation or vegetative debris within the area of 30 m around the building?",
-        "description": "Dead vegetative debris are dead leaves, pine needles, etc.",
-        "deadVeg": "Yes",
-        "noDeadVeg": "No",
-        "noApplicableDeadVeg": "Not aplicable (no vegetation)"
+        "question": "Are trees located within 30 m of the building pruned?",
+        "description": "Pruning means to remove the lower branches of a tree",
+        "purning": "Yes",
+        "noPurning": "No",
+        "noApplicablePurning": "Not applicable"
     },
     "Q24": {
         "title": "Property perimeter and location within the landscape",
-        "question": "What is the predominant delimitation between your property and the neighbouring ones?",
+        "question": "What is the predominant delimitation between your property and the neighboring ones?",
         "description": "",
         "woodenFence": "Wooden fence",
         "hedgerowHigh": "Hedgerow (highly flammable - e.g., cypress)",
         "hedgerowLow": "Hedgerow (low flammability)",
         "metalPosts": "Fence with metal posts ",
-        "chainLink": "Chain link fence",
+        "chainLink": "Chain link fence ",
         "concreteMore2": "Concrete or brick fence/wall (at least 2 m high)",
         "concreteLess2": "Concrete or brick fence/wall (less than 2 m high)",
         "noDelimitation": "There is no fence or physical delimitation"
@@ -395,7 +430,10 @@
         "midSlope": "Mid-slope",
         "upperSlope": "Upper slope"
     },
+   
+    ------------------------------------------------
 
+    QUESTION IMAGES
     "Q1-images": {
         "spain-Q1_1": "Examples a façade that is more than 50% combustible",
         "default-Q1_1": "Examples a façade that is more than 50% combustible",

@@ -5,14 +5,10 @@
     "german": "Alemán",
     "swedish": "Sueco",
     "home": "FirePrime",
-
     "no_auth": "El workshop comenzará el 25 de febrero de 2025 a las 10:00. Por favor, vuelve a abrir la aplicación en ese momento.",
-
-
     "privacy_title": "Privacidad de datos",
     "privacy_text": "La información proporcionada por el usuario se almacena localmente en el dispositivo y no se comparte con terceros. El usuario puede eliminar los datos en cualquier momento eliminando la aplicación. Solo se registran las interacciones con la aplicación de forma anónima.",
     "agreed": "Entendido",
-
     "questionnaire": "Cuestionario",
     "preferedLang": "Idioma preferido",
     "startFill": "Compruebe la vulnerabilidad de su casa respondiendo a unas preguntas",
@@ -22,14 +18,11 @@
     "checkVuln": "¡Comprueba tu vulnerabilidad!",
     "done": "¡Hecho!",
     "check": "Comprobar",
-
     "addHouse": "Añadir casa",
     "fillInfo": "Rellena la información de la casa",
     "address": "Dirección",
     "country": "País",
-    
     "more_info": "Más información",
-
     "lastResult": "Última avaluación",
     "risk": "Riesgo",
     "noResult": "No hay resultados",
@@ -41,18 +34,13 @@
     "continue": "Continuar",
     "max_multiple_choices": "Puedes seleccionar como máximo hasta",
     "options": "opciones",
-
     "resultsHistory": "Consulta tu historial de resultados",
     "myResults": "Resultados",
-
-    
-
     "edit": "Editar casa",
     "deleteHouse": "Borrar casa",
     "deleteHouseWarning1": "¿Estás seguro de que quieres borrar esta casa?",
     "deleteHouseWarning2": "Al borrar la casa también se borrará toda la información referente a las avaluaciones de riesgo y no se podrá recuperar.",
     "delete": "Borrar",
-
     "editHouse": "Edita la información de la casa",
     "name": "Nombre",
     "save": "Guardar",
@@ -60,14 +48,11 @@
     "plsFillAddress": "Por favor, introduece la dirección de la casa",
     "plsSelectCountry": "Por favor, selecciona el país de la casa",
     "houseExists": "Este nombre de casa ya existe",
-
     "show_desc": "Mostrar descripción",
     "hide_desc": "Ocultar descripción",
     "other": "Otro",
-    
     "show_details": "Mostrar detalles",
     "hide_details": "Ocultar detalles",
-
     "about_firePrime": "Acerca de FirePrime",
     "about_projText1": "La aplicación FirePrime ",
     "about_projText2": "ha sido desarrollada por el ",
@@ -78,7 +63,6 @@
     "about_devText2": "bajo la supervisión de ",
     "and": "y ",
     "about_devText3": "y con el apoyo consultivo de ",
-
     "results": "Resultados",
     "risk_text": "El riesgo de su casa es de:",
     "structural_vulnerabilities": "Vulnerabilidad estructural",
@@ -94,21 +78,16 @@
     "roof_material": "Material del techo",
     "roof_maintenance-1": "Mantenimiento del techo",
     "roof_maintenance-2": "Mantenimiento del techo",
-
     "fire_reaches_building": "El fuego cerca del edificio",
-
     "fuels_close_to_building": "Combustibles cerca del edificio",
     "fuels_glazing_systems": "Combustibles frente a sistemas de vidrio",
     "fuels_roof": "Combustibles frente al tejado",
     "fuels_combustible_facade": "Combustibles almacenados contra fachada combustible",
     "surface_fuels": "Combustibles superficiales",
-
-
     "artificial_fuels": "Combustibles artificiales",
     "fuelsLPG": "Combustibles frente al depósito de GLP",
     "space_art_fuels": "Espaciado entre combustibles artificiales",
     "fuel_close_to_trees": "Combustibles cerca de árboles",
-
     "vegetation": "Vegetación",
     "wildland_vegetation": "Vegetación silvestre",
     "vegetation_type": "Tipo de vegetación",
@@ -116,7 +95,6 @@
     "surface_fuel_depth": "Profundidad del combustible superficial",
     "dead_vegetation": "Vegetación muerta",
     "tree_pruning": "Poda de árboles",
-
     "property_perimeter": "Perímetro de la propiedad",
     "details": "Detalles",
     "hide": "Ocultar",
@@ -125,13 +103,9 @@
     "house_vulnerability": "Vulnerabilidad casa",
     "risk_info": "Este valor depende del factor Hazard y de su riesgo de la casa.",
     "calculating": "Calculando el resultado",
-
-
     "improve": "Mejóralo",
     "mitigations_actions": "Acciones de mejora",
     "no_mitigations": "No hay acciones de mejora disponibles",
-
-
     "selectedOption": "La opción que habías seleccionado és: ",
     "actualSituation": "SITUACIÓN ACTUAL",
     "applyImprovement": "APLICACIÓN DE MEJORAS",
@@ -139,8 +113,6 @@
     "totalVulnerability": "Vulnerabilidad total",
     "before": "Antes",
     "now": "Ahora",
-
-
     "european_countries": {
         "albania": "Albania",
         "andorra": "Andorra",
@@ -192,7 +164,6 @@
         "unitedKingdom": "Reino Unido",
         "vaticanCity": "Ciudad de Vaticano"
     },
-
     "material-1": {
         "title": "Materiales de fachada",
         "question": "¿Qué materiales están presentes en la envolvente exterior de su edificio (es decir, paredes exteriores, balcones, porches, etc.)? (excluidas las persianas)",
@@ -291,7 +262,9 @@
         "title": "Espacio semi-confinado",
         "question": "¿Hay algún sistema de vidrio no protegido (es decir, sin persianas) (por ejemplo, puertas de vidrio o ventanas) que conecte el espacio semi-confinado con el interior del edificio?",
         "description": "Los sistemas de vidrio no protegidos son un elemento muy débil en cuanto a la resistencia al fuego. Si los elementos dentro del espacio semi-confinado se encienden, el vidrio podría romperse y permitir la entrada del fuego en el edificio.",
-        "glazingSystems": "Sí",
+        "glazingSystemsSinglePane": "Sí, con vidrio simple",
+        "glazingSystemsMultiplePane": "Sí, con vidrio multiple",
+        "glazingSystemsTempered": "Sí, con vidrio temperado",
         "noGlazingSystems": "No"
     },
     "Q10": {
@@ -301,6 +274,10 @@
         "combustibleEnvelope": "Materiales combustibles (por ejemplo, madera, revestimiento de vinilo)",
         "nonCombThin": "Materiales no combustibles como el aluminio o el acero (por ejemplo, persianas sin vidrio, como una puerta de garaje)",
         "nonCombThick": "Materiales no combustibles como ladrillos o hormigón."
+    },
+    "I1": {
+        "title": "Entorno de la casa",
+        "text": "A continuación, responderás preguntas sobre el entorno de tu casa"
     },
     "Q11-1": {
         "title": "Combustibles",
@@ -366,8 +343,7 @@
         "question": "¿Toda la vegetación salvaje está situada al menos a 30 m del edificio?",
         "description": "Cuando se enciende, la vegetación salvaje puede arder con una intensidad muy alta. Por lo tanto, se recomienda reducir la cantidad de vegetación salvaje tanto como sea posible en un radio de 30 m alrededor del edificio.",
         "noVegIn30": "Sí",
-        "vegIn30": "No",
-        "noApplicableVegIn30": "No aplicable"
+        "vegIn30": "No"
     },
     "Q19": {
         "title": "Vegetación",
@@ -376,7 +352,7 @@
         "highFlam": "Altamente inflamable (ej. pinos, eucaliptos, cipreses, laureles)",
         "mediumFlam": "Con inflamabilidad media (ej. adelfa)",
         "lowFlam": "Con baja inflamabilidad (ej. olivos, lavanda, cítricos)",
-        "noVeg": "Sin vegetación"
+        "noVeg": "No hay vegetación"
     },
     "Q20": {
         "title": "Vegetación",
@@ -399,7 +375,8 @@
         "question": "¿Hay vegetación muerta o restos vegetales?",
         "description": "La vegetación muerta o los restos vegetales deben eliminarse periódicamente dentro del área de 30 metros alrededor del edificio. Estos combustibles están muy secos y pueden encenderse fácilmente cuando llegan las llamas.",
         "deadVeg": "Sí",
-        "noDeadVeg": "No"
+        "noDeadVeg": "No",
+        "noApplicableDeadVeg": "No aplicable"
     },
     "Q23": {
         "title": "Vegetación",
@@ -414,15 +391,23 @@
         "question": "¿Qué se utiliza para delimitar tu propiedad y separarla de las propiedades vecinas?",
         "description": "Los muros o cercas de separación pueden ayudar a proteger la propiedad de las llamas y la radiación provenientes de propiedades vecinas cuando están hechos de materiales no combustibles, como el hormigón o los ladrillos, y cuando tienen una altura suficiente.",
         "woodenFence": "Valla de madera",
-        "Hedgerow": "Seto vegetal",
+        "hedgerowHigh": "Seto vegetal (alta inflamabilidad)",
+        "hedgerowLow": "Seto vegetal (baja inflamabilidad)",
         "metalPosts": "Valla con postes metálicos",
         "chainLink": "Valla de alambre",
         "concreteMore2": "Valla de hormigón (al menos 2 metros de altura)",
         "concreteLess2": "Valla de hormigón (menos de 2 metros de altura)",
         "noDelimitation": "No hay valla o delimitación física"
     },
-
-    "material-2-images":  {
+    "Q25": {
+        "title": "Property perimeter and location within the landscape",
+        "question": "What type of terrain is your property located on?",
+        "description": "",
+        "flatTerrain": "Flat terrain",
+        "midSlope": "Mid-slope",
+        "upperSlope": "Upper slope"
+    },
+    "material-2-images": {
         "austria-material-2_1": "Buildings entirely made of wood",
         "austria-material-2_3": "Buildings partly made of wood",
         "austria-material-2_5": "Wooden elements",

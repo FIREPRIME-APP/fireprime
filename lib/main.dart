@@ -58,8 +58,8 @@ void main() async {
           Locale('en'),
           Locale('ca'),
           Locale('es'),
-          // Locale('de'),
-          // Locale('sv')
+          Locale('de'),
+          //Locale('sv')
         ],
         path: 'assets/translations',
         fallbackLocale: const Locale('en'),
@@ -73,8 +73,8 @@ void main() async {
           Locale('en'),
           Locale('ca'),
           Locale('es'),
-          // Locale('de'),
-          // Locale('sv')
+          Locale('de'),
+          //Locale('sv')
         ],
         path: 'assets/translations',
         fallbackLocale: const Locale('en'),
@@ -140,7 +140,7 @@ class MyApp extends StatelessWidget {
               outlinedButtonTheme: OutlinedButtonThemeData(
                 style: ButtonStyle(
                   minimumSize: MaterialStateProperty.all(
-                    const Size(150.0, 60.0),
+                    const Size(120.0, 50.0),
                   ),
                   side: MaterialStateProperty.resolveWith(
                     (Set<MaterialState> state) {
@@ -213,8 +213,14 @@ class MyApp extends StatelessWidget {
                   color: Colors.black,
                   fontFamily: 'OpenSans',
                 ),
+                bodyMedium: TextStyle(
+                  fontSize: 18.0,
+                  color: Colors.black,
+                  fontFamily: 'OpenSans',
+                ),
                 bodySmall: TextStyle(
                   color: Colors.black,
+                  fontSize: 13.0,
                   fontFamily: 'OpenSans',
                 ),
                 headlineLarge: TextStyle(
@@ -238,12 +244,7 @@ class MyApp extends StatelessWidget {
                   fontFamily: 'OpenSans',
                 ),
                 headlineSmall: TextStyle(
-                  fontSize: 24.0,
-                  color: Colors.black,
-                  fontFamily: 'OpenSans',
-                ),
-                bodyMedium: TextStyle(
-                  fontSize: 20.0,
+                  fontSize: 18.0,
                   color: Colors.black,
                   fontFamily: 'OpenSans',
                 ),

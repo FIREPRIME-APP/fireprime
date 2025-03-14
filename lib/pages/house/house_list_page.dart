@@ -180,7 +180,7 @@ class _HouseListPageState extends State<HouseListPage> {
           },
           icon: const Icon(Icons.add_circle_outlined, color: Colors.white),
           label: Text(
-            context.tr('addHouse'),
+            context.tr('add_house'),
             style: const TextStyle(color: Colors.white),
           ),
         ),

@@ -115,9 +115,13 @@ class _CustomViewState extends State<SingleChoiceImageView> {
       },
       isValid: widget.questionStep.isOptional || _selectedChoice != null,
       title: widget.questionStep.title.isNotEmpty
-          ? Text(
-              widget.questionStep.title,
-              style: Theme.of(context).textTheme.titleLarge,
+          ? Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                widget.questionStep.title,
+                style: Theme.of(context).textTheme.titleLarge,
+                textAlign: TextAlign.center,
+              ),
             )
           : const SizedBox.shrink(),
       child: Column(
@@ -134,8 +138,8 @@ class _CustomViewState extends State<SingleChoiceImageView> {
             onPressed: _toggleDescription,
             child: Text(
               _showDescription
-                  ? context.tr('hide_desc')
-                  : context.tr('show_desc'),
+                  ? context.tr('hide_description')
+                  : context.tr('show_description'),
               style: TextStyle(color: Theme.of(context).primaryColor),
             ),
           ),
@@ -162,7 +166,7 @@ class _CustomViewState extends State<SingleChoiceImageView> {
                   );
                 },
               ),
-              if (widget.questionStep.otherOption)
+              /* if (widget.questionStep.otherOption)
                 Column(
                   children: [
                     Padding(
@@ -182,7 +186,6 @@ class _CustomViewState extends State<SingleChoiceImageView> {
                                     _editableText = editedText;
                                     _isEditing = false;
                                   });
-                                  print(editedText);
                                 },
                                 controller:
                                     TextEditingController(text: _editableText),
@@ -227,7 +230,7 @@ class _CustomViewState extends State<SingleChoiceImageView> {
                       color: Colors.grey,
                     )
                   ],
-                ),
+                ),*/
             ],
           )
         ],
@@ -243,6 +246,7 @@ class _CustomViewState extends State<SingleChoiceImageView> {
           Text(
             widget.questionStep.description,
             style: Theme.of(context).textTheme.bodySmall,
+            textAlign: TextAlign.justify,
           ),
           if (widget.images.isNotEmpty) imageWidget(),
           const SizedBox(
@@ -271,8 +275,12 @@ class _CustomViewState extends State<SingleChoiceImageView> {
                 ),
               ),
               const SizedBox(height: 4),
-              Text(widget.images[index].description,
-                  style: Theme.of(context).textTheme.bodySmall),
+              SizedBox(
+                width: 200,
+                child: Text(widget.images[index].description,
+                    style: Theme.of(context).textTheme.bodySmall,
+                    textAlign: TextAlign.center),
+              ),
             ],
           );
         },

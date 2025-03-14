@@ -1,6 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:fireprime/constants.dart';
 import 'package:fireprime/firebase/event_manage.dart';
+import 'package:fireprime/pages/mitigation/mitigation_actions.dart';
+import 'package:fireprime/pages/mitigation/mitigation_page.dart';
 import 'package:fireprime/providers/house_provider.dart';
 import 'package:fireprime/widgets/gauge.dart';
 import 'package:fireprime/pages/house/edit_house_page.dart';
@@ -27,6 +29,7 @@ class _HousePageState extends State<HousePage> {
   @override
   Widget build(BuildContext context) {
     final houseProvider = Provider.of<HouseProvider>(context, listen: true);
+
     return Scaffold(
       appBar: AppBar(
         title: Image.asset(
@@ -70,8 +73,9 @@ class _HousePageState extends State<HousePage> {
             },
             itemBuilder: (BuildContext context) {
               return [
-                PopupMenuItem(value: 0, child: Text(context.tr('edit'))),
-                PopupMenuItem(value: 1, child: Text(context.tr('deleteHouse'))),
+                PopupMenuItem(value: 0, child: Text(context.tr('edit_house'))),
+                PopupMenuItem(
+                    value: 1, child: Text(context.tr('delete_house'))),
               ];
             },
           )
@@ -94,6 +98,8 @@ class _HousePageState extends State<HousePage> {
           if (currentHouse.riskAssessmentIds.isNotEmpty) {
             riskAssessment = houseProvider.getLastRiskAssessment();
           }
+          RiskAssessment? lastCompletedRiskAssessment =
+              houseProvider.getRiskAssessment();
 
           return Padding(
             padding: const EdgeInsets.fromLTRB(20, 0, 20, 20),
@@ -113,10 +119,36 @@ class _HousePageState extends State<HousePage> {
                   const SizedBox(
                     height: 20,
                   ),
+                  _buttonCard(
+                    currentHouse,
+                    context.tr('mitigation_intro'),
+                    context.tr('check_improvements'),
+                    const Color.fromARGB(255, 159, 171, 201),
+                    () {
+                      saveEventdata(
+                          screenId: 'house_page',
+                          buttonId: 'check_improvements');
+                      if (lastCompletedRiskAssessment != null) {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (BuildContext context) {
+                              return MitigationPage(
+                                answers: lastCompletedRiskAssessment.answers,
+                              );
+                            },
+                          ),
+                        );
+                      }
+                    },
+                    lastCompletedRiskAssessment != null,
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
                   if (riskAssessment != null && riskAssessment.completed)
                     _buttonCard(
                       currentHouse,
-                      context.tr('updateQuestionnaire'),
+                      context.tr('update_questionnaire_intro'),
                       context.tr('update'),
                       const Color.fromARGB(255, 184, 194, 219),
                       () {
@@ -140,13 +172,13 @@ class _HousePageState extends State<HousePage> {
                   if (riskAssessment == null)
                     _buttonCard(
                       currentHouse,
-                      context.tr('fillQuestionnaire'),
-                      context.tr('fill'),
+                      context.tr('start_questionnaire_intro'),
+                      context.tr('check'),
                       const Color.fromARGB(255, 184, 194, 219),
                       () {
                         saveEventdata(
                             screenId: 'house_page',
-                            buttonId: 'fill_questionnaire');
+                            buttonId: 'first_questionnaire');
                         Navigator.of(context).push(
                           MaterialPageRoute(
                             builder: (BuildContext context) {
@@ -161,10 +193,10 @@ class _HousePageState extends State<HousePage> {
                       },
                       true,
                     ),
-                  if (riskAssessment != null && !riskAssessment.completed)
+                  if (riskAssessment != null && !riskAssessment.completed) ...[
                     _buttonCard(
                       currentHouse,
-                      context.tr('continueQuestionnaire'),
+                      context.tr('continue_questionnaire_intro'),
                       context.tr('continue'),
                       const Color.fromARGB(255, 184, 194, 219),
                       () {
@@ -185,12 +217,13 @@ class _HousePageState extends State<HousePage> {
                       },
                       true,
                     ),
+                  ],
                   const SizedBox(
                     height: 20,
                   ),
                   _buttonCard(
                     currentHouse,
-                    context.tr('resultsHistory'),
+                    context.tr('results_history_intro'),
                     context.tr('myResults'),
                     const Color.fromARGB(255, 132, 149, 189),
                     () {
@@ -211,6 +244,9 @@ class _HousePageState extends State<HousePage> {
                     },
                     _enableButton(
                         currentHouse.riskAssessmentIds.length, riskAssessment),
+                  ),
+                  const SizedBox(
+                    height: 20,
                   ),
                 ],
               ),
@@ -256,7 +292,6 @@ class _HousePageState extends State<HousePage> {
               ),
               Center(
                 child: Container(
-                  width: 150,
                   height: 50,
                   decoration: BoxDecoration(
                     border: Border.all(color: Colors.white, width: 3),
@@ -305,7 +340,7 @@ class _HousePageState extends State<HousePage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                context.tr('lastResult'),
+                context.tr('last_evaluation'),
                 style: const TextStyle(
                     fontSize: 17,
                     color: Constants.blueDark,
@@ -340,26 +375,34 @@ class _HousePageState extends State<HousePage> {
                                 text:
                                     (lastProbability * 100).toStringAsFixed(0),
                                 size: 18,
-                                color: Utils.textColor(lastProbability * 100),
+                                color:
+                                    null, //Utils.textColor(lastProbability * 100),
                               ),
                             ),
                             const SizedBox(
                               height: 10,
                             ),
                             ElevatedButton(
-                                onPressed: () {
-                                  saveEventdata(
-                                      screenId: 'house_page',
-                                      buttonId: 'viewResults');
-                                  Navigator.of(context).push(
-                                    MaterialPageRoute(
-                                      builder: (BuildContext context) {
-                                        return ResultPage(house: currentHouse);
-                                      },
-                                    ),
-                                  );
-                                },
-                                child: Text(context.tr('details')))
+                              onPressed: () {
+                                saveEventdata(
+                                    screenId: 'house_page',
+                                    buttonId: 'viewResults');
+                                Navigator.of(context).push(
+                                  MaterialPageRoute(
+                                    builder: (BuildContext context) {
+                                      return ResultPage(house: currentHouse);
+                                    },
+                                  ),
+                                );
+                              },
+                              style: ElevatedButton.styleFrom(
+                                  backgroundColor: Constants.blueDark,
+                                  elevation: 5.0),
+                              child: Text(
+                                context.tr('details'),
+                                style: const TextStyle(color: Colors.white),
+                              ),
+                            )
                           ]),
                         ],
                       ),
@@ -373,7 +416,7 @@ class _HousePageState extends State<HousePage> {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 8.0),
                   child: Text(
-                    context.tr('noResult'),
+                    context.tr('no_results_available'),
                     style: const TextStyle(
                       fontSize: 15,
                       color: Colors.black,
@@ -410,10 +453,10 @@ class _HousePageState extends State<HousePage> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text(context.tr('deleteHouseWarning1'),
+          title: Text(context.tr('delete_house_warning_intro'),
               style:
                   const TextStyle(fontSize: 15, fontWeight: FontWeight.bold)),
-          content: Text(context.tr('deleteHouseWarning2'),
+          content: Text(context.tr('delete_house_warning_text'),
               style: const TextStyle(fontSize: 15)),
           actions: [
             TextButton(

@@ -104,7 +104,8 @@ class Gauge {
                 width: 5,
               ),
               lastProbability != null
-                  ? comparisonIcon(probability, lastProbability)
+                  ? comparisonIcon(probability, lastProbability) ??
+                      const SizedBox(width: 0)
                   : const SizedBox(width: 0),
             ],
           ),
@@ -116,7 +117,7 @@ class Gauge {
     );
   }
 
-  static Icon comparisonIcon(double probability, double lastProbability) {
+  static Icon? comparisonIcon(double probability, double lastProbability) {
     if (probability > lastProbability) {
       return const Icon(Icons.arrow_upward, color: Colors.red, size: 25);
     } else if (probability < lastProbability) {
@@ -126,11 +127,11 @@ class Gauge {
         size: 25,
       );
     } else {
-      return const Icon(
+      return null; /*const Icon(
         Icons.remove,
         color: Color.fromARGB(255, 86, 97, 123),
         size: 25,
-      );
+      );*/
     }
   }
 

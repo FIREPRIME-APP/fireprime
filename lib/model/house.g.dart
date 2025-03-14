@@ -22,13 +22,15 @@ class HouseAdapter extends TypeAdapter<House> {
       fields[2] as String,
     )
       ..riskAssessmentIds = (fields[3] as List).cast<String>()
-      ..hazard = fields[4] as double?;
+      ..hazard = fields[4] as double?
+      ..lat = fields[5] as double?
+      ..long = fields[6] as double?;
   }
 
   @override
   void write(BinaryWriter writer, House obj) {
     writer
-      ..writeByte(5)
+      ..writeByte(7)
       ..writeByte(0)
       ..write(obj.name)
       ..writeByte(1)
@@ -38,7 +40,11 @@ class HouseAdapter extends TypeAdapter<House> {
       ..writeByte(3)
       ..write(obj.riskAssessmentIds)
       ..writeByte(4)
-      ..write(obj.hazard);
+      ..write(obj.hazard)
+      ..writeByte(5)
+      ..write(obj.lat)
+      ..writeByte(6)
+      ..write(obj.long);
   }
 
   @override

@@ -20,4 +20,10 @@ class House {
 
   @HiveField(4)
   double? hazard = 1.0;
+
+  @HiveField(5)
+  double? lat;
+
+  @HiveField(6)
+  double? long;
 }

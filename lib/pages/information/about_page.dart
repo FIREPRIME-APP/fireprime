@@ -11,7 +11,7 @@ class AboutPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          context.tr('about_firePrime'),
+          context.tr('more_info_title'),
           style: Theme.of(context).textTheme.titleLarge!,
         ),
         leading: IconButton(
@@ -41,7 +41,7 @@ class AboutPage extends StatelessWidget {
                       height: 100,
                     ),
                     const Text(
-                      'FirePrime',
+                      'Fireprime',
                       style: TextStyle(
                           color: Color.fromARGB(255, 86, 97, 123),
                           fontSize: 20,
@@ -56,12 +56,16 @@ class AboutPage extends StatelessWidget {
               const Divider(
                 color: Colors.grey,
               ),
-              customisedProjectText(context),
+              Text(context.tr('about_text'),
+                  style: const TextStyle(fontSize: 13)),
+              // customisedProjectText(context),
               const Divider(
                 height: 25,
                 color: Colors.grey,
               ),
-              customisedDevelopementText(context),
+              Text(context.tr('about_text2'),
+                  style: const TextStyle(fontSize: 13)),
+              //customisedDevelopementText(context),
               const Divider(
                 height: 25,
                 color: Colors.grey,
@@ -74,7 +78,7 @@ class AboutPage extends StatelessWidget {
               Text(
                 context.tr('privacy_text'),
                 style: const TextStyle(
-                    fontSize: 15, height: 1.5, fontFamily: 'OpenSans'),
+                    fontSize: 13, height: 1.5, fontFamily: 'OpenSans'),
                 textAlign: TextAlign.justify,
               ),
               Image.asset(
@@ -94,7 +98,7 @@ class AboutPage extends StatelessWidget {
       textAlign: TextAlign.justify,
       text: TextSpan(
         style: const TextStyle(
-          fontSize: 15.0,
+          fontSize: 13.0,
           color: Colors.black,
           height: 1.5,
           fontFamily: 'OpenSans',
@@ -165,7 +169,7 @@ class AboutPage extends StatelessWidget {
       textAlign: TextAlign.justify,
       text: TextSpan(
         style: const TextStyle(
-          fontSize: 15.0,
+          fontSize: 13.0,
           color: Colors.black,
           height: 1.5,
           fontFamily: 'OpenSans',

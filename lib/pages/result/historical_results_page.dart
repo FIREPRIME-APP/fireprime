@@ -218,6 +218,10 @@ class _HistoricalResultsPageState extends State<HistoricalResultsPage> {
                               ? lastHouseVulnerability! * 100
                               : null),
                       ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                            backgroundColor: _showDetails
+                                ? const Color.fromARGB(255, 223, 225, 228)
+                                : const Color.fromARGB(255, 252, 252, 252)),
                         onPressed: () {
                           setState(() {
                             _showDetails = !_showDetails;
@@ -251,6 +255,16 @@ class _HistoricalResultsPageState extends State<HistoricalResultsPage> {
                                     lastAllProbabilities!, subEvent.key),
                               ),
                               ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                    backgroundColor: _showLinearGauge[
+                                                    subEvent.key] !=
+                                                null &&
+                                            _showLinearGauge[subEvent.key] ==
+                                                true
+                                        ? const Color.fromARGB(
+                                            255, 223, 225, 228)
+                                        : const Color.fromARGB(
+                                            255, 252, 252, 252)),
                                 onPressed: () {
                                   _toggleDetailedLinearGauge(subEvent.key);
                                 },

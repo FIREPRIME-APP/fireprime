@@ -104,7 +104,12 @@ class Questionnaire {
     },
     {
       'stepId': 'Q9',
-      'textChoices': ['glazingSystems', 'noGlazingSystems'],
+      'textChoices': [
+        'glazingSystemsSinglePane',
+        'glazingSystemsMultiplePane',
+        'glazingSystemsTempered',
+        'noGlazingSystems'
+      ],
       'otherOption': false,
       'type': 'singleChoice',
     },
@@ -113,6 +118,12 @@ class Questionnaire {
       'textChoices': ['combustibleEnvelope', 'nonCombThin', 'nonCombThick'],
       'otherOption': false,
       'type': 'singleChoice',
+    },
+    {
+      'stepId': 'I1',
+      'type': 'instructionStep',
+      'title': 'buildSurrondingsTitle',
+      'text': 'buildSurrondings',
     },
     {
       'stepId': 'Q11-1',
@@ -140,7 +151,7 @@ class Questionnaire {
     },
     {
       'stepId': 'Q14',
-      'textChoices': ['discontSurf', 'contSurf'],
+      'textChoices': ['contSurf', 'discontSurf'],
       'otherOption': false,
       'type': 'singleChoice',
     },
@@ -164,7 +175,7 @@ class Questionnaire {
     },
     {
       'stepId': 'Q18',
-      'textChoices': ['noVegIn30', 'vegIn30', 'noApplicableVegIn30'],
+      'textChoices': ['noVegIn30', 'vegIn30'],
       'otherOption': false,
       'type': 'singleChoice',
     },
@@ -182,6 +193,12 @@ class Questionnaire {
     },
     {
       'stepId': 'Q21',
+      'textChoices': ['noPurning', 'purning', 'noApplicablePurning'],
+      'otherOption': false,
+      'type': 'singleChoice',
+    },
+    {
+      'stepId': 'Q22',
       'textChoices': [
         'lowSurfaceLess10',
         'lowSurfaceMore10',
@@ -191,14 +208,8 @@ class Questionnaire {
       'type': 'singleChoice',
     },
     {
-      'stepId': 'Q22',
-      'textChoices': ['deadVeg', 'noDeadVeg'],
-      'otherOption': false,
-      'type': 'singleChoice',
-    },
-    {
       'stepId': 'Q23',
-      'textChoices': ['purning', 'noPurning', 'noApplicablePurning'],
+      'textChoices': ['deadVeg', 'noDeadVeg', 'noApplicableDeadVeg'],
       'otherOption': false,
       'type': 'singleChoice',
     },
@@ -206,7 +217,8 @@ class Questionnaire {
       'stepId': 'Q24',
       'textChoices': [
         'woodenFence',
-        'Hedgerow',
+        'hedgerowHigh',
+        'hedgerowLow',
         'metalPosts',
         'chainLink',
         'concreteMore2',
@@ -216,6 +228,12 @@ class Questionnaire {
       'otherOption': false,
       'type': 'multipleChoice',
     },
+    {
+      'stepId': 'Q25',
+      'textChoices': ['flatTerrain', 'midSlope', 'upperSlope'],
+      'otherOption': false,
+      'type': 'singleChoice',
+    }
   ];
 
   List<Map<String, dynamic>> navigations = [
@@ -264,12 +282,33 @@ class Questionnaire {
         'allProtected': 'vents-2',
       },
     },*/
-    {
+    /*{
       'stepId': 'Q8',
       'type': 'conditionalSavedResult',
       'conditions': {
         'yesSemiConf': 'Q9',
       },
+      'savedResult': {
+        'id': 'Q5',
+        'conditions': {
+          'singlePane': 'Q11-1',
+          'doublePane': 'Q11-2',
+          'tempered': 'Q11-2',
+        },
+      }
+    }*/
+    {
+      'stepId': 'Q8',
+      'type': 'conditional',
+      'conditions': {
+        'yesSemiConf': 'Q9',
+        'noSemiConf': 'I1',
+      },
+    },
+    {
+      'stepId': 'I1',
+      'type': 'conditionalSavedResult',
+      'conditions': {},
       'savedResult': {
         'id': 'Q5',
         'conditions': {
@@ -294,7 +333,7 @@ class Questionnaire {
         },
       }
     },*/
-    {
+    /*{
       'stepId': 'Q10',
       'type': 'conditionalSavedResult',
       'conditions': {},
@@ -306,7 +345,8 @@ class Questionnaire {
           'tempered': 'Q11-2',
         },
       }
-    },
+    },*/
+
     {
       'stepId': 'Q11-1',
       'type': 'conditional',

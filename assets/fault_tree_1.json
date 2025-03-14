@@ -18,78 +18,89 @@
                                     "input_events": [
                                         {
                                             "type": "event",
-                                            "event_id": "exterior_envelope",
+                                            "event_id": "façade",
                                             "gate": [
                                                 {
-                                                    "type": "xor_gate",
-                                                    "gate_id": "exterior_envelope",
-                                                    "input_events": [
-                                                    {
-                                                        "type": "event",
-                                                        "event_id": "100comb",
-                                                        "probability": 0.867
-                                                    },
-                                                    {
-                                                        "type": "event",
-                                                        "event_id": "more50comb",
-                                                        "probability": 0.722
-                                                    },
-                                                    {
-                                                        "type": "event",
-                                                        "event_id": "less50comb",
-                                                        "probability": 0.378
-                                                    },
-                                                    {
-                                                        "type": "event",
-                                                        "event_id": "0comb",
-                                                        "probability": 0.046
-                                                    }
-                                                    ]
-                                                }
-                                            ]
-                                        },
-                                        {
-                                            "type": "event",
-                                            "event_id": "non_combustible_foundation",
-                                            "gate": [
-                                                {
-                                                    "type": "xor_gate",
-                                                    "gate_id": "non_combustible_foundation",
+                                                    "type": "and_gate",
+                                                    "gate_id": "façade",
                                                     "input_events": [
                                                         {
-                                                            "type": "event",
-                                                            "event_id": "height0",
-                                                            "probability": 0.843 
+                                                            "type": "xor_gate",
+                                                            "gate_id": "exterior_envelope",
+                                                            "input_events": [
+                                                                {
+                                                                    "type": "event",
+                                                                    "event_id": "100comb",
+                                                                    "probability": 0.867
+                                                                },
+                                                                {
+                                                                    "type": "event",
+                                                                    "event_id": "more50comb",
+                                                                    "probability": 0.722
+                                                                },
+                                                                {
+                                                                    "type": "event",
+                                                                    "event_id": "less50comb",
+                                                                    "probability": 0.378
+                                                                },
+                                                                {
+                                                                    "type": "event",
+                                                                    "event_id": "0comb",
+                                                                    "probability": 0.046
+                                                                }
+                                                            ]
                                                         },
                                                         {
                                                             "type": "event",
-                                                            "event_id": "height0to20",
-                                                            "probability": 0.706
-                                                        },
-                                                        {
-                                                            "type": "event",
-                                                            "event_id": "height21to40",
-                                                            "probability": 0.608
-                                                        },
-                                                        {
-                                                            "type": "event",
-                                                            "event_id": "height41to60",
-                                                            "probability": 0.504
-                                                        },
-                                                        {
-                                                            "type": "event",
-                                                            "event_id": "height61to80",
-                                                            "probability": 0.488
-                                                        },
-                                                        {
-                                                            "type": "event",
-                                                            "event_id": "height81to100",
-                                                            "probability": 0.338
-                                                        },
-                                                        {
-                                                            "type": "event",
-                                                            "event_id": "heightMore100",
-                                                            "probability": 0.163
+                                                            "event_id": "non_combustible_foundation",
+                                                            "gate": [
+                                                                {
+                                                                    "type": "xor_gate",
+                                                                    "gate_id": "non_combustible_foundation",
+                                                                    "input_events": [
+                                                                        {
+                                                                            "type": "event",
+                                                                            "event_id": "height0",
+                                                                            "probability": 0.843
+                                                                        },
+                                                                        {
+                                                                            "type": "event",
+                                                                            "event_id": "height0to20",
+                                                                            "probability": 0.706
+                                                                        },
+                                                                        {
+                                                                            "type": "event",
+                                                                            "event_id": "height21to40",
+                                                                            "probability": 0.608
+                                                                        },
+                                                                        {
+                                                                            "type": "event",
+                                                                            "event_id": "height41to60",
+                                                                            "probability": 0.504
+                                                                        },
+                                                                        {
+                                                                            "type": "event",
+                                                                            "event_id": "height61to80",
+                                                                            "probability": 0.488
+                                                                        },
+                                                                        {
+                                                                            "type": "event",
+                                                                            "event_id": "height81to100",
+                                                                            "probability": 0.338
+                                                                        },
+                                                                        {
+                                                                            "type": "event",
+                                                                            "event_id": "heightMore100",
+                                                                            "probability": 0.163
+                                                                        },
+                                                                        {
+                                                                            "type": "event",
+                                                                            "event_id": "0comb",
+                                                                            "probability": 1.0
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            ]
                                                         }
                                                     ]
                                                 }
@@ -113,13 +124,13 @@
                                                                     "input_events": [
                                                                         {
                                                                             "type": "event",
-                                                                            "event_id": "roofNonFireRated",
-                                                                            "probability": 0.805
+                                                                            "event_id": "roofFireRated",
+                                                                            "probability": 0.19
                                                                         },
                                                                         {
                                                                             "type": "event",
-                                                                            "event_id": "roofFireRated",
-                                                                            "probability": 0.19
+                                                                            "event_id": "roofNonFireRated",
+                                                                            "probability": 0.805
                                                                         }
                                                                     ]
                                                                 }
@@ -136,14 +147,13 @@
                                                                         {
                                                                             "type": "event",
                                                                             "event_id": "roofPoorlyMaintaned-1",
-                                                                            "probability": 0.926
+                                                                            "probability": 0.921
                                                                         },
                                                                         {
                                                                             "type": "event",
                                                                             "event_id": "roofWellMaintained-1",
-                                                                            "probability": 0.789
+                                                                            "probability": 0.745
                                                                         }
-                                                                       
                                                                     ]
                                                                 }
                                                             ]
@@ -159,12 +169,12 @@
                                                                         {
                                                                             "type": "event",
                                                                             "event_id": "roofPoorlyMaintaned-2",
-                                                                            "probability": 0.678
+                                                                            "probability": 0.646
                                                                         },
                                                                         {
                                                                             "type": "event",
                                                                             "event_id": "roofWellMaintained-2",
-                                                                            "probability": 0.203
+                                                                            "probability": 0.104
                                                                         }
                                                                     ]
                                                                 }
@@ -193,17 +203,17 @@
                                                                         {
                                                                             "type": "event",
                                                                             "event_id": "singlePane",
-                                                                            "probability": 0.838
+                                                                            "probability": 0.825
                                                                         },
                                                                         {
                                                                             "type": "event",
                                                                             "event_id": "doublePane",
-                                                                            "probability": 0.331
+                                                                            "probability": 0.257
                                                                         },
                                                                         {
                                                                             "type": "event",
                                                                             "event_id": "tempered",
-                                                                            "probability": 0.2
+                                                                            "probability": 0.09
                                                                         }
                                                                     ]
                                                                 }
@@ -225,17 +235,17 @@
                                                                         {
                                                                             "type": "event",
                                                                             "event_id": "pvcShutters",
-                                                                            "probability": 0.74
+                                                                            "probability": 0.721
                                                                         },
                                                                         {
                                                                             "type": "event",
                                                                             "event_id": "woodShutters",
-                                                                            "probability": 0.588
+                                                                            "probability": 0.521
                                                                         },
                                                                         {
                                                                             "type": "event",
                                                                             "event_id": "aluminiumShutters",
-                                                                            "probability": 0.532
+                                                                            "probability": 0.479
                                                                         },
                                                                         {
                                                                             "type": "event",
@@ -266,22 +276,22 @@
                                                         {
                                                             "type": "event",
                                                             "event_id": "noVentProtection",
-                                                            "probability": 0.704
+                                                            "probability": 0.677
                                                         },
                                                         {
                                                             "type": "event",
                                                             "event_id": "ventCombProtection",
-                                                            "probability": 0.412
+                                                            "probability": 0.307
                                                         },
                                                         {
                                                             "type": "event",
                                                             "event_id": "nonCombBadCond",
-                                                            "probability": 0.482
+                                                            "probability": 0.462
                                                         },
                                                         {
                                                             "type": "event",
                                                             "event_id": "nonCombGoodCond",
-                                                            "probability": 0.107
+                                                            "probability": 0.077
                                                         }
                                                     ]
                                                 }
@@ -297,8 +307,18 @@
                                                     "input_events": [
                                                         {
                                                             "type": "event",
-                                                            "event_id": "glazingSystems",
-                                                            "probability": 0.834
+                                                            "event_id": "glazingSystemsSinglePane",
+                                                            "probability": 0.825
+                                                        },
+                                                        {
+                                                            "type": "event",
+                                                            "event_id": "glazingSystemsMultiplePane",
+                                                            "probability": 0.257
+                                                        },
+                                                        {
+                                                            "type": "event",
+                                                            "event_id": "glazingSystemsTempered",
+                                                            "probability": 0.09
                                                         },
                                                         {
                                                             "type": "event",
@@ -308,17 +328,17 @@
                                                         {
                                                             "type": "event",
                                                             "event_id": "combustibleEnvelope",
-                                                            "probability": 0.775
+                                                            "probability": 0.75
                                                         },
                                                         {
                                                             "type": "event",
                                                             "event_id": "nonCombThin",
-                                                            "probability": 0.461
+                                                            "probability": 0.4
                                                         },
                                                         {
                                                             "type": "event",
                                                             "event_id": "nonCombThick",
-                                                            "probability": 0.275
+                                                            "probability": 0.183
                                                         }
                                                     ]
                                                 }
@@ -327,8 +347,8 @@
                                     ]
                                 }
                             ]
-                        },      
-                        { 
+                        },
+                        {
                             "type": "event",
                             "event_id": "fire_reaches_building",
                             "gate": [
@@ -354,23 +374,23 @@
                                                                     "input_events": [
                                                                         {
                                                                             "type": "event",
-                                                                            "event_id": "7closeToGlazing",
-                                                                            "probability": 0.62
-                                                                        },
-                                                                        {
-                                                                            "type": "event",
                                                                             "event_id": "7farFromGlazing",
                                                                             "probability": 0.275
                                                                         },
                                                                         {
                                                                             "type": "event",
-                                                                            "event_id": "5closeToGlazing",
+                                                                            "event_id": "7closeToGlazing",
                                                                             "probability": 0.62
                                                                         },
                                                                         {
                                                                             "type": "event",
                                                                             "event_id": "5farFromGlazing",
                                                                             "probability": 0.275
+                                                                        },
+                                                                        {
+                                                                            "type": "event",
+                                                                            "event_id": "5closeToGlazing",
+                                                                            "probability": 0.62
                                                                         }
                                                                     ]
                                                                 }
@@ -386,13 +406,13 @@
                                                                     "input_events": [
                                                                         {
                                                                             "type": "event",
-                                                                            "event_id": "closeToRoof",
-                                                                            "probability": 0.683
+                                                                            "event_id": "farFromRoof",
+                                                                            "probability": 0.1
                                                                         },
                                                                         {
                                                                             "type": "event",
-                                                                            "event_id": "farFromRoof",
-                                                                            "probability": 0.35
+                                                                            "event_id": "closeToRoof",
+                                                                            "probability": 0.683
                                                                         }
                                                                     ]
                                                                 }
@@ -409,12 +429,12 @@
                                                                         {
                                                                             "type": "event",
                                                                             "event_id": "fuelsAgainstFacade",
-                                                                            "probability": 0.865
+                                                                            "probability": 0.0
                                                                         },
                                                                         {
                                                                             "type": "event",
                                                                             "event_id": "fuelsNotAgainstFacade",
-                                                                            "probability": 0.0
+                                                                            "probability": 0.865
                                                                         }
                                                                     ]
                                                                 }
@@ -430,14 +450,20 @@
                                                                     "input_events": [
                                                                         {
                                                                             "type": "event",
-                                                                            "event_id": "discontSurf",
-                                                                            "probability": 0.0
+                                                                            "event_id": "contSurf",
+                                                                            "probability": 0.75
                                                                         },
                                                                         {
                                                                             "type": "event",
-                                                                            "event_id": "contSurf",
+                                                                            "event_id": "noApplicableContSurf",
                                                                             "probability": 0.75
+                                                                        },
+                                                                        {
+                                                                            "type": "event",
+                                                                            "event_id": "discontSurf",
+                                                                            "probability": 0.0
                                                                         }
+                                                                        
                                                                     ]
                                                                 }
                                                             ]
@@ -445,14 +471,13 @@
                                                     ]
                                                 }
                                             ]
-                                            
                                         },
                                         {
                                             "type": "event",
                                             "event_id": "artificial_fuels",
                                             "gate": [
                                                 {
-                                                    "type":"or_gate",
+                                                    "type": "or_gate",
                                                     "gate_id": "artificial_fuels",
                                                     "input_events": [
                                                         {
@@ -465,13 +490,13 @@
                                                                     "input_events": [
                                                                         {
                                                                             "type": "event",
-                                                                            "event_id": "closeToLPG",
-                                                                            "probability": 0.707
+                                                                            "event_id": "farFromLPG",
+                                                                            "probability": 0.05
                                                                         },
                                                                         {
                                                                             "type": "event",
-                                                                            "event_id": "farFromLPG",
-                                                                            "probability": 0.172
+                                                                            "event_id": "closeToLPG",
+                                                                            "probability": 0.707
                                                                         },
                                                                         {
                                                                             "type": "event",
@@ -490,15 +515,16 @@
                                                                     "type": "xor_gate",
                                                                     "gate_id": "space_art_fuels",
                                                                     "input_events": [
+                                                                        
+                                                                        {
+                                                                            "type": "event",
+                                                                            "event_id": "spacingMore5",
+                                                                            "probability": 0.05
+                                                                        },
                                                                         {
                                                                             "type": "event",
                                                                             "event_id": "spacingLess5",
                                                                             "probability": 0.756
-                                                                        },
-                                                                        {
-                                                                            "type": "event",
-                                                                            "event_id": "spacingMore5",
-                                                                            "probability": 0.322
                                                                         },
                                                                         {
                                                                             "type": "event",
@@ -519,13 +545,13 @@
                                                                     "input_events": [
                                                                         {
                                                                             "type": "event",
-                                                                            "event_id": "placedIn20",
-                                                                            "probability": 0.542
+                                                                            "event_id": "placedFurther20",
+                                                                            "probability": 0.05
                                                                         },
                                                                         {
                                                                             "type": "event",
-                                                                            "event_id": "placedFurther20",
-                                                                            "probability": 0.208
+                                                                            "event_id": "placedIn20",
+                                                                            "probability": 0.542
                                                                         },
                                                                         {
                                                                             "type": "event",
@@ -558,18 +584,13 @@
                                                                     "input_events": [
                                                                         {
                                                                             "type": "event",
+                                                                            "event_id": "noVegIn30",
+                                                                            "probability": 0.025
+                                                                        },
+                                                                        {
+                                                                            "type": "event",
                                                                             "event_id": "vegIn30",
                                                                             "probability": 0.648
-                                                                        },
-                                                                        {
-                                                                            "type": "event",
-                                                                            "event_id": "noVegIn30",
-                                                                            "probability": 0.175
-                                                                        },
-                                                                        {
-                                                                            "type": "event",
-                                                                            "event_id": "noApplicableVegIn30",
-                                                                            "probability": 0.0
                                                                         }
                                                                     ]
                                                                 }
@@ -596,13 +617,14 @@
                                                                         {
                                                                             "type": "event",
                                                                             "event_id": "lowFlam",
-                                                                            "probability": 0.19
+                                                                            "probability": 0.025
                                                                         },
                                                                         {
                                                                             "type": "event",
                                                                             "event_id": "noVeg",
                                                                             "probability": 0.0
                                                                         }
+                                                                        
                                                                     ]
                                                                 }
                                                             ]
@@ -618,7 +640,7 @@
                                                                         {
                                                                             "type": "event",
                                                                             "event_id": "discontVeg",
-                                                                            "probability": 0.306
+                                                                            "probability": 0.025
                                                                         },
                                                                         {
                                                                             "type": "event",
@@ -645,7 +667,8 @@
                                                                         {
                                                                             "type": "event",
                                                                             "event_id": "lowSurfaceLess10",
-                                                                            "probability": 0.31                                                                        },
+                                                                            "probability": 0.025
+                                                                        },
                                                                         {
                                                                             "type": "event",
                                                                             "event_id": "lowSurfaceMore10",
@@ -676,6 +699,11 @@
                                                                         {
                                                                             "type": "event",
                                                                             "event_id": "noDeadVeg",
+                                                                            "probability": 0.025
+                                                                        },
+                                                                        {
+                                                                            "type": "event",
+                                                                            "event_id": "noApplicableDeadVeg",
                                                                             "probability": 0.0
                                                                         }
                                                                     ]
@@ -692,14 +720,15 @@
                                                                     "input_events": [
                                                                         {
                                                                             "type": "event",
-                                                                            "event_id": "purning",
-                                                                            "probability": 0.208
-                                                                        },
-                                                                        {
-                                                                            "type": "event",
                                                                             "event_id": "noPurning",
                                                                             "probability": 0.683
                                                                         },
+                                                                        {
+                                                                            "type": "event",
+                                                                            "event_id": "purning",
+                                                                            "probability": 0.025
+                                                                        },
+                                                                     
                                                                         {
                                                                             "type": "event",
                                                                             "event_id": "noApplicablePurning",
@@ -722,50 +751,81 @@
                                                     "gate_id": "property_perimeter",
                                                     "input_events": [
                                                         {
-                                                            "type":"event",
+                                                            "type": "event",
                                                             "event_id": "woodenFence",
-                                                            "probability": 0.728
+                                                            "probability": 0.1
                                                         },
                                                         {
-                                                            "type":"event",
-                                                            "event_id": "Hedgerow",
+                                                            "type": "event",
+                                                            "event_id": "hedgerowHigh",
                                                             "probability": 0.8
                                                         },
                                                         {
-                                                            "type":"event",
+                                                            "type": "event",
+                                                            "event_id": "hedgerowLow",
+                                                            "probability": 0.05
+                                                        },
+                                                        {
+                                                            "type": "event",
                                                             "event_id": "metalPosts",
-                                                            "probability": 0.633
+                                                            "probability": 0.1
                                                         },
                                                         {
-                                                            "type":"event",
+                                                            "type": "event",
                                                             "event_id": "chainLink",
-                                                            "probability": 0.656
+                                                            "probability": 0.1
                                                         },
                                                         {
-                                                            "type":"event",
+                                                            "type": "event",
                                                             "event_id": "concreteMore2",
-                                                            "probability": 0.174
+                                                            "probability": 0.05
                                                         },
                                                         {
-                                                            "type":"event",
+                                                            "type": "event",
                                                             "event_id": "concreteLess2",
-                                                            "probability": 0.436
+                                                            "probability": 0.08
                                                         },
                                                         {
-                                                            "type":"event",
+                                                            "type": "event",
                                                             "event_id": "noDelimitation",
-                                                            "probability": 0.789
+                                                            "probability": 0.5
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "event",
+                                            "event_id": "slope",
+                                            "gate": [
+                                                {
+                                                    "type": "xor_gate",
+                                                    "gate_id": "slope",
+                                                    "input_events": [
+                                                        {
+                                                            "type": "event",
+                                                            "event_id": "flatTerrain",
+                                                            "probability": 0.05
+                                                        },
+                                                        {
+                                                            "type": "event",
+                                                            "event_id": "midSlope",
+                                                            "probability": 0.1
+                                                        },
+                                                        {
+                                                            "type": "event",
+                                                            "event_id": "upperSlope",
+                                                            "probability": 0.5
                                                         }
                                                     ]
                                                 }
                                             ]
                                         }
+
                                     ]
                                 }
                             ]
-
                         }
-
                     ]
                 }
             ]
