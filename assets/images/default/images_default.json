@@ -1,0 +1,136 @@
+{
+    "Q1": [
+        {
+            "path": "assets/images/default/Q1.1.jpg",
+            "description": "default-Q1_1"
+        },
+        {
+            "path": "assets/images/default/Q1.2.jpg",
+            "description": "default-Q1_2"
+        },
+        {
+            "path": "assets/images/default/Q1.3.jpg",
+            "description": "default-Q1_3"
+        }
+    ],
+    "Q2": [
+        {
+            "path": "assets/images/default/Q2.1.jpg",
+            "description": "default-Q2_1"
+        }
+    ],
+    "Q3": [
+        {
+            "path": "assets/images/default/Q3.jpg",
+            "description": "default-Q3"
+        }
+    ],
+    "Q4-1": [
+        {
+            "path": "assets/images/default/Q4.jpg",
+            "description": "default-Q4"
+        }
+    ],
+    "Q4-2": [
+        {
+            "path": "assets/images/default/Q4.jpg",
+            "description": "default-Q4"
+        }
+    ],
+    "Q5": [
+        {
+            "path": "assets/images/default/Q5.jpg",
+            "description": "default-Q5"
+        }
+    ],
+    "Q6": [
+        {
+            "path": "assets/images/default/Q6.jpg",
+            "description": "default-Q6"
+        }
+    ],
+    "Q7": [
+        {
+            "path": "assets/images/default/Q7.jpg",
+            "description": "default-Q7"
+        }
+    ],
+    "Q8": [
+        {
+            "path": "assets/images/default/Q8.1.jpg",
+            "description": "default-Q8_1"
+        },
+        {
+            "path": "assets/images/default/Q8.2.jpg",
+            "description": "default-Q8_2"
+        }
+    ],
+    "Q10": [
+        {
+            "path": "assets/images/default/Q10.1.jpg",
+            "description": "default-Q10_1"
+        }
+    ],
+    "Q11-1": [
+        {
+            "path": "assets/images/default/Q11.1.jpg",
+            "description": "default-Q11_1"
+        }
+    ],
+    "Q11-2": [
+        {
+            "path": "assets/images/default/Q11.1.jpg",
+            "description": "default-Q11_1"
+        }
+    ],
+    "Q13": [
+        {
+            "path": "assets/images/default/Q13.jpg",
+            "description": "default-Q13"
+        }
+    ],
+    "Q14": [
+        {
+            "path": "assets/images/default/Q14.1.jpg",
+            "description": "default-Q14_1"
+        }
+    ],
+    "Q15": [
+        {
+            "path": "assets/images/default/Q15.1.jpg",
+            "description": "default-Q15_1"
+        },
+        {
+            "path": "assets/images/default/Q15.2.jpg",
+            "description": "default-Q15_2"
+        }
+    ],
+    "Q18": [
+        {
+            "path": "assets/images/default/Q18.1.jpg",
+            "description": "default-Q18_1"
+        },
+        {
+            "path": "assets/images/default/Q18.2.jpg",
+            "description": "default-Q18_2"
+        }
+    ],
+    "Q19": [
+        {
+            "path": "assets/images/default/Q19.1.jpg",
+            "description": "default-Q19_1"
+        }
+    ],
+    "Q24": [
+        {
+            "path": "assets/images/default/Q24.1.jpg",
+            "description": "default-Q24_1"
+        }
+    ],
+    "Q25": [
+        {
+            "path": "assets/images/default/Q25.1.jpg",
+            "description": "default-Q25_1"
+        }
+    ]
+}

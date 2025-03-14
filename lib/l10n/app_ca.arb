@@ -1,0 +1,303 @@
+{
+    "@@locale": "ca",
+    "helloWorld": "Hola món",
+    "english": "Anglès",
+    "spanish": "Catellà",
+    "catalan": "Català",
+    "startFill": "Comprovi la vulnerabilitat de la seva casa amb un qüestionari",
+    
+    
+    "questionnaire": "Qüestionari",
+    "home": "Inici",
+    "lang": "Idioma preferit",
+
+    "fill": "Omplir",
+    "changLang": "Idiomes",
+  
+
+    "cancel": "Cancel·lar",
+    "next": "Següent",
+    "address": "Quina és la teva adreça?",
+    "enterAddress": "Introdueixi la seva adreça",
+    "windowsProtec": "Quina protecció té per la seva finestra? ",
+    "fireProof": "A prova de foc",
+    "alumnium": "Alumini",
+    "wood": "Fusta",
+    "pvc": "PVC",
+    "noShutters": "Sense persianes",
+    "glazingThick": "Introdueixi el gruix de l'envidrament (mm) ",
+    "roofMat": "Com és el material de la seva teulada?",
+    "nonComb": "No Combustible",
+    "roofMaint": "Com és el manteniment de la teva teulada?",
+    "good": "Bo",
+    "bad": "Dolent",
+    "ventsProtec": "Quina és la protecció de la seva ventilació?",
+    "none": "Cap",
+    "haveSemiConf": "Té un espai semiconfinat?",
+    "yes": "Sí",
+    "no": "No",
+    "combMatSemiConf": "Introdueixi la cobertura de material combustible en l'espai semiconfinat (% vol.)",
+    "envTypeSemiConf": "Quin tipus d'envolupant té l'espai semiconfinat adjacent a l'edifici",
+    "combWalls": "Parets combustibles",
+    "nonCombThin": "Delgat no combustible",
+    "nonCombThick": "Gruixut no combustible",
+    "winCov": "Quina és la cobertura de les finestres en l'espai semiconfinat adjacent a l'edifici? (%)",
+    "ornZone1": "Combustible ornamental en ZONA 1: (%) ",
+    "artZone1": "Combustible artificial en ZONA 1: (%)",
+    "wildZone1": "Combustible forestal en ZONA 1: (%)",
+    "ornZone2": "Combustible ornamental en ZONA 2: (%)",
+    "artZone2": "Combustible artificial en ZONA 2: (%)",
+    "wildZone2": "Combustible forestal en ZONA 2: (%)",
+    "checkVuln": "Comprova la teva vulnerabilitat!",
+    "done": "Fet!",
+    "check": "Comprovar",
+
+
+    "start": "{startId, select, other{Falta traducció} questionnaire{Qüestionari} startFill{Comprovi la vulnerabilitat de la seva casa amb un qüestionari}}",
+    "@start": {
+        "description": "start messages",
+        "placeholders": {
+            "startId": {
+              "type":"String"
+            }
+        }
+    },
+
+    "questionsGroup1": "{questionId, select, other{Falta traducció} address{Quina és la teva adreça?} windowsProtec{Quina protecció té per la seva finestra?} glazingThick {Introdueixi el gruix de l'envidrament (mm)} roofMat{Com és el material de la seva teulada? } roofMaint {Com és el manteniment de la teva teulada? } ventsProtec{Quina és la protecció de la seva ventilació? }}",
+    "@questionsGroup1": {
+        "description": "questionsGroup1",
+        "placeholders": {
+            "questionId": {
+              "type":"String",
+              "example":"1" 
+            }
+        }
+    },
+
+    "answersGroup1": "{answerId, select, other{Falta traducció} fireProof{A prova de foc} alumnium{Alumini} wood{Fusta} pvc{PVC} noShutters{Sense persianes} comb{Combustible} nonComb{No Combustible} good{Bo} bad{Dolent} nonCombGood{No combustible en bones condicions } nonCombBad{No combustible en males condicions} noVents{No hi ha protecció de ventilacions} none{Cap}}",
+    "@answersGroup1": {
+        "description": "answersGroup1",
+        "placeholders": {
+            "answerId": {
+              "type":"String",
+              "example":"1" 
+            }
+        }
+    },
+
+    "questionsGroup2": "{questionId, select, other{Falta traducció} haveSemiConf{Té un espai semiconfinat?} combMatSemiConf{Introdueixi la cobertura de material combustible en l'espai semiconfinat (% vol.) } envTypeSemiConf{Quin tipus d'envolupant té l'espai semiconfinat adjacent a l'edifici? } winCov{Quina és la cobertura de les finestres en l'espai semiconfinat adjacent a l'edifici? (%) }}",
+    "@questionsGroup2": {
+        "description": "questionsGroup2",
+        "placeholders": {
+            "questionId": {
+              "type":"String",
+              "example":"1" 
+            }
+        }
+    },
+
+    "answersGroup2": "{answerId, select, other{Falta traducció} yes{Sí} no{No} combWalls{Parets combustibles} nonCombThin{Delgat no combustible} nonCombThick {Gruixut no combustible}}",
+    "@answersGroup2": {
+        "description": "answersGroup2",
+        "placeholders": {
+            "answerId": {
+              "type":"String",
+              "example":"1" 
+            }
+        }
+    },
+
+    "questionsGroup3": "{questionId, select, other{Falta traducció}  ornZone1{Combustible ornamental en ZONA 1: (%) } artZone1{Combustible artificial en ZONA 1: (%) } wildZone1{Combustible forestal en ZONA 1: (%) } ornZone1{Combustible ornamental en ZONA 2: (%) } artZone1{Combustible artificial en ZONA 2: (%) } wildZone1{Combustible forestal en ZONA 2: (%) }}",
+    "@questionsGroup3": {
+        "description": "questionsGroup3",
+        "placeholders": {
+            "questionId": {
+              "type":"String",
+              "example":"1" 
+            }
+        }
+    },
+
+    "finish": "{finishId, select, other{Falta traducció} checkVuln{Comprova la teva vulnerabilitat!} done{Fet!} check {Comprovar}}",
+    "@finish": {
+        "description": "finish",
+        "placeholders": {
+            "finishId": {
+              "type":"String",
+              "example":"1" 
+            }
+        }
+    },
+
+    "material": "Materials de façana",
+    "material_1_question": "Quins materials hi ha a l'envoltant exterior del vostre edifici (és a dir, parets exteriors, balcons, porxos, etc.)? (excepte persianes)",
+    "material_1_description": "Els elements combustibles de façana (per exemple, fusta, vinil) són vulnerables a tot tipus d'encesa d'incendi forestal. Fins i tot els focs o les flames de baixa intensitat poden encendre un element de façana de fusta o vinil, mentre que els maons i els elements de formigó resisteixen molt millor al foc. Els porxos de fusta comporten una gran superfície horitzontal sobre la qual poden aterrar les tintes (partícules ardents que provenen del foc). El seu contacte proper amb el terra del jardí també els fa vulnerables al contacte directe de la flama.",
+    "timber": "Fusta",
+    "vinyl": "Revestiment de vinil",
+    "concreteBricks": "Formigó o maons",
+    
+    "roof": "Sostre",
+    "roof_1_question": "La coberta del teu sostre o el teu conjunt de teulada està fet de material resistent al foc (per exemple, rajoles d'argila, teules de formigó, composició de fibra de vidre d'asfalt, pissarra, etc.)?",
+    "roof_1_description": "Quan la coberta de la coberta presenta buits, l'estructura que hi ha a sota queda exposada al foc. El foc també pot entrar per espais no segellats entre la coberta i les parets exteriors. La neteja dels residus del sostre i els canalons és clau per evitar l'encesa de combustibles que es puguin acumular (per exemple, agulles de pi seques).",
+    
+    "roof_2_question": "El teu sostre presenta algunes de les següents situacions? \n- Rajoles trencades o que falten \n- Làmines exposades \n- Espais no segellats entre el sostre i les parets exteriors \n- La neteja de les deixalles que s'amunteguen a la teulada o canalons no es realitza regularment",
+    "roof_2_description": "Quan la coberta de la coberta presenta buits, l'estructura que hi ha a sota queda exposada al foc. El foc també pot entrar per espais no segellats entre la coberta i les parets exteriors. La neteja dels residus del sostre i els canalons és clau per evitar l'encesa de combustibles que es puguin acumular (per exemple, agulles de pi seques).",
+
+    "glazing": "Vidres i portes de vidre",
+    "glazing_1_question": "Quin tipus de vidre tenen les finestres i les portes de vidre de la teva casa?",
+    "glazing_1_description": "Les finestres i les portes de vidre són sovint un dels elements més exposats al foc. Els sistemes de vidre trencats són punts d'entrada per a les marques de foc i la calor, que poden provocar l'encesa de combustibles dins de la casa. Els sistemes de vidre d'un sol vidre resisteixen menys al foc i a l'exposició a la calor en comparació amb els sistemes de vidre doble o múltiple o el vidre temperat. Si el vostre edifici presenta més d'un tipus de sistemes de vidre, seleccioneu l'opció més representativa.",
+    "single_pane": "Sol panel",
+    "doubleMultiple_pane": "Doble/Multiple panel",
+    "tempered_glass": "Vidre temperat",
+
+    "glazing_2_question": "Les finestres estan protegides per persianes? En cas afirmatiu, de quin material estan fetes les persianes?",
+    "glazing_2_description": "Si les finestres estan protegides per persianes, la calor rebuda pel vidre es redueix, augmentant les possibilitats que el vidre no es trenqui. Les persianes de fusta i PVC són combustibles i es poden encendre o fondre (en cas de PVC). S'ha demostrat que les persianes d'alumini i antiincendis (per exemple, d'acer) resisteixen bé a l'exposició al foc forestal. Per bloquejar la calor que prové del foc, les persianes i les lames de la persiana han d'estar completament tancades.",
+    "notAllProtected": "No tots els sistemes de vidre estan protegits per persianes",
+    "fireRated": "Materials resistents al foc",
+
+    "vents": "Ventilació",
+    "vents_1_question": "Tens obertures de ventilació sense protecció (és a dir, ventilacions sense cap tipus de pantalla)?",
+    "vents_1_description": "Les obertures de ventilació són punts d'entrada potencials per a tintes que poden encendre l'edifici des de l'interior. Els tipus típics de ventilació que es troben a les cases són les obertures del sostre per a la ventilació de les golfes (per exemple, rajoles de ventilació, ventilacions de tancament d'aresta), xemeneies i obertures per a la ventilació de les cuines.",
+    "noAllProtected": "No, totes les obertures de ventilació estan protegides",
+    "noVents": "No hi ha obertures de ventilació",
+
+    "vents_2_question": "Quin tipus de protecció de ventilació hi ha?",
+    "vents_2_description": "Els conductes de ventilació s'han de tapar amb malles de filferro resistents a la corrosió i no combustibles (per exemple, alumini, acer galvanitzat, acer inoxidable, coure, recobriment intumescent), amb una longitud característica prou petita per evitar el pas de tintes (< 2 mm).",
+    "comb": "Combustible",
+    "nonCombGood": "No combustible en bones condicions (sense danys)",
+    "nonCombBad": "No combustible en mal estat (rovellat o danyat)",
+    
+    "semiConf": "Espai semiconfinat",
+    "semiConf_1_question": "Hi ha un espai semiconfinat adjacent a casa teva (és a dir, té almenys una paret en comú amb la casa) que contingui materials combustibles?",
+    "semiConf_1_description": "Els espais semiconfinats són espais parcialment oberts, com els situats sota terrasses, porxos, cobertes, ràfecs o marquesines, o els espais tancats en coberts oberts. La presència de materials combustibles en aquests espais comporta una gran acumulació de calor, en cas d'encendre aquests materials, que pot provocar danys estructurals a l'embolcall de l'espai semiconfinat.",
+    
+    "semiConf_2_question": "Hi ha sistemes de vidre sense protecció (és a dir, sense persianes) (per exemple, portes o finestres de vidre) que connectin l'espai semiconfinat amb l'interior de l'edifici?",
+    "semiConf_2_description": "Els sistemes de vidre sense protecció són un element molt feble pel que fa a la resistència al foc. Si s'encenen els elements de l'espai semiconfinat, el vidre podria trencar-se i permetre l'entrada del foc a l'interior de l'edifici.",
+  
+    "semiConf_3_question": "De quins materials estan fetes les parets de l'espai semiconfinat?",
+    "semiConf_3_description": "Els materials de l'envoltant combustible són els més febles al foc, ja que es poden encendre i provocar la propagació del foc per l'envoltant i cap a l'interior de l'edifici. Els materials no combustibles com l'alumini o l'acer són més resistents, però encara podrien fondre's o perdre força quan s'exposen a una dosi de calor prou gran. Els materials no combustibles com els maons o el formigó són els més resistents als efectes del foc.",
+    "combMat": "Materials combustibles (per exemple, fusta, revestiment de vinil)",
+    "nonCombAS": "Materials no combustibles com l'alumini o l'acer (per exemple, persianes sense vidre, com ara una porta de garatge)",
+    "nonCombBC": "Materials no combustibles com ara maons o formigó.",
+
+    "fuels_close": "Combustibles a prop de l'edifici",
+    "fuels_close_1a_question": "Els combustibles com la vegetació ornamental o altres tipus d'elements combustibles estan situats almenys a 7 m dels sistemes de vidre?",
+    "fuels_close_1a_description": "A causa de la debilitat dels sistemes de vidre al foc, s'aconsella col·locar combustibles (vegetació o altres elements combustibles) com a mínim a 7 m de qualsevol sistema de vidre d'un sol vidre.",
+    
+    "fuels_close_2a_question": "Els combustibles com la vegetació ornamental o altres tipus d'elements combustibles estan situats com a mínim a 5 m del sostre?",
+    "fuels_close_2a_description": "A causa de la debilitat del sostre al foc, s'aconsella col·locar combustibles (vegetació o altres elements combustibles) com a mínim a 5 m d'aquest. Això inclou els arbres que poden tenir branques que pengen sobre el terrat.",
+    
+    "fuels_close_1b_question": "Tots els combustibles (vegetació o altres tipus d'elements combustibles) estan situats almenys a 5 m dels sistemes de vidre o del sostre?",
+    "fuels_close_1b_description": "A causa de la debilitat dels sistemes de vidre i de la coberta al foc, s'aconsella col·locar combustibles (vegetació o altres elements combustibles) com a mínim a 5 m de qualsevol vidre doble/múltiple o sistema de vidre temperat i de la coberta. Això inclou els arbres que poden tenir branques que pengen sobre el terrat.",
+    
+    "fuels_close_3_question": "S'emmagatzemen tots els combustibles de manera que no es col·loquin directament contra la façana?",
+    "fuels_close_3_description": "Quan la façana inclogui elements combustibles, és important no emmagatzemar cap combustible contra la façana ni tenir vegetació.",
+    
+    "fuels_close_4_question": "Hi ha discontinuïtat dels elements combustibles superficials a menys de 10 m de l'edifici?",
+    "fuels_close_4_description": "Una capa superficial no contínua ajuda a frenar o aturar la propagació del foc a través de combustibles superficials com l'herba, la deixalleria o el mantell combustible. Per evitar la continuïtat del combustible, es poden utilitzar matolls com ara grava o còdols.",
+    "notApplicable": "No aplicable",
+    "fuels_close_5_question": "Tota la vegetació silvestre està situada com a mínim a 30 m de l'edifici?",
+    "fuels_close_5_description": "Quan s'encén, la vegetació silvestre pot cremar a una intensitat molt elevada. Per tant, es recomana reduir al màxim la quantitat de vegetació silvestre en un radi de 30 m des de l'edifici.",
+
+    "art_fuels": "Combustibles artificials",
+
+    "art_fuels_1_question": "Els materials combustibles (per exemple, vegetació, espais d'emmagatzematge, sistemes d'edificis combustibles) es troben a una distància mínima de 2 m d'un dipòsit de GLP (això inclou també els bidons amb un volum total > 0,5 m3)?",
+    "art_fuels_1_description": "Quan un dipòsit domèstic de gas liquat de petroli (GLP) sobre el terra està exposat a la calor procedent d'un incendi, el dipòsit s'escalfa i es pressuritza. Si la pressió del dipòsit arriba al punt de consigna de la vàlvula d'alleujament de pressió (PRV), aquesta s'obrirà, alliberant GLP que s'encendrà immediatament formant un foc de raig, que empitjorarà la càrrega de calor al dipòsit i al seu entorn. En el pitjor dels casos, pot evolucionar cap a una explosió i l'encesa dels objectes circumdants. Per tant, és millor no tenir combustibles situats a menys de 2 m del dipòsit.",
+    
+    "art_fuels_2_question": "La distància entre combustibles artificials o paquets de combustible és d'almenys 5 m?",
+    "art_fuels_2_description": "Fins i tot quan es troben lluny de l'incendi forestal, els combustibles encara es poden encendre amb tintes de foc. És important que els combustibles o paquets de combustible estiguin situats com a mínim a 5 m els uns dels altres, de manera que si es produeix l'encesa d'un, el foc no s'estengui als altres combustibles.",
+    
+    "art_fuels_3_question": "En cas de vegetació silvestre d'arbres principalment, es col·loquen combustibles artificials a una distància mínima de 20 m d'aquests arbres?",
+    "art_fuels_3_description": "Quan s'encén, la vegetació silvestre pot cremar a una intensitat molt elevada. Per evitar la propagació del foc des d'aquest tipus de vegetació a altres combustibles, es recomana col·locar combustibles artificials com a mínim a 20 m dels arbres del bosc.",
+    
+    "vegetation": "Vegetació",
+    
+    "vegetation_1_question": "No hi ha espècies altament inflamables (per exemple, pi, eucaliptus, xiprer, etc.) o vegetació amb fulles i branques molt compactes, textures fines, fulles petites, primes i estretes, i grans quantitats de resines o olis situats a menys de 30 m del edifici?",
+    "vegetation_1_description": "Es recomana no tenir cap espècie altament inflamable a la finca ni a menys de 30 m de l'edifici. Exemples d'aquestes espècies són: pins, eucaliptus, xiprers.",
+    "plantsClose": "Plantes amb fulles i branques molt compactes, textures fines, fulles petites, primes i estretes (per exemple, pins, xiprers)",
+    "plantsHigh": "Plantes amb alts nivells d'olis o resines",
+    "plantsLoose": "Plantes amb escorça solta i fibrosa (per exemple, eucaliptus)",
+    "plantsOpen": "Plantes amb ramificació oberta i solta, poc densa, que no conserven fulles mortes i no presenten alts nivells d'olis o resines.",
+
+
+    "vegetation_2_question": "Hi ha discontinuïtat entre copes d'arbres, arbustos, bardisses i altra vegetació?",
+    "vegetation_2_description": "La vegetació situada a menys de 30 m de l'edifici s'ha de tractar per crear discontinuïtat per reduir la intensitat del foc i estendre's per la vegetació. Això ajuda a crear un espai de defensa al voltant de l'edifici, en el qual es modifica la vegetació i s'aconsegueix trencar la continuïtat i reduir la quantitat de combustible disponible per al foc.",
+
+    "vegetation_3_question": "Els combustibles de superfície baixa tenen una profunditat màxima de 10 cm?",
+    "vegetation_3_description": "La presència d'una gespa és un paràmetre important per a la supervivència de l'estructura en un incendi forestal, ja que proporciona una distància entre els combustibles forestals i l'edifici. Es recomana tallar la gespa a una longitud màxima de gespa de 10 cm.",
+    
+    "vegetation_4_question": "No hi ha vegetació morta ni restes vegetatives?",
+    "vegetation_4_description": "La vegetació morta o les restes vegetals s'han d'eliminar periòdicament dins l'àrea de 30 m de l'edifici. Aquests combustibles són molt secs i s'encén fàcilment quan els arriba el foc.",
+    
+    "vegetation_5_question": "Es talen els arbres?",
+    "vegetation_5_description": "Les branques dels arbres s'han de podar per augmentar la separació vertical entre els combustibles a nivell del terra i la copa.",
+
+    "roof_images": "{roof_images, select, other{Falta descripció} roof_1_catalunya{Exemple de rajoles de fang} roof_2_catalunya{Exemple d'acumulació de deixalles al sostre i canalons} roof_1_other{Exemple de rajoles de formigó} roof_2_other{Exemple de rajoles de fang ben col·locades i trencades}}",
+    "@roof_images": {
+        "description": "roof_1_images",
+        "placeholders": {
+            "roof_1_images": {
+              "type":"String",
+              "example":"Example" 
+            }
+        }
+    },
+
+    "glazing_images": "{glazing_images, select, other{Falta descripció} glazing_1_catalunya{Sistemes de vidre simple, doble i triple} glazing_1_other {Sistemes de vidre simple, doble i triple} glazing_2_catalunya {Aquest tipus de persiana pot ser de PVC o d'alumini} glazing_2_other {Persiana d'alumini. Per protegir el vidre del foc, els llistons s'han de tancar completament}}",
+    "@glazing_images": {
+        "description": "glazing_images",
+        "placeholders": {
+            "glazing_images": {
+              "type":"String",
+              "example":"1" 
+            }
+        }
+    },
+
+    "vents_images": "{vents_images, select, other{Falta descripció} vents_1_catalunya{Exemple d'obertura de ventilació de cuina} vents_1_other {Exemple d'obertura de ventilació de cuina}}",
+    "@vents_images": {
+        "description": "vents_images",
+        "placeholders": {
+            "vents_images": {
+              "type":"String",
+              "example":"1" 
+            }
+        }
+    },
+
+    "fuels_close_images": "{fuels_close_images, select, other{Falta descripció} fuels_close_3_catalunya{Exemple d'elements combustibles emmagatzemats contra una façana combustible} fuels_close_3_other{Exemple d'elements combustibles emmagatzemats contra una façana combustible}}",
+    "@fuels_close_images": {
+        "description": "fuels_close_images",
+        "placeholders": {
+            "fuels_close_images": {
+              "type":"String",
+              "example":"1" 
+            }
+        }
+    },
+
+    "art_fuels_images": "{art_fuels_images, select, other{Falta descripció} art_fuels_1_catalunya{Exemple de tanc mal col·locat} art_fuels_1_other{Exemple d'un dipòsit de GLP situat massa a prop d'una tanca}}",
+    "@art_fuels_images": {
+        "description": "art_fuels_images",
+        "placeholders": {
+            "art_fuels_images": {
+              "type":"String",
+              "example":"1" 
+            }
+        }
+    },
+
+    "show_desc": "Mostrar descripció",
+    "hide_desc": "Ocultar descripció",
+
+    "gauche_titles": "{gauche_titles, select, other{Falta títol} structural_vulnerabilities{Vulnerabilitats estructurals} combustible_facade_elements{Elements combustibles de façana} glazing_systems{Sistemes de vidre} roof{Sostre} vents{Ventilació} semi_confined{Espai semiconfinat}}",
+    "@gauche_titles": {
+        "description": "gauche_titles",
+        "placeholders": {
+            "gauche_titles": {
+              "type":"String",
+              "example":"1" 
+            }
+        }
+    }
+}

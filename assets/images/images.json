@@ -1,0 +1,136 @@
+{
+    "roof-1": [
+        {
+            "Catalunya": [
+                {
+                    "path": "images/catalunya/roof-1.jpg",
+                    "description": "catalunya-tiles"
+                },
+                {
+                    "path": "images/catalunya/roof-1.jpg",
+                    "description": "catalunya-tiles"
+                },
+                {
+                    "path": "images/catalunya/roof-1.jpg",
+                    "description": "catalunya-tiles"
+                }
+            ]
+        },
+        {
+            "Other": [
+                {
+                    "path": "images/other/roof-1.jpg",
+                    "description": "other-tiles"
+                }
+            ]
+        }
+    ],
+    "roof-2": [
+        {
+            "Catalunya": [
+                {
+                    "path": "images/catalunya/roof-2.jpg",
+                    "description": "catalunya-debris"
+                }
+            ]
+        },
+        {
+            "Other": [
+                {
+                    "path": "images/other/roof-2.jpg",
+                    "description": "other-tiles"
+                }
+            ]
+        }
+    ],
+    "glazing-1": [
+        {
+            "Catalunya": [
+                {
+                    "path": "images/catalunya/glazing-1.jpg",
+                    "description": "catalunya-pane"
+                }
+            ]
+        },
+        {
+            "Other": [
+                {
+                    "path": "images/other/glazing-1.jpg",
+                    "description": "other-pane"
+                }
+            ]
+        }
+    ],
+    "glazing-2": [
+        {
+            "Catalunya": [
+                {
+                    "path": "images/catalunya/glazing-2.jpg",
+                    "description": "catalunya-shutter"
+                }
+            ]
+        },
+        {
+            "Other": [
+                {
+                    "path": "images/other/glazing-2.jpg",
+                    "description": "other-shutter"
+                }
+            ]
+        }
+    ],
+    "vents-1": [
+        {
+            "Catalunya": [
+                {
+                    "path": "images/catalunya/vents-1.jpg",
+                    "description": "catalunya-kitchenVent"
+                }
+            ]
+        },
+        {
+            "Other": [
+                {
+                    "path": "images/other/vents-1.jpg",
+                    "description": "other-kitchenVent"
+                }
+            ]
+        }
+    ],
+    "fuels-close-3": [
+        {
+            "Catalunya": [
+                {
+                    "path": "images/catalunya/fuels-close-3.jpg",
+                    "description": "fuels_close_3_catalunya"
+                }
+            ]
+        },
+        {
+            "Other": [
+                {
+                    "path": "images/other/fuels-close-3.jpg",
+                    "description": "fuels_close_3_other"
+                }
+            ]
+        }
+    ],
+    "art-fuels-1": [
+        {
+            "Catalunya": [
+                {
+                    "path": "images/catalunya/art-fuels-1.jpg",
+                    "description": "art_fuels_1_catalunya"
+                }
+            ]
+        },
+        {
+            "Other": [
+                {
+                    "path": "images/other/art-fuels-1.jpg",
+                    "description": "art_fuels_1_other"
+                }
+            ]
+        }
+    ]
+}

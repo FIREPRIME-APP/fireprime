@@ -1,0 +1,169 @@
+{
+    "height0": {
+        "title": "Exterior Envelope",
+        "text": "Consider painting the wall with fireproof coating (e.g., fire retardant paint), to increase the fire resistance of the wall."
+    },
+    "height0to20": {
+        "title": "Exterior Envelope",
+        "text": "Consider painting the wall with fireproof coating (e.g., fire retardant paint), to increase the fire resistance of the wall."
+    },
+    "height21to40": {
+        "title": "Exterior Envelope",
+        "text": "Consider painting the wall with fireproof coating (e.g., fire retardant paint), to increase the fire resistance of the wall."
+    },
+    "height41to60": {
+        "title": "Exterior Envelope",
+        "text": "Consider painting the wall with fireproof coating (e.g., fire retardant paint), to increase the fire resistance of the wall."
+    },
+    "height61to80": {
+        "title": "Exterior Envelope",
+        "text": "Consider painting the wall with fireproof coating (e.g., fire retardant paint), to increase the fire resistance of the wall."
+    },
+    "height81to100": {
+        "title": "Exterior Envelope",
+        "text": "Consider painting the wall with fireproof coating (e.g., fire retardant paint), to increase the fire resistance of the wall."
+    },
+    "heightMore100": {
+        "title": "Façade",
+        "text": "You should do..."
+    },
+    "roofNonFireRated":{
+        "title": "Roof materials",
+        "text": "If you are planning on changing the roof covering, replace it with fire-rated materials such as clay or concrete tiles, because they are more resistant to fire."
+    },
+    "roofPoorlyMaintaned-1":{
+        "title": "Roof maintenance",
+        "text": "If there are gaps in the roof covering, the fire can ignite the underlying structure. Make sure your roof covering is well placed and there are no gaps. Also, clean the roof and gutters regularly from debris, to avoid the ignition of fuels that may pile up (e.g., dried pine needles)."
+    },
+    "roofPoorlyMaintaned-2":{
+        "title": "Roof maintenance",
+        "text": "If there are gaps in the roof covering, the fire can ignite the underlying structure. Make sure your roof covering is well placed and there are no gaps. Also, clean the roof and gutters regularly from debris, to avoid the ignition of fuels that may pile up (e.g., dried pine needles)."
+    },
+    "singlePane": {
+        "title": "Glazing Systems",
+        "text": "If you are planning to replace your home's windows, make sure to choose double or multiple pane systems, or, tempered glass (even better), as these are more resistant to the heat coming from the fire."
+    },
+    "noShutters": {
+        "title": "Glazing Systems",
+        "text": "Consider placing shutters in front of glazing systems. Choose aluminium or fire-rated (e.g., steel) shutters, which resist better to the heat coming from a fire." 
+    },
+    "woodShutters": {
+        "title": "Glazing Systems",
+        "text": "To increase the fire resistance of your home, consider replacing the shutters with aluminium or fire-rated (e.g., steel) ones." 
+    },
+    "pvcShutters": {
+        "title": "Glazing Systems",
+        "text": "To increase the fire resistance of your home, consider replacing the shutters with aluminium or fire-rated (e.g., steel) ones." 
+    },
+   "noVentProtection": {
+        "title": "Vents",
+        "text": "Replace the vent protection with corrosion-resistant, non-combustible wire meshes (e.g. aluminium, galvanized steel, stainless steel, copper, intumescent coating). Install a vent protection in the chimney as well."
+   },
+   "ventCombProtection": {
+        "title": "Vents",
+        "text": "Replace the vent protection with corrosion-resistant, non-combustible wire meshes (e.g. aluminium, galvanized steel, stainless steel, copper, intumescent coating). Install a vent protection in the chimney as well."
+   },
+   "nonCombBadCond": {
+        "title": "Vents",
+        "text": "Replace the vent protection with corrosion-resistant, non-combustible wire meshes (e.g. aluminium, galvanized steel, stainless steel, copper, intumescent coating). Install a vent protection in the chimney as well."
+   },
+   "yesSemiConf": {
+        "title": "Semi-confined space",
+        "text": "Avoid storing combustible materials in semi-confined spaces."
+   },
+   "glazingSystemsSinglePane": {
+        "title": "Semi-confined space",
+        "text": "To reduce your home's vulnerability, consider placing fire resistant shutters (e.g., aluminium or steel) to protect the glazing from heat and make it more difficult for fire to enter the building."
+   },
+   "glazingSystemsMultiplePane": {
+        "title": "Semi-confined space",
+        "text": "To reduce your home's vulnerability, consider placing fire resistant shutters (e.g., aluminium or steel) to protect the glazing from heat and make it more difficult for fire to enter the building."
+   },
+   "glazingSystemsTempered": {
+        "title": "Semi-confined space",
+        "text": "To reduce your home's vulnerability, consider placing fire resistant shutters (e.g., aluminium or steel) to protect the glazing from heat and make it more difficult for fire to enter the building."
+   },
+   "combustibleEnvelope": {
+        "title": "Semi-confined space",
+        "text": "Consider painting the wall with fireproof coating (e.g., fire retardant paint), to increase the fire resistance of the wall."
+   },
+   "7closeToGlazing": {
+        "title": "Fuels close to the building",
+        "text": "Place fuels such as vegetation or other combustible items, as far from glass windows and doors as possible."
+   },
+   "5closeToGlazing": {
+        "title": "Fuels close to the building",
+        "text": "Place fuels such as vegetation or other combustible items, as far from glass windows and doors as possible."
+   },
+   "closeToRoof": {
+        "title": "Fuels close to the building",
+        "text": "Place fuels such as vegetation or other combustible items, at least 5 m from the roof. This includes trees that might have branches that hang over the roof."
+   },
+   "fuelsNotAgainstFacade": {
+        "title": "Fuels close to the building",
+        "text": "When the façade includes combustible elements, it is important to not store any fuels against the façade or have any vegetation on it.  "
+   },
+   "contSurf": {
+        "title": "Fuels close to the building",
+        "text": "Mulchers such as gravel or pebbles can be used to prevent fuel continuity"
+   },
+   "closeToLPG": {
+        "title": "Artificial fuels",
+        "text": "Remove any combustible fuels located within 2 m from the tank."
+   },
+   "spacingLess5": {
+        "title": "Artificial fuels",
+        "text": "Space fuels or fuel packs as far as possible from each other."
+   },
+   "placedIn20": {
+        "title": "Artificial fuels",
+        "text": "It is recommended to place artificial fuels at least 20 m from forests with highly flammable vegetation."
+   },
+   "vegIn30": {
+        "title": "Vegetation",
+        "text": "Reduce the amount of wildland vegetation as much as possible within a radius of 30 m from the building. Talk to your neighbours to agree on solutions that involve other members of the community."
+   },
+   "highFlam": {
+        "title": "Vegetation",
+        "text": "Remove any highly flammable species on the property or within 30 m from the building as much as possible. Highly flammable vegetation can be replaced by vegetation with lower flammability."
+   },
+   "mediumFlam": {
+        "title": "Vegetation",
+        "text": "Consider removing species with medium flammability, and with high flammability, if there is any. These species can be replaced by lower flammability vegetation such as XXXX."
+   },
+   "contVeg": {
+        "title": "Vegetation",
+        "text": "Treat vegetation located within 30 m from the building to create discontinuity to reduce fire intensity and spread along the vegetation."
+   },
+   "purning": {
+     "title": "Vegetation",
+     "text": "Prune tree branches to increase vertical separation between fuels at the ground level and the canopy."
+   },
+   "lowSurfaceMore10": {
+        "title": "Vegetation",
+        "text": "The presence of a lawn is an important factor in helping a building withstand a wildfire, as it provides distancing between wildland fuels and the building. However, the grass lawn should be maintained: it is recommended to mow the lawn at a maximum grass length of 10 cm."
+   },
+   "deadVeg": {
+        "title": "Vegetation",
+        "text": "Dead vegetation or vegetative debris should be periodically removed within the area of 30 m from the building. These fuels are very dry and will easily ignite when reached by the fire."
+   },
+   "hedgerowHigh": {
+        "title": "Property perimeter",
+        "text": "Make sure the hedgerow is not continuous through the property, and it is located far enough from other fuels and from the building. If possible, contemplate removing the hedgerow and substituting it with a low flammable option or with a non-combustible fence. "
+   },
+   
+   "woodenFence": {
+        "title": "Property perimeter",
+        "text": "Make sure the fence is not continuous through the property, and it is located far enough from other fuels and from the home. Consider painting the fence with fireproof coating (e.g., fire retardant paint), to increase its fire resistance."
+   },
+   
+   "metalPosts": {
+        "title": "Property perimeter",
+        "text": "Make sure to clear the vegetation located close to the property limit to reduce the probability of the fire spreading into your property. "
+   },
+   
+   "concreteLess2": {
+        "title": "Property perimeter",
+        "text": "Consider increasing the height of the fence to 2 m to increase the screening effect of the fence from a fire coming into the property."
+   }
+}

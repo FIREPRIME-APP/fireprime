@@ -1,0 +1,239 @@
+{
+    "fault_tree": [
+        {
+            "type": "event",
+            "event_id": "structural_vulnerabilities",
+            "gate": [
+                {
+                    "type": "or_gate",
+                    "gate_id": "structural_vulnerabilities",
+                    "input_events": [
+                        {
+                            "type": "event",
+                            "event_id": "combustible_facade_elements",
+                            "gate": [
+                                {
+                                    "type": "or_gate",
+                                    "gate_id": "combustible_facade_elements",
+                                    "input_events": [
+                                        {
+                                            "type": "event",
+                                            "event_id": "concreteBricks",
+                                            "probability": 0.066
+                                        },
+                                        {
+                                            "type": "event",
+                                            "event_id": "vinylSiding",
+                                            "probability": 0.665
+                                        },
+                                        {
+                                            "type": "event",
+                                            "event_id": "timber",
+                                            "probability": 0.478
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "event",
+                            "event_id": "glazing_systems",
+                            "gate": [
+                                {
+                                    "type": "and_gate",
+                                    "gate_id": "glazing_systems",
+                                    "input_events": [
+                                        {
+                                            "type": "event",
+                                            "event_id": "glazing_failure",
+                                            "gate": [
+                                                {
+                                                    "type": "xor_gate",
+                                                    "gate_id": "glazing_failure",
+                                                    "input_events": [
+                                                        {
+                                                            "type": "event",
+                                                            "event_id": "singlePane",
+                                                            "probability": 0.895
+                                                        },
+                                                        {
+                                                            "type": "event",
+                                                            "event_id": "doublePane",
+                                                            "probability": 0.661
+                                                        },
+                                                        {
+                                                            "type": "event",
+                                                            "event_id": "tempered",
+                                                            "probability": 0.661
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "event",
+                                            "event_id": "shutter_failure",
+                                            "gate": [
+                                                {
+                                                    "type": "xor_gate",
+                                                    "gate_id": "shutter_failure",
+                                                    "input_events": [
+                                                        {
+                                                            "type": "event",
+                                                            "event_id": "notAllProtected",
+                                                            "probability": 0.884
+                                                        },
+                                                        {
+                                                            "type": "event",
+                                                            "event_id": "pvc",
+                                                            "probability": 0.665
+                                                        },
+                                                        {
+                                                            "type": "event",
+                                                            "event_id": "wood",
+                                                            "probability": 0.478
+                                                        },
+                                                        {
+                                                            "type": "event",
+                                                            "event_id": "aluminium",
+                                                            "probability": 0.243
+                                                        },
+                                                        {
+                                                            "type": "event",
+                                                            "event_id": "fireRated",
+                                                            "probability": 0.066
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "event",
+                            "event_id": "roof",
+                            "gate": [
+                                {
+                                    "type": "and_gate",
+                                    "gate_id": "roof",
+                                    "input_events": [
+                                        {
+                                            "type": "event",
+                                            "event_id": "roof_material", 
+                                            "gate": [
+                                                {
+                                                    "type": "xor_gate",
+                                                    "gate_id": "roof_material",
+                                                    "input_events": [
+                                                        {
+                                                            "type": "event",
+                                                            "event_id": "roofNonFireRated",
+                                                            "probability": 0.662
+                                                        },
+                                                        {
+                                                            "type": "event",
+                                                            "event_id": "roofFireRated",
+                                                            "probability": 0.157
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "event",
+                                            "event_id": "roof_maintenance",
+                                            "gate": [
+                                                {
+                                                    "type": "xor_gate",
+                                                    "gate_id": "roof_maintenance",
+                                                    "input_events": [
+                                                        {
+                                                            "type": "event",
+                                                            "event_id": "roofPoorlyMaintaned",
+                                                            "probability": 0.757
+                                                        },
+                                                        {
+                                                            "type": "event",
+                                                            "event_id": "roofWellMaintained",
+                                                            "probability": 0.165
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "event",
+                            "event_id": "vents",
+                            "gate": [
+                                {
+                                    "type": "xor_gate",
+                                    "gate_id": "vents",
+                                    "input_events": [
+                                        {
+                                            "type": "event",
+                                            "event_id": "noVentProtection",
+                                            "probability": 0.811
+                                        },
+                                        {
+                                            "type": "event",
+                                            "event_id": "combustibleProtection",
+                                            "probability": 0.402
+                                        },
+                                        {
+                                            "type": "event",
+                                            "event_id": "nonCombBadCond",
+                                            "probability": 0.425
+                                        },
+                                        {
+                                            "type": "event",
+                                            "event_id": "nonCombGoodCond",
+                                            "probability": 0.078
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "event",
+                            "event_id": "semi_confined",
+                            "gate": [
+                                {
+                                    "type": "or_gate",
+                                    "gate_id": "semi_confined",
+                                    "input_events": [
+                                        {
+                                            "type": "event",
+                                            "event_id": "glazingSystems",
+                                            "probability": 0.895
+                                        },
+                                        {
+                                            "type": "event",
+                                            "event_id": "combustibleEnvelope",
+                                            "probability": 0.784
+                                        },
+                                        {
+                                            "type": "event",
+                                            "event_id": "nonCombThin",
+                                            "probability": 0.3
+                                        },
+                                        {
+                                            "type": "event",
+                                            "event_id": "nonCombThick",
+                                            "probability": 0.066
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
