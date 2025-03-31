@@ -194,10 +194,10 @@
     },
 
     "risk_levels": {
-        "extreme": "extrem",
-        "high": "alt",
-        "moderate": "moderat",
-        "low": "baix"
+        "extreme": "extreme",
+        "high": "high",
+        "moderate": "moderate",
+        "low": "low"
     },
 
     "hide": "Hide",
