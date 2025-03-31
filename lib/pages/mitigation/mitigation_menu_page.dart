@@ -99,8 +99,6 @@ class _MitigationMenuPageState extends State<MitigationMenuPage> {
                                           getAffectedQuestions(widget.answers,
                                               entry.value['selectedOptions']);
 
-                                      print(
-                                          'afectedQuestions: $affectedQuestions');
                                       return MitigationActions(
                                         answers: widget.answers,
                                         selectedProbability:

@@ -24,6 +24,7 @@ migrate_working_dir/
 # Flutter/Dart/Pub related
 **/doc/api/
 **/ios/Flutter/.last_build_id
+***/ios/Runner/GoogleService-Info.plist
 .dart_tool/
 .flutter-plugins
 .flutter-plugins-dependencies
@@ -42,7 +43,9 @@ app.*.map.json
 /android/app/profile
 /android/app/release
 # See https://www.dartlang.org/guides/libraries/private-files
-
+/android/app/google-services.json
+/lib/firebase/firebase_options.dart
+/lib/firebase_options.dart
 # Files and directories created by pub
 .packages
 # If you're building an application, you may want to check-in your pubspec.lock

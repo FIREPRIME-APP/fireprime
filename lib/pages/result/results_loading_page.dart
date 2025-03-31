@@ -51,16 +51,22 @@ class ResultsLoadingPage extends StatelessWidget {
             return Center(child: Text("Error: ${snapshot.error}"));
           } else {
             WidgetsBinding.instance.addPostFrameCallback((_) {
-              Map<String, String?> answersAdapted = {};
+              Map<String, dynamic> answersAdapted = {};
 
               answers.forEach((key, value) {
                 if (value != null) {
-                  answersAdapted[key] = context.tr(value);
+                  if (value.contains(',')) {
+                    var values = value.split(',');
+                    answersAdapted[key] = values
+                        .map((value) => context.tr('$key.$value'))
+                        .toList();
+                  } else {
+                    answersAdapted[key] = context.tr('$key.$value');
+                  }
                 }
               });
-              print('answersAdapted: $answersAdapted');
 
-              /*   risk.then((calculatedRisk) {
+              risk.then((calculatedRisk) {
                 saveAnswerData(
                   houseId: house.name,
                   houseAddress: house.address,
@@ -70,7 +76,7 @@ class ResultsLoadingPage extends StatelessWidget {
                   vulnerability: vulnerability,
                   totalRisk: calculatedRisk,
                 );
-              });*/
+              });
 
               Navigator.of(context).pushReplacement(
                 MaterialPageRoute(

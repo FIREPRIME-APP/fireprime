@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 
 class Utils {
   static Color pointerColor(double probability) {
-    if (probability < 25) {
+    if (probability < 45) {
       return Colors.green;
-    } else if (probability < 50) {
+    } else if (probability < 70) {
       return Colors.yellow;
-    } else if (probability < 75) {
+    } else if (probability < 90) {
       return Colors.orange;
     } else {
       return Colors.red;
@@ -15,13 +15,14 @@ class Utils {
 
   static LinearGradient linearGradientProb(double probability) {
     List<Color> colors = [Colors.lightGreen, Colors.green];
-    if (probability > 25) {
+    if (probability > 45) {
+      colors.add(Colors.yellowAccent);
       colors.add(Colors.yellow);
     }
-    if (probability > 50) {
+    if (probability > 70) {
       colors.add(Colors.orange);
     }
-    if (probability > 75) {
+    if (probability > 90) {
       colors.add(Colors.red);
     }
 

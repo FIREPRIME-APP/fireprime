@@ -1,51 +1,146 @@
 {
-    "glazing_systems": {
-        "title": "Sistemas de vidrio",
-        "mitigations_menu": [
-            {
-                "title": "Fallo de vidrio",
-                "mitigations": [
-                    {
-                        "title": "Cambia tu vidrio",
-                        "description": "Texto"
-                    },
-                    {
-                        "title": "Otros",
-                        "description": "Textos"
-                    }
-                ]
-            },
-            {
-                "title": "Fallo de persianas",
-                "mitigations": [
-                    {
-                        "title": "Cambia tus persianas",
-                        "description": "Texto"
-                    },
-                    {
-                        "title": "Más",
-                        "description": "Textos"
-                    }
-                ]
-            }
-        ]
+    "height0": {
+        "title": "Materiales de la fachada",
+        "text": "Considere opciones para mejorar la resistencia al fuego del material combustible de la fachada (por ejemplo, pinturas ignífugas, paneles protectores, etc.)."
     },
-    "combustible_facade_elements": {
-        "title": "Combustible Facade Elements",
-        "mitigations_menu": [
-            {
-                "title": "Combustible facade elements",
-                "mitigations": [
-                    {
-                        "title": "Change your facade elements",
-                        "description": "Change your facade elements to concrete bricks."
-                    },
-                    {
-                        "title": "Another mitigation",
-                        "description": "Some text..."
-                    }
-                ]
-            }
-        ]
+    "height0to20": {
+        "title": "Materiales de la fachada",
+        "text": "Considere opciones para mejorar la resistencia al fuego del material combustible de la fachada (por ejemplo, pinturas ignífugas, paneles protectores, etc.)."
+    },
+    "height21to40": {
+        "title": "Materiales de la fachada",
+        "text": "Considere opciones para mejorar la resistencia al fuego del material combustible de la fachada (por ejemplo, pinturas ignífugas, paneles protectores, etc.)."
+    },
+    "height41to60": {
+        "title": "Materiales de la fachada",
+        "text": "Considere opciones para mejorar la resistencia al fuego del material combustible de la fachada (por ejemplo, pinturas ignífugas, paneles protectores, etc.)."
+    },
+    "height61to80": {
+        "title": "Materiales de la fachada",
+        "text": "Considere opciones para mejorar la resistencia al fuego del material combustible de la fachada (por ejemplo, pinturas ignífugas, paneles protectores, etc.)."
+    },
+    "height81to100": {
+        "title": "Materiales de la fachada",
+        "text": "Considere opciones para mejorar la resistencia al fuego del material combustible de la fachada (por ejemplo, pinturas ignífugas, paneles protectores, etc.)."
+    },
+    "roofNonFireRated": {
+        "title": "Tejado",
+        "text": "Considere opciones para mejorar la resistencia al fuego del material combustible del tejado (por ejemplo, pinturas ignífugas, etc.). Si está considerando cambiar la cubierta del tejado, cámbiela por materiales resistentes al fuego como tejas de cerámica o de hormigón."
+    },
+    "roofPoorlyMaintaned-1": {
+        "title": "Tejado",
+        "text": "Asegúrese de que la cubierta del tejado esté en buen estado, bien colocada y que no falten tejas. Retire regularmente la acumulación de residuos para evitar igniciones en el tejado en caso de incendio (por ejemplo, piñas secas, hojas secas, etc.)."
+    },
+    "roofPoorlyMaintaned-2": {
+        "title": "Tejado",
+        "text": "Asegúrese de que la cubierta del tejado esté en buen estado, bien colocada y que no falten tejas. Retire regularmente la acumulación de residuos para evitar igniciones en el tejado en caso de incendio (por ejemplo, piñas secas, hojas secas, etc.)."
+    },
+    "singlePane": {
+        "title": "Cerramientos de vidrio",
+        "text": "Si está considerando cambiar los vidrios, asegúrese de hacerlo por vidrios dobles o triples o vidrios templados. Estos tipos de vidrio son los más resistentes al calor emitido por el fuego."
+    },
+    "noShutters": {
+        "title": "Cerramientos de vidrio",
+        "text": "Considere poner persianas frente a todos los cerramientos de vidrio. Elija persianas de aluminio o de otros materiales resistentes al fuego (por ejemplo, acero)."
+    },
+    "woodShutters": {
+        "title": "Cerramientos de vidrio",
+        "text": "Para mejorar la resistencia al fuego de su casa, considere cambiar las persianas por unas de aluminio o de otros materiales resistentes al fuego (por ejemplo, acero)."
+    },
+    "pvcShutters": {
+        "title": "Cerramientos de vidrio",
+        "text": "Para mejorar la resistencia al fuego de su casa, considere cambiar las persianas por unas de aluminio o de otros materiales resistentes al fuego (por ejemplo, acero)."
+    },
+    "noVentProtection": {
+        "title": "Ventilaciones",
+        "text": "Proteja las ventilaciones con rejas metálicas inoxidables y no combustibles (por ejemplo, de aluminio, acero galvanizado, acero inoxidable, cobre o recubrimientos intumescentes)."
+    },
+    "ventCombProtection": {
+        "title": "Ventilaciones",
+        "text": "Considere cambiar la protección de la ventilación por rejas metálicas inoxidables y no combustibles (por ejemplo, de aluminio, acero galvanizado, acero inoxidable, cobre o recubrimientos intumescentes)."
+    },
+    "nonCombBadCond": {
+        "title": "Ventilaciones",
+        "text": "Considere cambiar la protección de la ventilación por rejas metálicas inoxidables y no combustibles (por ejemplo, de aluminio, acero galvanizado, acero inoxidable, cobre o recubrimientos intumescentes)."
+    },
+    "yesSemiConf": {
+        "title": "Espacios semiconfinados adyacentes al edificio",
+        "text": "Evite almacenar materiales combustibles en espacios semiconfinados, como porches, espacios bajo terrazas o tarimas, espacios bajo toldos o espacios cerrados en cobertizos adyacentes al edificio."
+    },
+    "glazingSystemsSinglePane": {
+        "title": "Espacios semiconfinados adyacentes al edificio",
+        "text": "Para reducir la vulnerabilidad de su casa, considere instalar persianas resistentes al fuego para proteger los vidrios de los espacios semiconfinados. Elija aluminio u otros materiales resistentes al fuego (por ejemplo, acero)."
+    },
+    "glazingSystemsMultiplePane": {
+        "title": "Espacios semiconfinados adyacentes al edificio",
+        "text": "Para reducir la vulnerabilidad de su casa, considere instalar persianas resistentes al fuego para proteger los vidrios de los espacios semiconfinados. Elija aluminio u otros materiales resistentes al fuego (por ejemplo, acero)."
+    },
+    "glazingSystemsTempered": {
+        "title": "Espacios semiconfinados adyacentes al edificio",
+        "text": "Para reducir la vulnerabilidad de su casa, considere instalar persianas resistentes al fuego para proteger los vidrios de los espacios semiconfinados. Elija aluminio u otros materiales resistentes al fuego (por ejemplo, acero)."
+    },
+    "combustibleEnvelope": {
+        "title": "Espacios semiconfinados adyacentes al edificio",
+        "text": "Considere usar recubrimientos ignífugos (por ejemplo, pinturas retardantes del fuego) para mejorar la resistencia al fuego de las paredes."
+    },
+    "7closeToGlazing": {
+        "title": "Entorno del edificio",
+        "text": "Considere eliminar los combustibles (vegetación u otros elementos no naturales) si se encuentran cerca de vidrios que no se pueden proteger."
+    },
+    "5closeToGlazing": {
+        "title": "Entorno del edificio",
+        "text": "Considere eliminar los combustibles (vegetación u otros elementos no naturales) si se encuentran cerca de vidrios que no se pueden proteger."
+    },
+    "closeToRoof": {
+        "title": "Entorno del edificio",
+        "text": "Considere eliminar los combustibles (vegetación u otros elementos no naturales) si se encuentran cerca de elementos combustibles adyacentes al tejado (por ejemplo, aleros de madera, canalones de PVC para recoger aguas pluviales)."
+    },
+    "fuelsNotAgainstFacade": {
+        "title": "Entorno del edificio",
+        "text": "Considere eliminar los combustibles (vegetación u otros elementos no naturales) adyacentes a la fachada. Si tiene una tarima de madera, considere mejorar su resistencia al fuego (por ejemplo, con pinturas ignífugas, recubrimientos protectores, etc.)."
+    },
+    "contSurf": {
+        "title": "Entorno del edificio",
+        "text": "Considere romper la continuidad del combustible natural mediante lechos de grava o guijarros."
+    },
+    "closeToLPG": {
+        "title": "Entorno del edificio",
+        "text": "Retire todos los elementos combustibles en un radio de 2 metros alrededor de depósitos de hidrocarburos (depósitos de GLP, bombonas de gas, etc.)."
+    },
+    "spacingLess5": {
+        "title": "Entorno del edificio",
+        "text": "Considere separar tanto como sea posible los elementos combustibles no naturales entre sí."
+    },
+    "placedIn20": {
+        "title": "Entorno del edificio",
+        "text": "Considere mantener los elementos combustibles no naturales alejados del bosque (al menos 20 m)."
+    },
+    "vegIn30": {
+        "title": "Entorno del edificio",
+        "text": "Considere realizar un tratamiento de reducción de combustible."
+    },
+    "highFlam": {
+        "title": "Entorno del edificio",
+        "text": "Considere retirar las especies muy inflamables en un radio de 30 m alrededor del edificio o sustituirlas por otras especies más resistentes al fuego."
+    },
+    "contVeg": {
+        "title": "Entorno del edificio",
+        "text": "Gestione la vegetación que se encuentre a menos de 30 metros del edificio generando discontinuidad horizontal entre los árboles y los arbustos para evitar la propagación del fuego entre ellos. Considere eliminar o separar la vegetación."
+    },
+    "noPurning": {
+        "title": "Entorno del edificio",
+        "text": "Gestione la vegetación que se encuentre a menos de 30 metros del edificio generando discontinuidad vertical entre los árboles y los arbustos para evitar la propagación del fuego entre ellos. Considere eliminar y podar la vegetación."
+    },
+    "lowSurfaceMore10": {
+        "title": "Entorno del edificio",
+        "text": "Mantenga la altura de la vegetación (hierbas o arbustos jóvenes) de la zona continua de combustible natural que rodea el edificio a menos de 10 cm."
+    },
+    "deadVeg": {
+        "title": "Entorno del edificio",
+        "text": "Retire las restos vegetales muertos o de poda periódicamente. Estos combustibles son muy secos y se encienden muy fácilmente en caso de incendio."
+    },
+    "woodenFence": {
+        "title": "Entorno del edificio",
+        "text": "Considere pintar la valla con recubrimientos ignífugos (por ejemplo, pinturas retardantes del fuego), para mejorar su resistencia al fuego."
     }
-}
+}   

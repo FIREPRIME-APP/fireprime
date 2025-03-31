@@ -1,4 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:fireprime/firebase/event_manage.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -16,6 +17,7 @@ class AboutPage extends StatelessWidget {
         ),
         leading: IconButton(
           onPressed: () {
+            saveEventdata(screenId: 'about_page', buttonId: 'back');
             Navigator.of(context).pop();
           },
           icon: const Icon(Icons.arrow_back),
@@ -48,29 +50,36 @@ class AboutPage extends StatelessWidget {
                           fontWeight: FontWeight.bold),
                     ),
                     const SizedBox(
-                      height: 10,
-                    )
+                      height: 5,
+                    ),
+                    Text(
+                      context.tr('about_intro'),
+                      style: const TextStyle(
+                          fontSize: 14,
+                          fontFamily: 'OpenSans',
+                          fontWeight: FontWeight.bold),
+                      textAlign: TextAlign.center,
+                    ),
                   ],
                 ),
               ),
-              const Divider(
-                color: Colors.grey,
-              ),
-              Text(context.tr('about_text'),
-                  style: const TextStyle(fontSize: 13)),
+
               // customisedProjectText(context),
               const Divider(
                 height: 25,
                 color: Colors.grey,
               ),
-              Text(context.tr('about_text2'),
-                  style: const TextStyle(fontSize: 13)),
+              Text(
+                context.tr('about_text'),
+                style: const TextStyle(fontSize: 13, fontFamily: 'OpenSans'),
+                textAlign: TextAlign.justify,
+              ),
               //customisedDevelopementText(context),
               const Divider(
                 height: 25,
                 color: Colors.grey,
               ),
-              Text(context.tr('privacy_title'),
+              /* Text(context.tr('privacy_title'),
                   style: const TextStyle(fontWeight: FontWeight.bold)),
               const SizedBox(
                 height: 10,
@@ -80,9 +89,11 @@ class AboutPage extends StatelessWidget {
                 style: const TextStyle(
                     fontSize: 13, height: 1.5, fontFamily: 'OpenSans'),
                 textAlign: TextAlign.justify,
-              ),
+              ),*/
+
               Image.asset(
-                'assets/images/logos/ue.jpg',
+                alignment: AlignmentDirectional.bottomCenter,
+                'assets/images/logos/ue.png',
                 width: 100,
                 height: 100,
               ),

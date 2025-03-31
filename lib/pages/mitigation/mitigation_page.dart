@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:easy_localization/easy_localization.dart';
+import 'package:fireprime/firebase/event_manage.dart';
 import 'package:fireprime/pages/house/house_list_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -35,6 +36,7 @@ class _MitigationPageState extends State<MitigationPage> {
             child: IconButton(
               icon: const Icon(Icons.home),
               onPressed: () {
+                saveEventdata(screenId: 'mitigation_page', buttonId: 'home');
                 Navigator.of(context).push(
                   MaterialPageRoute(
                     builder: (BuildContext context) {
@@ -83,14 +85,16 @@ class _MitigationPageState extends State<MitigationPage> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                            Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(horizontal: 22.0),
-                              child: Text(
-                                mitigation.key,
-                                style: const TextStyle(
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold,
+                            Expanded(
+                              child: Padding(
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 22.0),
+                                child: Text(
+                                  mitigation.key,
+                                  style: const TextStyle(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold,
+                                  ),
                                 ),
                               ),
                             ),

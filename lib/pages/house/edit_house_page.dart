@@ -1,5 +1,11 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:fireprime/autocomplete/autocomplete.dart';
+import 'package:fireprime/autocomplete/google_places_autocomplete.dart';
+import 'package:fireprime/config.dart';
+import 'package:fireprime/constants.dart';
+import 'package:fireprime/firebase/api_key_manage.dart';
 import 'package:fireprime/firebase/event_manage.dart';
+import 'package:fireprime/model/house.dart';
 import 'package:fireprime/providers/house_provider.dart';
 import 'package:fireprime/widgets/utils.dart';
 import 'package:fireprime/widgets/input_field.dart';
@@ -21,6 +27,8 @@ class _EditHousePageState extends State<EditHousePage> {
   final TextEditingController _environment = TextEditingController();
 
   bool _enabled = true;
+  String? _selectedPlace;
+  String? _selectedCountryCode;
 
   @override
   void initState() {
@@ -35,7 +43,7 @@ class _EditHousePageState extends State<EditHousePage> {
     _address.addListener(_checkInput);
   }
 
-  void _handleEditHouse(HouseProvider house) {
+  Future<void> _handleEditHouse(HouseProvider house) async {
     if (_name.text.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
         Utils.snackBar(context.tr('warning_unfilled_name')),
@@ -50,8 +58,50 @@ class _EditHousePageState extends State<EditHousePage> {
         Utils.snackBar(context.tr('warning_house_name_exists')),
       );
     } else if (_address.text.isNotEmpty && _name.text.isNotEmpty) {
+      if (_selectedPlace == null) {
+        showDialog(
+          context: context,
+          builder: (BuildContext context) {
+            return AlertDialog(
+              title: Text(context.tr('unable_to_get_latlong_title')),
+              content: Text(context.tr('unable_to_get_latlong_message')),
+              actions: <Widget>[
+                TextButton(
+                  onPressed: () {
+                    saveEventdata(
+                        screenId: 'edit_house',
+                        buttonId: 'noLatLong_warning_accept');
+                    Navigator.of(context).pop();
+                    house.editHouse(_name.text, _address.text);
+                    Navigator.of(context).pop();
+                  },
+                  child: Text(context.tr('accept')),
+                ),
+                TextButton(
+                  onPressed: () {
+                    saveEventdata(
+                        screenId: 'edit_house',
+                        buttonId: 'noLatLong_warning_try_again');
+                    Navigator.of(context).pop();
+                  },
+                  child: Text(context.tr('try_again')),
+                ),
+              ],
+            );
+          },
+        );
+      } else {
+        Map<String, dynamic> latLong = await GooglePlacesAutoComplete()
+            .getLatLong(_selectedPlace!, Config.API_KEY);
+        House currentHouse = house.getHouse(house.currentHouse!);
+        currentHouse.lat = latLong['latitude'];
+        currentHouse.long = latLong['longitude'];
+        house.editHouse(_name.text, _address.text);
+      }
+
       house.editHouse(_name.text, _address.text);
-      saveEventdata(screenId: 'edit_house_page', buttonId: 'save_house');
+      saveEventdata(screenId: 'edit_house_page', buttonId: 'save_edited_house');
+
       Navigator.of(context).pop();
     }
   }
@@ -70,10 +120,15 @@ class _EditHousePageState extends State<EditHousePage> {
 
   @override
   Widget build(BuildContext context) {
+    if (Config.API_KEY == '') {
+      getApiKey();
+    }
+
     final house = Provider.of<HouseProvider>(context, listen: false)
         .getHouse(widget.currentHouse);
 
     _environment.text = context.tr('european_countries.${house.environment}');
+    _selectedCountryCode = Constants.europeanCountriesCode[house.environment];
 
     return Scaffold(
       appBar: AppBar(
@@ -108,11 +163,20 @@ class _EditHousePageState extends State<EditHousePage> {
                   buttonId: 'name',
                 ),
                 const SizedBox(height: 10.0),
-                InputField(
+                /* InputField(
                   label: '*  ${context.tr('address')}:',
                   controller: _address,
                   screenId: 'edit_house_page',
                   buttonId: 'address',
+                ),*/
+                AutoCompleteWidget(
+                  apiKey: Config.API_KEY,
+                  controller: _address,
+                  onPlaceSelected: (placeId) => setState(() {
+                    _selectedPlace = placeId;
+                  }),
+                  screenId: 'edit_house_page',
+                  selectedCountryCode: _selectedCountryCode!,
                 ),
                 const SizedBox(height: 10.0),
                 Text(

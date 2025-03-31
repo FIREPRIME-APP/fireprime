@@ -300,9 +300,6 @@ void main() async {
   await faultTree.loadFaultTree('assets/fault_tree_1.json');
   faultTree.setSelectedOptions(selectedOptions);
 
-  print(faultTree.calculateProbability(faultTree.topEvent));
-
-  print('-----------------');
   var allProbabilities =
       faultTree.getAllNodePorbabilities(faultTree.topEvent, {});
   printProbabilities(allProbabilities);

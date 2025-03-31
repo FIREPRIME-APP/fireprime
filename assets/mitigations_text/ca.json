@@ -1,51 +1,158 @@
 {
-    "glazing_systems": {
-        "title": "Sistema de vidre",
-        "mitigations_menu": [
-            {
-                "title": "Falla de vidre",
-                "mitigations": [
-                    {
-                        "title": "Canvia el vidre",
-                        "description": "Text en català"
-                    },
-                    {
-                        "title": "Altres",
-                        "description": "Textos"
-                    }
-                ]
-            },
-            {
-                "title": "Falles de persianes",
-                "mitigations": [
-                    {
-                        "title": "Canvia les persianes",
-                        "description": "Més text en català"
-                    },
-                    {
-                        "title": "Altres",
-                        "description": "Textos textos..."
-                    }
-                ]
-            }
-        ]
+    "height0": {
+        "title": "Materials de la façana",
+        "text": "Considereu opcions per a la millora de la resistència al foc del material combustible de la façana (e.g. pintures ignífugues, panells protectors, etc.)."
     },
-    "combustible_facade_elements": {
-        "title": "Elements de façana combustibles",
-        "mitigations_menu": [
-            {
-                "title": "Elements de façana combustibles",
-                "mitigations": [
-                    {
-                        "title": "Canvia els elements de façana",
-                        "description": "Canvia els elements de façana per elements que no siguin combustibles, com per exemple maons de formigó."
-                    },
-                    {
-                        "title": "Més",
-                        "description": "Text...."
-                    }
-                ]
-            }
-        ]
-    }
+    "height0to20": {
+        "title": "Materials de la façana",
+        "text": "Considereu opcions per a la millora de la resistència al foc del material combustible de la façana (e.g. pintures ignífugues, panells protectors, etc.)."
+    },
+    "height21to40": {
+        "title": "Materials de la façana",
+        "text": "Considereu opcions per a la millora de la resistència al foc del material combustible de la façana (e.g. pintures ignífugues, panells protectors, etc.)."
+    },
+    "height41to60": {
+        "title": "Materials de la façana",
+        "text": "Considereu opcions per a la millora de la resistència al foc del material combustible de la façana (e.g. pintures ignífugues, panells protectors, etc.)."
+    },
+    "height61to80": {
+        "title": "Materials de la façana",
+        "text": "Considereu opcions per a la millora de la resistència al foc del material combustible de la façana (e.g. pintures ignífugues, panells protectors, etc.)."
+    },
+    "height81to100": {
+        "title": "Materials de la façana",
+        "text": "Considereu opcions per a la millora de la resistència al foc del material combustible de la façana (e.g. pintures ignífugues, panells protectors, etc.)."
+    },
+    "roofNonFireRated":{
+        "title": "Teulada",
+        "text": "Considereu opcions per a la millora de la resistència al foc del material combustible de la teulada (e.g. pintures ignífugues, etc.). Si us plantegeu canviar el recobriment de la teulada, canvieu-lo per materials resistents al foc com les teules de ceràmica o de formigó."
+    },
+    "roofPoorlyMaintaned-1":{
+        "title": "Teulada",
+        "text": "Assegureu-vos que el recobriment de la teulada està en bon estat, ben col·locat i no hi manquen teules. Retireu de manera regular l'acumulació de residus per evitar ignicions a la teulada en cas d'incendi (e.g., pinassa seca, fullaraca, etc.)."
+    },
+    "roofPoorlyMaintaned-2":{
+        "title": "Teulada",
+        "text": "Assegureu-vos que el recobriment de la teulada està en bon estat, ben col·locat i no hi manquen teules. Retireu de manera regular l'acumulació de residus per evitar ignicions a la teulada en cas d'incendi (e.g., pinassa seca, fullaraca, etc.)."
+    },
+    "singlePane": {
+        "title": "Tancaments de vidre",
+        "text": "Si us plantegeu canviar els vidres, assegureu-vos de fer-ho per vidres dobles o triples o bé per vidres temperats. Aquests tipus de vidre són els més resistents a la calor emesa pel foc."
+    },
+    "noShutters": {
+        "title": "Tancaments de vidre",
+        "text": "Considereu posar persianes davant de tots els tancaments de vidre. Escolliu persianes d'alumini o d'altres materials resistents al foc (e.g., acer)." 
+    },
+    "woodShutters": {
+        "title": "Tancaments de vidre",
+        "text": "Per millorar la resistència al foc de casa vostra, considereu canviar les persianes per unes d'alumini o d'altres materials resistents al foc (e.g., acer)." 
+    },
+    "pvcShutters": {
+        "title": "Tancaments de vidre",
+        "text": "Per millorar la resistència al foc de casa vostra, considereu canviar les persianes per unes d'alumini o d'altres materials resistents al foc (e.g., acer)." 
+    },
+   "noVentProtection": {
+        "title": "Ventilacions",
+        "text": "Protegiu les ventilacions amb reixes metàl·liques inoxidables i no combustibles (e.g., d'alumini, acer galvanitzat, acer inoxidable, coure o recobriments intumescents)."
+   },
+   "ventCombProtection": {
+        "title": "Ventilacions",
+        "text": "Considereu canviar la protecció de la ventilació per reixes metàl·liques inoxidables i no combustibles (e.g., d'alumini, acer galvanitzat, acer inoxidable, coure o recobriments intumescents)."
+   },
+   "nonCombBadCond": {
+        "title": "Ventilacions",
+        "text": "Considereu canviar la protecció de la ventilació per reixes metàl·liques inoxidables i no combustibles (e.g., d'alumini, acer galvanitzat, acer inoxidable, coure o recobriments intumescents)."
+   },
+   "yesSemiConf": {
+        "title": "Espais semiconfinats adjacents a l'edifici",
+        "text": "Eviteu emmagatzemar materials combustibles en espais semi-confinats, com ara porxos, espais sota terrasses o entarimats, espais sota tendals, o espais tancats en coberts adjacents a l'edifici."
+   },
+   "glazingSystemsSinglePane": {
+        "title": "Espais semiconfinats adjacents a l'edifici",
+        "text": "Per reduir la vulnerabilitat de casa vostra, considereu instal·lar persianes resistents al foc per protegir els vidres dels espais semiconfinats. Escolliu l'alumini o altres materials resistents al foc (e.g. acer)."
+   },
+   "glazingSystemsMultiplePane": {
+        "title": "Espais semiconfinats adjacents a l'edifici",
+        "text": "Per reduir la vulnerabilitat de casa vostra, considereu instal·lar persianes resistents al foc per protegir els vidres dels espais semiconfinats. Escolliu l'alumini o altres materials resistents al foc (e.g. acer)."
+   },
+   "glazingSystemsTempered": {
+        "title": "Espais semiconfinats adjacents a l'edifici",
+        "text": "Per reduir la vulnerabilitat de casa vostra, considereu instal·lar persianes resistents al foc per protegir els vidres dels espais semiconfinats. Escolliu l'alumini o altres materials resistents al foc (e.g. acer)."
+   },
+   "combustibleEnvelope": {
+        "title": "Espais semiconfinats adjacents a l'edifici",
+        "text": "Considereu emprar recobriments ignífugs (e.g., pintures retardants del foc), per millorar la resistència al foc de les parets."
+   },
+   "7closeToGlazing": {
+        "title": "Entorn de l'edifici",
+        "text": "Considereu eliminar els combustibles (vegetació o altres elements no naturals) si es troben a prop de vidres que no es poden protegir."
+   },
+   "5closeToGlazing": {
+        "title": "Entorn de l'edifici",
+        "text": "Considereu eliminar els combustibles (vegetació o altres elements no naturals) si es troben a prop de vidres que no es poden protegir. "
+   },
+   "closeToRoof": {
+        "title": "Entorn de l'edifici",
+        "text": "Considereu eliminar els combustibles (vegetació o altres elements no naturals) si es troben a prop d'elements combustibles adjacents a la teulada (e.g. ràfecs de fusta, canaletes de PVC per recollir aigües pluvials)."
+   },
+   "fuelsNotAgainstFacade": {
+        "title": "Entorn de l'edifici",
+        "text": "Considereu eliminar els combustibles (vegetació o altres elements no naturals) adjacents a la façana. Si hi teniu un entarimat de fusta, considereu millorar-ne la resistència al foc (e.g. amb pintures ignífugues, recobriments protectors, etc.)."
+   },
+   "contSurf": {
+        "title": "Entorn de l'edifici",
+        "text": "Considereu trencar la continuïtat del combustible natural mitjançant llits de grava o còdols."
+   },
+   "closeToLPG": {
+        "title": "Entorn de l'edifici",
+        "text": "Retireu tots els elements combustibles en un radi de 2 metres al voltant de dipòsits d'hidrocarbur (dipòsits de GLP, bombones de gas, etc.)."
+   },
+   "spacingLess5": {
+        "title": "Entorn de l'edifici",
+        "text": "Considereu separar tant com pugueu els elements combustibles no naturals els uns dels altres."
+   },
+   "placedIn20": {
+        "title": "Entorn de l'edifici",
+        "text": "Considereu mantenir allunyats del bosc (almenys 20 m) els elements combustibles no naturals."
+   },
+   "vegIn30": {
+        "title": "Entorn de l'edifici",
+        "text": "Considereu dur a terme un tractament de reducció de combustible."
+   },
+   "highFlam": {
+        "title": "Entorn de l'edifici",
+        "text": "Considereu enretirar les espècies molt inflamables en un radi de 30 m al voltant de l'edifici o substituir-les per altres espècies més resistents al foc."
+   },
+   "contVeg": {
+        "title": "Entorn de l'edifici",
+        "text": "Gestioneu la vegetació que es trobi a menys de 30 metres de l'edifici generant discontinuïtat horitzontal entre els arbres i els arbustos per evitar la propagació del foc entre ells. Considereu eliminar o separar la vegetació."
+   },
+   "noPurning": {
+        "title": "Entorn de l'edifici",
+        "text": "Gestioneu la vegetació que es trobi a menys de 30 metres de l'edifici generant discontinuïtat vertical entre els arbres i els arbustos per evitar la propagació del foc entre ells. Considereu eliminar i podar la vegetació."
+    },
+   "lowSurfaceMore10": {
+        "title": "Entorn de l'edifici",
+        "text": "Mantingueu l'alçada de la vegetació (herbes o matolls joves) de la zona contínua de combustible natural que envolta l'edifici a menys de 10 cm."
+   },
+   "deadVeg": {
+        "title": "Entorn de l'edifici",
+        "text": "Enretireu les restes vegetals mortes o de poda periòdicament. Aquests combustibles són molt secs i s'encenen molt fàcilment en cas d'incendi."
+   },
+   "woodenFence": {
+        "title": "Entorn de l'edifici",
+        "text": "Considereu pintar la tanca amb recobriments ignífugs (e.g. pintures retardants del foc), per millorar-ne la resistència al foc."
+   },
+   "hedgerowHigh": {
+        "title": "Entorn de l'edifici",
+        "text": "Considereu substituir la tanca d'arbusts molt inflamables (e.g. xiprer o bruc) per una tanca poc inflamable o no inflamable (e.g. llorer-cirer) i altres opcions de tanca d'obra o de materials no combustibles)."
+    },
+   "metalPosts": {
+        "title": "Entorn de l'edifici",
+        "text": "Mantingueu la tanca lliure de vegetació per evitar la propagació del foc entre parcel·les veïnes."
+   },
+   "chainLink": {
+        "title": "Entorn de l'edifici",
+        "text": "Mantingueu la tanca lliure de vegetació per evitar la propagació del foc entre parcel·les veïnes."
+   }
 }

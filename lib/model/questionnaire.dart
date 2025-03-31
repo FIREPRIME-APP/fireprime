@@ -127,25 +127,25 @@ class Questionnaire {
     },
     {
       'stepId': 'Q11-1',
-      'textChoices': ['7farFromGlazing', '7closeToGlazing'],
+      'textChoices': ['7closeToGlazing', '7farFromGlazing'],
       'otherOption': false,
       'type': 'singleChoice',
     },
     {
       'stepId': 'Q11-2',
-      'textChoices': ['5farFromGlazing', '5closeToGlazing'],
+      'textChoices': ['5closeToGlazing', '5farFromGlazing'],
       'otherOption': false,
       'type': 'singleChoice',
     },
     {
       'stepId': 'Q12',
-      'textChoices': ['farFromRoof', 'closeToRoof'],
+      'textChoices': ['closeToRoof', 'farFromRoof', 'noCombElem'],
       'otherOption': false,
       'type': 'singleChoice',
     },
     {
       'stepId': 'Q13',
-      'textChoices': ['fuelsAgainstFacade', 'fuelsNotAgainstFacade'],
+      'textChoices': ['fuelsNotAgainstFacade', 'fuelsAgainstFacade'],
       'otherOption': false,
       'type': 'singleChoice',
     },
@@ -157,7 +157,7 @@ class Questionnaire {
     },
     {
       'stepId': 'Q15',
-      'textChoices': ['farFromLPG', 'closeToLPG', 'noLPG'],
+      'textChoices': ['closeToLPG', 'farFromLPG', 'noLPG'],
       'otherOption': false,
       'type': 'singleChoice',
     },
@@ -169,13 +169,13 @@ class Questionnaire {
     },
     {
       'stepId': 'Q17',
-      'textChoices': ['placedFurther20', 'placedIn20', 'noPlacement'],
+      'textChoices': ['placedIn20', 'placedFurther20', 'noPlacement'],
       'otherOption': false,
       'type': 'singleChoice',
     },
     {
       'stepId': 'Q18',
-      'textChoices': ['noVegIn30', 'vegIn30'],
+      'textChoices': ['vegIn30', 'noVegIn30'],
       'otherOption': false,
       'type': 'singleChoice',
     },
@@ -193,7 +193,7 @@ class Questionnaire {
     },
     {
       'stepId': 'Q21',
-      'textChoices': ['noPurning', 'purning', 'noApplicablePurning'],
+      'textChoices': ['purning', 'noPurning', 'noApplicablePurning'],
       'otherOption': false,
       'type': 'singleChoice',
     },
@@ -369,6 +369,23 @@ class Questionnaire {
         },
       }
     },
+    {
+      'stepId': 'Q14',
+      'type': 'saveResult',
+      'nextStep': 'Q15',
+    },
+    {
+      'stepId': 'Q21',
+      'type': 'conditionalSavedResult',
+      'conditions': {},
+      'savedResult': {
+        'id': 'Q14',
+        'conditions': {
+          'contSurf': 'Q22',
+          'discontSurf': 'Q23',
+        },
+      }
+    }
   ];
 
   String environment = 'default';

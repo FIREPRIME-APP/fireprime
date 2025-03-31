@@ -2,9 +2,16 @@ import 'package:http/http.dart' as http;
 //import 'dart:convert';
 
 //bbox and xy coordenates of the map
-Future<double> getHazard(String country) async {
-  Uri url;
-  if (country == 'spain') {
+Future<double> getHazard(double lat, double long) async {
+  String latInf = (lat - 0.01).toStringAsFixed(6);
+  String latSup = (lat + 0.01).toStringAsFixed(6);
+  String longInf = (long - 0.01).toStringAsFixed(6);
+  String longSup = (long + 0.01).toStringAsFixed(6);
+
+  String baseUrl =
+      'https://maps.effis.emergency.copernicus.eu/effis?map=/mnt/efs/mapfiles/wfra.map&REQUEST=GetFeatureInfo&INFO_FORMAT=text/html&CRS=EPSG:4326&VERSION=1.3.0&LAYERS=danger-by-weather-fwi30-days&QUERY_LAYERS=danger-by-weather-fwi30-days&SERVICE=wms&width=800&height=800&x=400&y=400&BBOX=$latInf,$longInf,$latSup,$longSup';
+  Uri url = Uri.parse(baseUrl);
+  /*if (country == 'spain') {
     url = Uri.parse(
         'https://maps.effis.emergency.copernicus.eu/effis?map=/mnt/efs/mapfiles/wfra.map&REQUEST=GetFeatureInfo&INFO_FORMAT=text/html&CRS=EPSG:3857&VERSION=1.3.0&LAYERS=danger-by-weather-fwi30-days&QUERY_LAYERS=danger-by-weather-fwi30-days&SERVICE=wms&width=800&height=800&x=400&y=400&bbox=225593.1754,5069147.2194,243700.3554,5084428.5094');
   } else if (country == 'sweden') {
@@ -15,12 +22,14 @@ Future<double> getHazard(String country) async {
         'https://maps.effis.emergency.copernicus.eu/effis?map=/mnt/efs/mapfiles/wfra.map&REQUEST=GetFeatureInfo&INFO_FORMAT=text/html&CRS=EPSG:3857&VERSION=1.3.0&LAYERS=danger-by-weather-fwi30-days&QUERY_LAYERS=danger-by-weather-fwi30-days&SERVICE=wms&width=800&height=800&x=400&y=400&bbox=1256879.5475,5990038.1762,1289135.9735,6013112.9240');
   } else {
     return 1.0;
-  }
+  }*/
   try {
     final response = await http.get(url);
+
     if (response.statusCode == 200) {
       final data = response.body;
       double hazard = getHazardValue(data);
+      print('hazard-value: $hazard');
       return hazard;
     } else {
       print('Failed to get hazard data:' + response.statusCode.toString());

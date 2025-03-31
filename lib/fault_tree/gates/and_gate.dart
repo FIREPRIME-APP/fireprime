@@ -13,7 +13,6 @@ class AndGate extends Gate {
         probability *= event.calculateProbability();
       }
     }
-    print("$id: $probability");
     return probability;
   }
 }

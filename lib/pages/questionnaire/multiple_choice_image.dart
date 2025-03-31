@@ -103,7 +103,8 @@ class _CustomViewState extends State<MultipleChoiceImageView> {
     return StepView(
       step: widget.questionStep,
       resultFunction: () {
-        saveEventdata(screenId: 'questionnaire_page', buttonId: 'next');
+        saveEventdata(
+            screenId: 'questionnaire_page', buttonId: 'next_question');
         return MultipleChoiceQuestionResult(
           id: widget.questionStep.stepIdentifier,
           startDate: _startDate,

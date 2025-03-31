@@ -120,8 +120,6 @@ class _HistoricalResultsPageState extends State<HistoricalResultsPage> {
         _showDetails = false;
       },
     );
-    print('last:');
-    print(lastHouseVulnerability);
   }
 
   @override
@@ -223,6 +221,9 @@ class _HistoricalResultsPageState extends State<HistoricalResultsPage> {
                                 ? const Color.fromARGB(255, 223, 225, 228)
                                 : const Color.fromARGB(255, 252, 252, 252)),
                         onPressed: () {
+                          saveEventdata(
+                              screenId: 'historical_results',
+                              buttonId: 'details_linear_gauge');
                           setState(() {
                             _showDetails = !_showDetails;
                             for (var entry in _showLinearGauge.entries) {
@@ -321,7 +322,7 @@ class _HistoricalResultsPageState extends State<HistoricalResultsPage> {
                                   );
                                 },
                               ),
-                              Divider(color: Colors.grey, thickness: 1.5),
+                              const Divider(color: Colors.grey, thickness: 1.5),
                             ],
                           )
                     ],
@@ -489,9 +490,13 @@ class _HistoricalResultsPageState extends State<HistoricalResultsPage> {
       setState(() {
         if (_showLinearGauge[key]!) {
           _showLinearGauge[key] = false;
+          saveEventdata(
+              screenId: 'historical_results', buttonId: 'hide_${key}_details');
         } else {
           _showLinearGauge.updateAll((key, value) => false);
           _showLinearGauge[key] = true;
+          saveEventdata(
+              screenId: 'historical_results', buttonId: 'show_${key}_details');
         }
       });
     }

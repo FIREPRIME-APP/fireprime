@@ -1,7 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:fireprime/constants.dart';
 import 'package:fireprime/firebase/event_manage.dart';
-import 'package:fireprime/pages/mitigation/mitigation_actions.dart';
 import 'package:fireprime/pages/mitigation/mitigation_page.dart';
 import 'package:fireprime/providers/house_provider.dart';
 import 'package:fireprime/widgets/gauge.dart';
@@ -13,7 +12,6 @@ import 'package:fireprime/model/risk_assessment.dart';
 import 'package:fireprime/pages/questionnaire/questionnaire_page.dart';
 import 'package:fireprime/pages/result/historical_results_page.dart';
 import 'package:fireprime/pages/result/result_page.dart';
-import 'package:fireprime/widgets/utils.dart';
 import 'package:fireprime/widgets/card_text.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -26,6 +24,14 @@ class HousePage extends StatefulWidget {
 }
 
 class _HousePageState extends State<HousePage> {
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _checkLatLong();
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     final houseProvider = Provider.of<HouseProvider>(context, listen: true);
@@ -93,8 +99,6 @@ class _HousePageState extends State<HousePage> {
           }
 
           RiskAssessment? riskAssessment;
-          print('currenthouse riskIds:');
-          print(currentHouse.riskAssessmentIds);
           if (currentHouse.riskAssessmentIds.isNotEmpty) {
             riskAssessment = houseProvider.getLastRiskAssessment();
           }
@@ -114,8 +118,10 @@ class _HousePageState extends State<HousePage> {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
+                  //_buildVulnerabilityResults(
+                  //  context, houseProvider, currentHouse),
                   _buildVulnerabilityResults(
-                      context, houseProvider, currentHouse),
+                      context, lastCompletedRiskAssessment, currentHouse),
                   const SizedBox(
                     height: 20,
                   ),
@@ -178,7 +184,7 @@ class _HousePageState extends State<HousePage> {
                       () {
                         saveEventdata(
                             screenId: 'house_page',
-                            buttonId: 'first_questionnaire');
+                            buttonId: 'start_first_questionnaire');
                         Navigator.of(context).push(
                           MaterialPageRoute(
                             builder: (BuildContext context) {
@@ -327,10 +333,16 @@ class _HousePageState extends State<HousePage> {
     );
   }
 
-  Widget _buildVulnerabilityResults(
-      BuildContext context, HouseProvider houseProvider, House currentHouse) {
-    final lastProbability = houseProvider.getLastProbability();
-    final lastResults = houseProvider.getLastResults();
+  //Widget _buildVulnerabilityResults(
+  //  BuildContext context, HouseProvider houseProvider, House currentHouse) {
+  Widget _buildVulnerabilityResults(BuildContext context,
+      RiskAssessment? lastRiskAssessment, House currentHouse) {
+    DateFormat dateFormat = DateFormat('dd-MM-yyyy');
+
+    //final lastProbability = houseProvider.getLastProbability();
+    //  final lastResults = lastRiskAssessment?.results ?? {};
+    //final lastResults = houseProvider.getLastResults();
+
     return SizedBox(
       width: double.infinity,
       child: Card(
@@ -349,7 +361,14 @@ class _HousePageState extends State<HousePage> {
               const SizedBox(
                 height: 10,
               ),
-              if (lastProbability != null)
+              if (lastRiskAssessment != null) ...[
+                CardText(
+                    title: context.tr('date'),
+                    text: dateFormat.format(lastRiskAssessment.fiDate),
+                    size: 15),
+                const SizedBox(
+                  height: 10,
+                ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 8.0),
                   child: Column(
@@ -362,7 +381,7 @@ class _HousePageState extends State<HousePage> {
                               width: 100,
                               color: Colors.transparent,
                               child: Gauge.radialGauge(
-                                  lastProbability * 100, 10, 4),
+                                  lastRiskAssessment.risk * 100, 10, 4),
                             ),
                           ),
                           Column(children: [
@@ -372,8 +391,8 @@ class _HousePageState extends State<HousePage> {
                             Center(
                               child: CardText(
                                 title: context.tr('risk'),
-                                text:
-                                    (lastProbability * 100).toStringAsFixed(0),
+                                text: (lastRiskAssessment.risk * 100)
+                                    .toStringAsFixed(0),
                                 size: 18,
                                 color:
                                     null, //Utils.textColor(lastProbability * 100),
@@ -409,10 +428,11 @@ class _HousePageState extends State<HousePage> {
                     ],
                   ),
                 ),
+              ]
               /*tileText(context.tr('risk'),
                                   lastProbability * 100, 20),*/
 
-              if (lastProbability == null)
+              else
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 8.0),
                   child: Text(
@@ -426,9 +446,10 @@ class _HousePageState extends State<HousePage> {
               const SizedBox(
                 height: 10,
               ),
-              if (lastResults.isNotEmpty)
+              /* if (lastResults.isNotEmpty)
                 ...lastResults.entries.map(
                   (entry) {
+                    print('-----------last results: $lastResults');
                     return Padding(
                       padding: const EdgeInsets.symmetric(
                           horizontal: 8.0, vertical: 3),
@@ -440,7 +461,7 @@ class _HousePageState extends State<HousePage> {
                       ),
                     );
                   },
-                ),
+                ),*/
             ],
           ),
         ),
@@ -497,6 +518,57 @@ class _HousePageState extends State<HousePage> {
       }
     } else {
       return false;
+    }
+  }
+
+  void _checkLatLong() {
+    final houseProvider = Provider.of<HouseProvider>(context, listen: false);
+    House currentHouse = houseProvider.getHouse(houseProvider.currentHouse!);
+    if (currentHouse.lat == null || currentHouse.long == null) {
+      showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: Text(context.tr('unable_to_get_latlong_title'),
+                style:
+                    const TextStyle(fontSize: 15, fontWeight: FontWeight.bold)),
+            content: Text(context.tr('unable_to_get_latlong_message_house'),
+                style: const TextStyle(fontSize: 15)),
+            actions: <Widget>[
+              TextButton(
+                onPressed: () {
+                  saveEventdata(
+                      screenId: 'house_page',
+                      buttonId: 'noLatLong_warning_accept');
+                  Navigator.of(context).pop();
+                },
+                child: Text(context.tr('accept')),
+              ),
+              TextButton(
+                onPressed: () {
+                  saveEventdata(
+                      screenId: 'house_page',
+                      buttonId: 'noLatLong_warning_edit_house');
+                  Navigator.of(context).pop();
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (BuildContext context) {
+                        return EditHousePage(
+                          currentHouse: houseProvider.currentHouse!,
+                        );
+                      },
+                    ),
+                  );
+                },
+                child: Text(context.tr('edit')),
+              )
+            ],
+          );
+        },
+      );
+    } else {
+      print('Lat: ${currentHouse.lat}');
+      print('Long: ${currentHouse.long}');
     }
   }
 }

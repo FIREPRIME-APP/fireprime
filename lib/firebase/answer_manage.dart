@@ -4,16 +4,19 @@ import 'package:fireprime/firebase/device_manage.dart';
 Future<void> saveAnswerData({
   required String houseId,
   required String houseAddress,
-  required Map<String, String?> answers,
+  required Map<String, dynamic> answers,
   required double lat,
   required double long,
   required double vulnerability,
   required double totalRisk,
 }) async {
   final deviceId = await getDeviceId();
-  final answerRef = FirebaseFirestore.instance.collection('answers').doc();
+  final answerRef = FirebaseFirestore.instance
+      .collection('riskAssessments')
+      .doc(deviceId)
+      .collection('answers');
   try {
-    await answerRef.set({
+    await answerRef.add({
       'device_id': deviceId,
       'house_id': houseId,
       'house_address': houseAddress,

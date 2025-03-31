@@ -1,19 +1,13 @@
 import 'package:fireprime/constants.dart';
-import 'package:fireprime/fault_tree/events/basic_event.dart';
-import 'package:fireprime/fault_tree/fault_tree.dart';
-import 'package:fireprime/fault_tree/events/intermediate_event.dart';
-import 'package:fireprime/fault_tree/node.dart';
 import 'package:fireprime/firebase/event_manage.dart';
 import 'package:fireprime/pages/mitigation/mitigation_page.dart';
 import 'package:fireprime/widgets/gauge.dart';
 import 'package:fireprime/model/event_probability.dart';
 import 'package:fireprime/model/risk_assessment.dart';
 import 'package:fireprime/pages/house/house_page.dart';
-import 'package:fireprime/pages/mitigation/mitigation_menu_page.dart';
 import 'package:fireprime/model/house.dart';
 import 'package:fireprime/providers/house_provider.dart';
 import 'package:fireprime/widgets/info_dialog.dart';
-import 'package:fireprime/widgets/utils.dart';
 import 'package:fireprime/widgets/card_text.dart';
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -49,6 +43,7 @@ class _ResultPageState extends State<ResultPage> {
 
   bool _toggleFactors() {
     setState(() {
+      saveEventdata(screenId: 'result_page', buttonId: 'details');
       _showFactors = !_showFactors;
       for (var entry in _showLinearGauge.entries) {
         _showLinearGauge[entry.key] = false;
@@ -92,8 +87,6 @@ class _ResultPageState extends State<ResultPage> {
           lastSubProbabilities[subEntry.key] = subEntry.value;
         }
       }
-
-      print(lastSubProbabilities);
     }
 
     for (var entry in subProbabilities.entries) {
@@ -102,7 +95,6 @@ class _ResultPageState extends State<ResultPage> {
   }
 
   void _toggleLinearGauge(String key) {
-    print(key);
     if (_showLinearGauge.containsKey(key)) {
       setState(() {
         if (_showLinearGauge[key]!) {
@@ -161,8 +153,12 @@ class _ResultPageState extends State<ResultPage> {
                       child: Gauge.radialGauge(risk * 100, 15, 6),
                     ),
                   ),
-                  Gauge.gaugeProbabilityText(risk * 100, context.tr('risk'), 20,
-                      context.tr('risk_info')),
+                  Gauge.gaugeProbabilityText(
+                      risk * 100,
+                      context.tr('risk'),
+                      20,
+                      getRiskInfo(hazard * 100, vulnerability * 100, risk * 100,
+                          context)),
                   /*  Padding(
                     padding: const EdgeInsets.only(top: 150),
                     child: Row(
@@ -340,6 +336,8 @@ class _ResultPageState extends State<ResultPage> {
                 style: const TextStyle(color: Colors.white),
               ),
               onPressed: () {
+                saveEventdata(
+                    screenId: 'result_page', buttonId: 'check_improvements');
                 Navigator.of(context).push(
                   MaterialPageRoute(
                     builder: (BuildContext context) {
@@ -511,5 +509,77 @@ class _ResultPageState extends State<ResultPage> {
       }
     }
     return null;
+  }
+
+  String getRiskInfo(
+      double hazard, double vulnerability, double risk, BuildContext context) {
+    String hazardLevel = getLevel(hazard);
+    String vulnerabilityLevel = getLevel(vulnerability);
+    String textId = getInfoText(hazardLevel, vulnerabilityLevel);
+    String riskLevel = getRiskLevel(risk);
+
+    return context.tr('hazard_vulnerability_text.$textId', namedArgs: {
+      'hazard_level': context.tr('hazard_levels.$hazardLevel'),
+      'vulnerability_level':
+          context.tr('vulnerability_levels.$vulnerabilityLevel'),
+      'risk': context.tr('risk_levels.$riskLevel'),
+    });
+  }
+
+  String getLevel(double value) {
+    if (value >= 90) {
+      return 'extreme';
+    } else if (value >= 70) {
+      return 'high';
+    } else if (value >= 45) {
+      return 'moderate';
+    } else {
+      return 'low';
+    }
+  }
+
+  String getRiskLevel(double risk) {
+    if (risk >= 80) {
+      return 'extreme';
+    } else if (risk >= 50) {
+      return 'high';
+    } else if (risk >= 20) {
+      return 'moderate';
+    } else {
+      return 'low';
+    }
+  }
+
+  String getInfoText(String hazardLevel, String vulnerabilityLevel) {
+    if (hazardLevel == 'extreme' || hazardLevel == 'high') {
+      if (vulnerabilityLevel == 'extreme' || vulnerabilityLevel == 'high') {
+        return 'extreme_high_text';
+      } else if (vulnerabilityLevel == 'low') {
+        return 'extreme_low_text';
+      } else if (hazardLevel == 'extreme' && vulnerabilityLevel == 'moderate') {
+        return 'extreme_moderate_text';
+      } else if (hazardLevel == 'high' && vulnerabilityLevel == 'moderate') {
+        return 'high_moderate_text';
+      }
+    } else if (hazardLevel == 'moderate') {
+      if (vulnerabilityLevel == 'extreme') {
+        return 'extreme_high_text';
+      } else if (vulnerabilityLevel == 'high') {
+        return 'extreme_moderate_text';
+      } else if (vulnerabilityLevel == 'moderate') {
+        return 'moderate_text';
+      } else {
+        return 'extreme_low_text';
+      }
+    } else {
+      if (vulnerabilityLevel == 'extreme' || vulnerabilityLevel == 'high') {
+        return 'low_extreme_high_text';
+      } else if (vulnerabilityLevel == 'moderate') {
+        return 'low_moderate_text';
+      } else {
+        return 'low_text';
+      }
+    }
+    return '';
   }
 }
