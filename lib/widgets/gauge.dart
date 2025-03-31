@@ -1,3 +1,4 @@
+import 'package:fireprime/widgets/card_text.dart';
 import 'package:fireprime/widgets/info_dialog.dart';
 import 'package:fireprime/widgets/utils.dart';
 import 'package:flutter/material.dart';
@@ -24,7 +25,13 @@ class Gauge {
           value: 100,
           valueBarThickness: thickness,
           gradient: const LinearGradient(
-            colors: [Colors.green, Colors.yellow, Colors.orange, Colors.red],
+            colors: [
+              Colors.green,
+              Colors.yellowAccent,
+              Colors.yellow,
+              Colors.orange,
+              Colors.red
+            ],
           ),
         ),
       ],
@@ -68,10 +75,17 @@ class Gauge {
                   icon: Icons.info_outline,
                   iconSize: 20.0,
                   text: info,
-                  fontSize: 12,
+                  fontSize: 13,
                 ),
               ],
             ),
+            /*Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                info,
+                style: const TextStyle(fontSize: 13, fontFamily: 'OpenSans'),
+              ),
+            ),*/
           ],
         ),
       ),
@@ -94,10 +108,14 @@ class Gauge {
           child: Row(
             children: [
               Expanded(
-                child: Text(
-                  '$title: ${probability.toStringAsFixed(0)}',
+                child: CardText(
+                  title: title,
+                  text: probability.toStringAsFixed(0),
+                  size: 15,
+                  color: Colors.black,
+                  /* '$title: ${probability.toStringAsFixed(0)}',
                   style: const TextStyle(
-                      fontSize: 15, fontWeight: FontWeight.bold),
+                      fontSize: 15, fontWeight: FontWeight.bold),*/
                 ),
               ),
               const SizedBox(

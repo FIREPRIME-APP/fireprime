@@ -34,8 +34,15 @@ class LanguageChangeProvider with ChangeNotifier {
     } else if (languageCode == 'ca') {
       selectedIndex = 2;
       _appLocale = const Locale('ca');
+    } else if (languageCode == 'de') {
+      selectedIndex = 3;
+      _appLocale = const Locale('de');
+    } else if (languageCode == 'sv') {
+      selectedIndex = 4;
+      _appLocale = const Locale('sv');
     } else {
       selectedIndex = 0;
+      _appLocale = const Locale('en');
     }
     print(selectedIndex);
     notifyListeners();
@@ -56,6 +63,10 @@ class LanguageChangeProvider with ChangeNotifier {
         await sp.setString('language_code', 'es');
       } else if (type == const Locale('ca')) {
         await sp.setString('language_code', 'ca');
+      } else if (type == const Locale('de')) {
+        await sp.setString('language_code', 'de');
+      } else if (type == const Locale('sv')) {
+        await sp.setString('language_code', 'sv');
       }
 
       notifyListeners();

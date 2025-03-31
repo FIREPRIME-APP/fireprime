@@ -42,10 +42,11 @@ class _InfoDialogState extends State<InfoDialog> {
     _overlayEntry = OverlayEntry(
       builder: (context) => Positioned(
         top: position.dy + 30,
-        left: position.dx - 40,
+        left: position.dx - 70,
         right: 20,
         child: Material(
-          color: Colors.transparent,
+          color: Colors.grey,
+          borderRadius: BorderRadius.circular(8),
           child: Container(
             padding: const EdgeInsets.all(8),
             decoration: BoxDecoration(
@@ -68,7 +69,7 @@ class _InfoDialogState extends State<InfoDialog> {
 
     Overlay.of(context).insert(_overlayEntry!);
 
-    Future.delayed(const Duration(seconds: 2), () {
+    Future.delayed(const Duration(seconds: 3), () {
       _removeOverlay();
     });
   }

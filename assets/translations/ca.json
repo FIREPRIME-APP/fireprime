@@ -1,119 +1,29 @@
 {
+    "add_house": "Afegir casa",
+    "more_info": "Més informació",
+    
+    "language_page_title": "Idioma preferit",
+   
     "english": "Anglès",
     "spanish": "Castellà",
     "catalan": "Català",
     "german": "Alemany",
     "swedish": "Suec",
-    "home": "FirePrime",
-    "no_auth": "El workshop començarà el 25 de febrer del 2025 a les 10 hores, si us plau, torna a obrir l'aplicació en aquell moment.",
-    "privacy_title": "Privacitat de dades",
-    "privacy_text": "La informació proporcionada per l'usuari s'emmagatzema localment al dispositiu i no es comparteix amb cap tercer. L'usuari pot eliminar les dades en qualsevol moment suprimint l'aplicació. Només es registren les interaccions amb l'aplicació de manera anònima.",
-    "agreed": "Entesos",
-    "questionnaire": "Qüestionari",
-    "preferedLang": "Idioma preferit",
-    "startFill": "Comprovi la vulnerabilitat de la seva casa responent a unes preguntes",
-    "languages": "Idiomes",
-    "cancel": "Cancel·lar",
-    "next": "Següent",
-    "checkVuln": "Comprova la teva vulnerabilitat!",
-    "done": "Fet!",
-    "check": "Comprovar",
-    "more_info": "Més informació",
-    "addHouse": "Afegir casa",
-    "fillInfo": "Omple la informació de la teva casa",
+
+    "add_house_intro": "Omple la informació de la teva casa",
+    "name": "Nom",
     "address": "Adreça",
     "country": "País",
-    "lastResult": "Última avaluació",
-    "risk": "Risc",
-    "noResult": "No hi ha resultats",
-    "updateQuestionnaire": "Actualitza les respostes del qüestionari",
-    "update": "Actualitzar",
-    "fillQuestionnaire": "Comprova la vulnerabilitat de la teva casa amb un qüestionari!",
-    "fill": "Comprovar",
-    "continueQuestionnaire": "Continua el qüestionari per comprobar la vulnerabilitat de la teva casa",
-    "continue": "Continuar",
-    "max_multiple_choices": "Pots seleccionar com a màxim fins a",
-    "options": "opcions",
-    "resultsHistory": "Consulta el teu històric de resultats",
-    "myResults": "Resultats",
-    "edit": "Editar casa",
-    "deleteHouse": "Eliminar casa",
-    "deleteHouseWarning1": "Estàs segur que vols eliminar aquesta casa?",
-    "deleteHouseWarning2": "En eliminar la casa també s'eliminarà tota la informació relativa a les avaluacions de risc i no es podrà recuperar.",
-    "delete": "Eliminar",
-    "editHouse": "Edita la informació de la casa",
-    "name": "Nom",
-    "save": "Guardar",
-    "plsFillName": "Si us plau, introdueix el nom de la casa",
-    "plsFillAddress": "Si us plau, introdueix l'adreça de la casa",
-    "plsSelectCountry": "Si us plau, selecciona el país de la casa",
-    "houseExists": "Aquest nom de casa ja existeix",
-    "show_desc": "Mostrar descripció",
-    "hide_desc": "Ocultar descripció",
-    "other": "Altre",
-    "show_details": "Mostrar detalls",
-    "hide_details": "Ocultar detalls",
-    "about_firePrime": "Sobre FirePrime",
-    "about_projText1": "L'aplicació FirePrime ",
-    "about_projText2": "ha estat desenvolupada per ",
-    "about_projText3": " dins del ",
-    "about_projText4": " , sota l'acord de subvenció ",
-    "about_projText5": "finançat per la ",
-    "about_devText1": "L'aplicació ha estat implementada per",
-    "about_devText2": "sota la supervisió de ",
-    "and": "i ",
-    "about_devText3": "i amb el suport consultiu de ",
-    "results": "Resultats",
-    "risk_text": "El risc de la seva casa és de: ",
-    "non_combustible_foundation": "Fonamentació no combustible",
-    "exterior_envelope": "Tancament de l'edifici",
-    "structural_vulnerabilities": "Vulnerabilitat estructurals",
-    "combustible_facade_elements": "Elements combustibles de façana",
-    "glazing_systems": "Sistemes de vidre",
-    "roof": "Sostre",
-    "vents": "Ventilació",
-    "semi_confined": "Espai semiconfinat",
-    "glazing_failure": "Falla de vidre",
-    "shutter_failure": "Falla de persiana",
-    "roof_material": "Material del sostre",
-    "roof_maintenance-1": "Manteniment del sostre",
-    "roof_maintenance-2": "Manteniment del sostre",
-    "fire_reaches_building": "El foc prop de l'edifici",
-    "fuels_close_to_building": "Combustible a prop de l'edifici",
-    "fuels_glazing_systems": "Combustibles davant dels sistemes de vidre",
-    "fuels_roof": "Combustibles davant de la teulada",
-    "fuels_combustible_facade": "Combustibles emmagatzemats contra façana combustible",
-    "surface_fuels": "Combustibles superficials",
-    "artificial_fuels": "Combustibles artificials",
-    "fuelsLPG": "Combustibles davant del dipòsit de GPL",
-    "fuel_close_to_trees": "Separació entre combustibles artificials",
-    "space_art_fuels": "Combustibles prop dels arbres",
-    "vegetation": "Vegetació",
-    "wildland_vegetation": "Vegetació salvatge",
-    "vegetation_type": "Tipus de vegetació",
-    "vegetation_continuity": "Continuïtat de la vegetació",
-    "surface_fuel_depth": "Profunditat del combustible superficial",
-    "dead_vegetation": "Vegetació morta",
-    "tree_pruning": "Poda d'arbres",
-    "property_perimeter": "Perímetre de la propietat",
-    "details": "Detalls",
-    "hide": "Ocultar",
-    "hazard": "Factor Hazard",
-    "hazard_info": "Aquest valor depèn de la localització de casa seva.",
-    "house_vulnerability": "Vulnerabilitat casa",
-    "risk_info": "Aquest valor depen del factor Hazard i el risc de la teva casa.",
-    "calculating": "Calculant el resultat",
-    "improve": "Millora-ho!",
-    "mitigations_actions": "Accions de millora",
-    "no_mitigations": "No hi ha accions de millora disponible",
-    "selectedOption": "L'opció que havies escollit és: ",
-    "actualSituation": "SITUACIÓ ACTUAL",
-    "applyImprovement": "APLICACIÓ DE MILLORES",
-    "improveOptions": "Millora la vulnerabilitat seleccionant una de les següents opcions: ",
-    "totalVulnerability": "Vulnerabilitat total",
-    "before": "Abans",
-    "now": "Ara",
-    "european_countries": {
+    "warning_unfilled_name": "Si us plau, introdueix el nom de la casa",
+    "warning_unfilled_address": "Si us plau, introdueix l'adreça de la casa",
+    "warning_unselected_country": "Si us plau, selecciona el país de la casa",
+    "warning_house_name_exists": "Aquest nom de casa ja existeix",
+    "unable_to_get_latlong_title": "No es pot obtenir la localització",
+    "unable_to_get_latlong_message": "Si us plau, comproveu la vostra connexió a Internet. Intenteu editar la vostra adreça i seleccioneu un dels suggeriments o editeu-lo més tard. Podeu continuar sense la ubicació, però els resultats poden no ser precisos.",
+    "try_again": "Reintentar",
+    "accept": "Acceptar",
+    
+   "european_countries": {
         "albania": "Albània",
         "andorra": "Andorra",
         "armenia": "Armènia",
@@ -164,351 +74,506 @@
         "unitedKingdom": "Regne Unit",
         "vaticanCity": "Ciutat del Vaticà"
     },
-    "material-1": {
-        "title": "Materials de façana",
-        "question": "Quins materials hi ha a l'envoltant exterior de l'edifici (és a dir, parets exteriors, balcons, porxos, etc.)? (excepte persianes)",
-        "description": "Els elements combustibles de façana (per exemple, fusta, vinil) són vulnerables a tot tipus d'encesa d'incendi forestal. Fins i tot els focs o les flames de baixa intensitat poden encendre un element de façana de fusta o vinil, mentre que els maons i els elements de formigó resisteixen molt millor al foc. Els porxos de fusta comporten una gran superfície horitzontal sobre la qual poden aterrar les tintes (partícules ardents que provenen del foc). El seu contacte proper amb el terra del jardí també els fa vulnerables al contacte directe de la flama.",
-        "timber": "Fusta",
-        "vinylSiding": "Revestiment de vinil",
-        "concreteBricks": "Formigó o maons",
-        "Other": "Altres"
+    
+    "more_info_title": "Sobre Fireprime",
+    "fireprime": "Fireprime",
+    "about_intro": "Autoavaluació del risc d'incendi forestal a escala de parcel·la",
+    "about_text": "Aquesta aplicació ha estat desenvolupada en el marc del projecte FIREPRIME, cofinançat per la Unió Europea. L'algoritme d'anàlisi de risc integrat ha estat creat pels grups de recerca UPC-CERTEC, RISE i BOKU, mentre que la seva implementació ha estat realitzada pel grup UPC-GESSI.",
+    "privacy_title": "Privacitat de dades",
+    "privacy_text": "La informació introduïda s'emmagatzema localment al dispositiu i no es comparteix amb tercers. Es poden eliminar les dades en qualsevol moment suprimint l'aplicació. Només es registren de manera anònima les interaccions amb l'aplicació.",
+
+    "last_evaluation": "Última avaluació",
+    "date": "Data",
+    "risk": "Risc",
+    "no_results_available": "No hi ha resultats",
+
+    "start_questionnaire_intro": "Comprova la vulnerabilitat de la teva casa amb un qüestionari!",
+    "update_questionnaire_intro": "Actualitza les respostes del qüestionari",
+    "continue_questionnaire_intro": "Continua el qüestionari per comprobar la vulnerabilitat de la teva casa",
+    
+    "results_history_intro": "Consulta el teu històric de resultats",
+
+    "delete_house_warning_intro": "Estàs segur que vols eliminar aquesta casa?",
+    "delete_house_warning_text": "En eliminar la casa també s'eliminarà tota la informació relativa a les avaluacions de risc i no es podrà recuperar.",
+
+    "unable_to_get_latlong_message_house": "Aquesta casa no té informació d'ubicació. Si us plau, comproveu la vostra connexió a Internet. Editeu l'adreça i seleccioneu un dels suggeriments. Podeu continuar sense la ubicació, però els resultats poden no ser precisos.",
+    "edit": "Editar",
+
+    "details": "Detalls",
+    "check": "Comprovar",
+    "update": "Actualitzar",
+    "continue": "Continuar",
+    "myResults": "Resultats",
+
+    "edit_house": "Editar casa",
+    "delete_house": "Eliminar casa",
+    "cancel": "Cancel·lar",
+    "delete": "Eliminar",
+
+    "edit_house_intro": "Edita la informació de la casa",
+    
+    "save": "Guardar",
+
+    "questionnaire": "Qüestionari",
+    "questionnaire_intro": "El qüestionari consta de dues parts: la primera se centra en les característiques de l'edifici i la segona en el seu entorn.",
+    "next": "Següent",
+    "questionnaire_finish_text": "Comprova el resultat!", 
+    "done": "Fet!",
+    
+    "show_description": "Mostrar detalls",
+    "hide_description": "Ocultar detalls",
+    "max_multiple_choices": "Pots seleccionar com a màxim fins a {} opcions",
+
+    "calculating":"Calculant el resultat",
+    
+    "result": "Resultat",
+    "result_intro": "Nivell de risc",
+
+    "risk_info": "Aquest valor depen del factor Hazard i el risc de la teva casa.",
+    "hazard_info": "Aquest valor depèn de la localització de casa seva.",
+    "hazard": "Perill d'incendi forestal",
+    "house_vulnerability": "Vulnerabilitat de casa vostra",
+    "exterior_envelope": "Materials de la façana",
+    "non_combustible_foundation": "Recobriment de la façana adjacent a terra",
+    "façade": "Façana",
+    "roof_material": "Material de la teulada",
+    "roof_maintenance-1": "Manteniment de la teulada",
+    "roof_maintenance-2": "Manteniment de la teulada",
+    "roof": "Teulada",
+    "glazing_failure": "Vidres",
+    "shutter_failure": "Persianes",
+    "glazing_systems": "Tancaments de vidre",
+    "vents": "Ventilacions",
+    "semi_confined": "Espais semiconfinats",
+    "fuels_glazing_systems": "Combustibles davant de tancaments de vidre",
+    "fuels_roof": "Combustibles propers a la teulada",
+    "fuels_combustible_facade": "Combustibles en contacte amb la façana",
+    "surface_fuels": "Zona contínua d'herba o matolls",
+    "fuels_close_to_building": "Combustibles propers a l'edifici",
+    "fuelsLPG": "Combustibles a tocar de dipòsits d'hidrocarbur",
+    "space_art_fuels": "Separació entre combustibles no naturals",
+    "fuel_close_to_trees": "Combustibles no naturals propers a vegetació molt inflamable",
+    "artificial_fuels": "Combustibles no naturals dins la parcel·la",
+    "wildland_vegetation": "Vegetació forestal",
+    "vegetation_type": "Grau d'inflamabilitat de la vegetació",
+    "vegetation_continuity": "Continuïtat horitzontal de la vegetació",
+    "tree_pruning": "Continuïtat vertical de la vegetació",
+    "surface_fuel_depth": "Alçada de la zona contínua d'herba o matolls joves",
+    "dead_vegetation": "Vegetació morta",
+    "vegetation": "Combustibles naturals dins la parcel·la",
+    "property_perimeter": "Delimitació de la parcel·la",
+    "slope": "Relleu",
+    "structural_vulnerabilities": "Vulnerabilitats estructurals",
+    "fire_reaches_building": "Perill de propagació del foc fins l'edifici",
+
+    "hazard_vulnerability_text": {
+        "extreme_high_text": "La seva llar es troba en una zona {hazard_level} als incendis forestals i és {vulnerability_level} a ells. Com a resultat, el seu nivell de risc és {risk}. Seguiu les recomanacions proporcionades per millorar la resiliència de la vostra llar i reduir la probabilitat de que es cremi.",
+        "extreme_moderate_text": "La seva llar es troba en una zona {hazard_level} als incendis forestals i és {vulnerability_level} a ells. Com a resultat, el seu nivell de risc és {risk}. Seguiu les recomanacions proporcionades per reduir la probabilitat de que cremi i segueixi fent el manteniment de la propietat.",
+        "high_moderate_text": "La seva llar es troba en una zona {hazard_level} als incendis forestals i és {vulnerability_level} a ells. Com a resultat, el seu nivell de risc és {risk}. Intenti seguir les recomanacions proporcionades per millorar la resiliència de la seva llar i reduir la probabilitat de que es cremi.",
+        "moderate_text": "La seva llar es troba en una zona {hazard_level} als incendis forestals i és {vulnerability_level} a ells. Com a resultat, el seu nivell de risc és {risk}. Procuri seguir les recomanacions proporcionades per reduir la probabilitat que cremi i segueixi fent el manteniment de la propietat.",
+        "extreme_low_text": "La seva llar es troba en una zona {hazard_level} als incendis forestals i és {vulnerability_level} a ells. Com a resultat, el seu nivell de risc és {risk}. Segueixi fent el manteniment de casa seva per mantenir la seva bona resistència contra els incendis forestals i, si és possible, procuri seguir les recomanacions proporcionades.",
+        "low_extreme_high_text": "La seva llar es troba en una zona {hazard_level} als incendis forestals però és {vulnerability_level} a ells. Com a resultat, el seu nivell de risc és {risk}. Procuri seguir les recomanacions proporcionades per millorar la resiliència de la seva llar i reduir la probabilitat de que es cremi.",
+        "low_moderate_text": "La seva llar es troba en una zona {hazard_level} als incendis forestals però és {vulnerability_level} a ells. Com a resultat, el seu nivell de risc és {risk}. Segueixi fent el manteniment de casa seva per mantenir la seva bona resistència contra els incendis forestals i, si és possible, procuri seguir les recomanacions proporcionades.",
+        "low_text": "La seva llar es troba en una zona {hazard_level} als incendis forestals i és {vulnerability_level} a ells. Com a resultat, el seu nivell de risc és {risk}. Segueixi fent el manteniment de casa seva per mantenir la seva bona resistència contra els incendis forestals."
     },
+
+    "hazard_levels": {
+        "extreme": "extremadament propensa",
+        "high": "molt propensa",
+        "moderate": "propensa",
+        "low": "poc propensa"
+    },
+
+    "vulnerability_levels": {
+        "extreme": "altament vulnerable",
+        "high": "molt vulnerable",
+        "moderate": "vulnerable",
+        "low": "poc vulnerable"
+    },
+    
+    "risk_levels": {
+        "extreme": "extrem",
+        "high": "alt",
+        "moderate": "moderat",
+        "low": "baix"
+    },
+
+    "hide": "Ocultar",
+    "mitigation_intro": "Consulta les millores per reduir el risc de casa seva",
+    "check_improvements": "Consulta les millores!",
+    
+    "mitigation_title": "Millores",
+
+  
     "Q1": {
-        "title": "Envoltant exterior",
-        "question": "Quin percentatge de l'envoltant exterior de l'edifici (és a dir, parets externes, balcons - exclosos els porticons) està fet de materials combustibles?",
-        "description": "Els elements de façana combustibles, fets de materials com la fusta o el vinil, són vulnerables a tots els tipus d'ignició per incendis forestals. Els materials no combustibles, com els maons i el formigó, resisteixen molt millor al foc.",
+        "title": "Materials de la façana",
+        "question": "Quin percentatge de la superfície de l'exterior de l'edifici (parets exteriors, balcons - sense tenir en compte persianes o porxos) està fet de materials combustibles?",
+        "description": "La fusta o materials de recobriment de façanes fets a base de plàstics o polímers són combustibles mentre que el formigó, la pedra o els maons són no combustibles, resistents al foc.",
         "100comb": "100% combustible",
-        "more50comb": "Més del 50% o igual combustible",
+        "more50comb": "Més o igual al 50% combustible",
         "less50comb": "Menys del 50% combustible",
         "0comb": "0% Combustible"
     },
     "Q2": {
-        "title": "Envoltant exterior",
-        "question": "Hi ha una fonamentació no combustible?",
-        "description": "Tenir una base no combustible pot prevenir la ignició de l'envoltant en casos en què flames molt baixes (p. ex., foc propagant-se per la gespa) impactin en l'envoltant. Com més alta sigui la base no combustible, menor serà la probabilitat que les flames provinents de combustibles superficials causin la ignició dels elements de l'envoltant combustible.",
-        "height0": "No, la fonamentació també és combustible",
-        "height0to20": "Sí, amb una alçada entre 0 i 20 cm",
-        "height21to40": "Sí, amb una alçada entre 21 i 40 cm",
-        "height41to60": "Sí, amb una alçada entre 41 i 60 cm",
-        "height61to80": "Sí, amb una alçada entre 61 i 80 cm",
-        "height81to100": "Sí, amb una alçada entre 81 cm i 1 m",
-        "heightMore100": "Sí, amb una alçada de més d'1 m"
+        "title": "Materials de la façana",
+        "question": "La part combustible de la façana és adjacent al terra?",
+        "description": "Si la part combustible de la façana és adjacent al terra, tindrà més probabilitat d'ignició si hi arriba el foc.",
+        "height0": "Sí",
+        "height0to20": "No, la part combustible està a una alçada d'entre 0 i 20 cm del terra",
+        "height21to40": "No, la part combustible està a una alçada d'entre 21 i 40 cm del terra",
+        "height41to60": "No, la part combustible està a una alçada d'entre 41 i 60 cm del terra",
+        "height61to80": "No, la part combustible està a una alçada d'entre 61 i 80 cm del terra",
+        "height81to100": "No, la part combustible està a una alçada d'entre 81 cm i 1m del terra",
+        "heightMore100": "No, la part combustible està a una alçada superior a 1 m"
     },
     "Q3": {
-        "title": "Coberta",
-        "question": "La coberta o l'assemblatge de la teva teulada està fet de materials resistents al foc (per exemple, rajoles de fang, rajoles de formigó, teules de composició de fibra de vidre d'asfalt, pissarra, etc.)?",
-        "description": "La coberta és l'element de l'edifici més exposat a la radiació provinent dels incendis forestals i a l'impacte de brases, que són partícules enceses que provenen del foc. Les cobertes fetes de materials amb classificació contra el foc resisteixen millor aquesta exposició.",
+        "title": "Teulada",
+        "question": "La teulada està feta de materials resistents al foc (e.g. teules de ceràmica, teules de formigó, teules de pissarra, etc.)?",
+        "description": "",
         "roofFireRated": "Sí",
-        "roofNonFireRated": "No, algunes parts estan fetes de materials no resistents al foc (per exemple, fusta)"
+        "roofNonFireRated": "No, la teulada inclou algun material no resistent al foc (e.g. fusta)"
     },
     "Q4-1": {
-        "title": "Coberta",
-        "question": "La teva coberta presenta algun dels següents problemes? \n- Rajoles trencades o que falten \n- Làmines exposades \n- Espais no segellats entre la coberta i les parets exteriors \n- La neteja de les deixalles acumulades a la teulada o canalons no es realitza regularment",
-        "description": "Quan la coberta presenta buits, la estructura inferior queda exposada al foc. El foc també pot entrar per espais no segellats entre la teulada i les parets externes. La neteja de deixalles de la teulada i dels canals és clau per evitar l'encesa de combustibles que s'hi puguin acumular (per exemple, agulles de pi seques).",
+        "title": "Teulada",
+        "question": "La teulada presenta alguna de les següents característiques? \n- Teules trencades o absència d'alguna d'elles \n- Aïllament exposat \n- Espais no segellats entre la teulada i la façana \n- Restes vegetals o deixalles acumulades a la teulada o canals",
+        "description": "",
         "roofPoorlyMaintaned-1": "Sí",
         "roofWellMaintained-1": "No"
     },
     "Q4-2": {
-        "title": "Coberta",
-        "question": "La teva coberta presenta algun dels següents problemes? \n- Rajoles trencades o que falten \n- Làmines exposades \n- Espais no segellats entre la coberta i les parets exteriors \n- La neteja de les deixalles acumulades a la teulada o canalons no es realitza regularment",
-        "description": "Quan la coberta presenta buits, la estructura inferior queda exposada al foc. El foc també pot entrar per espais no segellats entre la teulada i les parets externes. La neteja de deixalles de la teulada i dels canals és clau per evitar l'encesa de combustibles que s'hi puguin acumular (per exemple, agulles de pi seques).",
+        "title": "Teulada",
+        "question": "La teulada presenta alguna de les següents característiques? \n- Teules trencades o absència d'alguna d'elles \n- Aïllament exposat \n- Espais no segellats entre la teulada i la façana \n- Restes vegetals o deixalles acumulades a la teulada o canals",
+        "description": "",
         "roofPoorlyMaintaned-2": "Sí",
         "roofWellMaintained-2": "No"
     },
     "Q5": {
-        "title": "Vidres",
-        "question": "Quin és el tipus de vidre de les finestres i portes de vidre?",
-        "description": " Les finestres i les portes de vidre són sovint un dels elements més exposats al foc. Els sistemes de vidre trencat són punts d'entrada per a les brases i la calor, la qual cosa pot provocar l'encesa de combustibles dins la casa. Els sistemes de vidre simple resisteixen menys al foc i la calor comparats amb els sistemes de vidre doble o múltiple o amb el vidre temperat. Si l'edifici presenta més d'un tipus de sistema de vidre, selecciona l'opció més representativa.",
+        "title": "Tancaments de vidre",
+        "question": "Quin és el tipus de vidre més comú en els tancaments amb vidre presents en l'edifici?",
+        "description": "El vidre és un material vulnerable al foc. Una manera de millorar-ne la resistència és posant diferents làmines (vidre doble o triple) o posant vidres amb tractaments especials (vidre temperat). Si el vostre edifici presenta més d'un tipus de tancament de vidre, seleccioneu el més representatiu.",
         "singlePane": "Vidre simple",
-        "doublePane": "Vidre doble o múltiple",
+        "doublePane": "Doble/triple vidre",
         "tempered": "Vidre temperat"
     },
     "Q6": {
-        "title": "Vidres",
-        "question": "Tots els sistemes de vidre estan protegits amb persianes? Si és així, de quin material estan fetes les persianes?",
-        "description": "Si les finestres estan protegides amb persianes, la calor rebuda pel vidre es redueix, augmentant les possibilitats que el vidre no es trenqui. Les persianes de fusta i PVC són combustibles i podrien encendre's o fondre's (en el cas del PVC). Les persianes d'alumini i amb classificació de resistència al foc (per exemple, d'acer) han demostrat resistir bé a l'exposició al foc forestal. Per bloquejar la calor provinent del foc, les persianes i els làmines haurien d'estar completament tancades.",
-        "noShutters": "No tots els sistemes de vidre estan protegits amb persianes",
+        "title": "Tancaments de vidre",
+        "question": "Tots els tancaments de vidre tenen protecció amb persianes? En cas afirmatiu quin és el material de les persianes?",
+        "description": "Les persianes poden protegir els vidres dels impactes del foc. Cal tenir en compte que per bloquejar la calor emesa per l'incendi, les persianes i els ventalls de les persianes han d'estar completament tancats.",
+        "noShutters": "No tots els tancaments de vidre estan protegits amb persianes",
         "woodShutters": "Fusta",
         "pvcShutters": "PVC",
         "aluminiumShutters": "Alumni",
         "fireRatedShutters": "Materials resistents al foc"
     },
     "Q7": {
-        "title": "Ventilació",
-        "question": "Té obertures de ventilació sense protecció (és a dir, ventilacions sense cap tipus de reixeta)?",
-        "description": "Les obertures de ventilació són possibles punts d'entrada per a brases que podrien encendre l'edifici des de l'interior. Els tipus típics de respiradors que es troben a les cases són les obertures al sostre per a la ventilació de les golfes (per exemple, rajoles de ventilació, respiradors a la carena), xemeneies i obertures per a la ventilació de cuines.",
+        "title": "Ventilacions",
+        "question": "Quin tipus de protecció tenen les obertures de ventilació?",
+        "description": "Les ventilacions són obertures situades a les teulades per ventilar els àtics, xemeneies i obertures per ventilar la cuina. Si teniu diverses ventilacions (protegides o no), escolliu la resposta més representativa.",
         "noVents": "No hi ha ventilacions",
-        "noVentProtection": "No hi ha protecció a les ventilacions",
+        "noVentProtection": "Les ventilacions no tenen protecció",
         "ventCombProtection": "La protecció és combustible",
-        "nonCombGoodCond": "La protecció no és combustible i està en bones condicions (sense danys)",
-        "nonCombBadCond": "La protecció no és combustible, però està oxidada o danyada"
-    },
-    "vents-2": {
-        "title": "Ventilació",
-        "question": "Quin tipus de protecció de ventilació hi ha?",
-        "description": "Els conductes de ventilació s'han de tapar amb malles de filferro resistents a la corrosió i no combustibles (per exemple, alumini, acer galvanitzat, acer inoxidable, coure, recobriment intumescent), amb una longitud característica prou petita per evitar el pas de tintes (< 2 mm).",
-        "combustibleProtection": "Combustible"
+        "nonCombGoodCond": "La protecció és no combustible i es troba en bon estat",
+        "nonCombBadCond": "La protecció és no combustible però es troba en mal estat (rovellada o trencada)"
     },
     "Q8": {
-        "title": "Espai semi-confinat",
-        "question": "Hi ha un espai semi-confinat adjacent a la teva casa (és a dir, que comparteix almenys una paret amb la casa) que contingui materials combustibles?",
-        "description": "Els espais semi-confinats són àrees parcialment obertes, com les situades sota terrasses, porxos, tarimes, ràfecs o marquesines, o espais tancats en coberts oberts. La presència de materials combustibles en aquests espais suposa una gran acumulació de calor, si aquests materials s'encenen, la qual cosa pot provocar danys estructurals a l'envolvent de l'espai semi-confinat.",
+        "title": "Espais semiconfinats adjacents a l'edifici",
+        "question": "Hi ha un espai semiconfinat adjacent a l'edifici (que tingui com a mínim una paret en comú) que contingui objectes combustibles?",
+        "description": "Els espais semiconfinats són espais oberts, com ara porxos, espais sota terrasses o entarimats, espais sota tendals, o espais tancats en coberts on sovint hi ha presència d'elements combustibles (mobiliari, acumulacions de fusta, etc.).",
         "yesSemiConf": "Sí",
         "noSemiConf": "No"
     },
     "Q9": {
-        "title": "Espai semi-confinat",
-        "question": "Hi ha algun sistema de vidre no protegit (és a dir, sense persianes) (per exemple, portes de vidre o finestres) que connecti l'espai semi-confinat amb l'interior de l'edifici?",
-        "description": "Els sistemes de vidre no protegits són un element molt feble pel que fa a la resistència al foc. Si els elements dins l'espai semi-confinat s'encenen, el vidre podria trencar-se i permetre l'entrada del foc dins l'edifici.",
+        "title": "Espais semiconfinats adjacents a l'edifici",
+        "question": "Hi ha algun tancament de vidre (e.g. finestres o portes) desprotegit (sense persianes) que connecti l'espai semiconfinat amb l'interior de l'edifici?",
+        "description": "",
         "glazingSystemsSinglePane": "Sí, amb vidre simple",
-        "glazingSystemsMultiplePane": "Sí, amb vidre multiple",
+        "glazingSystemsMultiplePane": "Sí, amb vidre doble/triple",
         "glazingSystemsTempered": "Sí, amb vidre temperat",
         "noGlazingSystems": "No"
     },
     "Q10": {
-        "title": "Espai semi-confinat",
-        "question": "De quins materials estan fetes les parets de l'espai semi-confinat?",
-        "description": "Els materials combustibles de l'espai semi-confinat són els més febles al foc, ja que es poden encendre i provocar la propagació del foc per l'envoltant i cap a l'interior de l'edifici. Els materials no combustibles, com l'alumini o l'acer, són més resistents, però encara podrien fondre's o perdre força quan s'exposen a una dosi de calor prou gran. Els materials no combustibles com els maons o el formigó són els més resistents als efectes del foc.",
-        "combustibleEnvelope": "Materials combustibles (per exemple, fusta, revestiment de vinil)",
-        "nonCombThin": "Materials no combustibles com l'alumini o l'acer (per exemple, persianes sense vidre, com ara una porta de garatge)",
-        "nonCombThick": "Materials no combustibles com ara maons o formigó."
+        "title": "Espais semiconfinats adjacents a l'edifici",
+        "question": "De quin material està fet l'exterior de la façana de l'edifici compartit amb l'espai semiconfinat?",
+        "description": "",
+        "combustibleEnvelope": "Material combustible (e.g. fusta, revestiments plàstics)",
+        "nonCombThin": "Material no combustible com l'acer o l'alumini ",
+        "nonCombThick": "Materials no combustibles com els maons o el formigó"
     },
     "I1": {
-        "title": "Entorn de la casa",
-        "text": "A continuació, respondràs preguntes sobre l'entorn de la teva casa"
+        "title": "Entorn de l'edifici",
+        "text": "A continuació, respondràs preguntes sobre les característiques de l'entorn de l'edifici"
     },
     "Q11-1": {
-        "title": "Combustibles",
-        "question": "Els combustibles, com la vegetació ornamental o altres tipus d'elements combustibles, es troben a almenys 7 m dels sistemes de vidre?",
-        "description": "A causa de la debilitat dels sistemes de vidre davant del foc, es recomana col·locar els combustibles (vegetació o altres elements combustibles) tan lluny com sigui possible dels sistemes de vidre. També s'haurien de considerar les terrasses i tarimes de fusta en aquesta pregunta, ja que impliquen una gran superfície horitzontal sobre la qual poden caure brases (partícules enceses que provenen del foc). El seu contacte proper amb el sòl del jardí també les fa vulnerables al contacte directe amb les flames.",
-        "7farFromGlazing": "Sí",
-        "7closeToGlazing": "No"
+        "title": "Entorn de l'edifici",
+        "question": "Hi ha vegetació o altres elements combustibles col·locats dins d'un radi de 7 metres a tocar dels tancaments de vidre? (si teniu un entarimat de fusta dins d'aquest radi, també compta com a material combustible)",
+        "description": "",
+        "7closeToGlazing": "Sí",
+        "7farFromGlazing": "No"
+        
     },
     "Q11-2": {
-        "title": "Combustibles",
-        "question": "Tots els combustibles (vegetació o altres tipus d'elements combustibles) es troben a almenys 5 m dels sistemes de vidre?",
-        "description": "A causa de la debilitat dels sistemes de vidre davant del foc, es recomana col·locar els combustibles (vegetació o altres elements combustibles) tan lluny com sigui possible dels sistemes de vidre. També s'haurien de considerar les terrasses i tarimes de fusta en aquesta pregunta, ja que impliquen una gran superfície horitzontal sobre la qual poden caure brases (partícules enceses que provenen del foc). El seu contacte proper amb el sòl del jardí també les fa vulnerables al contacte directe amb les flames.",
-        "5farFromGlazing": "Sí",
-        "5closeToGlazing": "No"
+        "title": "Entorn de l'edifici",
+        "question": "Hi ha vegetació o altres elements combustibles col·locats dins d'un radi de 5 metres a tocar dels tancaments de vidre? (si teniu un entarimat de fusta dins d'aquest radi, també compta com a material combustible)",
+        "description": "",
+        "5closeToGlazing": "Sí",
+        "5farFromGlazing": "No"
+        
     },
     "Q12": {
-        "title": "Combustibles",
-        "question": "Els combustibles, com la vegetació ornamental o altres tipus d'elements combustibles, es troben a almenys 5 m de la teulada?",
-        "description": "A causa de la vulnerabilitat de la teulada davant del foc, es recomana col·locar els combustibles (vegetació o altres elements combustibles) a almenys 5 m de la teulada. Això inclou els arbres que poden tenir branques que pengen per sobre de la teulada.",
-        "farFromRoof": "Sí",
-        "closeToRoof": "No"
+        "title": "Entorn de l'edifici",
+        "question": "Hi ha vegetació o altres elements combustibles dins d'un radi de 5 metres a tocar d'elements combustibles adjacents a la teulada (e.g. ràfecs de fusta, canaletes de PVC per recollir aigües pluvials)?",
+        "description": "Les branques d'arbres que pengen sobre la teulada s'han de considerar com a combustible a prop de la teulada.",
+        "closeToRoof": "Sí",
+        "farFromRoof": "No",
+        "noCombElem": "No hi ha elements combustibles adjacents a la teulada"
     },
     "Q13": {
-        "title": "Combustibles",
-        "question": "Els combustibles (vegetació artificial i inflamable) estan col·locats de manera que no es trobin directament contra la façana que conté elements combustibles? (això inclou tarimes combustibles).",
-        "description": "Quan la façana inclou elements combustibles, és important no emmagatzemar combustibles contra la façana ni tenir-hi vegetació.",
-        "fuelsAgainstFacade": "Sí",
-        "fuelsNotAgainstFacade": "No"
+        "title": "Entorn de l'edifici",
+        "question": "Teniu elements combustibles que toquin directament la façana? (si teniu un entarimat de fusta adjacent a una façana totalment o parcialment combustible, considereu-lo també en l'anàlisi)",
+        "description": "",
+        "fuelsNotAgainstFacade": "Sí",
+        "fuelsAgainstFacade": "No"
     },
     "Q14": {
-        "title": "Combustibles",
-        "question": "Hi ha discontinuïtat d'elements combustibles superficials dins dels 10 m de l'edifici?",
-        "description": "Una capa superficial no contínua ajuda a alentir o aturar la propagació del foc a través de combustibles superficials com l'herba, la fullaraca o el mulch combustible. Per evitar la continuïtat del combustible, es poden utilitzar materials com grava o còdols.",
-        "discontSurf": "Sí",
-        "contSurf": "No"
+        "title": "Entorn de l'edifici",
+        "question": "Teniu, dins d'un radi de 10 m a tocar de les façanes, una zona contínua de combustible natural (herbes o matolls) per on el foc pugui propagar?",
+        "description": "Un exemple d'una superfície contínua de combustible és una jardí d'herba que no té cap interrupció dins un radi de 10 metres al voltant de l'edifici.",
+        "contSurf": "Sí",
+        "discontSurf": "No"
     },
     "Q15": {
-        "title": "Combustibles aritificials",
-        "question": "Els materials combustibles (per exemple, vegetació, espais d'emmagatzematge, sistemes de construcció combustibles) es troben a almenys 2 m d'un dipòsit de gas liquat de petroli (GLP) sobre el terra (això també inclou bidons amb un volum total > 0,5 m³)?",
-        "description": "Quan un dipòsit de gas liquat de petroli (GLP) domèstic sobre el terra s'exposa a la calor d'un incendi, el dipòsit s'escalfa i augmenta la pressió. Si la pressió del dipòsit arriba al punt de configuració de la vàlvula de seguretat (PRV), aquesta s'obrirà, alliberant GLP que s'encendrà immediatament formant un foc a raig, que empitjorarà la càrrega tèrmica al dipòsit i als seus voltants. En el pitjor dels casos, això pot evolucionar cap a una explosió i l'encesa d'objectes circumdants. Per tant, és millor no tenir combustibles situats a menys de 2 m del dipòsit.",
-        "farFromLPG": "Sí",
-        "closeToLPG": "No",
-        "noLPG": "No aplicable"
+        "title": "Entorn de l'edifici",
+        "question": "Hi ha materials combustibles (e.g. vegetació o altres elements no naturals), situats dins d'un radi de 2 metres a tocar d'un dipòsit d'hidrocarbur (e.g. dipòsits de GLP, bombones de gas de volum superior a 0,5 m3)?",
+        "description": "",
+        "closeToLPG": "Sí",
+        "farFromLPG": "No",
+        "noLPG": "No aplicable, no hi ha dipòsit d'hidrocarbur"
     },
     "Q16": {
-        "title": "Combustibles aritificials",
-        "question": "La distància entre els combustibles artificials o paquets de combustible és almenys de 5 m?",
-        "description": "Encara que es trobin lluny de l'incendi forestal, els combustibles encara poden encendre's per brases. És important que els combustibles o els paquets de combustible es trobin a almenys 5 m els uns dels altres, de manera que si s'encén un, el foc no es propagui als altres combustibles",
+        "title": "Entorn de l'edifici",
+        "question": "Identifiqueu quins elements combustibles no naturals teniu a prop de l'edifici (e.g. mobiliari de jardí, casetes d'eines o d'animals, pèrgoles, coberts, etc.). Hi ha garantida una separació de 5 metres entre tots ells?",
+        "description": "",
         "spacingMore5": "Sí",
         "spacingLess5": "No",
-        "noSpacing": "No aplicable"
+        "noSpacing": "No aplicable (no hi ha elements combustibles no naturals a prop de l'edifici)"
     },
     "Q17": {
-        "title": "Combustibles aritificials",
-        "question": "En el cas de vegetació salvatge formada principalment per arbres situats a més de 30 m de l'edifici, els combustibles artificials situats a la zona d'encesa de la llar estan col·locats a una distància mínima de 20 m d'aquests arbres?",
-        "description": "Quan la vegetació salvatge s'encén, pot cremar-se amb una intensitat molt alta. Per evitar la propagació del foc d'aquesta vegetació cap a altres combustibles, es recomana col·locar els combustibles artificials a almenys 20 m dels arbres salvatges.",
-        "placedFurther20": "Sí",
-        "placedIn20": "No",
-        "noPlacement": "No aplicable"
+        "title": "Entorn de l'edifici",
+        "question": "Identifiqueu quins elements combustibles no naturals teniu a prop de l'edifici (e.g. mobiliari de jardí, casetes d'eines o d'animals, pèrgoles, coberts, etc.). Es troben alguns d'aquests elements a menys de 20 m de distància d'una àrea amb vegetació molt inflamable (e.g. matollar molt dens, bosc amb espècies com ara pins, eucaliptus, etc.)?",
+        "description": "",
+        "placedIn20": "Sí",
+        "placedFurther20": "No",
+        "noPlacement": "No aplicable (no hi ha elements artificials combustibles a prop de l'edifici o no hi ha una àrea amb vegetació molt inflamable a tocar de casa)"
     },
     "Q18": {
-        "title": "Vegetació",
-        "question": "Tota la vegetació salvatge està situada a almenys 30 m de l'edifici?",
-        "description": "Quan s'encén, la vegetació salvatge pot cremar-se amb una intensitat molt alta. Per tant, es recomana reduir la quantitat de vegetació salvatge tant com sigui possible en un radi de 30 m al voltant de l'edifici.",
-        "noVegIn30": "Sí",
-        "vegIn30": "No"
+        "title": "Entorn de l'edifici",
+        "question": "Es troba l'edifici a menys de 30 metres de distància d'una àrea forestal (e.g. considereu com a àrea forestal àrees de pastura, matollars o bosc)?",
+        "description": "",
+        "vegIn30": "Sí",
+        "noVegIn30": "No"
     },
     "Q19": {
-        "title": "Vegetació",
-        "question": "Quin tipus de vegetació hi ha a menys de 30 m de l'edifici?",
-        "description": "Es recomana no tenir espècies altament inflamables a la propietat o dins de 30 m de l'edifici. Exemples d'aquestes espècies són: pins, eucaliptus, xiprers.",
-        "highFlam": "Altament inflamable (ex. pins, eucaliptus, xiprers, llorers)",
-        "mediumFlam": "Amb inflamabilitat mitjana (ex. baladre)",
-        "lowFlam": "Amb baixa inflamabilitat (ex. oliveres, lavanda, cítrics)",
-        "noVeg": "No hi ha vegetació"
+        "title": "Entorn de l'edifici",
+        "question": "Fixeu-vos en els arbres i arbustos en un radi de 30 metres al voltant de l'edifici.  Quin tipus de vegetació hi predomina?",
+        "description": "",
+        "highFlam": "Molt inflamable (e.g. pins, eucaliptus, xiprers)",
+        "mediumFlam": "Moderadament inflamable (e.g. baladre, llentiscle)",
+        "lowFlam": "Poc inflamable (e.g. oliveres, cítrics)",
+        "noVeg": "No aplicable (no hi ha arbres ni arbustos en un radi de 30 metres al voltant de l'edifici)"
     },
     "Q20": {
-        "title": "Vegetació",
-        "question": "Hi ha discontinuïtat entre les capçades dels arbres, arbusts, tanques i altres vegetacions?",
-        "description": "La vegetació situada a menys de 30 m de l'edifici s'hauria de tractar per crear discontinuïtat i reduir la intensitat del foc i la seva propagació a través de la vegetació. Això ajuda a crear un espai defensable al voltant de l'edifici, on la vegetació es modifica i es gestiona per trencar la continuïtat i reduir la quantitat de combustible disponible per al foc.",
+        "title": "Entorn de l'edifici",
+        "question": "Fixeu-vos en els arbres i arbustos en un radi de 30 metres al voltant de l'edifici. Hi ha discontinuïtat horitzontal entre ells?",
+        "description": "",
         "discontVeg": "Sí",
         "contVeg": "No",
-        "noApplicableDiscVeg": "No aplicable"
+        "noApplicableDiscVeg": "No aplicable (no hi ha arbres ni arbustos en un radi de 30 metres al voltant de l'edifici)"
     },
     "Q21": {
-        "title": "Vegetació",
-        "question": "Els combustibles superficials baixos (per exemple, gespa) tenen una profunditat màxima de 10 cm?",
-        "description": "La presència d'una gespa és un paràmetre important per a la supervivència d'una estructura durant un incendi forestal, ja que proporciona distància entre els combustibles salvatges i l'edifici. Es recomana segar la gespa a una longitud màxima de 10 cm.",
-        "lowSurfaceLess10": "Sí",
-        "lowSurfaceMore10": "No",
-        "noLowSurface": "No aplicable"
-    },
-    "Q22": {
-        "title": "Vegetació",
-        "question": "Hi ha vegetació morta o deixalles vegetals?",
-        "description": "La vegetació morta o les deixalles vegetals s'haurien d'eliminar periòdicament dins l'àrea de 30 m al voltant de l'edifici. Aquests combustibles estan molt secs i s'encendran fàcilment quan arribin les flames.",
-        "deadVeg": "Sí",
-        "noDeadVeg": "No",
-        "noApplicableDeadVeg": "No aplicable"
-    },
-    "Q23": {
-        "title": "Vegetació",
-        "question": "Els arbres estan podats?",
-        "description": "Les branques dels arbres s'haurien de podar per augmentar la separació vertical entre els combustibles a nivell de terra i la capçada.",
+        "title": "Entorn de l'edifici",
+        "question": "Fixeu-vos en els arbres i arbustos en un radi de 30 metres al voltant de l'edifici. Hi ha discontinuïtat vertical entre ells?",
+        "description": "La presència de branques baixes dels arbres pot afavorir a la continuïtat vertical de combustible si a sota d'aquestes hi ha vegetació com ara arbustos o herba.",
         "purning": "Sí",
         "noPurning": "No",
-        "noApplicablePurning": "No aplicable"
+        "noApplicablePurning": "No aplicable (no hi ha arbres ni arbustos en un radi de 30 metres al voltant de l'edifici)"
+    },
+    "Q22": {
+        "title": "Entorn de l'edifici",
+        "question": "Quina alçada té la zona contínua de combustible natural (herbes o matolls joves) que envolta l'edifici?",
+        "description": "",
+        "lowSurfaceLess10": "Menys de 10 cm d'alçada",
+        "lowSurfaceMore10": "Més de 10 cm d'alçada"
+    },
+    "Q23": {
+        "title": "Entorn de l'edifici",
+        "question": "Hi ha vegetació morta o restes de vegetació (fullaraca, restes de poda) a menys de 30 metres de la casa?",
+        "description": "",
+        "deadVeg": "Sí",
+        "noDeadVeg": "No",
+        "noApplicableDeadVeg": "No aplicable (no hi ha vegetació a menys de 30 metres de l'edifici)"
     },
     "Q24": {
-        "title": "Perímetre de la propietat",
-        "question": "Què s'utilitza per delimitar la teva propietat i separar-la de les veïnes?",
-        "description": "Els murs o tanques de separació poden ajudar a protegir la propietat de les flames i la radiació provinents de les propietats veïnes quan estan fets de materials no combustibles, com el formigó o els maons, i quan tenen una alçada suficient.",
+        "title": "Entorn de l'edifici",
+        "question": "Quina és la delimitació predominant entre la vostra parcel·la i les veïnes?",
+        "description": "",
         "woodenFence": "Tanca de fusta",
-        "hedgerowHigh": "Tanca vegetal (alta inflamabilitat)",
-        "hedgerowLow": "Tanca vegetal (baixa inflamabilitat)",
-        "metalPosts": "Tanca amb pilars metàl·lics",
+        "hedgerowHigh": "Tanca d'arbusts (molt inflamables - e.g., xiprers, bruc)",
+        "hedgerowLow": "Tanca d'arbusts (poc inflamables - e.g. llorer-cirer)",
+        "metalPosts": "Tanca de barrots metàl·lics",
         "chainLink": "Tanca de filferro",
-        "concreteMore2": "Tanca de formigó (almenys 2 m d'alçada)",
-        "concreteLess2": "Tanca de formigó (menys de 2 m d'alçada)",
-        "noDelimitation": "No hi ha tanca o delimitació física"
+        "concreteMore2": "Tanca/paret d'obra o metàl·lica(com a mínim 2m d'alt)",
+        "concreteLess2": "Tanca/paret d'obra o metàl·lica (menys de 2m d'alt)",
+        "noDelimitation": "No hi ha tanca o separació física"
     },
     "Q25": {
-        "title": "Property perimeter and location within the landscape",
-        "question": "What type of terrain is your property located on?",
+        "title": "Entorn de l'edifici",
+        "question": "En quin tipus de relleu es troba la vostra parcel·la?",
         "description": "",
-        "flatTerrain": "Flat terrain",
-        "midSlope": "Mid-slope",
-        "upperSlope": "Upper slope"
-    },
-    "material-2-images": {
-        "austria-material-2_1": "Edificis totalment de fusta",
-        "austria-material-2_3": "Edificis parcialment de fusta",
-        "austria-material-2_5": "Elements de fusta",
-        "austria-material-2_7": "Edificis de fusta adjunts"
+        "flatTerrain": "Pla",
+        "midSlope": "A mitja pendent",
+        "upperSlope": "A dalt de la carena"
     },
     "Q1-images": {
-        "spain-Q1_1": "Exemple d'una façana que és més del 50% combustible",
-        "default-Q1_1": "Exemple d'una façana que és més del 50% combustible",
-        "spain-Q1_2": "Exemple d'una façana que és menys del 50% combustible",
-        "default-Q1_2": "Exemple d'una façana que és menys del 50% combustible",
-        "spain-Q1_3": "Exemple d'una façana que és 0% combustible",
-        "default-Q1_3": "Exemple d'una façana que és 0% combustible"
+        "spain-Q1_1": "Exemple de façana amb més d'un 50% de material combustible",
+        "spain-Q1_2": "Exemple de façana amb menys d'un 50% de material combustible",
+        "spain-Q1_3": "Exemple de façana que és 0% combustible",
+        "default-Q1_1": "Exemple de façana amb més d'un 50% de material combustible",
+        "default-Q1_2": "Exemple de façana amb menys d'un 50% de material combustible",
+        "default-Q1_3": "Exemple de façana que és 0% combustible"
     },
     "Q2-images": {
-        "spain-Q2_1": "Habitatge amb una façana combustible i una base no combustible amb una altura de més d’1 m",
-        "default-Q2_1": "Habitatge amb una façana combustible i una base no combustible amb una altura de més d’1 m"
+        "spain-Q2_1": "Casa amb la part combustible de la façana a més d'1 metre d'alçada",
+        "default-Q2_1": "Casa amb la part combustible de la façana a més d'1 metre d'alçada"
     },
     "Q3-images": {
-        "spain-Q3_1": "Exemple de rajoles de fang",
-        "spain-Q3_2": "Exemple de rajoles de formigó",
-        "default-Q3": "Exemple de rajoles de formigó"
+        "spain-Q3_1": "Exemple de teules de ceràmica",
+        "spain-Q3_2": "Exemple de teules de pissarra",
+        "default-Q3_1": "Exemple de teules de ceràmica",
+        "default-Q3_2": "Exemple de teules de pissarra"
+        
     },
     "Q4-1-images": {
-        "spain-Q4_1": "Exemple d'acumulació de deixalles al sostre i canalons",
-        "spain-Q4_2": "Exemple de rajoles de fang ben col·locades i trencades",
-        "default-Q4": "Exemple de rajoles de fang ben col·locades i trencades"
+        "spain-Q4_1": "Exemple d'acumulació de restes vegetals a les canals",
+        "spain-Q4_2": "Exemple de teules d'argila ben col·locades (esquerra) i trencades (dreta)",
+        "default-Q4_1": "Exemple d'acumulació de restes vegetals a les canals",
+        "default-Q4_2": "Exemple de teules d'argila ben col·locades (esquerra) i trencades (dreta)"
     },
     "Q4-2-images": {
-        "spain-Q4_1": "Exemple d'acumulació de deixalles al sostre i canalons",
-        "spain-Q4_2": "Exemple de rajoles de fang ben col·locades i trencades",
-        "default-Q4": "Exemple de rajoles de fang ben col·locades i trencades"
+        "spain-Q4_1": "Exemple d'acumulació de restes vegetals a les canals",
+        "spain-Q4_2": "Exemple de teules d'argila ben col·locades (esquerra) i trencades (dreta)",
+        "default-Q4_1": "Exemple d'acumulació de restes vegetals a les canals",
+        "default-Q4_2": "Exemple de teules d'argila ben col·locades (esquerra) i trencades (dreta)"
     },
     "Q5-images": {
-        "spain-Q5": "Sistemes de vidre simple, doble i triple",
-        "default-Q5": "Sistemes de vidre simple, doble i triple"
+        "spain-Q5_1": "D'esquerre a dreta: vidre simple, doble i triple vidre",
+        "default-Q5_1": "D'esquerre a dreta: vidre simple, doble i triple vidre"
     },
     "Q6-images": {
-        "spain-Q6_1": "Persiana de PVC o d'alumini",
-        "spain-Q6_2": "Persiana d'alumini",
-        "default-Q6": "Persiana d'alumini"
+        "spain-Q6_1": "Persiana de PVC",
+        "spain-Q6_2": "Persiana de fusta",
+        "spain-Q6_3": "Persiana d'alumini",
+        "default-Q6_1": "Persiana de PVC",
+        "default-Q6_2": "Persiana de fusta",
+        "default-Q6_3": "Persiana d'alumini"
     },
     "Q7-images": {
-        "spain-Q7": "Exemple d'obertura de ventilació de cuina",
-        "default-Q7": "Exemple d'obertura de ventilació de cuina"
+        "spain-Q7_1": "Protecció d'un orifici de ventilació d'una cuina",
+        "default-Q7_1": "Protecció d'un orifici de ventilació d'una cuina"
     },
     "Q8-images": {
-        "spain-Q8_1": "Exemple d'un porxo on s'emmagatzemen materials combustibles",
-        "default-Q8_1": "Exemple d'un porxo on s'emmagatzemen materials combustibles",
-        "spain-Q8_2": "Exemple d'un espai semi-confinat per a l'emmagatzematge de fusta adjacent a l'habitatge",
-        "default-Q8_2": "Exemple d'un espai semi-confinat per a l'emmagatzematge de fusta adjacent a l'habitatge"
+        "spain-Q8_1": "Exemples de porxos amb objectes combustibles emmagatzemats",
+        "default-Q8_1": "Exemples de porxos amb objectes combustibles emmagatzemats"
+
     },
+    "Q9-images": {
+        "spain-Q9_1": "Exemple portes de vidre desprotegides en un espai semiconfinat",
+        "default-Q9_1": "Exemple portes de vidre desprotegides en un espai semiconfinat"
+    },
+
     "Q10-images": {
-        "spain-Q10_1": "Exemple de murs que connecten l'espai semicerrat amb l'edifici fets de formigó",
-        "default-Q10_1": "Exemple de murs que connecten l'espai semicerrat amb l'edifici fets de formigó"
+        "spain-Q10_1": "Paret que connecta l'espai semiconfinat amb l'edifici principal, feta d'obra",
+        "default-Q10_1": "Paret que connecta l'espai semiconfinat amb l'edifici principal, feta d'obra"
     },
     "Q11-1-images": {
-        "spain-Q11_1": "Vegetació situada a prop de finestres sense protecció",
-        "default-Q11_1": "Vegetació situada a prop de finestres sense protecció"
+        "spain-Q11_1": "Vegetació a prop de finestres desprotegides",
+        "default-Q11_1": "Vegetació a prop de finestres desprotegides"
     },
     "Q11-2-images": {
-        "spain-Q11_1": "Vegetació situada a prop de finestres sense protecció",
-        "default-Q11_1": "Vegetació situada a prop de finestres sense protecció"
+        "spain-Q11_1": "Vegetació a prop de finestres desprotegides",
+        "default-Q11_1": "Vegetació a prop de finestres desprotegides"
     },
-    "fuels-1a-images": {
-        "austria-fuels-1_1": "",
-        "austria-fuels-1_2": "",
-        "austria-fuels-1_3": ""
-    },
-    "fuels-1b-images": {
-        "austria-fuels-1_1": "",
-        "austria-fuels-1_2": "",
-        "austria-fuels-1_3": ""
+    "Q12-images": {
+        "spain-Q12_1": "Exemple de vegetació a menys de 5 metres d'una teulada amb un ràfec combustible, penjant sobre aquesta",
+        "default-Q12_1": "Exemple de vegetació a menys de 5 metres d'una teulada amb un ràfec combustible, penjant sobre aquesta"
     },
     "Q13-images": {
-        "spain-Q13": "Elements combustibles emmagatzemats contra una façana combustible",
-        "default-Q13": "Elements combustibles emmagatzemats contra una façana combustible"
+        "spain-Q13_1": "Exemple d'elements combustibles col·locats contra una façana també combustible",
+        "default-Q13_1": "Exemple d'elements combustibles col·locats contra una façana també combustible"
     },
     "Q14-images": {
-        "spain-Q14_1": "Exemple de discontinuïtat del combustible",
-        "default-Q14_1": "Exemple de discontinuïtat del combustible"
+        "spain-Q14_1": "Exemple de zona continua de combustible natural dins d'un radi de 10 m",
+        "spain-Q14_2": "Exemple de discontinuïtat del combustible natural, amb una separació de formigó",
+        "default-Q14_1": "Exemple de zona continua de combustible natural dins d'un radi de 10 m",
+        "default-Q14_2": "Exemple de discontinuïtat del combustible natural, amb una separació de formigó"
     },
     "Q15-images": {
-        "spain-Q15_1": "",
-        "default-Q15_1": "",
-        "spain-Q15_2": "",
-        "default-Q15_2": ""
+        "spain-Q15_1": "Exemples de dipòsits de GLP amb materials combustibles situats a menys de 2 metres",
+        "default-Q15_1": "Exemples de dipòsits de GLP amb materials combustibles situats a menys de 2 metres"
+    },
+    "Q16-images": {
+        "spain-Q16_1": "Exemple d'elements combustibles no naturals emplaçats a menys de 5 metres entre ells (imatge generada amb IA)",
+        "default-Q16_1": "Exemple d'elements combustibles no naturals emplaçats a menys de 5 metres entre ells (imatge generada amb IA)" 
+    },
+    "Q17-images": {
+        "spain-Q17_1": "Exemple d'elements combustibles col·locats a menys de 20 metres d'un bosc molt inflamable  (imatges generades amb IA)",
+        "default-Q17_1": "Exemple d'elements combustibles col·locats a menys de 20 metres d'un bosc molt inflamable  (imatges generades amb IA)"
     },
     "Q18-images": {
-        "spain-Q18_1": "",
-        "default-Q18_1": "",
-        "spain-Q18_2": "",
-        "default-Q18_2": ""
+        "spain-Q18_1": "Cases en àrea forestal, sense distància de separació",
+        "default-Q18_1": "Cases en àrea forestal, sense distància de separació"
     },
     "Q19-images": {
-        "spain-Q19_1": "",
-        "default-Q19_1": ""
+        "spain-Q19_1": "Espècies d'arbres molt inflamables, d'esquerra a dreta, pi, eucaliptus i xiprer",
+        "spain-Q19_2": "Llentiscle, arbust moderadament inflamable",
+        "spain-Q19_3": "D'esquerra a dreta olivera i llimoner, arbres poc inflamables",
+        "default-Q19_1": "Espècies d'arbres molt inflamables, d'esquerra a dreta, pi, eucaliptus i xiprer",
+        "default-Q19_2": "Llentiscle, arbust moderadament inflamable",
+        "default-Q19_3": "D'esquerra a dreta olivera i llimoner, arbres poc inflamables"
+    },
+    "Q20-images": {
+        "spain-Q20_1": "Exemple de manca de discontinuïtat horitzontal entre arbustos i arbres",
+        "default-Q20_1": "Exemple de manca de discontinuïtat horitzontal entre arbustos i arbres"
+    },
+    "Q21-images": {
+        "spain-Q21_1": "Exemple de manca de discontinuïtat vertical",
+        "default-Q21_1": "Exemple de manca de discontinuïtat vertical"
+    },
+    "Q22-images": {
+        "spain-Q22_1": "Exemple de jardí amb herba de més de 10 cm d'alt",
+        "default-Q22_1": "Exemple de jardí amb herba de més de 10 cm d'alt"
+    },
+    "Q23-images": {
+        "spain-Q23_1": "Exemples de vegetació morta i restes de vegetació",
+        "default-Q23_1": "Exemples de vegetació morta i restes de vegetació"
     },
     "Q24-images": {
-        "spain-Q24_1": "",
-        "default-Q24_1": ""
+        "spain-Q24_1": "Tanca de fusta",
+        "spain-Q24_2": "Tanca d'arbusts molt inflamables",
+        "spain-Q24_3": "Tanca de barrots metàl·lics",
+        "spain-Q24_4": "Tanca de filferro",
+        "spain-Q24_5": "Paret d'obra de més de 2 m",
+        "spain-Q24_6": "Paret d'obra de menys de 2 m",
+        "spain-Q24_7": "Tanca metàl·lica de 2 m",
+        "default-Q24_1": "Tanca de fusta",
+        "default-Q24_2": "Tanca d'arbusts molt inflamables",
+        "default-Q24_3": "Tanca de barrots metàl·lics",
+        "default-Q24_4": "Tanca de filferro",
+        "default-Q24_5": "Paret d'obra de més de 2 m",
+        "default-Q24_6": "Paret d'obra de menys de 2 m",
+        "default-Q24_7": "Tanca metàl·lica de 2 m"
     },
     "Q25-images": {
-        "spain-Q25_1": "Mur de formigó de menys de 2 m d'altura",
-        "default-Q25_1": "Mur de formigó de menys de 2 m d'altura"
+        "spain-Q25_1": "D'esquerre a dreta: pla, a mitja pendent i a dalt de la carena",
+        "default-Q25_1": "D'esquerre a dreta: pla, a mitja pendent i a dalt de la carena"
     }
 }

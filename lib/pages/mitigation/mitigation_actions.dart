@@ -62,8 +62,6 @@ class _MitigationActionsState extends State<MitigationActions> {
 
   @override
   Widget build(BuildContext context) {
-    print('selected: $_selectedOptions');
-    print('improved: ${widget.improvementOptions}');
     Map<String, String?> auxAnswers = Map.from(widget.answers);
     return Scaffold(
       appBar: AppBar(
@@ -126,9 +124,7 @@ class _MitigationActionsState extends State<MitigationActions> {
                   physics: const NeverScrollableScrollPhysics(),
                   itemCount: _options[question]!.length,
                   itemBuilder: (context, index) {
-                    print('question: $question');
                     var option = _options[question]!.elementAt(index);
-                    print('option: $option');
                     //  if ('$question.$option' != tr('$question.$option')) {
                     return ListTile(
                         title: Text(context.tr('$question.$option'),

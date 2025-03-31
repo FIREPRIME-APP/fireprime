@@ -16,7 +16,6 @@ class XorGate extends Gate {
         break;
       }
     }
-    print("$id: $probability");
     return probability;
   }
 }

@@ -61,37 +61,37 @@
                                                                         {
                                                                             "type": "event",
                                                                             "event_id": "height0",
-                                                                            "probability": 0.843
+                                                                            "probability": 1.0
                                                                         },
                                                                         {
                                                                             "type": "event",
                                                                             "event_id": "height0to20",
-                                                                            "probability": 0.706
+                                                                            "probability": 0.9537
                                                                         },
                                                                         {
                                                                             "type": "event",
                                                                             "event_id": "height21to40",
-                                                                            "probability": 0.608
+                                                                            "probability": 0.9073
                                                                         },
                                                                         {
                                                                             "type": "event",
                                                                             "event_id": "height41to60",
-                                                                            "probability": 0.504
+                                                                            "probability": 0.861
                                                                         },
                                                                         {
                                                                             "type": "event",
                                                                             "event_id": "height61to80",
-                                                                            "probability": 0.488
+                                                                            "probability": 0.8147
                                                                         },
                                                                         {
                                                                             "type": "event",
                                                                             "event_id": "height81to100",
-                                                                            "probability": 0.338
+                                                                            "probability": 0.7683
                                                                         },
                                                                         {
                                                                             "type": "event",
                                                                             "event_id": "heightMore100",
-                                                                            "probability": 0.163
+                                                                            "probability": 0.722
                                                                         },
                                                                         {
                                                                             "type": "event",
@@ -413,6 +413,11 @@
                                                                             "type": "event",
                                                                             "event_id": "closeToRoof",
                                                                             "probability": 0.683
+                                                                        },
+                                                                        {
+                                                                            "type": "event",
+                                                                            "event_id": "noCombElem",
+                                                                            "probability": 0.0
                                                                         }
                                                                     ]
                                                                 }
@@ -456,7 +461,7 @@
                                                                         {
                                                                             "type": "event",
                                                                             "event_id": "noApplicableContSurf",
-                                                                            "probability": 0.75
+                                                                            "probability": 0.0
                                                                         },
                                                                         {
                                                                             "type": "event",

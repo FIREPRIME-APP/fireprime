@@ -28,7 +28,7 @@ class _LanguagePageState extends State<LanguagePage> {
       context.tr('english'),
       context.tr('spanish'),
       context.tr('catalan'),
-      context.tr('german'),
+      // context.tr('german'),
       /*context.tr('swedish')*/
     ];
     return Scaffold(
@@ -82,9 +82,10 @@ class _LanguagePageState extends State<LanguagePage> {
                       saveEventdata(screenId: 'language_page', buttonId: 'ca');
                       language.changeLanguage(
                           const Locale('ca'), index, context);
-                    } else if (index == 3) {
+                      /* } else if (index == 3) {
+                      saveEventdata(screenId: 'language_page', buttonId: 'de');
                       language.changeLanguage(
-                          const Locale('de'), index, context);
+                         const Locale('de'), index, context);*/
                       //}
                       /*else if (index == 4) {
                       provider.changeLanguage(

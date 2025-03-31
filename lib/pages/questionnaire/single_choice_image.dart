@@ -61,7 +61,6 @@ class _CustomViewState extends State<SingleChoiceImageView> {
   TextChoice? _selectedChoice;
   bool _showDescription = false;
   bool _isEditing = false;
-  String _editableText = '';
 
   late final TextEditingController _controller;
 
@@ -104,7 +103,8 @@ class _CustomViewState extends State<SingleChoiceImageView> {
     return StepView(
       step: widget.questionStep,
       resultFunction: () {
-        saveEventdata(screenId: 'questionnaire_page', buttonId: 'next');
+        saveEventdata(
+            screenId: 'questionnaire_page', buttonId: 'next_question');
         return SingleChoiceQuestionResult(
           id: widget.questionStep.stepIdentifier,
           startDate: _startDate,
@@ -276,7 +276,7 @@ class _CustomViewState extends State<SingleChoiceImageView> {
               ),
               const SizedBox(height: 4),
               SizedBox(
-                width: 200,
+                width: 250,
                 child: Text(widget.images[index].description,
                     style: Theme.of(context).textTheme.bodySmall,
                     textAlign: TextAlign.center),

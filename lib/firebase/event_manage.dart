@@ -10,7 +10,6 @@ Future<void> saveEventdata({
   // }
   final eventRef = FirebaseFirestore.instance.collection('events').doc();
   final deviceId = await getDeviceId();
-  print('...');
   try {
     await eventRef.set({
       'device_id': deviceId,

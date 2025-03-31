@@ -21,7 +21,6 @@ class HouseProvider with ChangeNotifier {
   }
 
   Future<void> _init() async {
-    print('init');
     await initialiseBox();
     houses = getHouses();
   }
@@ -42,7 +41,6 @@ class HouseProvider with ChangeNotifier {
   }
 
   Map<dynamic, dynamic> getHouses() {
-    print(box.toMap());
     houses = box.toMap();
     return houses;
   }
@@ -75,7 +73,6 @@ class HouseProvider with ChangeNotifier {
   Future<void> updateHouse() async {
     print('updating house');
     await box.put(currentHouse, houses[currentHouse]);
-    print(houses[currentHouse].riskAssessmentIds);
     notifyListeners();
   }
 
@@ -86,7 +83,6 @@ class HouseProvider with ChangeNotifier {
   }
 
   House getHouse(String houseName) {
-    print('getHouse housename:' + houseName);
     return houses[houseName]!;
   }
 
@@ -138,7 +134,10 @@ class HouseProvider with ChangeNotifier {
 
   Future<void> getHazardValue() async {
     House house = houses[currentHouse]!;
-    double hazard = await getHazard(house.environment);
+    double hazard = -1.0;
+    if (house.lat != null && house.long != null) {
+      hazard = await getHazard(house.lat!, house.long!);
+    }
     if (hazard != -1.0) {
       house.hazard = hazard;
     }
@@ -242,8 +241,6 @@ class HouseProvider with ChangeNotifier {
   }
 
   Future<void> editHouse(String name, String address) async {
-    print(currentHouse.toString());
-
     houses[currentHouse].address = address;
     houses[currentHouse].name = name;
 
@@ -262,7 +259,6 @@ class HouseProvider with ChangeNotifier {
   }
 
   Future<void> deleteHouse() async {
-    print('delete, currentHouse: $currentHouse');
     House house = houses[currentHouse]!;
 
     for (var ra in house.riskAssessmentIds) {
@@ -272,7 +268,6 @@ class HouseProvider with ChangeNotifier {
     houses.remove(currentHouse);
     await box.delete(currentHouse);
 
-    print('houses: $houses');
     currentHouse = null;
     notifyListeners();
   }

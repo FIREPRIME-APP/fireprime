@@ -1,4 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:fireprime/autocomplete/autocomplete.dart';
+import 'package:fireprime/autocomplete/google_places_autocomplete.dart';
+import 'package:fireprime/config.dart';
+import 'package:fireprime/firebase/api_key_manage.dart';
 import 'package:fireprime/firebase/event_manage.dart';
 import 'package:fireprime/providers/house_provider.dart';
 import 'package:fireprime/constants.dart';
@@ -24,6 +28,9 @@ class _CreateHousePageState extends State<CreateHousePage> {
   String? _selectedEnvironment;
 
   bool _enabled = false;
+
+  String? _selectedPlace;
+  String? _selectedCountryCode;
 
   @override
   void initState() {
@@ -57,7 +64,7 @@ class _CreateHousePageState extends State<CreateHousePage> {
     );
   }
 
-  void _handleAddHouse(HouseProvider house) {
+  Future<void> _handleAddHouse(HouseProvider house) async {
     if (_name.text.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
         Utils.snackBar(context.tr('warning_unfilled_name')),
@@ -77,29 +84,65 @@ class _CreateHousePageState extends State<CreateHousePage> {
     } else if (_address.text.isNotEmpty &&
         _name.text.isNotEmpty &&
         _selectedEnvironment != null) {
-      print(_selectedEnvironment);
       saveEventdata(screenId: 'create_house_page', buttonId: 'create_house');
-      House newHouse = House(_name.text, _address.text, _selectedEnvironment!);
-      //TODO GET THE LAT AND LONG BY THE ADDRESS
-      if (_selectedEnvironment == 'austria') {
-        newHouse.lat = 47.227035;
-        newHouse.long = 11.12915;
-      } else if (_selectedEnvironment == 'sweeden') {
-        newHouse.lat = 57.669210;
-        newHouse.long = 11.931152;
-      } else {
-        newHouse.lat = 41.412739;
-        newHouse.long = 2.130232;
-      }
-      house.addHouse(newHouse);
 
-      Navigator.of(context).pop();
+      if (_selectedPlace == null) {
+        showDialog(
+          context: context,
+          builder: (BuildContext context) {
+            return AlertDialog(
+              title: Text(context.tr('unable_to_get_latlong_title'),
+                  style: const TextStyle(
+                      fontSize: 15, fontWeight: FontWeight.bold)),
+              content: Text(context.tr('unable_to_get_latlong_message'),
+                  style: const TextStyle(fontSize: 15)),
+              actions: <Widget>[
+                TextButton(
+                  onPressed: () {
+                    saveEventdata(
+                        screenId: 'create_house_page',
+                        buttonId: 'noLatLong_warning_accept');
+                    Navigator.of(context).pop();
+                    House newHouse =
+                        House(_name.text, _address.text, _selectedEnvironment!);
+                    house.addHouse(newHouse);
+                    Navigator.of(context).pop();
+                  },
+                  child: Text(context.tr('accept')),
+                ),
+                TextButton(
+                  onPressed: () {
+                    saveEventdata(
+                        screenId: 'create_house_page',
+                        buttonId: 'noLatLong_warning_try_again');
+                    Navigator.of(context).pop();
+                  },
+                  child: Text(context.tr('try_again')),
+                ),
+              ],
+            );
+          },
+        );
+      } else {
+        Map<String, dynamic> latLong = await GooglePlacesAutoComplete()
+            .getLatLong(_selectedPlace!, Config.API_KEY);
+        House newHouse =
+            House(_name.text, _address.text, _selectedEnvironment!);
+        newHouse.lat = latLong['latitude'];
+        newHouse.long = latLong['longitude'];
+        house.addHouse(newHouse);
+
+        Navigator.of(context).pop();
+      }
     }
   }
 
   @override
   Widget build(BuildContext context) {
     final Map<String, String> sortedCountries = _getStoredCountries(context);
+    if (Config.API_KEY == '') {
+      getApiKey();
+    }
 
     return Scaffold(
       appBar: AppBar(
@@ -134,13 +177,12 @@ class _CreateHousePageState extends State<CreateHousePage> {
                   buttonId: 'name',
                 ),
                 const SizedBox(height: 10.0),
-                InputField(
+                /*InputField(
                   label: '*  ${context.tr('address')}:',
                   controller: _address,
                   screenId: 'create_house_page',
                   buttonId: 'address',
-                ),
-                const SizedBox(height: 10.0),
+                ),*/
                 Text(
                   '*  ${context.tr('country')}: ',
                   style: const TextStyle(
@@ -151,9 +193,12 @@ class _CreateHousePageState extends State<CreateHousePage> {
                   value: _selectedEnvironment,
                   onChanged: (String? newValue) {
                     saveEventdata(
-                        screenId: 'create_house_page', buttonId: 'country');
+                        screenId: 'create_house_page',
+                        buttonId: 'select_country');
                     setState(() {
                       _selectedEnvironment = newValue!;
+                      _selectedCountryCode = Constants
+                          .europeanCountriesCode[_selectedEnvironment!];
                       _checkInput();
                     });
                   },
@@ -169,6 +214,17 @@ class _CreateHousePageState extends State<CreateHousePage> {
                     ),
                   ),
                 ),
+                const SizedBox(height: 10.0),
+                if (_selectedCountryCode != null)
+                  AutoCompleteWidget(
+                    apiKey: Config.API_KEY,
+                    controller: _address,
+                    onPlaceSelected: (placeId) => setState(() {
+                      _selectedPlace = placeId;
+                    }),
+                    screenId: 'create_house_page',
+                    selectedCountryCode: _selectedCountryCode!,
+                  ),
                 const SizedBox(height: 20.0),
                 Center(
                   child: ElevatedButton(
