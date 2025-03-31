@@ -79,7 +79,7 @@ class AboutPage extends StatelessWidget {
                 height: 25,
                 color: Colors.grey,
               ),
-              Text(context.tr('privacy_title'),
+              /* Text(context.tr('privacy_title'),
                   style: const TextStyle(fontWeight: FontWeight.bold)),
               const SizedBox(
                 height: 10,
@@ -89,8 +89,10 @@ class AboutPage extends StatelessWidget {
                 style: const TextStyle(
                     fontSize: 13, height: 1.5, fontFamily: 'OpenSans'),
                 textAlign: TextAlign.justify,
-              ),
+              ),*/
+
               Image.asset(
+                alignment: AlignmentDirectional.bottomCenter,
                 'assets/images/logos/ue.png',
                 width: 100,
                 height: 100,
