@@ -12,7 +12,7 @@ Future<void> saveAnswerData({
 }) async {
   final deviceId = await getDeviceId();
   final answerRef = FirebaseFirestore.instance
-      .collection('answers')
+      .collection('riskAssessments')
       .doc(deviceId)
       .collection('answers');
   try {
