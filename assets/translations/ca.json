@@ -10,13 +10,13 @@
     "german": "Alemany",
     "swedish": "Suec",
 
-    "add_house_intro": "Omple la informació de la teva casa",
+    "add_house_intro": "Ompliu la informació de casa vostra",
     "name": "Nom",
     "address": "Adreça",
     "country": "País",
-    "warning_unfilled_name": "Si us plau, introdueix el nom de la casa",
-    "warning_unfilled_address": "Si us plau, introdueix l'adreça de la casa",
-    "warning_unselected_country": "Si us plau, selecciona el país de la casa",
+    "warning_unfilled_name": "Si us plau, introduïu el nom de la casa",
+    "warning_unfilled_address": "Si us plau, introduïu l'adreça de la casa",
+    "warning_unselected_country": "Si us plau, seleccioneu el país de la casa",
     "warning_house_name_exists": "Aquest nom de casa ja existeix",
     "unable_to_get_latlong_title": "No es pot obtenir la localització",
     "unable_to_get_latlong_message": "Si us plau, comproveu la vostra connexió a Internet. Intenteu editar la vostra adreça i seleccioneu un dels suggeriments o editeu-lo més tard. Podeu continuar sense la ubicació, però els resultats poden no ser precisos.",
@@ -167,12 +167,12 @@
     "fire_reaches_building": "Perill de propagació del foc fins l'edifici",
 
     "hazard_vulnerability_text": {
-        "extreme_high_text": "La seva llar es troba en una zona {hazard_level} als incendis forestals i és {vulnerability_level} a ells. Com a resultat, el seu nivell de risc és {risk}. Seguiu les recomanacions proporcionades per millorar la resiliència de la vostra llar i reduir la probabilitat de que es cremi.",
+        "extreme_high_text": "La seva llar es troba en una zona {hazard_level} als incendis forestals i és {vulnerability_level} a ells. Com a resultat, el seu nivell de risc és {risk}. Seguiu les recomanacions proporcionades per millorar la resiliència de la vostra llar i reduir la probabilitat que es cremi.",
         "extreme_moderate_text": "La seva llar es troba en una zona {hazard_level} als incendis forestals i és {vulnerability_level} a ells. Com a resultat, el seu nivell de risc és {risk}. Seguiu les recomanacions proporcionades per reduir la probabilitat de que cremi i segueixi fent el manteniment de la propietat.",
-        "high_moderate_text": "La seva llar es troba en una zona {hazard_level} als incendis forestals i és {vulnerability_level} a ells. Com a resultat, el seu nivell de risc és {risk}. Intenti seguir les recomanacions proporcionades per millorar la resiliència de la seva llar i reduir la probabilitat de que es cremi.",
+        "high_moderate_text": "La seva llar es troba en una zona {hazard_level} als incendis forestals i és {vulnerability_level} a ells. Com a resultat, el seu nivell de risc és {risk}. Intenti seguir les recomanacions proporcionades per millorar la resiliència de la seva llar i reduir la probabilitat que es cremi.",
         "moderate_text": "La seva llar es troba en una zona {hazard_level} als incendis forestals i és {vulnerability_level} a ells. Com a resultat, el seu nivell de risc és {risk}. Procuri seguir les recomanacions proporcionades per reduir la probabilitat que cremi i segueixi fent el manteniment de la propietat.",
         "extreme_low_text": "La seva llar es troba en una zona {hazard_level} als incendis forestals i és {vulnerability_level} a ells. Com a resultat, el seu nivell de risc és {risk}. Segueixi fent el manteniment de casa seva per mantenir la seva bona resistència contra els incendis forestals i, si és possible, procuri seguir les recomanacions proporcionades.",
-        "low_extreme_high_text": "La seva llar es troba en una zona {hazard_level} als incendis forestals però és {vulnerability_level} a ells. Com a resultat, el seu nivell de risc és {risk}. Procuri seguir les recomanacions proporcionades per millorar la resiliència de la seva llar i reduir la probabilitat de que es cremi.",
+        "low_extreme_high_text": "La seva llar es troba en una zona {hazard_level} als incendis forestals però és {vulnerability_level} a ells. Com a resultat, el seu nivell de risc és {risk}. Procuri seguir les recomanacions proporcionades per millorar la resiliència de la seva llar i reduir la probabilitat que es cremi.",
         "low_moderate_text": "La seva llar es troba en una zona {hazard_level} als incendis forestals però és {vulnerability_level} a ells. Com a resultat, el seu nivell de risc és {risk}. Segueixi fent el manteniment de casa seva per mantenir la seva bona resistència contra els incendis forestals i, si és possible, procuri seguir les recomanacions proporcionades.",
         "low_text": "La seva llar es troba en una zona {hazard_level} als incendis forestals i és {vulnerability_level} a ells. Com a resultat, el seu nivell de risc és {risk}. Segueixi fent el manteniment de casa seva per mantenir la seva bona resistència contra els incendis forestals."
     },
@@ -278,7 +278,7 @@
     "Q8": {
         "title": "Espais semiconfinats adjacents a l'edifici",
         "question": "Hi ha un espai semiconfinat adjacent a l'edifici (que tingui com a mínim una paret en comú) que contingui objectes combustibles?",
-        "description": "Els espais semiconfinats són espais oberts, com ara porxos, espais sota terrasses o entarimats, espais sota tendals, o espais tancats en coberts on sovint hi ha presència d'elements combustibles (mobiliari, acumulacions de fusta, etc.).",
+        "description": "Els espais semiconfinats són espais oberts, com ara porxos, espais sota terrasses o entarimats, espais sota tendals, o espais semioberts en coberts on sovint hi ha presència d'elements combustibles (mobiliari, acumulacions de fusta, etc.).",
         "yesSemiConf": "Sí",
         "noSemiConf": "No"
     },
@@ -305,7 +305,7 @@
     },
     "Q11-1": {
         "title": "Entorn de l'edifici",
-        "question": "Hi ha vegetació o altres elements combustibles col·locats dins d'un radi de 7 metres a tocar dels tancaments de vidre? (si teniu un entarimat de fusta dins d'aquest radi, també compta com a material combustible)",
+        "question": "Hi ha vegetació o altres elements combustibles col·locats dins d'un radi de 7 metres a tocar dels tancaments de vidre simple no protegits? (si teniu un entarimat de fusta dins d'aquest radi, també compta com a material combustible)",
         "description": "",
         "7closeToGlazing": "Sí",
         "7farFromGlazing": "No"
@@ -313,7 +313,7 @@
     },
     "Q11-2": {
         "title": "Entorn de l'edifici",
-        "question": "Hi ha vegetació o altres elements combustibles col·locats dins d'un radi de 5 metres a tocar dels tancaments de vidre? (si teniu un entarimat de fusta dins d'aquest radi, també compta com a material combustible)",
+        "question": "Hi ha vegetació o altres elements combustibles col·locats dins d'un radi de 5 metres a tocar dels tancaments de vidre doble/triple, no protegits? (si teniu un entarimat de fusta dins d'aquest radi, també compta com a material combustible)",
         "description": "",
         "5closeToGlazing": "Sí",
         "5farFromGlazing": "No"
@@ -336,7 +336,7 @@
     },
     "Q14": {
         "title": "Entorn de l'edifici",
-        "question": "Teniu, dins d'un radi de 10 m a tocar de les façanes, una zona contínua de combustible natural (herbes o matolls) per on el foc pugui propagar?",
+        "question": "Teniu, a tocar de les façanes, una zona contínua de combustible natural (herbes o matolls) per on el foc pugui propagar?",
         "description": "Un exemple d'una superfície contínua de combustible és una jardí d'herba que no té cap interrupció dins un radi de 10 metres al voltant de l'edifici.",
         "contSurf": "Sí",
         "discontSurf": "No"
@@ -359,7 +359,7 @@
     },
     "Q17": {
         "title": "Entorn de l'edifici",
-        "question": "Identifiqueu quins elements combustibles no naturals teniu a prop de l'edifici (e.g. mobiliari de jardí, casetes d'eines o d'animals, pèrgoles, coberts, etc.). Es troben alguns d'aquests elements a menys de 20 m de distància d'una àrea amb vegetació molt inflamable (e.g. matollar molt dens, bosc amb espècies com ara pins, eucaliptus, etc.)?",
+        "question": "Identifiqueu quins elements combustibles no naturals teniu a prop de l'edifici (e.g. mobiliari de jardí, casetes d'eines o d'animals, pèrgoles, coberts, etc.). Es troben alguns d'aquests elements a menys de 20 m de distància d'una àrea amb vegetació molt inflamable (e.g. matolls molt densos, zones arbrades amb espècies com ara pins, eucaliptus, xiprés, etc.)?",
         "description": "",
         "placedIn20": "Sí",
         "placedFurther20": "No",
@@ -414,7 +414,7 @@
     },
     "Q24": {
         "title": "Entorn de l'edifici",
-        "question": "Quina és la delimitació predominant entre la vostra parcel·la i les veïnes?",
+        "question": "Analitzeu els elements delimitadors a la vostra parcel·la. Quina és la delimitació predominant?",
         "description": "",
         "woodenFence": "Tanca de fusta",
         "hedgerowHigh": "Tanca d'arbusts (molt inflamables - e.g., xiprers, bruc)",
