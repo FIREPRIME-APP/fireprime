@@ -312,9 +312,9 @@ class Questionnaire {
       'savedResult': {
         'id': 'Q5',
         'conditions': {
-          'singlePane': 'Q11-1',
-          'doublePane': 'Q11-2',
-          'tempered': 'Q11-2',
+          'singlePane': 'Q11-1', //TODO: Probably we don't need a condition here and can be simplified.
+          'doublePane': 'Q11-1',
+          'tempered': 'Q11-1',
         },
       }
     },
@@ -351,8 +351,8 @@ class Questionnaire {
       'stepId': 'Q11-1',
       'type': 'conditional',
       'conditions': {
-        "7farFromGlazing": "Q12",
-        '7closeToGlazing': 'Q12',
+        "7farFromGlazing": "Q11-2",
+        '7closeToGlazing': 'Q11-2',
       },
     },
     {
