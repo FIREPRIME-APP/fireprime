@@ -305,7 +305,7 @@ class Questionnaire {
         'noSemiConf': 'I1',
       },
     },
-    {
+     /* {
       'stepId': 'I1',
       'type': 'conditionalSavedResult',
       'conditions': {},
@@ -317,7 +317,7 @@ class Questionnaire {
           'tempered': 'Q11-1',
         },
       }
-    },
+    },*/
     /* {
       'stepId': 'semiConf-1',
       'type': 'conditionalSavedResult',

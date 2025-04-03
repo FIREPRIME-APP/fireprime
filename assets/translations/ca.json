@@ -78,7 +78,7 @@
     "more_info_title": "Sobre Fireprime",
     "fireprime": "Fireprime",
     "about_intro": "Autoavaluació del risc d'incendi forestal a escala de parcel·la",
-    "about_text": "Aquesta aplicació ha estat desenvolupada en el marc del projecte FIREPRIME, cofinançat per la Unió Europea. L'algoritme d'anàlisi de risc integrat ha estat creat pels grups de recerca UPC-CERTEC, RISE i BOKU, mentre que la seva implementació ha estat realitzada pel grup UPC-GESSI.",
+    "about_text": "Aquesta aplicació ha estat desenvolupada en el marc del projecte FIREPRIME, cofinançat per la Unió Europea. L'aplicació ha estat desenvolupada pel grup de recerca UPC-GESSI, mentre que l'algoritme d'anàlisi de risc integrat ha estat creat pels grups de recerca UPC-CERTEC, RISE i BOKU.",
     "privacy_title": "Privacitat de dades",
     "privacy_text": "La informació introduïda s'emmagatzema localment al dispositiu i no es comparteix amb tercers. Es poden eliminar les dades en qualsevol moment suprimint l'aplicació. Només es registren de manera anònima les interaccions amb l'aplicació.",
 
