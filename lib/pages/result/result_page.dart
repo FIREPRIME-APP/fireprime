@@ -159,28 +159,6 @@ class _ResultPageState extends State<ResultPage> {
                       20,
                       getRiskInfo(hazard * 100, vulnerability * 100, risk * 100,
                           context)),
-                  /*  Padding(
-                    padding: const EdgeInsets.only(top: 150),
-                    child: Row(
-                      children: [
-                        Text(
-                          context.tr('vulnerability'),
-                          style: const TextStyle(
-                              fontSize: 15, fontWeight: FontWeight.bold),
-                        ),
-                        const SizedBox(
-                          width: 5,
-                        ),
-                        InfoDialog(
-                          icon: Icons.info_outline,
-                          iconSize: 18.0,
-                          text: context.tr('hazard_info'),
-                          fontSize: 15,
-                        ),
-                      ],
-                    ),
-                  ),*/
-
                   Padding(
                     padding: const EdgeInsets.fromLTRB(20, 0, 10, 20),
                     child: Column(
@@ -272,10 +250,7 @@ class _ResultPageState extends State<ResultPage> {
                                           text: (entry.value.probability * 100)
                                               .toStringAsFixed(0),
                                           size: 15,
-                                          color: null //Utils.textColor(
-                                          //(entry.value.probability * 100),
-                                          //),
-                                          ),
+                                          color: null),
                                     ),
                                     const SizedBox(
                                       width: 10,
@@ -289,12 +264,7 @@ class _ResultPageState extends State<ResultPage> {
                                               ? const Color.fromARGB(
                                                   255, 223, 225, 228)
                                               : const Color.fromARGB(
-                                                  255,
-                                                  252,
-                                                  252,
-                                                  252) /*const Color.fromARGB(
-                                              255, 196, 202, 217)*/
-                                          ),
+                                                  255, 252, 252, 252)),
                                       onPressed: () {
                                         saveEventdata(
                                             screenId: 'result_page',
@@ -328,6 +298,7 @@ class _ResultPageState extends State<ResultPage> {
             const SizedBox(
               height: 15,
             ),
+            //En cas que es vulgui moure el botó de check improvements, copiar tot el codi d'ElevatedButton i enganxar-lo després del bucle de for
             ElevatedButton(
               style: ElevatedButton.styleFrom(
                   backgroundColor: Constants.blueDark, elevation: 5.0),
@@ -347,6 +318,7 @@ class _ResultPageState extends State<ResultPage> {
                 );
               },
             ),
+            //Segon nivell de linear gauge
             for (var entry in _showLinearGauge.entries)
               if (entry.value && _showFactors)
                 Column(
@@ -363,9 +335,6 @@ class _ResultPageState extends State<ResultPage> {
                               .entries
                               .map(
                             (subProb) {
-                              /* Map<String, dynamic> options = canImprove(
-                                  subProb.key, subProb.value.probability);
-                              print(options);*/
                               return Column(
                                 children: [
                                   Padding(
@@ -376,33 +345,11 @@ class _ResultPageState extends State<ResultPage> {
                                         25,
                                         15,
                                         30,
-                                        getLastSubProb(entry.key, subProb.key)),
+                                        getLastSubProb(
+                                            entry.key,
+                                            subProb
+                                                .key)), //En cas que no es vulgui comparar amb l'anterior reusltat posar getLastSubProb a null
                                   ),
-                                  /* if (checkIfCanImprove(options))
-                                    ElevatedButton(
-                                      child: Text(context.tr('improve')),
-                                      onPressed: () {
-                                        saveEventdata(
-                                            screenId: 'result_page',
-                                            buttonId: 'mitigation');
-                                        Navigator.of(context).push(
-                                          MaterialPageRoute(
-                                            builder: (BuildContext context) {
-                                              return MitigationMenuPage(
-                                                mitigationId: subProb.key,
-                                                improvementOptions: options,
-                                                answers: answers,
-                                                selectedMitigationProb:
-                                                    subProb.value.probability,
-                                                houseVulnerability:
-                                                    vulnerability,
-                                                hazard: hazard,
-                                              );
-                                            },
-                                          ),
-                                        );
-                                      },
-                                    )*/
                                 ],
                               );
                             },
@@ -415,92 +362,13 @@ class _ResultPageState extends State<ResultPage> {
                     )
                   ],
                 ),
+
+            //Enganxar el codi del botó de check improvements aquí si es vol que es quedi al final
           ],
         ),
       ),
     );
   }
-
-  /*Map<String, dynamic> canImprove(
-      String mitigationId, double selectedMitigationProb) {
-    Map<String, dynamic> improvementOptions = {};
-
-    Node? node = FaultTree().getNode(mitigationId);
-
-    Map<String, dynamic> options = {};
-    Map<String, double> basicEvents = {};
-
-    if (node != null && node is IntermediateEvent) {
-      if (node.gate.inputEvents[0] is BasicEvent) {
-        Map<String, double> selectedOptions = {};
-
-        basicEvents = FaultTree().getBasicEvents(node, node.id);
-        options = getOptions(basicEvents, selectedOptions);
-
-        if (options.isNotEmpty && options['selectedOptions'].isNotEmpty) {
-          improvementOptions[node.id] = {
-            'improvementOptions': options['improvementOptions'],
-            'selectedOptions': options['selectedOptions']
-          };
-        }
-      } else {
-        for (var event in node.gate.inputEvents) {
-          Map<String, double> selectedOptions = {};
-
-          basicEvents = FaultTree().getBasicEvents(event, event.id);
-
-          options = getOptions(basicEvents, selectedOptions);
-
-          if (options.isNotEmpty && options['selectedOptions'].isNotEmpty) {
-            improvementOptions[event.id] = {
-              'improvementOptions': options['improvementOptions'],
-              'selectedOptions': options['selectedOptions']
-            };
-          }
-        }
-      }
-    }
-    print('improvementOptions: $improvementOptions');
-    return improvementOptions;
-  }
-
-  Map<String, dynamic> getOptions(Map<String, double> basicEvents,
-      Map<String, double> selectedProbabilities) {
-    Set<String> options = {};
-    double minProb = 1.0;
-    for (var basicEvent in basicEvents.entries) {
-      for (var answer in answers.values) {
-        if (answer != null && answer.split(',').contains(basicEvent.key)) {
-          selectedProbabilities[basicEvent.key] = basicEvent.value;
-          if (basicEvent.value < minProb) {
-            minProb = basicEvent.value;
-          }
-        }
-      }
-    }
-
-    for (var basicEvent in basicEvents.entries) {
-      //   for (var selectedProbability in selectedProbabilities.entries) {
-      if (basicEvent.value < minProb) {
-        options.add(basicEvent.key);
-        //   }
-      }
-    }
-    return {
-      'improvementOptions': options,
-      'selectedOptions': selectedProbabilities
-    };
-  }
-
-  bool checkIfCanImprove(Map<String, dynamic> options) {
-    bool canImprove = false;
-    for (var entry in options.entries) {
-      if (entry.value['improvementOptions'].isNotEmpty) {
-        canImprove = true;
-      }
-    }
-    return canImprove;
-  }*/
 
   double? getLastSubProb(String key1, String key2) {
     if (lastSubProbabilities.containsKey(key1)) {
