@@ -163,22 +163,6 @@ class _EditHousePageState extends State<EditHousePage> {
                   buttonId: 'name',
                 ),
                 const SizedBox(height: 10.0),
-                /* InputField(
-                  label: '*  ${context.tr('address')}:',
-                  controller: _address,
-                  screenId: 'edit_house_page',
-                  buttonId: 'address',
-                ),*/
-                AutoCompleteWidget(
-                  apiKey: Config.API_KEY,
-                  controller: _address,
-                  onPlaceSelected: (placeId) => setState(() {
-                    _selectedPlace = placeId;
-                  }),
-                  screenId: 'edit_house_page',
-                  selectedCountryCode: _selectedCountryCode!,
-                ),
-                const SizedBox(height: 10.0),
                 Text(
                   '${context.tr('country')}:',
                   style: const TextStyle(
@@ -194,6 +178,16 @@ class _EditHousePageState extends State<EditHousePage> {
                     ),
                   ),
                   enabled: false,
+                ),
+                const SizedBox(height: 10.0),
+                AutoCompleteWidget(
+                  apiKey: Config.API_KEY,
+                  controller: _address,
+                  onPlaceSelected: (placeId) => setState(() {
+                    _selectedPlace = placeId;
+                  }),
+                  screenId: 'edit_house_page',
+                  selectedCountryCode: _selectedCountryCode!,
                 ),
                 const SizedBox(height: 20.0),
                 Center(
