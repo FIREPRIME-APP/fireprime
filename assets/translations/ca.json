@@ -351,7 +351,7 @@
     },
     "Q16": {
         "title": "Entorn de l'edifici",
-        "question": "Identifiqueu quins elements combustibles no naturals teniu a prop de l'edifici (e.g. mobiliari de jardí, casetes d'eines o d'animals, pèrgoles, coberts, etc.). Hi ha garantida una separació de 5 metres entre tots ells?",
+        "question": "Identifiqueu quins elements combustibles no naturals teniu a prop de l'edifici (e.g. mobiliari de jardí, casetes d'eines o d'animals, pèrgoles, coberts, cotxes, etc.). Hi ha garantida una separació de 5 metres entre tots ells?",
         "description": "",
         "spacingMore5": "Sí",
         "spacingLess5": "No",
@@ -359,7 +359,7 @@
     },
     "Q17": {
         "title": "Entorn de l'edifici",
-        "question": "Identifiqueu quins elements combustibles no naturals teniu a prop de l'edifici (e.g. mobiliari de jardí, casetes d'eines o d'animals, pèrgoles, coberts, etc.). Es troben alguns d'aquests elements a menys de 20 m de distància d'una àrea amb vegetació molt inflamable (e.g. matolls molt densos, zones arbrades amb espècies com ara pins, eucaliptus, xiprés, etc.)?",
+        "question": "Identifiqueu quins elements combustibles no naturals teniu a prop de l'edifici (e.g. mobiliari de jardí, casetes d'eines o d'animals, pèrgoles, coberts, cotxes, etc.). Es troben alguns d'aquests elements a menys de 20 m de distància d'una àrea amb vegetació molt inflamable (e.g. matolls molt densos, zones arbrades amb espècies com ara pins, eucaliptus, xiprés, etc.)?",
         "description": "",
         "placedIn20": "Sí",
         "placedFurther20": "No",
@@ -400,7 +400,7 @@
     "Q22": {
         "title": "Entorn de l'edifici",
         "question": "Quina alçada té la zona contínua de combustible natural (herbes o matolls joves) que envolta l'edifici?",
-        "description": "",
+        "description": "La gespa o herba verda no és combustible",
         "lowSurfaceLess10": "Menys de 10 cm d'alçada",
         "lowSurfaceMore10": "Més de 10 cm d'alçada"
     },
@@ -418,7 +418,7 @@
         "description": "",
         "woodenFence": "Tanca de fusta",
         "hedgerowHigh": "Tanca d'arbusts (molt inflamables - e.g., xiprers, bruc)",
-        "hedgerowLow": "Tanca d'arbusts (poc inflamables - e.g. llorer-cirer)",
+        "hedgerowLow": "Tanca d'arbusts (poc inflamables - e.g. llorer, cirer)",
         "metalPosts": "Tanca de barrots metàl·lics",
         "chainLink": "Tanca de filferro",
         "concreteMore2": "Tanca/paret d'obra o metàl·lica(com a mínim 2m d'alt)",
