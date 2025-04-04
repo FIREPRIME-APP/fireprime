@@ -201,8 +201,7 @@ class Questionnaire {
       'stepId': 'Q22',
       'textChoices': [
         'lowSurfaceLess10',
-        'lowSurfaceMore10',
-        'noLowSurface',
+        'lowSurfaceMore10'
       ],
       'otherOption': false,
       'type': 'singleChoice',
@@ -312,7 +311,7 @@ class Questionnaire {
       'savedResult': {
         'id': 'Q5',
         'conditions': {
-          'singlePane': 'Q11-1', //TODO: Probably we don't need a condition here and can be simplified.
+          'singlePane': 'Q11-1', 
           'doublePane': 'Q11-1',
           'tempered': 'Q11-1',
         },
