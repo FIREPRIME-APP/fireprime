@@ -1,6 +1,10 @@
+import 'dart:io';
+
 import 'package:fireprime/constants.dart';
 import 'package:fireprime/firebase/event_manage.dart';
+import 'package:fireprime/pages/mitigation/mitigation.dart';
 import 'package:fireprime/pages/mitigation/mitigation_page.dart';
+import 'package:fireprime/pdf_creation/pdf_creator.dart';
 import 'package:fireprime/widgets/gauge.dart';
 import 'package:fireprime/model/event_probability.dart';
 import 'package:fireprime/model/risk_assessment.dart';
@@ -40,6 +44,10 @@ class _ResultPageState extends State<ResultPage> {
   Map<String, EventProbability> lastSubProbabilities = {};
 
   bool _showFactors = false;
+
+  String riskAssessmentId = '';
+
+  final ScrollController scrollCtrl = ScrollController();
 
   bool _toggleFactors() {
     setState(() {
@@ -136,6 +144,7 @@ class _ResultPageState extends State<ResultPage> {
         ),
       ),
       body: SingleChildScrollView(
+        controller: scrollCtrl,
         padding: const EdgeInsets.all(20.0),
         child: Column(
           children: [
@@ -216,6 +225,11 @@ class _ResultPageState extends State<ResultPage> {
                                           255, 252, 252, 252)),
                               onPressed: () {
                                 _toggleFactors();
+                                scrollCtrl.animateTo(
+                                  scrollCtrl.position.extentTotal,
+                                  duration: const Duration(milliseconds: 1000),
+                                  curve: Curves.easeInOut,
+                                );
                               },
                               child: Text(
                                 _showFactors
@@ -270,6 +284,12 @@ class _ResultPageState extends State<ResultPage> {
                                             screenId: 'result_page',
                                             buttonId: 'show_details');
                                         _toggleLinearGauge(entry.key);
+                                        scrollCtrl.animateTo(
+                                          scrollCtrl.position.extentTotal,
+                                          duration: const Duration(
+                                              milliseconds: 1000),
+                                          curve: Curves.easeInOut,
+                                        );
                                       },
                                       child: Text(
                                         _showLinearGauge[entry.key] != null &&
@@ -312,12 +332,50 @@ class _ResultPageState extends State<ResultPage> {
                 Navigator.of(context).push(
                   MaterialPageRoute(
                     builder: (BuildContext context) {
-                      return MitigationPage(answers: answers);
+                      return const MitigationPage();
                     },
                   ),
                 );
               },
             ),
+
+            //Prova de pdf TODO
+            const SizedBox(
+              height: 15,
+            ),
+
+            ElevatedButton(
+              child: Text(context.tr('results_download')),
+              onPressed: () async {
+                Map<String, dynamic>? mitigations =
+                    await Mitigation.loadMitigations(
+                        Localizations.localeOf(context).languageCode);
+                Map<String, List<Map<String, String>>> mitigationsTexts =
+                    Mitigation.getMitigationsTextsByAnswer(
+                        mitigations!, answers);
+
+                Map<String, List<String>> mitigationsTextPdf = {};
+                mitigationsTexts.forEach((key, value) {
+                  mitigationsTextPdf[key] =
+                      value.map((e) => e['text']!).toList();
+                });
+
+                saveEventdata(
+                    screenId: 'result_page', buttonId: 'download_results');
+
+                File pdf = await PdfCreator.generateResultsPdf(
+                    riskAssessmentId,
+                    risk,
+                    hazard,
+                    vulnerability,
+                    subProbabilities,
+                    mitigationsTextPdf,
+                    getRiskInfo(hazard * 100, vulnerability * 100, risk * 100,
+                        context));
+                PdfCreator.openPdf(pdf);
+              },
+            ),
+
             //Segon nivell de linear gauge
             for (var entry in _showLinearGauge.entries)
               if (entry.value && _showFactors)

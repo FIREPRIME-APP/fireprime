@@ -1,3 +1,12 @@
+import 'package:easy_localization/easy_localization.dart';
+import 'package:fireprime/model/customised_image.dart';
+import 'package:fireprime/pages/questionnaire/multiple_choice_image.dart';
+import 'package:fireprime/pages/questionnaire/single_choice_image.dart';
+import 'package:fireprime/providers/images_provider.dart';
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:survey_kit/survey_kit.dart';
+
 class Questionnaire {
   static final Questionnaire _instance = Questionnaire._internal();
 
@@ -7,6 +16,7 @@ class Questionnaire {
     return _instance;
   }
   String version = '1.0';
+  String environment = 'default';
 
   List<Map<String, dynamic>> questions = [
     {
@@ -199,10 +209,7 @@ class Questionnaire {
     },
     {
       'stepId': 'Q22',
-      'textChoices': [
-        'lowSurfaceLess10',
-        'lowSurfaceMore10'
-      ],
+      'textChoices': ['lowSurfaceLess10', 'lowSurfaceMore10'],
       'otherOption': false,
       'type': 'singleChoice',
     },
@@ -304,7 +311,7 @@ class Questionnaire {
         'noSemiConf': 'I1',
       },
     },
-     /* {
+    /* {
       'stepId': 'I1',
       'type': 'conditionalSavedResult',
       'conditions': {},
@@ -350,8 +357,8 @@ class Questionnaire {
       'stepId': 'Q11-1',
       'type': 'conditional',
       'conditions': {
-        "7farFromGlazing": "Q11-2",
-        '7closeToGlazing': 'Q11-2',
+        "7farFromGlazing": "Q12",
+        '7closeToGlazing': 'Q12',
       },
     },
     {
@@ -387,8 +394,6 @@ class Questionnaire {
     }
   ];
 
-  String environment = 'default';
-
   Map<String, dynamic> getOptions(questionId) {
     Map<String, dynamic> options = {};
 
@@ -403,5 +408,110 @@ class Questionnaire {
 
   void setEnvironment(String environment) {
     this.environment = environment;
+  }
+
+  SingleChoiceImageStep buildSingleChoiceImageStep({
+    required String stepId,
+    required List<String> textChoices,
+    required bool otherOption,
+    required BuildContext context,
+    required Map<String, String?> answers,
+    String? description,
+    String? title,
+    String? text,
+    List<CustomisedImage>? images,
+    bool? alwaysShowDescription,
+  }) {
+    return SingleChoiceImageStep(
+      stepIdentifier: StepIdentifier(id: stepId),
+      title: title ?? context.tr('$stepId.title'),
+      text: text ?? context.tr('$stepId.question'),
+      description: description ?? context.tr('$stepId.description'),
+      images: images ??
+          (Provider.of<ImagesProvider>(context, listen: false)
+                  .containsKey(stepId)
+              ? Provider.of<ImagesProvider>(context, listen: false)
+                  .getImagePath(stepId, context)
+              : []),
+      otherOption: otherOption,
+      answerFormat: SingleChoiceAnswerFormat(
+        textChoices: getTextChoices(textChoices, stepId, context),
+        defaultSelection: getChoice(answers, stepId, context),
+      ),
+      alwaysShowDescription: alwaysShowDescription ?? false,
+    );
+  }
+
+  List<TextChoice> getTextChoices(
+      List<String> choices, String stepId, BuildContext context) {
+    List<TextChoice> textChoices = [];
+    for (var element in choices) {
+      if (context.tr('$stepId.$element') == '$stepId.$element') {
+        textChoices.add(TextChoice(text: context.tr(element), value: element));
+        continue;
+      }
+      textChoices.add(
+          TextChoice(text: context.tr('$stepId.$element'), value: element));
+    }
+    return textChoices;
+  }
+
+  TextChoice? getChoice(
+      Map<String, String?> answers, String key, BuildContext context) {
+    return answers.containsKey(key)
+        ? TextChoice(
+            text: context.tr('$key.${answers[key]}'), value: answers[key]!)
+        : null;
+  }
+
+  MultipleChoiceImageStep buildMultipleChoiceImageStep(
+      {required stepId,
+      required textChoices,
+      required otherOption,
+      required BuildContext context,
+      required Map<String, String?> answers}) {
+    return MultipleChoiceImageStep(
+      stepIdentifier: StepIdentifier(id: stepId),
+      title: context.tr('$stepId.title'),
+      text: context.tr('$stepId.question'),
+      description: context.tr('$stepId.description'),
+      images: Provider.of<ImagesProvider>(context, listen: false)
+              .containsKey(stepId)
+          ? Provider.of<ImagesProvider>(context, listen: false)
+              .getImagePath(stepId, context)
+          : [],
+      otherOption: otherOption,
+      answerFormat: MultipleChoiceAnswerFormat(
+        textChoices: getTextChoices(textChoices, stepId, context),
+        defaultSelection: getMultipleChoice(stepId, answers, context),
+        maxAnswers: 3,
+      ),
+    );
+  }
+
+  List<TextChoice> getMultipleChoice(
+      String key, Map<String, String?> answers, BuildContext context) {
+    List<TextChoice> choices = [];
+    if (answers.containsKey(key)) {
+      for (var element in answers[key]!.split(',')) {
+        choices
+            .add(TextChoice(text: context.tr('$key.$element'), value: element));
+      }
+    }
+    return choices;
+  }
+
+  Map<String, String?> adaptedResult(
+    Map<String, String?> adaptedResult,
+    SurveyResult result,
+  ) {
+    print('adaptedResult');
+
+    for (var stepResult in result.results) {
+      for (var questionResult in stepResult.results) {
+        adaptedResult[stepResult.id!.id] = questionResult.valueIdentifier;
+      }
+    }
+    return adaptedResult;
   }
 }

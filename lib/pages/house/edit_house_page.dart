@@ -1,9 +1,10 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:fireprime/autocomplete/autocomplete.dart';
-import 'package:fireprime/autocomplete/google_places_autocomplete.dart';
-import 'package:fireprime/config.dart';
+//import 'package:fireprime/autocomplete/autocomplete.dart';
+//import 'package:fireprime/autocomplete/google_places_autocomplete.dart';
+import 'package:fireprime/autocomplete/zip_code.dart';
+//import 'package:fireprime/config.dart';
 import 'package:fireprime/constants.dart';
-import 'package:fireprime/firebase/api_key_manage.dart';
+//import 'package:fireprime/firebase/api_key_manage.dart';
 import 'package:fireprime/firebase/event_manage.dart';
 import 'package:fireprime/model/house.dart';
 import 'package:fireprime/providers/house_provider.dart';
@@ -25,9 +26,10 @@ class _EditHousePageState extends State<EditHousePage> {
   final TextEditingController _name = TextEditingController();
   final TextEditingController _address = TextEditingController();
   final TextEditingController _environment = TextEditingController();
+  final TextEditingController _zipCode = TextEditingController();
 
   bool _enabled = true;
-  String? _selectedPlace;
+  //String? _selectedPlace;
   String? _selectedCountryCode;
 
   @override
@@ -38,15 +40,21 @@ class _EditHousePageState extends State<EditHousePage> {
 
     _name.text = house.name;
     _address.text = house.address;
+    _zipCode.text = house.zipCode ?? '';
 
     _name.addListener(_checkInput);
     _address.addListener(_checkInput);
+    _zipCode.addListener(_checkInput);
   }
 
   Future<void> _handleEditHouse(HouseProvider house) async {
     if (_name.text.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
         Utils.snackBar(context.tr('warning_unfilled_name')),
+      );
+    } else if (_zipCode.text.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        Utils.snackBar(context.tr('warning_unfilled_zip_code')),
       );
     } else if (_address.text.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
@@ -57,8 +65,12 @@ class _EditHousePageState extends State<EditHousePage> {
       ScaffoldMessenger.of(context).showSnackBar(
         Utils.snackBar(context.tr('warning_house_name_exists')),
       );
-    } else if (_address.text.isNotEmpty && _name.text.isNotEmpty) {
-      if (_selectedPlace == null) {
+    } else if (_address.text.isNotEmpty &&
+        _name.text.isNotEmpty &&
+        _zipCode.text.isNotEmpty) {
+      Map<String, dynamic> latLong = await ZipCode()
+          .getLatLongByZipCode(_zipCode.text, _selectedCountryCode!);
+      if (latLong.isEmpty) {
         showDialog(
           context: context,
           builder: (BuildContext context) {
@@ -72,7 +84,7 @@ class _EditHousePageState extends State<EditHousePage> {
                         screenId: 'edit_house',
                         buttonId: 'noLatLong_warning_accept');
                     Navigator.of(context).pop();
-                    house.editHouse(_name.text, _address.text);
+                    house.editHouse(_name.text, _address.text, _zipCode.text);
                     Navigator.of(context).pop();
                   },
                   child: Text(context.tr('accept')),
@@ -91,15 +103,13 @@ class _EditHousePageState extends State<EditHousePage> {
           },
         );
       } else {
-        Map<String, dynamic> latLong = await GooglePlacesAutoComplete()
-            .getLatLong(_selectedPlace!, Config.API_KEY);
         House currentHouse = house.getHouse(house.currentHouse!);
-        currentHouse.lat = latLong['latitude'];
-        currentHouse.long = latLong['longitude'];
-        house.editHouse(_name.text, _address.text);
+        currentHouse.lat = double.parse(latLong['latitude']);
+        currentHouse.long = double.parse(latLong['longitude']);
+        //house.editHouse(_name.text, _address.text);
       }
 
-      house.editHouse(_name.text, _address.text);
+      house.editHouse(_name.text, _address.text, _zipCode.text);
       saveEventdata(screenId: 'edit_house_page', buttonId: 'save_edited_house');
 
       Navigator.of(context).pop();
@@ -109,7 +119,9 @@ class _EditHousePageState extends State<EditHousePage> {
   void _checkInput() {
     setState(
       () {
-        if (_name.text.isNotEmpty && _address.text.isNotEmpty) {
+        if (_name.text.isNotEmpty &&
+            _address.text.isNotEmpty &&
+            _zipCode.text.isNotEmpty) {
           _enabled = true;
         } else {
           _enabled = false;
@@ -120,9 +132,9 @@ class _EditHousePageState extends State<EditHousePage> {
 
   @override
   Widget build(BuildContext context) {
-    if (Config.API_KEY == '') {
+    /* if (Config.API_KEY == '') {
       getApiKey();
-    }
+    }*/
 
     final house = Provider.of<HouseProvider>(context, listen: false)
         .getHouse(widget.currentHouse);
@@ -180,7 +192,7 @@ class _EditHousePageState extends State<EditHousePage> {
                   enabled: false,
                 ),
                 const SizedBox(height: 10.0),
-                AutoCompleteWidget(
+                /* AutoCompleteWidget(
                   apiKey: Config.API_KEY,
                   controller: _address,
                   onPlaceSelected: (placeId) => setState(() {
@@ -188,6 +200,19 @@ class _EditHousePageState extends State<EditHousePage> {
                   }),
                   screenId: 'edit_house_page',
                   selectedCountryCode: _selectedCountryCode!,
+                ),*/
+                InputField(
+                  label: '${context.tr('zip_code')}:',
+                  controller: _zipCode,
+                  screenId: 'create_house_page',
+                  buttonId: 'zip_code',
+                ),
+                const SizedBox(height: 10.0),
+                InputField(
+                  label: '${context.tr('address')}:',
+                  controller: _address,
+                  screenId: 'create_house_page',
+                  buttonId: 'address',
                 ),
                 const SizedBox(height: 20.0),
                 Center(

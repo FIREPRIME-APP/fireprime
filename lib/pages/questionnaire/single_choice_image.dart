@@ -1,7 +1,9 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:fireprime/model/customised_image.dart';
 import 'package:fireprime/firebase/event_manage.dart';
+import 'package:fireprime/widgets/selection_list_tile.dart';
 import 'package:flutter/material.dart' hide Step;
+import 'package:insta_image_viewer/insta_image_viewer.dart';
 import 'package:survey_kit/survey_kit.dart';
 
 class SingleChoiceImageStep extends Step {
@@ -11,6 +13,7 @@ class SingleChoiceImageStep extends Step {
   final List<CustomisedImage> images;
   final AnswerFormat answerFormat;
   final bool otherOption;
+  bool alwaysShowDescription = false;
 
   SingleChoiceImageStep({
     required super.stepIdentifier,
@@ -21,6 +24,7 @@ class SingleChoiceImageStep extends Step {
     required this.otherOption,
     required this.images,
     required this.answerFormat,
+    required this.alwaysShowDescription,
   });
 
   @override
@@ -134,16 +138,24 @@ class _CustomViewState extends State<SingleChoiceImageView> {
               style: Theme.of(context).textTheme.bodyMedium,
             ),
           ),
-          TextButton(
-            onPressed: _toggleDescription,
-            child: Text(
-              _showDescription
-                  ? context.tr('hide_description')
-                  : context.tr('show_description'),
-              style: TextStyle(color: Theme.of(context).primaryColor),
-            ),
-          ),
-          if (_showDescription) showDescription(),
+          (!widget.questionStep.alwaysShowDescription)
+              ? ElevatedButton(
+                  onPressed: _toggleDescription,
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: _showDescription
+                        ? const Color.fromARGB(255, 223, 225, 228)
+                        : const Color.fromARGB(255, 252, 252, 252),
+                  ),
+                  child: Text(
+                    _showDescription
+                        ? context.tr('hide_description')
+                        : context.tr('show_description'),
+                    style: TextStyle(color: Theme.of(context).primaryColor),
+                  ),
+                )
+              : const SizedBox.shrink(),
+          if (_showDescription || widget.questionStep.alwaysShowDescription)
+            showDescription(),
           Column(
             children: [
               const Divider(
@@ -151,9 +163,10 @@ class _CustomViewState extends State<SingleChoiceImageView> {
               ),
               ..._singleChoiceAnswerFormat.textChoices.map(
                 (TextChoice tc) {
-                  return SelectionListTile(
+                  return CustomisedSelectionListTile(
                     text: tc.text,
                     onTap: () {
+                      print("Tapped on: ${tc.text}");
                       if (_selectedChoice == tc) {
                         _selectedChoice = null;
                       } else {
@@ -269,9 +282,11 @@ class _CustomViewState extends State<SingleChoiceImageView> {
           return Column(
             children: [
               Expanded(
-                child: Image.asset(
-                  widget.images[index].path,
-                  fit: BoxFit.cover,
+                child: InstaImageViewer(
+                  child: Image.asset(
+                    widget.images[index].path,
+                    fit: BoxFit.fitWidth,
+                  ),
                 ),
               ),
               const SizedBox(height: 4),

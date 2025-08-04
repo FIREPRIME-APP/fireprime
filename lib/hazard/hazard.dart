@@ -50,6 +50,6 @@ double getHazardValue(String data) {
     print('Hazard value: $hazard');
     return hazard;
   } else {
-    return 1.0;
+    return -1.0;
   }
 }

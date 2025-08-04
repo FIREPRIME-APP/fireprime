@@ -14,14 +14,17 @@
     "name": "Name",
     "address": "Address",
     "country": "Country",
+    "zip_code": "Zip code",
     "warning_unfilled_name": "Please fill in the name of the house",
     "warning_unfilled_address": "Please fill in the address of the house",
     "warning_unselected_country": "Please select the country of the house",
+    "warning_unfilled_zip_code": "Please fill in the zip code of the house",
     "warning_house_name_exists": "House name already used",
     "unable_to_get_latlong_title": "Unable to get the location",
     "unable_to_get_latlong_message": "Please check your internet connection. Try to edit your address and select one of the suggestions or edit it later. You can continue without the location, but the results may not be accurate.",
     "try_again": "Try again",
     "accept": "Accept",
+    "close": "Close",
 
     "european_countries": {
         "albania": "Albania",
@@ -200,9 +203,20 @@
         "low": "low"
     },
 
+    "risk_text" : {
+        "spain_high": "Your home is at high risk. Completing the advanced evaluation can help you identify critical points and find ways to reduce the risk. Don't forget to check the preparation and safety tips in case of fire.",
+        "spain_moderate": "Your home is at moderate risk. If you want to better understand your situation, you can complete the advanced evaluation and receive more detailed recommendations. We also recommend checking the preparation and safety tips in case of fire。",
+        "spain_low": "Your home is at low risk, but don't get complacent. Keep the surroundings clean and check the preparation and safety tips in case of fire.",
+        "austria_high": "",
+        "austria_moderate": "",
+        "austria_low": ""
+    },
+
     "hide": "Hide",
     "mitigation_intro": "Check the improvements to reduce the risk of your house",
     "check_improvements": "Check improvements!",
+    "results_download": "Download the results",
+
     
     "mitigation_title": "Improvements",
 

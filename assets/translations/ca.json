@@ -14,14 +14,17 @@
     "name": "Nom",
     "address": "Adreça",
     "country": "País",
+    "zip_code": "Codi postal",
     "warning_unfilled_name": "Si us plau, introduïu el nom de la casa",
     "warning_unfilled_address": "Si us plau, introduïu l'adreça de la casa",
     "warning_unselected_country": "Si us plau, seleccioneu el país de la casa",
+    "warning_unfilled_zip_code": "Si us plau, introduïu el codi postal de la casa",
     "warning_house_name_exists": "Aquest nom de casa ja existeix",
     "unable_to_get_latlong_title": "No es pot obtenir la localització",
     "unable_to_get_latlong_message": "Si us plau, comproveu la vostra connexió a Internet. Intenteu editar la vostra adreça i seleccioneu un dels suggeriments o editeu-lo més tard. Podeu continuar sense la ubicació, però els resultats poden no ser precisos.",
     "try_again": "Reintentar",
     "accept": "Acceptar",
+    "close": "Tancar",
     
    "european_countries": {
         "albania": "Albània",
@@ -166,6 +169,7 @@
     "structural_vulnerabilities": "Vulnerabilitats estructurals",
     "fire_reaches_building": "Perill de propagació del foc fins l'edifici",
 
+
     "hazard_vulnerability_text": {
         "extreme_high_text": "La seva llar es troba en una zona {hazard_level} als incendis forestals i és {vulnerability_level} a ells. Com a resultat, el seu nivell de risc és {risk}. Seguiu les recomanacions proporcionades per millorar la resiliència de la vostra llar i reduir la probabilitat que es cremi.",
         "extreme_moderate_text": "La seva llar es troba en una zona {hazard_level} als incendis forestals i és {vulnerability_level} a ells. Com a resultat, el seu nivell de risc és {risk}. Seguiu les recomanacions proporcionades per reduir la probabilitat de que cremi i segueixi fent el manteniment de la propietat.",
@@ -198,13 +202,27 @@
         "low": "baix"
     },
 
+    "risk_text" : {
+        "spain_high": "El vostre habitatge presenta un risc alt. Fer l'avaluació avançada us pot ajudar a detectar els punts crítics i veure com reduir el risc. No oblideu consultar els consells de preparació i seguretat en cas d'incendi.",
+        "spain_moderate": "El vostre habitatge té un risc moderat. Si voleu conèixer millor la vostra situació, podeu fer l'avaluació avançada i rebre recomanacions més detallades. També us recomanem consultar els consells de preparació i seguretat en cas d'incendi.",
+        "spain_low": "El vostre habitatge té un risc baix, però no us confieu. Mantingueu l'entorn net i consulteu els consells de preparació i seguretat en cas d'incendi. ",
+        "austria_high": "",
+        "austria_moderate": "",
+        "austria_low": ""
+    },
+
     "hide": "Ocultar",
     "mitigation_intro": "Consulta les millores per reduir el risc de casa seva",
     "check_improvements": "Consulta les millores!",
+    "results_download": "Descarrega els resultats",
+
     
     "mitigation_title": "Millores",
+    "improve": "Millora",
+    "save_answers": "Actualitza el qüestionari",
 
-  
+    
+
     "Q1": {
         "title": "Materials de la façana",
         "question": "Quin percentatge de la superfície de l'exterior de l'edifici (parets exteriors, balcons - sense tenir en compte persianes o porxos) està fet de materials combustibles?",

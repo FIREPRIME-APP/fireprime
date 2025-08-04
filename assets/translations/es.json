@@ -14,14 +14,17 @@
     "name": "Nombre",
     "address": "Dirección",
     "country": "País",
-    "warning_unfilled_name": "Por favor, introduce el nombre de la casa",
-    "warning_unfilled_address": "Por favor, introduece la dirección de la casa",
-    "warning_unselected_country": "Por favor, selecciona el país de la casa",
+    "zip_code": "Código postal",
+    "warning_unfilled_name": "Por favor, introduzca el nombre de la casa",
+    "warning_unfilled_address": "Por favor, introduzca la dirección de la casa",
+    "warning_unselected_country": "Por favor, seleccione el país de la casa",
+    "warning_unfilled_zip_code": "Por favor, introduzca el código postal de la casa",
     "warning_house_name_exists": "Este nombre de casa ya existe",
     "unable_to_get_latlong_title": "No se puede obtener la ubicación",
     "unable_to_get_latlong_message": "Por favor, comprueba la conexión a Internet. Intenta editar la dirección y selecciona una de las sugerencias o editala más tarde. Puedes continuar sin la ubicación, pero los resultados pueden no ser precisos.",
     "try_again": "Reintentar",
     "accept": "Aceptar",
+    "close": "Cerrar",
 
 
     "european_countries": {
@@ -168,6 +171,8 @@
     "structural_vulnerabilities": "Vulnerabilidades estructurales",
     "fire_reaches_building": "Probabilidad de propagación del fuego hasta el edificio",
     
+
+
     "hazard_vulnerability_text": {
         "extreme_high_text": "Su hogar se encuentra en una zona {hazard_level} de incendios forestales y es {vulnerability_level} a ellos. Como resultado, su nivel de riesgo es {risk}. Siga las recomendaciones proporcionadas para mejorar la resiliencia de su hogar y reducir la probabilidad de que se queme.",
         "extreme_moderate_text": "Su hogar se encuentra en una zona {hazard_level} de incendios forestales y es {vulnerability_level} a ellos. Como resultado, su nivel de riesgo es {risk}. Siga las recomendaciones proporcionadas para reducir la probabilidad de que se queme y siga haciendo el mantenimiento de la propiedad.",
@@ -200,9 +205,20 @@
         "low": "bajo"
     },
 
+    "risk_text" : {
+        "spain_high": "Su vivienda presenta un riesgo alto. Realizar la evaluación avanzada puede ayudarle a detectar los puntos críticos y ver cómo reducir el riesgo. No olvide consultar los consejos de preparación y seguridad en caso de incendio.",
+        "spain_moderate": "Su vivienda tiene un riesgo moderado. Si desea conocer mejor su situación, puede realizar la evaluación avanzada y recibir recomendaciones más detalladas. También le recomendamos consultar los consejos de preparación y seguridad en caso de incendio.",
+        "spain_low": "Su vivienda tiene un riesgo bajo, pero no se confíe. Mantenga el entorno limpio y consulte los consejos de preparación y seguridad en caso de incendio.",
+        "austria_high": "",
+        "austria_moderate": "",
+        "austria_low": ""
+    },
+
     "hide": "Ocultar",
     "mitigation_intro": "Consulta las mejoras para reducir el riesgo de su casa",
     "check_improvements": "Consulta las mejoras!",
+    "results_download": "Descarga los resultados",
+
     
     "mitigation_title": "Mejoras",
     

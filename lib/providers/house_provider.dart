@@ -114,6 +114,7 @@ class HouseProvider with ChangeNotifier {
 
   Future<String> addRiskAssessment(RiskAssessment riskAssessment) async {
     int newId = await getNextRiskAssessmentId();
+    riskAssessment.setId('riskAssessment_$newId');
     riskAssessmentBox.put('riskAssessment_$newId', riskAssessment);
     notifyListeners();
 
@@ -145,37 +146,45 @@ class HouseProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  Future<void> setAnswers(DateTime iniDate, String version,
-      Map<String, String?> answers, String finishReason) async {
+  Future<void> setAnswers(
+      DateTime iniDate,
+      String version,
+      Map<String, String?> answers,
+      String finishReason,
+      String? lastStepId) async {
     House house = houses[currentHouse];
     RiskAssessment? riskAssessment = getLastRiskAssessment();
     if (finishReason == 'Completed') {
       if (riskAssessment == null || (riskAssessment.completed)) {
         print('isEmpty or Lastcompleted');
         RiskAssessment newRiskAssessment =
-            RiskAssessment(iniDate, version, answers);
+            RiskAssessment(iniDate, version, answers, null);
         String raId = await addRiskAssessment(newRiskAssessment);
         newRiskAssessment.setId(raId);
         house.riskAssessmentIds.add(raId);
       } else {
         riskAssessment.answers = answers;
+        riskAssessment.lastStepId = null;
         await updateRiskAssesment(riskAssessment.id, riskAssessment);
       }
     } else {
       if (riskAssessment != null) {
+        print('lastStep in SetAnswers: $lastStepId');
+
         if (riskAssessment.completed) {
           RiskAssessment newRiskAssessment =
-              RiskAssessment(iniDate, version, answers);
+              RiskAssessment(iniDate, version, answers, lastStepId);
           String raId = await addRiskAssessment(newRiskAssessment);
           newRiskAssessment.setId(raId);
           house.riskAssessmentIds.add(raId);
         } else {
           riskAssessment.answers = answers;
+          riskAssessment.lastStepId = lastStepId;
           await updateRiskAssesment(riskAssessment.id, riskAssessment);
         }
       } else {
         RiskAssessment newRiskAssessment =
-            RiskAssessment(iniDate, version, answers);
+            RiskAssessment(iniDate, version, answers, lastStepId);
         String raId = await addRiskAssessment(newRiskAssessment);
         newRiskAssessment.setId(raId);
         house.riskAssessmentIds.add(raId);
@@ -229,9 +238,9 @@ class HouseProvider with ChangeNotifier {
     riskAssessment.vulnerability = vulnerability;
     riskAssessment.allProbabilities = allProbabilities;
     riskAssessment.fiDate = endDate;
-
+    print('before Hazard');
     await getHazardValue();
-
+    print('after hazard');
     riskAssessment.hazard = house.hazard;
     riskAssessment.risk = house.hazard! * vulnerability;
     await updateRiskAssesment(raId, riskAssessment);
@@ -240,9 +249,10 @@ class HouseProvider with ChangeNotifier {
     return riskAssessment.risk;
   }
 
-  Future<void> editHouse(String name, String address) async {
+  Future<void> editHouse(String name, String address, String zipCode) async {
     houses[currentHouse].address = address;
     houses[currentHouse].name = name;
+    houses[currentHouse].zipCode = zipCode;
 
     /*if (houses[currentHouse].name != name) {
       House editedHouse = houses[currentHouse];
@@ -283,8 +293,14 @@ class HouseProvider with ChangeNotifier {
   List<RiskAssessment> getRiskAssessments() {
     List<RiskAssessment> riskAssessments = [];
     for (int i = 0; i < houses[currentHouse]!.riskAssessmentIds.length; i++) {
-      riskAssessments.add(
-          riskAssessmentBox.get(houses[currentHouse]!.riskAssessmentIds[i]));
+      var riskAssessmentId = houses[currentHouse]!.riskAssessmentIds[i];
+
+      RiskAssessment riskAssessment = riskAssessmentBox.get(riskAssessmentId);
+      if (riskAssessment.completed) {
+        riskAssessments.add(riskAssessment);
+      }
+      /*riskAssessments.add(
+          riskAssessmentBox.get(houses[currentHouse]!.riskAssessmentIds[i]));*/
     }
     return riskAssessments;
   }

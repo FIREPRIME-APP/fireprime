@@ -1,17 +1,19 @@
-import 'dart:convert';
-
 import 'package:easy_localization/easy_localization.dart';
+import 'package:fireprime/constants.dart';
 import 'package:fireprime/firebase/event_manage.dart';
 import 'package:fireprime/pages/house/house_list_page.dart';
+import 'package:fireprime/pages/questionnaire/mitigation_questionnaire.dart';
+import 'package:fireprime/providers/house_provider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:fireprime/pages/mitigation/mitigation.dart';
+import 'package:provider/provider.dart';
 
 class MitigationPage extends StatefulWidget {
-  final Map<String, String?> answers;
+  //final Map<String, String?> answers;
 
   const MitigationPage({
     super.key,
-    required this.answers,
+    //  required this.answers,
   });
 
   @override
@@ -21,6 +23,11 @@ class MitigationPage extends StatefulWidget {
 class _MitigationPageState extends State<MitigationPage> {
   @override
   Widget build(BuildContext context) {
+    HouseProvider houseCtrl =
+        Provider.of<HouseProvider>(context, listen: false);
+    Map<String, String?> answers =
+        houseCtrl.getRiskAssessment()!.answers; //lastCompleted
+
     Locale currentLocale = Localizations.localeOf(context);
     String languageCode = currentLocale.languageCode;
 
@@ -49,8 +56,9 @@ class _MitigationPageState extends State<MitigationPage> {
           )
         ],
       ),
-      body: FutureBuilder<Map<String, dynamic>>(
-        future: _loadMitigations(languageCode),
+      body: FutureBuilder<Map<String, dynamic>?>(
+        future: _loadMitigations(
+            languageCode), //Mitigation.loadMitigations(languageCode),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(child: CircularProgressIndicator());
@@ -58,27 +66,12 @@ class _MitigationPageState extends State<MitigationPage> {
             return Center(child: Text('Error: ${snapshot.error}'));
           }
           if (snapshot.hasData) {
-            Map<String, dynamic> mitigations = snapshot.data!;
-            Map<String, List<String>> mitigationTexts = {};
-            for (var mitigation in mitigations.entries) {
-              for (var answer in widget.answers.entries) {
-                if (answer.value != null &&
-                    answer.value!.split(',').contains(mitigation.key)) {
-                  if (mitigationTexts[mitigation.value['title']] == null) {
-                    mitigationTexts[mitigation.value['title']] = [
-                      mitigation.value['text']
-                    ];
-                  } else {
-                    mitigationTexts[mitigation.value['title']]!
-                        .add(mitigation.value['text']);
-                  }
-                }
-              }
-            }
+            Map<String, List<Map<String, String>>> mitigationTexts =
+                Mitigation.getMitigationsTextsByAnswer(
+                    snapshot.data!['mitigations'], answers);
             return SingleChildScrollView(
               child: Column(
                 children: [
-                  const SizedBox(height: 10),
                   for (var mitigation in mitigationTexts.entries)
                     Column(
                       children: [
@@ -100,7 +93,7 @@ class _MitigationPageState extends State<MitigationPage> {
                             ),
                           ],
                         ),
-                        for (var text in mitigation.value)
+                        for (var mitigationDetail in mitigation.value) ...[
                           Padding(
                             padding: const EdgeInsets.fromLTRB(26, 10, 26, 0),
                             child: Row(
@@ -118,7 +111,7 @@ class _MitigationPageState extends State<MitigationPage> {
                                 ),
                                 Expanded(
                                   child: Text(
-                                    text,
+                                    mitigationDetail['text']!,
                                     textAlign: TextAlign.left,
                                     softWrap: true,
                                     style: const TextStyle(
@@ -131,7 +124,41 @@ class _MitigationPageState extends State<MitigationPage> {
                               ],
                             ),
                           ),
-                        const SizedBox(height: 10),
+                          if (mitigationDetail['questionId'] != '') ...[
+                            Padding(
+                              padding:
+                                  const EdgeInsets.fromLTRB(26, 10, 26, 10),
+                              child: ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor: Constants.blueDark,
+                                  elevation: 5.0,
+                                ),
+                                onPressed: () {
+                                  print(
+                                      'Before pressing improve button $answers');
+                                  Navigator.of(context).push(
+                                    MaterialPageRoute(
+                                      builder: (BuildContext context) {
+                                        return MitigationQuestionnaire(
+                                          answers: answers,
+                                          questionsId:
+                                              mitigationDetail['questionId']!,
+                                        );
+                                      },
+                                    ),
+                                  );
+                                },
+                                child: Text(
+                                  context.tr('improve'),
+                                  style: const TextStyle(
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                          const SizedBox(height: 10),
+                        ],
                       ],
                     ),
                   const SizedBox(height: 10),
@@ -148,6 +175,21 @@ class _MitigationPageState extends State<MitigationPage> {
 
   Future<Map<String, dynamic>>? _loadMitigations(String languageCode) async {
     try {
+      Map<String, dynamic>? mitigations =
+          await Mitigation.loadMitigations(languageCode);
+      Map<String, dynamic>? mitigationNavigation =
+          await Mitigation.loadNavigation();
+      return {
+        'mitigations': mitigations,
+        'navigation': mitigationNavigation,
+      };
+    } catch (e) {
+      throw Exception('Failed to load mitigations');
+    }
+  }
+
+  /*Future<Map<String, dynamic>>? _loadMitigations(String languageCode) async {
+    try {
       String filePath = 'assets/mitigations_text/$languageCode.json';
       String data = await rootBundle.loadString(filePath);
 
@@ -157,5 +199,5 @@ class _MitigationPageState extends State<MitigationPage> {
       print(e);
       throw Exception('Failed to load mitigations');
     }
-  }
+  }*/
 }

@@ -1,6 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:fireprime/autocomplete/autocomplete.dart';
-import 'package:fireprime/autocomplete/google_places_autocomplete.dart';
+import 'package:fireprime/autocomplete/zip_code.dart';
 import 'package:fireprime/config.dart';
 import 'package:fireprime/firebase/api_key_manage.dart';
 import 'package:fireprime/firebase/event_manage.dart';
@@ -22,6 +21,7 @@ class CreateHousePage extends StatefulWidget {
 class _CreateHousePageState extends State<CreateHousePage> {
   final TextEditingController _name = TextEditingController();
   final TextEditingController _address = TextEditingController();
+  final TextEditingController _zipCode = TextEditingController();
 
   Map<String, String> countries = {};
 
@@ -29,19 +29,21 @@ class _CreateHousePageState extends State<CreateHousePage> {
 
   bool _enabled = false;
 
-  String? _selectedPlace;
+  //String? _selectedPlace;
   String? _selectedCountryCode;
 
   @override
   void initState() {
     super.initState();
     _name.addListener(_checkInput);
+    _zipCode.addListener(_checkInput);
     _address.addListener(_checkInput);
   }
 
   void _checkInput() {
     setState(() {
       if (_name.text.isNotEmpty &&
+          _zipCode.text.isNotEmpty &&
           _address.text.isNotEmpty &&
           _selectedEnvironment != null) {
         _enabled = true;
@@ -83,10 +85,14 @@ class _CreateHousePageState extends State<CreateHousePage> {
       );
     } else if (_address.text.isNotEmpty &&
         _name.text.isNotEmpty &&
+        _zipCode.text.isNotEmpty &&
         _selectedEnvironment != null) {
       saveEventdata(screenId: 'create_house_page', buttonId: 'create_house');
 
-      if (_selectedPlace == null) {
+      Map<String, dynamic> latLong = await ZipCode()
+          .getLatLongByZipCode(_zipCode.text, _selectedCountryCode!);
+
+      if (latLong.isEmpty) {
         showDialog(
           context: context,
           builder: (BuildContext context) {
@@ -103,8 +109,8 @@ class _CreateHousePageState extends State<CreateHousePage> {
                         screenId: 'create_house_page',
                         buttonId: 'noLatLong_warning_accept');
                     Navigator.of(context).pop();
-                    House newHouse =
-                        House(_name.text, _address.text, _selectedEnvironment!);
+                    House newHouse = House(_name.text, _address.text,
+                        _selectedEnvironment!, _zipCode.text);
                     house.addHouse(newHouse);
                     Navigator.of(context).pop();
                   },
@@ -124,8 +130,19 @@ class _CreateHousePageState extends State<CreateHousePage> {
           },
         );
       } else {
+        House newHouse = House(
+            _name.text, _address.text, _selectedEnvironment!, _zipCode.text);
+        newHouse.lat = double.parse(latLong['latitude']);
+        newHouse.long = double.parse(latLong['longitude']);
+        house.addHouse(newHouse);
+        Navigator.of(context).pop();
+      }
+      /*
+      if (_selectedPlace == null) {
+      } else {
         Map<String, dynamic> latLong = await GooglePlacesAutoComplete()
             .getLatLong(_selectedPlace!, Config.API_KEY);
+        //TODO afegir zipcode com a atribut de la casa, es necessari o es pot adjuntar amb l'string de address?
         House newHouse =
             House(_name.text, _address.text, _selectedEnvironment!);
         newHouse.lat = latLong['latitude'];
@@ -133,7 +150,7 @@ class _CreateHousePageState extends State<CreateHousePage> {
         house.addHouse(newHouse);
 
         Navigator.of(context).pop();
-      }
+      }*/
     }
   }
 
@@ -143,7 +160,6 @@ class _CreateHousePageState extends State<CreateHousePage> {
     if (Config.API_KEY == '') {
       getApiKey();
     }
-
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -215,17 +231,31 @@ class _CreateHousePageState extends State<CreateHousePage> {
                   ),
                 ),
                 const SizedBox(height: 10.0),
-                if (_selectedCountryCode != null)
-                  AutoCompleteWidget(
-                    apiKey: Config.API_KEY,
+                if (_selectedCountryCode != null) ...[
+                  InputField(
+                    label: '*  ${context.tr('zip_code')}:',
+                    controller: _zipCode,
+                    screenId: 'create_house_page',
+                    buttonId: 'zip_code',
+                  ),
+                  const SizedBox(height: 10.0),
+                  InputField(
+                    label: '*  ${context.tr('address')}:',
                     controller: _address,
+                    screenId: 'create_house_page',
+                    buttonId: 'address',
+                  ),
+                  /*AutoCompleteWidget(
+                    apiKey: Config.API_KEY,
+                    controller: _zipCode,
                     onPlaceSelected: (placeId) => setState(() {
                       _selectedPlace = placeId;
                     }),
                     screenId: 'create_house_page',
                     selectedCountryCode: _selectedCountryCode!,
-                  ),
-                const SizedBox(height: 20.0),
+                  ),*/
+                  const SizedBox(height: 20.0),
+                ],
                 Center(
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(

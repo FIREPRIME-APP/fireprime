@@ -32,8 +32,10 @@ class RiskAssessment {
   late double? vulnerability = -1.0;
   @HiveField(10)
   late double? hazard = 1.0;
+  @HiveField(11)
+  late String? lastStepId;
 
-  RiskAssessment(this.iniDate, this.version, this.answers);
+  RiskAssessment(this.iniDate, this.version, this.answers, this.lastStepId);
 
   void setId(String id) {
     this.id = id;

@@ -9,7 +9,7 @@ import 'package:fireprime/pages/result/results_loading_page.dart';
 import 'package:fireprime/providers/house_provider.dart';
 import 'package:fireprime/providers/images_provider.dart';
 import 'package:fireprime/fault_tree/fault_tree.dart';
-import 'package:fireprime/model/questionnaire.dart';
+import 'package:fireprime/model/questionnaire/questionnaire.dart';
 import 'package:flutter/material.dart' hide Step;
 import 'package:provider/provider.dart';
 import 'package:survey_kit/survey_kit.dart';
@@ -18,8 +18,10 @@ import 'package:easy_localization/easy_localization.dart';
 
 class QuestionnairePage extends StatefulWidget {
   final Map<String, String?> answers;
+  final String? lastQuestionId;
 
-  const QuestionnairePage({super.key, required this.answers});
+  const QuestionnairePage(
+      {super.key, required this.answers, this.lastQuestionId});
 
   @override
   State<QuestionnairePage> createState() => _QuestionnairePageState();
@@ -36,6 +38,8 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
   Map<String?, String?> auxResult = {};
 
   Questionnaire questionnaire = Questionnaire();
+
+  String? auxStepId;
 
   @override
   Widget build(BuildContext context) {
@@ -65,14 +69,29 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
             child: Align(
               alignment: Alignment.center,
               child: FutureBuilder<Task>(
-                future:
-                    getQuestionnaireTask(context, questionnaire.environment),
+                future: getQuestionnaireTask(
+                    context, questionnaire.environment, widget.lastQuestionId),
                 builder: (BuildContext context, AsyncSnapshot<Task> snapshot) {
                   if (snapshot.connectionState == ConnectionState.done &&
                       snapshot.hasData &&
                       snapshot.data != null) {
                     final Task task = snapshot.data!;
                     return SurveyKit(
+                      surveyController: SurveyController(
+                        onNextStep: (context, resultFunction) {
+                          final result = resultFunction.call();
+                          print('onNextStep');
+                          print('result: $result');
+                          auxStepId = result.id?.id;
+                          return true;
+                        },
+                        onStepBack: (context, resultFunction) {
+                          return true;
+                        },
+                        onCloseSurvey: (context, resultFunction) {
+                          return true;
+                        },
+                      ),
                       onResult: (SurveyResult result) async {
                         Map<String, String?> results = {};
 
@@ -82,8 +101,8 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                               buttonId: 'finish');
                           results = _adaptedResult(results, result);
 
-                          await houseProvider.setAnswers(
-                              result.startDate, '1.0', results, 'Completed');
+                          await houseProvider.setAnswers(result.startDate,
+                              '1.0', results, 'Completed', null);
 
                           faultTree.setSelectedOptions(results);
                           print('RESULTS: $results');
@@ -131,10 +150,17 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                               screenId: 'questionnaire_page',
                               buttonId: 'cancel');
                           results = _adaptedResult(answers, result);
-                          print('answers in no completed: $answers');
-                          await houseProvider.setAnswers(result.startDate,
-                              '1.0', results, 'Not completed');
+
+                          if (auxStepId != null) {
+                            print('lastStepId: $auxStepId');
+                            await houseProvider.setAnswers(result.startDate,
+                                '1.0', results, 'Not completed', auxStepId);
+                          } else {
+                            await houseProvider.setAnswers(result.startDate,
+                                '1.0', results, 'Not completed', null);
+                          }
                           houseProvider.updateHouse();
+
                           Navigator.of(context).pop();
                         }
                       },
@@ -173,7 +199,7 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
   }
 
   Future<Task> getQuestionnaireTask(
-      BuildContext context, String environment) async {
+      BuildContext context, String environment, String? lastQuestionId) async {
     await Provider.of<ImagesProvider>(context, listen: false)
         .getImagesJSON(environment);
 
@@ -183,9 +209,24 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
 
     List<Step> steps = setSteps();
 
+    //Step? lastStep;
+
+    /* if (lastQuestionId != null) {
+      for (var step in steps) {
+        if (step.stepIdentifier.id == lastQuestionId) {
+          lastStep = step;
+          break;
+        }
+      }
+    }*/
+
     final NavigableTask task =
         NavigableTask(id: TaskIdentifier(), steps: steps);
     addNavigationRules(task);
+
+    /*TaskNavigator navigator = NavigableTaskNavigator(task);
+    navigator.reord(steps.first);*/
+
     return Future<Task>.value(task);
   }
 
@@ -209,6 +250,7 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
         textChoices: getTextChoices(textChoices, stepId),
         defaultSelection: getChoice(stepId),
       ),
+      alwaysShowDescription: false,
     );
   }
 
@@ -328,6 +370,7 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
               } else {
                 print('----');
                 String? auxInput = auxResult[navigation['savedResult']['id']];
+                //TODO SI ESTÁ NULO, MIRIAR DIRECTAMENTE ANSWERS
                 if (navigation['savedResult']['conditions']
                     .containsKey(auxInput)) {
                   print('auxInput: $auxInput');

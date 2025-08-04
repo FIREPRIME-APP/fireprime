@@ -50,7 +50,6 @@ class ImagesProvider with ChangeNotifier {
         imagePath.add(CustomisedImage(images[question]![i].path, description));
       }
     }
-
     return imagePath;
   }
 }

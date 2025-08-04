@@ -7,7 +7,7 @@ import 'package:fireprime/widgets/gauge.dart';
 import 'package:fireprime/pages/house/edit_house_page.dart';
 import 'package:fireprime/pages/house/house_list_page.dart';
 import 'package:fireprime/model/house.dart';
-import 'package:fireprime/model/questionnaire.dart';
+import 'package:fireprime/model/questionnaire/questionnaire.dart';
 import 'package:fireprime/model/risk_assessment.dart';
 import 'package:fireprime/pages/questionnaire/questionnaire_page.dart';
 import 'package:fireprime/pages/result/historical_results_page.dart';
@@ -125,32 +125,7 @@ class _HousePageState extends State<HousePage> {
                   const SizedBox(
                     height: 20,
                   ),
-                  _buttonCard(
-                    currentHouse,
-                    context.tr('mitigation_intro'),
-                    context.tr('check_improvements'),
-                    const Color.fromARGB(255, 159, 171, 201),
-                    () {
-                      saveEventdata(
-                          screenId: 'house_page',
-                          buttonId: 'check_improvements');
-                      if (lastCompletedRiskAssessment != null) {
-                        Navigator.of(context).push(
-                          MaterialPageRoute(
-                            builder: (BuildContext context) {
-                              return MitigationPage(
-                                answers: lastCompletedRiskAssessment.answers,
-                              );
-                            },
-                          ),
-                        );
-                      }
-                    },
-                    lastCompletedRiskAssessment != null,
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
+
                   if (riskAssessment != null && riskAssessment.completed)
                     _buttonCard(
                       currentHouse,
@@ -214,9 +189,18 @@ class _HousePageState extends State<HousePage> {
                             builder: (BuildContext context) {
                               Questionnaire().setEnvironment(
                                   currentHouse.environment); //TODO: CHECK
-                              return QuestionnairePage(
-                                answers: riskAssessment!.answers,
-                              );
+                              print(
+                                  'Last step id: ${riskAssessment?.lastStepId}');
+                              if (riskAssessment?.lastStepId != null) {
+                                return QuestionnairePage(
+                                  answers: riskAssessment!.answers,
+                                  lastQuestionId: riskAssessment.lastStepId,
+                                );
+                              } else {
+                                return QuestionnairePage(
+                                  answers: riskAssessment!.answers,
+                                );
+                              }
                             },
                           ),
                         );
@@ -224,6 +208,30 @@ class _HousePageState extends State<HousePage> {
                       true,
                     ),
                   ],
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  _buttonCard(
+                    currentHouse,
+                    context.tr('mitigation_intro'),
+                    context.tr('check_improvements'),
+                    const Color.fromARGB(255, 159, 171, 201),
+                    () {
+                      saveEventdata(
+                          screenId: 'house_page',
+                          buttonId: 'check_improvements');
+                      if (lastCompletedRiskAssessment != null) {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (BuildContext context) {
+                              return MitigationPage();
+                            },
+                          ),
+                        );
+                      }
+                    },
+                    lastCompletedRiskAssessment != null,
+                  ),
                   const SizedBox(
                     height: 20,
                   ),

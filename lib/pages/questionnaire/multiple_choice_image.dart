@@ -1,7 +1,9 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:fireprime/model/customised_image.dart';
 import 'package:fireprime/firebase/event_manage.dart';
+import 'package:fireprime/widgets/selection_list_tile.dart';
 import 'package:flutter/material.dart' hide Step;
+import 'package:insta_image_viewer/insta_image_viewer.dart';
 import 'package:survey_kit/survey_kit.dart';
 
 class MultipleChoiceImageStep extends Step {
@@ -146,8 +148,13 @@ class _CustomViewState extends State<MultipleChoiceImageView> {
                 .tr(args: [_multipleChoiceAnswerFormat.maxAnswers.toString()]),
           ),
           Center(
-            child: TextButton(
+            child: ElevatedButton(
               onPressed: _toggleDescription,
+              style: ElevatedButton.styleFrom(
+                backgroundColor: _showDescription
+                    ? const Color.fromARGB(255, 223, 225, 228)
+                    : const Color.fromARGB(255, 252, 252, 252),
+              ),
               child: Text(
                 _showDescription
                     ? context.tr('hide_descdescription')
@@ -164,7 +171,7 @@ class _CustomViewState extends State<MultipleChoiceImageView> {
               ),
               ..._multipleChoiceAnswerFormat.textChoices.map(
                 (TextChoice tc) {
-                  return SelectionListTile(
+                  return CustomisedSelectionListTile(
                     text: tc.text,
                     onTap: () {
                       setState(() {
@@ -292,9 +299,11 @@ class _CustomViewState extends State<MultipleChoiceImageView> {
           return Column(
             children: [
               Expanded(
-                child: Image.asset(
-                  widget.images[index].path,
-                  fit: BoxFit.cover,
+                child: InstaImageViewer(
+                  child: Image.asset(
+                    widget.images[index].path,
+                    fit: BoxFit.fitWidth,
+                  ),
                 ),
               ),
               const SizedBox(height: 4),

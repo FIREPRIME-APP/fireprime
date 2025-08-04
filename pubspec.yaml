@@ -56,6 +56,9 @@ dependencies:
   http: ^1.2.2
   timezone: ^0.10.0
   google_places_flutter: ^2.1.0
+  insta_image_viewer: ^1.0.4
+  pdf: ^3.11.3
+  open_file: ^3.5.1
 
 dev_dependencies:
   flutter_test:
@@ -88,9 +91,13 @@ flutter:
     - assets/images/spain/
     - assets/images/default/
   #  - assets/images/austria/
+    - assets/images/spain/basic/
     - assets/images/logos/
     - assets/translations/
     - assets/mitigations_text/
+    - assets/basic_questionnaires/default/
+    - assets/basic_questionnaires/spain/
+    - assets/basic_questionnaires/austria/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

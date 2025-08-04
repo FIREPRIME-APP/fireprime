@@ -93,6 +93,18 @@ class _HouseListPageState extends State<HouseListPage> {
                     child: Column(
                       children: [
                         _buildHeader(context),
+                        /* ElevatedButton(
+                          child: Text('Basic'),
+                          onPressed: () {
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (BuildContext context) {
+                                  return const AreaSelection();
+                                },
+                              ),
+                            );
+                          },
+                        ),*/
                         const SizedBox(
                           height: 20.0,
                         ),
