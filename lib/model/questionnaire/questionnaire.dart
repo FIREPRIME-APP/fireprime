@@ -458,10 +458,18 @@ class Questionnaire {
 
   TextChoice? getChoice(
       Map<String, String?> answers, String key, BuildContext context) {
-    return answers.containsKey(key)
-        ? TextChoice(
-            text: context.tr('$key.${answers[key]}'), value: answers[key]!)
-        : null;
+    if (answers.containsKey(key)) {
+      if (context.tr('$key.${answers[key]}') != '$key.${answers[key]}') {
+        return TextChoice(
+            text: context.tr('$key.${answers[key]}'), value: answers[key]!);
+      } else if (context.tr('${answers[key]}') != '${answers[key]}') {
+        return TextChoice(
+            text: context.tr('${answers[key]}'), value: answers[key]!);
+      } else {
+        return null;
+      }
+    }
+    return null;
   }
 
   MultipleChoiceImageStep buildMultipleChoiceImageStep(

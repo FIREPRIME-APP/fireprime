@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:fireprime/constants.dart';
 import 'package:fireprime/firebase/event_manage.dart';
+import 'package:fireprime/pages/house/choose_mode.dart';
 import 'package:fireprime/pages/mitigation/mitigation_page.dart';
 import 'package:fireprime/providers/house_provider.dart';
 import 'package:fireprime/widgets/gauge.dart';
@@ -13,6 +14,7 @@ import 'package:fireprime/pages/questionnaire/questionnaire_page.dart';
 import 'package:fireprime/pages/result/historical_results_page.dart';
 import 'package:fireprime/pages/result/result_page.dart';
 import 'package:fireprime/widgets/card_text.dart';
+import 'package:fireprime/widgets/house_delete_alert.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -38,19 +40,24 @@ class _HousePageState extends State<HousePage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Image.asset(
+        title: Text(
+          context.tr('advanced_mode'),
+          style: const TextStyle(
+              fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black),
+        ),
+        /*Image.asset(
           Constants.logoA,
           fit: BoxFit.contain,
           height: 25,
-        ),
-        centerTitle: true,
+        ),*/
+        // centerTitle: true,
         leading: IconButton(
           onPressed: () {
             saveEventdata(screenId: 'house_page', buttonId: 'back');
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (BuildContext context) {
-                  return const HouseListPage();
+                  return const ChooseMode(); //TODO
                 },
               ),
             );
@@ -58,9 +65,22 @@ class _HousePageState extends State<HousePage> {
           icon: const Icon(Icons.arrow_back),
         ),
         actions: [
+          IconButton(
+            onPressed: () {
+              saveEventdata(screenId: 'house_page', buttonId: 'choose_mode');
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (BuildContext context) {
+                    return const ChooseMode();
+                  },
+                ),
+              );
+            },
+            icon: const Icon(Icons.home),
+          ),
           PopupMenuButton<int>(
             icon: const Icon(Icons.more_vert),
-            onSelected: (value) {
+            onSelected: (value) async {
               if (value == 0) {
                 saveEventdata(screenId: 'house_page', buttonId: 'edit_house');
                 Navigator.of(context).push(
@@ -74,7 +94,12 @@ class _HousePageState extends State<HousePage> {
                 );
               } else if (value == 1) {
                 saveEventdata(screenId: 'house_page', buttonId: 'delete_house');
-                _deleteAlert(context);
+                await showDialog(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return const DeleteAlert();
+                  },
+                );
               }
             },
             itemBuilder: (BuildContext context) {
@@ -103,7 +128,7 @@ class _HousePageState extends State<HousePage> {
             riskAssessment = houseProvider.getLastRiskAssessment();
           }
           RiskAssessment? lastCompletedRiskAssessment =
-              houseProvider.getRiskAssessment();
+              houseProvider.getCompletedRiskAssessment();
 
           return Padding(
             padding: const EdgeInsets.fromLTRB(20, 0, 20, 20),
@@ -142,8 +167,8 @@ class _HousePageState extends State<HousePage> {
                               Questionnaire().setEnvironment(
                                   currentHouse.environment); //TODO: CHECK
                               return QuestionnairePage(
-                                answers: riskAssessment!.answers,
-                              );
+                                  // answers: riskAssessment!.answers,
+                                  );
                             },
                           ),
                         );
@@ -166,8 +191,8 @@ class _HousePageState extends State<HousePage> {
                               Questionnaire()
                                   .setEnvironment(currentHouse.environment);
                               return const QuestionnairePage(
-                                answers: {},
-                              );
+                                  //  answers: {},
+                                  );
                             },
                           ),
                         );
@@ -193,13 +218,13 @@ class _HousePageState extends State<HousePage> {
                                   'Last step id: ${riskAssessment?.lastStepId}');
                               if (riskAssessment?.lastStepId != null) {
                                 return QuestionnairePage(
-                                  answers: riskAssessment!.answers,
-                                  lastQuestionId: riskAssessment.lastStepId,
-                                );
+                                    // answers: riskAssessment!.answers,
+                                    // lastQuestionId: riskAssessment.lastStepId,
+                                    );
                               } else {
                                 return QuestionnairePage(
-                                  answers: riskAssessment!.answers,
-                                );
+                                    //   answers: riskAssessment!.answers,
+                                    );
                               }
                             },
                           ),
@@ -389,7 +414,10 @@ class _HousePageState extends State<HousePage> {
                               width: 100,
                               color: Colors.transparent,
                               child: Gauge.radialGauge(
-                                  lastRiskAssessment.risk * 100, 10, 4),
+                                lastRiskAssessment.risk * 100,
+                                10,
+                                4,
+                              ),
                             ),
                           ),
                           Column(children: [
@@ -417,7 +445,7 @@ class _HousePageState extends State<HousePage> {
                                 Navigator.of(context).push(
                                   MaterialPageRoute(
                                     builder: (BuildContext context) {
-                                      return ResultPage(house: currentHouse);
+                                      return const ResultPage();
                                     },
                                   ),
                                 );

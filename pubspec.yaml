@@ -59,6 +59,7 @@ dependencies:
   insta_image_viewer: ^1.0.4
   pdf: ^3.11.3
   open_file: ^3.5.1
+  flutter_markdown: ^0.7.4+3
 
 dev_dependencies:
   flutter_test:
@@ -98,6 +99,8 @@ flutter:
     - assets/basic_questionnaires/default/
     - assets/basic_questionnaires/spain/
     - assets/basic_questionnaires/austria/
+    - assets/advices/spain/
+    - assets/advices/default/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

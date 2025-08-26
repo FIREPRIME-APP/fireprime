@@ -1,0 +1,20 @@
+{
+    "area": "default",
+    "resultRanks": [
+        {
+            "level": "low",
+            "min": 0,
+            "max": 3
+        },
+        {
+            "level": "moderate",
+            "min": 4,
+            "max": 7
+        },
+        {
+            "level": "high",
+            "min": 7,
+            "max": 10
+        }
+    ]
+}

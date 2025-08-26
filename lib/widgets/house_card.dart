@@ -2,7 +2,8 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:fireprime/constants.dart';
 import 'package:fireprime/firebase/event_manage.dart';
 import 'package:fireprime/model/house.dart';
-import 'package:fireprime/pages/house/house_page.dart';
+import 'package:fireprime/pages/house/advanced/house_page.dart';
+import 'package:fireprime/pages/house/choose_mode.dart';
 import 'package:fireprime/providers/house_provider.dart';
 import 'package:fireprime/widgets/card_text.dart';
 import 'package:flutter/material.dart';
@@ -27,7 +28,7 @@ class HouseCard extends StatelessWidget {
           Navigator.of(context).push(
             MaterialPageRoute(
               builder: (BuildContext context) {
-                return const HousePage();
+                return const ChooseMode();
               },
             ),
           );

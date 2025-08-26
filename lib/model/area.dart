@@ -21,10 +21,15 @@ class Area {
   }
 
   static loadSettings(String area) async {
-    String jsonString = await rootBundle.loadString(
-      'assets/basic_questionnaires/$area/area_settings.json',
-    );
-    Map<String, dynamic> json = jsonDecode(jsonString);
-    return json;
+    String jsonString;
+    try {
+      jsonString = await rootBundle.loadString(
+        'assets/basic_questionnaires/$area/area_settings.json',
+      );
+    } catch (e) {
+      jsonString = await rootBundle
+          .loadString('assets/basic_questionnaires/default/area_settings.json');
+    }
+    return jsonDecode(jsonString);
   }
 }

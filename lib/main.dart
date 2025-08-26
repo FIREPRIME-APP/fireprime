@@ -4,6 +4,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_app_check/firebase_app_check.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:fireprime/firebase/api_key_manage.dart';
+import 'package:fireprime/model/basic_result.dart';
 import 'package:fireprime/model/event_probability.dart';
 import 'package:fireprime/pages/no_auth.dart';
 import 'package:fireprime/providers/house_provider.dart';
@@ -25,6 +26,7 @@ void main() async {
   Hive.registerAdapter(HouseAdapter());
   Hive.registerAdapter(RiskAssessmentAdapter());
   Hive.registerAdapter(EventProbabilityAdapter());
+  Hive.registerAdapter(BasicResultAdapter());
 
   try {
     await Firebase.initializeApp(

@@ -26,7 +26,7 @@ class _MitigationPageState extends State<MitigationPage> {
     HouseProvider houseCtrl =
         Provider.of<HouseProvider>(context, listen: false);
     Map<String, String?> answers =
-        houseCtrl.getRiskAssessment()!.answers; //lastCompleted
+        houseCtrl.getCompletedRiskAssessment()!.answers; //lastCompleted
 
     Locale currentLocale = Localizations.localeOf(context);
     String languageCode = currentLocale.languageCode;

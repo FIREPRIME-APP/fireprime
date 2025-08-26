@@ -2,7 +2,7 @@
     "questions": [
         {
             "id": "BQ1",
-            "question": "l meu habitatge es troba a tocar d'una massa forestal.",
+            "question": "El meu habitatge es troba a tocar d'una massa forestal.",
             "description": "",
             "images": [
                 {
@@ -13,7 +13,7 @@
         },
         {
             "id": "BQ2",
-            "question": "El meu habitatge està situat a mitja pendent o al capdamunt d'una la carena.",
+            "question": "El meu habitatge està situat a mitja pendent o al capdamunt d'una carena.",
             "description": "",
             "images": [
                 {
@@ -41,7 +41,13 @@
         {
             "id": "BQ5",
             "question": "Els vidres del meu habitatge són d'una sola fulla.",
-            "description": ""
+            "description": "",
+            "images": [
+                {
+                    "path": "BQ5.1",
+                    "description": "Descripció de la imatge"
+                }
+            ]
         },
         {
             "id": "BQ6",
@@ -56,7 +62,13 @@
         {
             "id": "BQ8",
             "question": "Hi ha acumulació de restes vegetals i materials combustibles al voltant de l'habitatge.",
-            "description": ""
+            "description": "",
+            "images": [
+                {
+                    "path": "BQ8.1",
+                    "description": "Descripció de la imatge"
+                }
+            ]
         },
         {
             "id": "BQ9",

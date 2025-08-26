@@ -54,6 +54,22 @@ class _MitigationQuestionnaireState extends State<MitigationQuestionnaire> {
                     "next": context.tr('next'),
                     "cancel": context.tr('cancel'),
                   },
+                  appBar: (appBarConfiguration) {
+                    return AppBar(
+                      title: Text(
+                        context.tr('improve'),
+                        style: Theme.of(context).textTheme.titleLarge!,
+                      ),
+                      actions: [
+                        IconButton(
+                          icon: const Icon(Icons.close),
+                          onPressed: () {
+                            Navigator.of(context).pop();
+                          },
+                        ),
+                      ],
+                    );
+                  },
                   onResult: (SurveyResult result) async {
                     if (result.finishReason == FinishReason.COMPLETED) {
                       for (var stepResult in result.results) {

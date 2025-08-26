@@ -85,6 +85,19 @@
     "privacy_title": "Privacitat de dades",
     "privacy_text": "La informació introduïda s'emmagatzema localment al dispositiu i no es comparteix amb tercers. Es poden eliminar les dades en qualsevol moment suprimint l'aplicació. Només es registren de manera anònima les interaccions amb l'aplicació.",
 
+    "choose_mode": "Autoavaluació del risc d'incendi forestal",
+    "basic_mode_intro": "L'avaluació bàsica és una opció ràpida i senzilla, adreçada a residents que viuen en zones amb risc d'incendi. Consta de 10 preguntes amb resposta Sí o No sobre l'entorn i la construcció de l'habitatge.",
+    "basic_mode": "Avaluació bàsica",
+    "basic": "Bàsica",
+    "advanced_mode_intro": "L'avaluació avançada, adreçada tant a tècnics com a residents que volen aprofundir en l'anàlisi, inclou 25 preguntes multiresposta sobre la ubicació de l'habitatge, la gestió del combustible proper i els materials constructius. El resultat de l'avaluació és un valor numèric que indica la probabilitat que l'habitatge pateixi danys en cas d'incendi, si no s'hi aplica cap acció d'extinció. Aquest resultat va acompanyat de de recomanacions personalitzades per reduir-lo.",
+    "advanced_mode": "Avaluació avançada",
+    "advanced": "Avançada",
+
+    "yes": "Sí",
+    "no": "No",
+
+    "advices": "Consells de preparació i seguretat",
+
     "last_evaluation": "Última avaluació",
     "date": "Data",
     "risk": "Risc",
@@ -215,6 +228,7 @@
     "mitigation_intro": "Consulta les millores per reduir el risc de casa seva",
     "check_improvements": "Consulta les millores!",
     "results_download": "Descarrega els resultats",
+    
 
     
     "mitigation_title": "Millores",

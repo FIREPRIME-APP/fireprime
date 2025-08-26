@@ -1,6 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:fireprime/constants.dart';
-import 'package:fireprime/pages/questionnaire/basic_questionnaire.dart';
+import 'package:fireprime/pages/questionnaire/basic/basic_questionnaire.dart';
 import 'package:flutter/material.dart';
 
 class AreaSelection extends StatefulWidget {
@@ -92,8 +92,8 @@ class _AreaSelectionState extends State<AreaSelection> {
                             builder: (BuildContext context) {
                               print('Selected Area: $selectedArea');
                               return BasicQuestionnairePage(
-                                area: selectedArea!,
-                              );
+                                  //answers: {},
+                                  );
                             },
                           ),
                         );

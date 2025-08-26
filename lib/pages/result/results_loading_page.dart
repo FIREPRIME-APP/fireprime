@@ -82,8 +82,8 @@ class ResultsLoadingPage extends StatelessWidget {
                 MaterialPageRoute(
                   builder: (BuildContext context) {
                     return ResultPage(
-                      house: house,
-                    );
+                        // house: house,
+                        );
                   },
                 ),
               );

@@ -1,0 +1,72 @@
+{
+    "questions": [
+        {
+            "id": "BQ1",
+            "question": "El meu habitatge es troba a tocar d'una massa forestal.",
+            "description": "",
+            "images": [
+                {
+                    "path": "BQ1.1",
+                    "description": "Descripció de la imatge"
+                }
+            ]
+        },
+        {
+            "id": "BQ2",
+            "question": "El meu habitatge està situat a mitja pendent o al capdamunt d'una la carena.",
+            "description": "",
+            "images": [
+                {
+                    "path": "BQ2.1",
+                    "description": "Descripció de la imatge"
+                }
+            ]
+        },
+        {
+            "id": "BQ3",
+            "question": "El revestiment exterior del meu habitatge és de material combustible.",
+            "description": "",
+            "images": [
+                {
+                    "path": "BQ3.1",
+                    "description": "Descripció de la imatge"
+                }
+            ]
+        },
+        {
+            "id": "BQ4",
+            "question": "La teulada, el porxo o el balcó són de material combustible.",
+            "description": ""
+        },
+        {
+            "id": "BQ5",
+            "question": "Els vidres del meu habitatge són d'una sola fulla.",
+            "description": ""
+        },
+        {
+            "id": "BQ6",
+            "question": "Tinc vidres sense protecció, sense persianes ni porticons.",
+            "description": ""
+        },
+        {
+            "id": "BQ7",
+            "question": "Tinc obertures de ventilació sense cap protecció.",
+            "description": ""
+        },
+        {
+            "id": "BQ8",
+            "question": "Hi ha acumulació de restes vegetals i materials combustibles al voltant de l'habitatge.",
+            "description": ""
+        },
+        {
+            "id": "BQ9",
+            "question": "Hi ha acumulació de fullaraca i branquillons a les canaletes de desaiguat i/o a la teulada.",
+            "description": ""
+        },
+        {
+            "id": "BQ10",
+            "question": "Hi ha un dipòsit de combustible a prop de l'edifici.",
+            "description": ""
+        }
+    ]
+}

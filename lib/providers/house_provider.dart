@@ -1,4 +1,5 @@
 import 'package:fireprime/hazard/hazard.dart';
+import 'package:fireprime/model/basic_result.dart';
 import 'package:fireprime/model/event_probability.dart';
 import 'package:fireprime/model/house.dart';
 import 'package:fireprime/model/risk_assessment.dart';
@@ -15,6 +16,7 @@ class HouseProvider with ChangeNotifier {
 
   late Box box;
   late Box riskAssessmentBox;
+  late Box basicResultBox;
 
   HouseProvider() {
     _init();
@@ -30,6 +32,7 @@ class HouseProvider with ChangeNotifier {
     Hive.init(directory.path);
     box = await Hive.openBox('housesBox');
     riskAssessmentBox = await Hive.openBox('riskAssessmentBox');
+    basicResultBox = await Hive.openBox('basicResultBox');
     return box.isOpen;
   }
 
@@ -37,6 +40,7 @@ class HouseProvider with ChangeNotifier {
   void dispose() {
     box.close();
     riskAssessmentBox.close();
+    basicResultBox.close();
     super.dispose();
   }
 
@@ -54,21 +58,20 @@ class HouseProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  /*Future<void> deleteRiskAssessments() async {
-    riskAssessmentBox.clear();
-    final raId = await Hive.openBox<int>('riskAssessmentIds');
-    raId.clear();
-  }*/
+  Map<dynamic, dynamic> getBasicResultsBox() {
+    return basicResultBox.toMap();
+  }
+
+  Future<void> deleteBasicResult(String id) async {
+    await basicResultBox.delete(id);
+    notifyListeners();
+  }
 
   Future<void> delete(String houseName) async {
     houses.remove(houseName);
     await box.delete(houseName);
     notifyListeners();
   }
-
-  /* List<dynamic> getHousesNames() {
-    return houses.keys.toList();
-  }*/
 
   Future<void> updateHouse() async {
     print('updating house');
@@ -79,6 +82,11 @@ class HouseProvider with ChangeNotifier {
   Future<void> updateRiskAssesment(
       String id, RiskAssessment riskAssessment) async {
     await riskAssessmentBox.put(id, riskAssessment);
+    notifyListeners();
+  }
+
+  Future<void> updateBasicResult(String id, BasicResult basicResult) async {
+    await basicResultBox.put(id, basicResult);
     notifyListeners();
   }
 
@@ -96,15 +104,15 @@ class HouseProvider with ChangeNotifier {
   }
 */
 
-  Future<int> getNextId() async {
-    final idBox = await Hive.openBox<int>('ids');
+  Future<int> getNextId(String boxName) async {
+    final idBox = await Hive.openBox<int>(boxName);
     int currentId = idBox.get('lastId') ?? 0;
     int newId = currentId + 1;
     await idBox.put('lastId', newId);
     return newId;
   }
 
-  Future getNextRiskAssessmentId() async {
+  /*Future getNextRiskAssessmentId() async {
     final idBox = await Hive.openBox<int>('riskAssessmentIds');
     int currentId = idBox.get('lastId') ?? 0;
     int newId = currentId + 1;
@@ -112,8 +120,16 @@ class HouseProvider with ChangeNotifier {
     return newId;
   }
 
+  Future getNextBasicResultId() async {
+    final idBox = await Hive.openBox<int>('basicResultIds');
+    int currentId = idBox.get('lastId') ?? 0;
+    int newId = currentId + 1;
+    await idBox.put('lastId', newId);
+    return newId;
+  }*/
+
   Future<String> addRiskAssessment(RiskAssessment riskAssessment) async {
-    int newId = await getNextRiskAssessmentId();
+    int newId = await getNextId('riskAssessmentIds');
     riskAssessment.setId('riskAssessment_$newId');
     riskAssessmentBox.put('riskAssessment_$newId', riskAssessment);
     notifyListeners();
@@ -122,14 +138,65 @@ class HouseProvider with ChangeNotifier {
   }
 
   void addHouse(House house) async {
-    int newId = await getNextId();
+    int newId = await getNextId('ids');
     houses['house_$newId'] = house;
     await box.put('house_$newId', house);
     notifyListeners();
   }
 
+  Future<String> addBasicResult(BasicResult basicResult) async {
+    int newId = await getNextId('basicResultIds');
+    basicResult.setId('basicResult_$newId');
+    basicResultBox.put('basicResult_$newId', basicResult);
+    notifyListeners();
+
+    return 'basicResult_$newId';
+  }
+
   void setCurrentHouse(String houseId) {
     currentHouse = houseId;
+    notifyListeners();
+  }
+
+  bool existsHouse(String name) {
+    for (var house in houses.entries) {
+      if (house.value.name == name) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  Future<void> editHouse(String name, String address, String zipCode) async {
+    houses[currentHouse].address = address;
+    houses[currentHouse].name = name;
+    houses[currentHouse].zipCode = zipCode;
+
+    /*if (houses[currentHouse].name != name) {
+      House editedHouse = houses[currentHouse];
+      editedHouse.name = name;
+      houses.remove(currentHouse);
+      await box.delete(currentHouse);
+      houses[name] = editedHouse;
+      currentHouse = name;
+    }*/
+
+    await box.put(currentHouse, houses[currentHouse]);
+
+    notifyListeners();
+  }
+
+  Future<void> deleteHouse() async {
+    House house = houses[currentHouse]!;
+
+    for (var ra in house.riskAssessmentIds) {
+      await riskAssessmentBox.delete(ra);
+    }
+
+    houses.remove(currentHouse);
+    await box.delete(currentHouse);
+
+    currentHouse = null;
     notifyListeners();
   }
 
@@ -160,7 +227,7 @@ class HouseProvider with ChangeNotifier {
         RiskAssessment newRiskAssessment =
             RiskAssessment(iniDate, version, answers, null);
         String raId = await addRiskAssessment(newRiskAssessment);
-        newRiskAssessment.setId(raId);
+        //newRiskAssessment.setId(raId);
         house.riskAssessmentIds.add(raId);
       } else {
         riskAssessment.answers = answers;
@@ -175,7 +242,7 @@ class HouseProvider with ChangeNotifier {
           RiskAssessment newRiskAssessment =
               RiskAssessment(iniDate, version, answers, lastStepId);
           String raId = await addRiskAssessment(newRiskAssessment);
-          newRiskAssessment.setId(raId);
+          //newRiskAssessment.setId(raId);
           house.riskAssessmentIds.add(raId);
         } else {
           riskAssessment.answers = answers;
@@ -186,7 +253,7 @@ class HouseProvider with ChangeNotifier {
         RiskAssessment newRiskAssessment =
             RiskAssessment(iniDate, version, answers, lastStepId);
         String raId = await addRiskAssessment(newRiskAssessment);
-        newRiskAssessment.setId(raId);
+        // newRiskAssessment.setId(raId);
         house.riskAssessmentIds.add(raId);
       }
 
@@ -249,39 +316,6 @@ class HouseProvider with ChangeNotifier {
     return riskAssessment.risk;
   }
 
-  Future<void> editHouse(String name, String address, String zipCode) async {
-    houses[currentHouse].address = address;
-    houses[currentHouse].name = name;
-    houses[currentHouse].zipCode = zipCode;
-
-    /*if (houses[currentHouse].name != name) {
-      House editedHouse = houses[currentHouse];
-      editedHouse.name = name;
-      houses.remove(currentHouse);
-      await box.delete(currentHouse);
-      houses[name] = editedHouse;
-      currentHouse = name;
-    }*/
-
-    await box.put(currentHouse, houses[currentHouse]);
-
-    notifyListeners();
-  }
-
-  Future<void> deleteHouse() async {
-    House house = houses[currentHouse]!;
-
-    for (var ra in house.riskAssessmentIds) {
-      await riskAssessmentBox.delete(ra);
-    }
-
-    houses.remove(currentHouse);
-    await box.delete(currentHouse);
-
-    currentHouse = null;
-    notifyListeners();
-  }
-
   /*Map<String, double> getResults() {
     return houses[currentHouse]!.riskAssessments.last.results;
   }*/
@@ -303,15 +337,6 @@ class HouseProvider with ChangeNotifier {
           riskAssessmentBox.get(houses[currentHouse]!.riskAssessmentIds[i]));*/
     }
     return riskAssessments;
-  }
-
-  bool existsHouse(String name) {
-    for (var house in houses.entries) {
-      if (house.value.name == name) {
-        return true;
-      }
-    }
-    return false;
   }
 
   RiskAssessment? getLastRiskAssessment() {
@@ -394,7 +419,7 @@ class HouseProvider with ChangeNotifier {
       }*/
   }
 
-  RiskAssessment? getRiskAssessment() {
+  RiskAssessment? getCompletedRiskAssessment() {
     House house = houses[currentHouse]!;
     RiskAssessment? riskAssessment = getLastRiskAssessment();
 
@@ -439,5 +464,132 @@ class HouseProvider with ChangeNotifier {
       }
     }
     return null;
+  }
+
+  List<BasicResult> getBasicResults() {
+    List<BasicResult> basicResults = [];
+    for (int i = 0; i < houses[currentHouse]!.basicResultIds.length; i++) {
+      var brId = houses[currentHouse]!.basicResultIds[i];
+      BasicResult basicResult = basicResultBox.get(brId);
+      if (basicResult.completed) {
+        basicResults.add(basicResult);
+      }
+    }
+    return basicResults;
+  }
+
+  BasicResult? getLastBasicResult() {
+    House house = houses[currentHouse]!;
+    //print('getLastIds:' + house.riskAssessmentIds.last);
+    if (house.basicResultIds != null) {
+      if (house.basicResultIds!.isEmpty) {
+        return null;
+      } else {
+        String id = house.basicResultIds!.last;
+        return basicResultBox.get(id);
+      }
+    }
+  }
+
+  BasicResult? getOldBasicResult() {
+    House house = houses[currentHouse]!;
+    BasicResult? basicResult = getLastBasicResult();
+    if (basicResult == null) {
+      return null;
+    } else {
+      if (basicResult.completed) {
+        if (house.basicResultIds!.length > 1) {
+          String brId = house.basicResultIds![house.basicResultIds!.length - 2];
+          return basicResultBox.get(brId);
+        }
+      } else {
+        if (house.basicResultIds!.length > 2) {
+          String brId = house.basicResultIds![house.basicResultIds!.length - 3];
+          return basicResultBox.get(brId);
+        }
+      }
+    }
+    return null;
+  }
+
+  BasicResult? getCompletedBasicResult() {
+    House house = houses[currentHouse]!;
+    BasicResult? basicResult = getLastBasicResult();
+
+    if (basicResult == null) {
+      return null;
+    } else {
+      if (basicResult.completed) {
+        return basicResult;
+      } else if (house.basicResultIds != null &&
+          house.basicResultIds!.length >= 2) {
+        String brId = house.basicResultIds![house.basicResultIds!.length - 2];
+        BasicResult basicResult2 = basicResultBox.get(brId);
+        if (basicResult2.completed) {
+          return basicResult2;
+        } else {
+          return null;
+        }
+      } else {
+        return null;
+      }
+    }
+  }
+
+  Future<int> setBasicCompleted(
+    bool completed,
+    int risk,
+    DateTime endDate,
+    String riskLevel,
+  ) async {
+    House house = houses[currentHouse]!;
+    String brId = house.basicResultIds!.last;
+    BasicResult basicResult = basicResultBox.get(brId);
+    basicResult.completed = completed;
+    basicResult.risk = risk;
+    basicResult.riskLevel = riskLevel;
+    basicResult.fiDate = endDate;
+    await updateBasicResult(brId, basicResult);
+    await updateHouse();
+    notifyListeners();
+    return basicResult.risk;
+  }
+
+  Future<void> setBasicAnswers(DateTime iniDate, Map<String, String?> answers,
+      String finishReason) async {
+    House house = houses[currentHouse];
+    BasicResult? basicResult = getLastBasicResult();
+    print('-------setAnswers');
+    if (finishReason == 'Completed') {
+      if (basicResult == null || (basicResult.completed)) {
+        BasicResult newBasicResult = BasicResult(iniDate, answers);
+        String brId = await addBasicResult(newBasicResult);
+        // newBasicResult.setId(brId);
+        house.basicResultIds!.add(brId);
+      } else {
+        basicResult.answers = answers;
+        await updateBasicResult(basicResult.id, basicResult);
+      }
+    } else {
+      if (basicResult != null) {
+        print('is not null');
+        if (basicResult.completed) {
+          BasicResult newBasicResult = BasicResult(iniDate, answers);
+          String brId = await addBasicResult(newBasicResult);
+          newBasicResult.setId(brId);
+          house.basicResultIds!.add(brId);
+        } else {
+          basicResult.answers = answers;
+          await updateBasicResult(basicResult.id, basicResult);
+        }
+      } else {
+        BasicResult newBasicResult = BasicResult(iniDate, answers);
+        print('newBasicResult: $newBasicResult');
+        String baId = await addBasicResult(newBasicResult);
+        house.basicResultIds ??= [];
+        house.basicResultIds!.add(baId);
+      }
+    }
+    notifyListeners();
   }
 }

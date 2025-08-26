@@ -29,5 +29,8 @@ class House {
   @HiveField(7)
   String? zipCode = '';
 
+  @HiveField(8)
+  List<String>? basicResultIds = [];
+
   House(this.name, this.address, this.environment, this.zipCode);
 }

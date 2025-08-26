@@ -17,11 +17,11 @@ import 'package:fireprime/pages/questionnaire/single_choice_image.dart';
 import 'package:easy_localization/easy_localization.dart';
 
 class QuestionnairePage extends StatefulWidget {
-  final Map<String, String?> answers;
+  // final Map<String, String?> answers;
   final String? lastQuestionId;
 
   const QuestionnairePage(
-      {super.key, required this.answers, this.lastQuestionId});
+      {super.key, /*required this.answers,*/ this.lastQuestionId});
 
   @override
   State<QuestionnairePage> createState() => _QuestionnairePageState();
@@ -69,8 +69,8 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
             child: Align(
               alignment: Alignment.center,
               child: FutureBuilder<Task>(
-                future: getQuestionnaireTask(
-                    context, questionnaire.environment, widget.lastQuestionId),
+                future: getQuestionnaireTask(context, questionnaire.environment,
+                    widget.lastQuestionId, answers),
                 builder: (BuildContext context, AsyncSnapshot<Task> snapshot) {
                   if (snapshot.connectionState == ConnectionState.done &&
                       snapshot.hasData &&
@@ -99,7 +99,8 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                           saveEventdata(
                               screenId: 'questionnaire_page',
                               buttonId: 'finish');
-                          results = _adaptedResult(results, result);
+                          results =
+                              Questionnaire().adaptedResult(results, result);
 
                           await houseProvider.setAnswers(result.startDate,
                               '1.0', results, 'Completed', null);
@@ -149,7 +150,8 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                           saveEventdata(
                               screenId: 'questionnaire_page',
                               buttonId: 'cancel');
-                          results = _adaptedResult(answers, result);
+                          results =
+                              Questionnaire().adaptedResult(answers, result);
 
                           if (auxStepId != null) {
                             print('lastStepId: $auxStepId');
@@ -198,8 +200,8 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
     );
   }
 
-  Future<Task> getQuestionnaireTask(
-      BuildContext context, String environment, String? lastQuestionId) async {
+  Future<Task> getQuestionnaireTask(BuildContext context, String environment,
+      String? lastQuestionId, Map<String, String?> answers) async {
     await Provider.of<ImagesProvider>(context, listen: false)
         .getImagesJSON(environment);
 
@@ -207,7 +209,7 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
       throw Exception('Widget not mounted');
     }
 
-    List<Step> steps = setSteps();
+    List<Step> steps = setSteps(answers);
 
     //Step? lastStep;
 
@@ -230,7 +232,7 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
     return Future<Task>.value(task);
   }
 
-  SingleChoiceImageStep buildSingleChoiceImageStep({
+  /*SingleChoiceImageStep buildSingleChoiceImageStep({
     required String stepId,
     required List<String> textChoices,
     required bool otherOption,
@@ -252,9 +254,9 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
       ),
       alwaysShowDescription: false,
     );
-  }
+  }*/
 
-  List<Step> setSteps() {
+  List<Step> setSteps(Map<String, String?> answers) {
     List<Step> steps = [
       InstructionStep(
           title: context.tr('questionnaire'),
@@ -265,18 +267,22 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
     for (var questions in questionnaire.questions) {
       if (questions['type'] == 'singleChoice') {
         steps.add(
-          buildSingleChoiceImageStep(
-              stepId: questions['stepId'],
-              textChoices: questions['textChoices'],
-              otherOption: questions['otherOption']),
+          Questionnaire().buildSingleChoiceImageStep(
+            stepId: questions['stepId'],
+            textChoices: questions['textChoices'],
+            otherOption: questions['otherOption'],
+            context: context,
+            answers: answers,
+          ),
         );
       } else if (questions['type'] == 'multipleChoice') {
-        steps.add(
-          buildMultipleChoiceImageStep(
-              stepId: questions['stepId'],
-              textChoices: questions['textChoices'],
-              otherOption: questions['otherOption']),
-        );
+        steps.add(Questionnaire().buildMultipleChoiceImageStep(
+          stepId: questions['stepId'],
+          textChoices: questions['textChoices'],
+          otherOption: questions['otherOption'],
+          context: context,
+          answers: answers,
+        ));
       } else if (questions['type'] == 'instructionStep') {
         steps.add(
           IntroductionCustomisedStep(
@@ -299,7 +305,7 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
 
     return steps;
   }
-
+/*
   List<TextChoice> getTextChoices(List<String> choices, String stepId) {
     List<TextChoice> textChoices = [];
     for (var element in choices) {
@@ -316,8 +322,8 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
             value: widget.answers[key]!)
         : null;
   }
-
-  Map<String, String?> _adaptedResult(
+*/
+  /* Map<String, String?> _adaptedResult(
     Map<String, String?> adaptedResult,
     SurveyResult result,
   ) {
@@ -329,7 +335,7 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
       }
     }
     return adaptedResult;
-  }
+  }*/
 
   void addNavigationRules(NavigableTask task) {
     for (var navigation in questionnaire.navigations) {
@@ -387,7 +393,7 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
       }
     }
   }
-
+/*
   MultipleChoiceImageStep buildMultipleChoiceImageStep(
       {required stepId, required textChoices, required otherOption}) {
     return MultipleChoiceImageStep(
@@ -418,5 +424,5 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
       }
     }
     return choices;
-  }
+  }*/
 }

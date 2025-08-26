@@ -8,8 +8,7 @@ import 'package:fireprime/pdf_creation/pdf_creator.dart';
 import 'package:fireprime/widgets/gauge.dart';
 import 'package:fireprime/model/event_probability.dart';
 import 'package:fireprime/model/risk_assessment.dart';
-import 'package:fireprime/pages/house/house_page.dart';
-import 'package:fireprime/model/house.dart';
+import 'package:fireprime/pages/house/advanced/house_page.dart';
 import 'package:fireprime/providers/house_provider.dart';
 import 'package:fireprime/widgets/info_dialog.dart';
 import 'package:fireprime/widgets/card_text.dart';
@@ -18,9 +17,12 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:provider/provider.dart';
 
 class ResultPage extends StatefulWidget {
-  final House house;
+  //final House house;
 
-  const ResultPage({super.key, required this.house});
+  const ResultPage({
+    super.key,
+    /*required this.house*/
+  });
 
   @override
   State<ResultPage> createState() => _ResultPageState();
@@ -66,7 +68,7 @@ class _ResultPageState extends State<ResultPage> {
 
     final houseProvider = Provider.of<HouseProvider>(context, listen: false);
 
-    RiskAssessment? riskAssessment = houseProvider.getRiskAssessment();
+    RiskAssessment? riskAssessment = houseProvider.getCompletedRiskAssessment();
     RiskAssessment? oldRiskAssessment = houseProvider.getOldRiskAssessment();
 
     if (riskAssessment != null) {
@@ -345,7 +347,10 @@ class _ResultPageState extends State<ResultPage> {
             ),
 
             ElevatedButton(
-              child: Text(context.tr('results_download')),
+              style: ElevatedButton.styleFrom(
+                  backgroundColor: Constants.blueDark, elevation: 5.0),
+              child: Text(context.tr('results_download'),
+                  style: const TextStyle(color: Colors.white)),
               onPressed: () async {
                 Map<String, dynamic>? mitigations =
                     await Mitigation.loadMitigations(
