@@ -18,7 +18,7 @@ class HouseAdapter extends TypeAdapter<House> {
     };
     return House(
       fields[0] as String,
-      fields[1] as String,
+      fields[1] as String?,
       fields[2] as String,
       fields[7] as String?,
     )

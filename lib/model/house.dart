@@ -7,7 +7,7 @@ class House {
   @HiveField(0)
   String name;
   @HiveField(1)
-  String address;
+  String? address;
   @HiveField(2)
   String environment;
 

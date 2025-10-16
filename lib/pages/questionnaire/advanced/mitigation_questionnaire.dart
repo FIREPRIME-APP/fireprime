@@ -4,7 +4,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:fireprime/fault_tree/fault_tree.dart';
 import 'package:fireprime/model/event_probability.dart';
 import 'package:fireprime/model/questionnaire/questionnaire.dart';
-import 'package:fireprime/pages/result/results_loading_page.dart';
+import 'package:fireprime/pages/result/advanced/results_loading_page.dart';
 import 'package:fireprime/providers/house_provider.dart';
 import 'package:fireprime/providers/images_provider.dart';
 import 'package:flutter/material.dart' hide Step;

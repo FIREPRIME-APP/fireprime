@@ -9,8 +9,10 @@ import 'package:flutter/material.dart';
 
 class HistoricalResultsPage extends StatefulWidget {
   final List<RiskAssessment> riskAssessments;
+  final bool showHazard;
 
-  const HistoricalResultsPage({super.key, required this.riskAssessments});
+  const HistoricalResultsPage(
+      {super.key, required this.riskAssessments, required this.showHazard});
 
   @override
   State<HistoricalResultsPage> createState() => _HistoricalResultsPageState();
@@ -33,6 +35,8 @@ class _HistoricalResultsPageState extends State<HistoricalResultsPage> {
 
   bool _showDetails = false;
   Map<String, bool> _showLinearGauge = {};
+
+  final ScrollController scrollCtrl = ScrollController();
 
   @override
   void initState() {
@@ -147,6 +151,7 @@ class _HistoricalResultsPageState extends State<HistoricalResultsPage> {
         ),
       ),
       body: SingleChildScrollView(
+        controller: scrollCtrl,
         child: Center(
           child: Padding(
             padding: const EdgeInsets.all(30.0),
@@ -168,81 +173,68 @@ class _HistoricalResultsPageState extends State<HistoricalResultsPage> {
                       ),
                       const SizedBox(height: 20),
                       Gauge.linearGaugeWithTitle(
-                          context.tr('risk'),
+                          widget.showHazard
+                              ? context.tr('risk')
+                              : context.tr('vulnerability'),
                           riskAssessmentsToShow[_touchedIndex].risk * 100,
                           20,
                           15,
                           20,
                           lastRisk != null ? lastRisk! * 100 : null),
                       const Divider(color: Colors.grey, thickness: 1.5),
-
-                      Gauge.linearGaugeWithTitle(
-                          context.tr('hazard'),
-                          riskAssessmentsToShow[_touchedIndex].hazard! * 100,
-                          20,
-                          15,
-                          20,
-                          null),
-                      /* Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Row(
-                          children: [
-                            CardText(
-                              title: context.tr('hazard'),
-                              text:
-                                  riskAssessmentsToShow[_touchedIndex].hazard !=
-                                          null
-                                      ? (riskAssessmentsToShow[_touchedIndex]
-                                                  .hazard! *
-                                              100)
-                                          .toStringAsFixed(0)
-                                      : '100',
-                              size: 15,
-                              color: Colors.black,
+                      if (widget.showHazard) ...[
+                        Gauge.linearGaugeWithTitle(
+                            context.tr('hazard'),
+                            riskAssessmentsToShow[_touchedIndex].hazard! * 100,
+                            20,
+                            15,
+                            20,
+                            null),
+                        Gauge.linearGaugeWithTitle(
+                            context.tr('house_vulnerability'),
+                            riskAssessmentsToShow[_touchedIndex]
+                                    .vulnerability! *
+                                100,
+                            20,
+                            15,
+                            20,
+                            lastHouseVulnerability != null
+                                ? lastHouseVulnerability! * 100
+                                : null),
+                        ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                              backgroundColor: _showDetails
+                                  ? const Color.fromARGB(255, 223, 225, 228)
+                                  : const Color.fromARGB(255, 252, 252, 252)),
+                          onPressed: () {
+                            scrollCtrl.animateTo(
+                              scrollCtrl.position.extentTotal,
+                              duration: const Duration(milliseconds: 1000),
+                              curve: Curves.easeInOut,
+                            );
+                            saveEventdata(
+                                screenId: 'historical_results',
+                                buttonId: 'details_linear_gauge');
+                            setState(() {
+                              _showDetails = !_showDetails;
+                              for (var entry in _showLinearGauge.entries) {
+                                _showLinearGauge[entry.key] = false;
+                              }
+                            });
+                          },
+                          child: Text(
+                            _showDetails
+                                ? context.tr('hide')
+                                : context.tr('details'),
+                            style: const TextStyle(
+                              color: Constants.blueDark,
                             ),
-                            const SizedBox(width: 20),
-                          ],
-                        ),
-                      ),*/
-
-                      Gauge.linearGaugeWithTitle(
-                          context.tr('house_vulnerability'),
-                          riskAssessmentsToShow[_touchedIndex].vulnerability! *
-                              100,
-                          20,
-                          15,
-                          20,
-                          lastHouseVulnerability != null
-                              ? lastHouseVulnerability! * 100
-                              : null),
-                      ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                            backgroundColor: _showDetails
-                                ? const Color.fromARGB(255, 223, 225, 228)
-                                : const Color.fromARGB(255, 252, 252, 252)),
-                        onPressed: () {
-                          saveEventdata(
-                              screenId: 'historical_results',
-                              buttonId: 'details_linear_gauge');
-                          setState(() {
-                            _showDetails = !_showDetails;
-                            for (var entry in _showLinearGauge.entries) {
-                              _showLinearGauge[entry.key] = false;
-                            }
-                          });
-                        },
-                        child: Text(
-                          _showDetails
-                              ? context.tr('hide')
-                              : context.tr('details'),
-                          style: const TextStyle(
-                            color: Constants.blueDark,
                           ),
                         ),
-                      ),
-                      //const Divider(color: Colors.grey, thickness: 1.5),
-                      if (_showDetails) ...[
-                        const Divider(color: Colors.grey, thickness: 1.5),
+                      ],
+                      if (_showDetails || !widget.showHazard) ...[
+                        if (_showDetails)
+                          const Divider(color: Colors.grey, thickness: 1.5),
                         for (var subEvent in subProbabilities.entries)
                           Column(
                             children: [
@@ -267,6 +259,12 @@ class _HistoricalResultsPageState extends State<HistoricalResultsPage> {
                                         : const Color.fromARGB(
                                             255, 252, 252, 252)),
                                 onPressed: () {
+                                  scrollCtrl.animateTo(
+                                    scrollCtrl.position.extentTotal,
+                                    duration:
+                                        const Duration(milliseconds: 1000),
+                                    curve: Curves.easeInOut,
+                                  );
                                   _toggleDetailedLinearGauge(subEvent.key);
                                 },
                                 child: Text(
@@ -292,19 +290,18 @@ class _HistoricalResultsPageState extends State<HistoricalResultsPage> {
 
                         // for (var subEvent in subProbabilities.entries)
                       ],
-
                       for (var entry in _showLinearGauge.entries)
-                        if (entry.value && _showDetails)
+                        if (entry.value && (_showDetails || !widget.showHazard))
                           Column(
                             children: [
                               const Divider(color: Colors.grey, thickness: 1.5),
                               Text(
                                 context.tr(entry.key),
                                 style: const TextStyle(
-                                    fontSize: 15, fontWeight: FontWeight.bold),
+                                    fontSize: 16, fontWeight: FontWeight.bold),
                               ),
                               const SizedBox(
-                                height: 10,
+                                height: 15,
                               ),
                               ...subProbabilities[entry.key]!
                                   .subEvents!

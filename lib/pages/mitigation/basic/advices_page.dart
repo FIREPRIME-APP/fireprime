@@ -25,7 +25,7 @@ class _AdvicesPageState extends State<AdvicesPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          context.tr('advices'),
+          context.tr('advices_title'),
           style: const TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.bold,
@@ -86,8 +86,13 @@ class _AdvicesPageState extends State<AdvicesPage> {
     try {
       return await rootBundle.loadString(path);
     } catch (e) {
-      final defaultPath = 'assets/advices/default/$localeCode.md';
-      return await rootBundle.loadString(defaultPath);
+      try {
+        final defaultPath = 'assets/advices/$area/en.md';
+        return await rootBundle.loadString(defaultPath);
+      } catch (e) {
+        const defaultPath = 'assets/advices/default/en.md';
+        return await rootBundle.loadString(defaultPath);
+      }
     }
   }
 }

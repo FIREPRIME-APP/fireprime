@@ -13,7 +13,7 @@ class ChooseMode extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          context.tr('choose_mode'),
+          context.tr('choose_mode_title'),
           overflow: TextOverflow.visible,
           softWrap: true,
           style: Theme.of(context).textTheme.titleLarge!,

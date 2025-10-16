@@ -2,10 +2,10 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:fireprime/constants.dart';
 import 'package:fireprime/firebase/event_manage.dart';
 import 'package:fireprime/pages/house/house_list_page.dart';
-import 'package:fireprime/pages/questionnaire/mitigation_questionnaire.dart';
+import 'package:fireprime/pages/questionnaire/advanced/mitigation_questionnaire.dart';
 import 'package:fireprime/providers/house_provider.dart';
 import 'package:flutter/material.dart';
-import 'package:fireprime/pages/mitigation/mitigation.dart';
+import 'package:fireprime/pages/mitigation/advanced/mitigation.dart';
 import 'package:provider/provider.dart';
 
 class MitigationPage extends StatefulWidget {

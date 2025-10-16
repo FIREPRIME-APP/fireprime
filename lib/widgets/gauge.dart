@@ -128,8 +128,8 @@ class Gauge {
             ],
           ),
         ),
-        linearGauge(
-            probability, pointerSize, thickness, borderRadius, lastProbability),
+        linearGauge(probability, pointerSize, thickness, borderRadius,
+            lastProbability, true, 12),
         const SizedBox(height: 10),
       ],
     );
@@ -153,11 +153,18 @@ class Gauge {
     }
   }
 
-  static Widget linearGauge(double probability, double pointerSize,
-      double thickness, double borderRadius, double? lastProbability) {
+  static Widget linearGauge(
+      double probability,
+      double pointerSize,
+      double thickness,
+      double borderRadius,
+      double? lastProbability,
+      bool enableAnimation,
+      double labelSize) {
     return LinearGauge(
       gaugeOrientation: GaugeOrientation.horizontal,
       rulers: RulerStyle(
+        textStyle: TextStyle(color: Colors.black, fontSize: labelSize),
         rulerPosition: RulerPosition.bottom,
         showPrimaryRulers: false,
         showSecondaryRulers: false,
@@ -171,6 +178,7 @@ class Gauge {
           color: Utils.pointerColor(probability),
           shape: PointerShape.circle,
           pointerPosition: PointerPosition.center,
+          enableAnimation: enableAnimation,
           animationType: Easing.legacyDecelerate,
         )
       ],
@@ -188,7 +196,7 @@ class Gauge {
           valueBarThickness: thickness,
           borderRadius: borderRadius,
           edgeStyle: LinearEdgeStyle.bothCurve,
-          enableAnimation: true,
+          enableAnimation: enableAnimation,
           animationType: Easing.legacyDecelerate,
         ),
       ],

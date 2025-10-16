@@ -22,20 +22,19 @@ class BasicQuestionnaire {
       questionnaireJson['questions'].forEach(
         (q) {
           for (var image in q['images'] ?? []) {
-            if (image['path'] == null || image['description'] == null) {
+            if (image['path'] == null) {
               continue;
             }
             images[q['id']] ??= [];
             images[q['id']]?.add(CustomisedImage(
-                'assets/images/${area.name}/basic/${image['path']}.png',
-                image['description']));
+                'assets/images/${area.name}/basic/${image['path']}.png', ''));
           }
           print('images: $images');
           questions.add(
             {
               'id': q['id'],
               'question': q['question'],
-              'description': q['description'] ?? '',
+              'description': '',
               'title': q['title'] ?? '',
             },
           );
@@ -53,11 +52,14 @@ class BasicQuestionnaire {
 
   int getResult(Map<String, String?> answers) {
     int score = 0;
+    print('answers in get result: $answers');
     answers.forEach((questionId, answer) {
       if (answer == 'yes') {
         score++;
+        print('yesssss');
       }
     });
+    print('score: $score');
     return score;
   }
 
@@ -77,8 +79,13 @@ class BasicQuestionnaire {
       jsonString = await rootBundle
           .loadString('assets/basic_questionnaires/$area/$languageCode.json');
     } catch (e) {
-      jsonString = await rootBundle
-          .loadString('assets/basic_questionnaires/default/$languageCode.json');
+      try {
+        jsonString = await rootBundle
+            .loadString('assets/basic_questionnaires/$area/en.json');
+      } catch (e) {
+        jsonString = await rootBundle
+            .loadString('assets/basic_questionnaires/default/en.json');
+      }
     }
     return jsonDecode(jsonString);
   }

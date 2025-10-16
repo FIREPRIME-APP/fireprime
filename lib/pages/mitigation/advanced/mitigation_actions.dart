@@ -1,4 +1,4 @@
-import 'package:easy_localization/easy_localization.dart';
+/*import 'package:easy_localization/easy_localization.dart';
 import 'package:fireprime/fault_tree/fault_tree.dart';
 import 'package:fireprime/fault_tree/node.dart';
 import 'package:fireprime/firebase/event_manage.dart';
@@ -207,7 +207,9 @@ class _MitigationActionsState extends State<MitigationActions> {
       children: [
         Text((probability * 100).toStringAsFixed(0),
             style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-        Expanded(child: Gauge.linearGauge(probability * 100, 25, 15, 30, null)),
+        Expanded(
+            child: Gauge.linearGauge(
+                probability * 100, 25, 15, 30, null, true, 12)),
       ],
     );
   }
@@ -276,4 +278,4 @@ class _MitigationActionsState extends State<MitigationActions> {
       ],
     );
   }
-}
+}*/

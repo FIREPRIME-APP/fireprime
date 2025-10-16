@@ -16,6 +16,7 @@ import 'package:fireprime/model/risk_assessment.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart' hide Step;
 import 'package:hive/hive.dart';
+import 'package:media_store_plus/media_store_plus.dart';
 import 'package:provider/provider.dart';
 import 'package:fireprime/providers/language_change_controller.dart';
 import 'firebase/firebase_options.dart';
@@ -23,6 +24,7 @@ import 'firebase/firebase_options.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
+  await MediaStore.ensureInitialized();
   Hive.registerAdapter(HouseAdapter());
   Hive.registerAdapter(RiskAssessmentAdapter());
   Hive.registerAdapter(EventProbabilityAdapter());
@@ -36,8 +38,6 @@ void main() async {
     print('Error initializing Firebase: $e');
   }
   await FirebaseAppCheck.instance.activate(
-    //androidProvider: AndroidProvider.playIntegrity,
-    //appleProvider: AppleProvider.deviceCheck,
     androidProvider: AndroidProvider.debug,
   );
 
@@ -68,6 +68,7 @@ void main() async {
         ],
         path: 'assets/translations',
         fallbackLocale: const Locale('en'),
+        useFallbackTranslations: true,
         child: const MyApp(),
       ),
     );
@@ -291,18 +292,9 @@ class MyApp extends StatelessWidget {
                   .copyWith(background: Colors.white),
             ),
             localizationsDelegates: context.localizationDelegates,
-            /*const [
-              //AppLocalizations.delegate, 
-              GlobalMaterialLocalizations.delegate,
-              GlobalWidgetsLocalizations.delegate,
-              GlobalCupertinoLocalizations.delegate,
-            ],*/
+
             supportedLocales: context.supportedLocales,
-            /*const [
-              Locale('en'),
-              Locale('es'),
-              Locale('ca'),
-            ],*/
+
             locale: provider.appLocale, //provider.appLocale,
             home: FutureBuilder<void>(
               future: _loadFaultTree(),

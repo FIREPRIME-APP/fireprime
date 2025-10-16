@@ -6,6 +6,7 @@ class InputField extends StatefulWidget {
   final TextEditingController controller;
   final String screenId;
   final String buttonId;
+  final int? maxLength;
 
   const InputField({
     super.key,
@@ -13,6 +14,7 @@ class InputField extends StatefulWidget {
     required this.controller,
     required this.screenId,
     required this.buttonId,
+    this.maxLength,
   });
 
   @override
@@ -54,6 +56,7 @@ class _InputFieldState extends State<InputField> {
                 borderRadius: BorderRadius.all(Radius.circular(10.0)),
               ),
             ),
+            maxLength: widget.maxLength,
           ),
         ],
       ),

@@ -3,70 +3,57 @@
         {
             "id": "BQ1",
             "question": "El meu habitatge es troba a tocar d'una massa forestal.",
-            "description": "",
             "images": [
                 {
-                    "path": "BQ1.1",
-                    "description": "Descripció de la imatge"
+                    "path": "BQ1.1"
                 }
             ]
         },
         {
             "id": "BQ2",
             "question": "El meu habitatge està situat a mitja pendent o al capdamunt d'una la carena.",
-            "description": "",
             "images": [
                 {
-                    "path": "BQ2.1",
-                    "description": "Descripció de la imatge"
+                    "path": "BQ2.1"
                 }
             ]
         },
         {
             "id": "BQ3",
             "question": "El revestiment exterior del meu habitatge és de material combustible.",
-            "description": "",
             "images": [
                 {
-                    "path": "BQ3.1",
-                    "description": "Descripció de la imatge"
+                    "path": "BQ3.1"
                 }
             ]
         },
         {
             "id": "BQ4",
-            "question": "La teulada, el porxo o el balcó són de material combustible.",
-            "description": ""
+            "question": "La teulada, el porxo o el balcó són de material combustible."
         },
         {
             "id": "BQ5",
-            "question": "Els vidres del meu habitatge són d'una sola fulla.",
-            "description": ""
+            "question": "Els vidres del meu habitatge són d'una sola fulla."
         },
         {
             "id": "BQ6",
-            "question": "Tinc vidres sense protecció, sense persianes ni porticons.",
-            "description": ""
+            "question": "Tinc vidres sense protecció, sense persianes ni porticons."
         },
         {
             "id": "BQ7",
-            "question": "Tinc obertures de ventilació sense cap protecció.",
-            "description": ""
+            "question": "Tinc obertures de ventilació sense cap protecció."
         },
         {
             "id": "BQ8",
-            "question": "Hi ha acumulació de restes vegetals i materials combustibles al voltant de l'habitatge.",
-            "description": ""
+            "question": "Hi ha acumulació de restes vegetals i materials combustibles al voltant de l'habitatge."
         },
         {
             "id": "BQ9",
-            "question": "Hi ha acumulació de fullaraca i branquillons a les canaletes de desaiguat i/o a la teulada.",
-            "description": ""
+            "question": "Hi ha acumulació de fullaraca i branquillons a les canaletes de desaiguat i/o a la teulada."
         },
         {
             "id": "BQ10",
-            "question": "Hi ha un dipòsit de combustible a prop de l'edifici.",
-            "description": ""
+            "question": "Hi ha un dipòsit de combustible a prop de l'edifici."
         }
     ]
 }

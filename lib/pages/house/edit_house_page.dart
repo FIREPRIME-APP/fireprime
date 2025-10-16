@@ -39,11 +39,11 @@ class _EditHousePageState extends State<EditHousePage> {
         .getHouse(widget.currentHouse);
 
     _name.text = house.name;
-    _address.text = house.address;
+    _address.text = house.address ?? '';
     _zipCode.text = house.zipCode ?? '';
 
     _name.addListener(_checkInput);
-    _address.addListener(_checkInput);
+    // _address.addListener(_checkInput);
     _zipCode.addListener(_checkInput);
   }
 
@@ -56,18 +56,12 @@ class _EditHousePageState extends State<EditHousePage> {
       ScaffoldMessenger.of(context).showSnackBar(
         Utils.snackBar(context.tr('warning_unfilled_zip_code')),
       );
-    } else if (_address.text.isEmpty) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        Utils.snackBar(context.tr('warning_unfilled_address')),
-      );
     } else if (house.houses[house.currentHouse].name != _name.text &&
         house.existsHouse(_name.text)) {
       ScaffoldMessenger.of(context).showSnackBar(
         Utils.snackBar(context.tr('warning_house_name_exists')),
       );
-    } else if (_address.text.isNotEmpty &&
-        _name.text.isNotEmpty &&
-        _zipCode.text.isNotEmpty) {
+    } else if (_name.text.isNotEmpty && _zipCode.text.isNotEmpty) {
       Map<String, dynamic> latLong = await ZipCode()
           .getLatLongByZipCode(_zipCode.text, _selectedCountryCode!);
       if (latLong.isEmpty) {
@@ -106,7 +100,6 @@ class _EditHousePageState extends State<EditHousePage> {
         House currentHouse = house.getHouse(house.currentHouse!);
         currentHouse.lat = double.parse(latLong['latitude']);
         currentHouse.long = double.parse(latLong['longitude']);
-        //house.editHouse(_name.text, _address.text);
       }
 
       house.editHouse(_name.text, _address.text, _zipCode.text);
@@ -119,9 +112,7 @@ class _EditHousePageState extends State<EditHousePage> {
   void _checkInput() {
     setState(
       () {
-        if (_name.text.isNotEmpty &&
-            _address.text.isNotEmpty &&
-            _zipCode.text.isNotEmpty) {
+        if (_name.text.isNotEmpty && _zipCode.text.isNotEmpty) {
           _enabled = true;
         } else {
           _enabled = false;
@@ -173,6 +164,7 @@ class _EditHousePageState extends State<EditHousePage> {
                   controller: _name,
                   screenId: 'edit_house_page',
                   buttonId: 'name',
+                  maxLength: 16,
                 ),
                 const SizedBox(height: 10.0),
                 Text(
@@ -202,7 +194,7 @@ class _EditHousePageState extends State<EditHousePage> {
                   selectedCountryCode: _selectedCountryCode!,
                 ),*/
                 InputField(
-                  label: '${context.tr('zip_code')}:',
+                  label: '*  ${context.tr('zip_code')}:',
                   controller: _zipCode,
                   screenId: 'create_house_page',
                   buttonId: 'zip_code',

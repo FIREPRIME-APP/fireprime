@@ -58,8 +58,14 @@ dependencies:
   google_places_flutter: ^2.1.0
   insta_image_viewer: ^1.0.4
   pdf: ^3.11.3
-  open_file: ^3.5.1
+  open_file: ^3.5.4
   flutter_markdown: ^0.7.4+3
+  flutter_local_notifications: ^18.0.1
+  screenshot: ^2.5.0
+  permission_handler: ^11.3.1
+  media_store_plus: ^0.1.3
+  htmltopdfwidgets: ^1.1.3
+  android_intent_plus: ^5.3.1
 
 dev_dependencies:
   flutter_test:
@@ -93,6 +99,7 @@ flutter:
     - assets/images/default/
   #  - assets/images/austria/
     - assets/images/spain/basic/
+    - assets/images/austria/basic/
     - assets/images/logos/
     - assets/translations/
     - assets/mitigations_text/
@@ -101,6 +108,7 @@ flutter:
     - assets/basic_questionnaires/austria/
     - assets/advices/spain/
     - assets/advices/default/
+    - assets/advices/austria/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

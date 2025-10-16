@@ -172,15 +172,6 @@ class HouseProvider with ChangeNotifier {
     houses[currentHouse].name = name;
     houses[currentHouse].zipCode = zipCode;
 
-    /*if (houses[currentHouse].name != name) {
-      House editedHouse = houses[currentHouse];
-      editedHouse.name = name;
-      houses.remove(currentHouse);
-      await box.delete(currentHouse);
-      houses[name] = editedHouse;
-      currentHouse = name;
-    }*/
-
     await box.put(currentHouse, houses[currentHouse]);
 
     notifyListeners();
@@ -203,7 +194,9 @@ class HouseProvider with ChangeNotifier {
   Future<void> getHazardValue() async {
     House house = houses[currentHouse]!;
     double hazard = -1.0;
-    if (house.lat != null && house.long != null) {
+    if (house.lat != null &&
+        house.long != null &&
+        house.environment != 'austria') {
       hazard = await getHazard(house.lat!, house.long!);
     }
     if (hazard != -1.0) {
@@ -256,41 +249,10 @@ class HouseProvider with ChangeNotifier {
         // newRiskAssessment.setId(raId);
         house.riskAssessmentIds.add(raId);
       }
-
-      /*if (houses[currentHouse]!.riskAssessments.isNotEmpty) {
-        if (houses[currentHouse]!.riskAssessments.last.completed) {
-          houses[currentHouse]!
-              .riskAssessments
-              .add(RiskAssessment(iniDate, version, answers));
-        } else {
-          houses[currentHouse]!.riskAssessments.last.answers = answers;
-        }
-        houses[currentHouse]!.riskAssessments.last.answers = answers;
-      } else {
-        houses[currentHouse]!
-            .riskAssessments
-            .add(RiskAssessment(iniDate, version, answers));
-      }*/
     }
 
     notifyListeners();
   }
-
-  /*void setCompleted(
-      bool completed,
-      double probability,
-      Map<String, double> subProb,
-      Map<String, Map<String, double>> subNodeProbabilities,
-      DateTime endDate) {
-    houses[currentHouse]!.riskAssessments.last.completed = completed;
-    houses[currentHouse]!.riskAssessments.last.probability = probability;
-    houses[currentHouse]!.riskAssessments.last.results = subProb;
-    houses[currentHouse]!.riskAssessments.last.subNodeProbabilities =
-        subNodeProbabilities;
-    houses[currentHouse]!.riskAssessments.last.fiDate = endDate;
-
-    notifyListeners();
-  }*/
 
   Future<double> setCompleted(
     bool completed,
@@ -315,14 +277,6 @@ class HouseProvider with ChangeNotifier {
     notifyListeners();
     return riskAssessment.risk;
   }
-
-  /*Map<String, double> getResults() {
-    return houses[currentHouse]!.riskAssessments.last.results;
-  }*/
-/*
-  double getProbability() {
-    return houses[currentHouse]!.riskAssessments.last.probability;
-  }*/
 
   List<RiskAssessment> getRiskAssessments() {
     List<RiskAssessment> riskAssessments = [];
@@ -489,6 +443,7 @@ class HouseProvider with ChangeNotifier {
         return basicResultBox.get(id);
       }
     }
+    return null;
   }
 
   BasicResult? getOldBasicResult() {
@@ -591,5 +546,30 @@ class HouseProvider with ChangeNotifier {
       }
     }
     notifyListeners();
+  }
+
+  List<BasicResult> getCompletedBasicResultIds() {
+    House house = houses[currentHouse]!;
+
+    List<BasicResult> results = [];
+
+    if (house.basicResultIds != null) {
+      for (var id in house.basicResultIds!) {
+        BasicResult? result = basicResultBox.get(id);
+        if (result?.completed == true) {
+          results.add(result!);
+        }
+      }
+    }
+    return results;
+  }
+
+  bool checkIfShowHazard() {
+    House house = houses[currentHouse]!;
+    if (house.environment == 'austria') {
+      return false;
+    } else {
+      return true;
+    }
   }
 }

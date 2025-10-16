@@ -2,83 +2,80 @@
     "questions": [
         {
             "id": "BQ1",
-            "question": "Mi vivienda se encuentra junto a una masa forestal.",
-            "description": "",
+            "question": "Mi vivienda se encuentra junto a un bosque o zona con abundante vegetación",
             "images": [
                 {
-                    "path": "BQ1.1",
-                    "description": ""
+                    "path": "BQ1.1"
                 }
             ]
         },
         {
             "id": "BQ2",
-            "question": "Mi vivienda está situada a media pendiente o en lo alto de una cresta.",
-            "description": "",
+            "question": "Mi vivienda está situada en una ladera o en la cima de una cresta",
             "images": [
                 {
-                    "path": "BQ2.1",
-                    "description": ""
+                    "path": "BQ2.1"
                 }
             ]
         },
         {
             "id": "BQ3",
-            "question": "El revestimiento exterior de mi vivienda es de material combustible.",
-            "description": "",
+            "question": "El revestimiento exterior de mi vivienda es de material combustible (como madera o plástico)",
             "images": [
                 {
-                    "path": "BQ3.1",
-                    "description": ""
+                    "path": "BQ3.1"
                 }
             ]
         },
         {
             "id": "BQ4",
-            "question": "El tejado, el porche o el balcón son de material combustible.",
-            "description": ""
+            "question": "El tejado, el porche o el balcón son de material combustible"
         },
         {
             "id": "BQ5",
-            "question": "Los vidrios de mi vivienda son de una sola hoja.",
-            "description": "",
+            "question": "Los cristales de ventanas y puertas exteriores son de una sola hoja o lámina",
             "images": [
                 {
-                    "path": "BQ5.1",
-                    "description": ""
+                    "path": "BQ5.1"
                 }
             ]
         },
         {
             "id": "BQ6",
-            "question": "Tengo vidrios sin protección, sin persinias ni contraventanas.",
-            "description": ""
+            "question": "Tengo cristales de ventanas y puertas exteriores sin protección, sin persianas ni contraventanas"
         },
         {
             "id": "BQ7",
-            "question": "Tengo aberturas de ventilación sin ninguna protección.",
-            "description": ""
+            "question": "Tengo aberturas de ventilación y/o chimeneas sin ninguna protección",
+            "images": [
+                {
+                    "path": "BQ7.1"
+                }
+            ]
         },
         {
             "id": "BQ8",
-            "question": "Hay acumulación de restos vegetales y materiales combustibles en torno a la vivienda.",
-            "description": "",
+            "question": "Hay acumulación de restos vegetales y/o materiales combustibles (como muebles de plástico o trastos) alrededor de la vivienda",
             "images": [
                 {
-                    "path": "BQ8.1",
-                    "description": "Descripció de la imatge"
+                    "path": "BQ8.1"
+                   
                 }
             ]
         },
         {
             "id": "BQ9",
-            "question": "Hay acumulación de hojarasca y ramitas en las canaletas de desagüe y/o en el tejado.",
-            "description": ""
+            "question": "Hay acumulación de hojarasca y ramitas en los canalones de desagüe y/o en el tejado",
+            "images": [
+                {
+                    "path": "BQ9.1"
+                }
+            ]
         },
         {
             "id": "BQ10",
-            "question": "",
-            "description": "Hay un depósito de combustible cerca del edificio."
+            "question": "Hay un depósito de combustible y/o bombonas de butano cerca del edificio"
+           
         }
     ]
 }

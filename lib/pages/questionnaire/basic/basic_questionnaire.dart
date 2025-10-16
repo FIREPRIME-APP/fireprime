@@ -6,7 +6,7 @@ import 'package:fireprime/model/house.dart';
 import 'package:fireprime/model/questionnaire/basic_questionnaire.dart';
 import 'package:fireprime/model/questionnaire/questionnaire.dart';
 import 'package:fireprime/pages/house/basic/basic_house.dart';
-import 'package:fireprime/pages/result/basic_result.dart';
+import 'package:fireprime/pages/result/basic/basic_result.dart';
 import 'package:fireprime/providers/house_provider.dart';
 import 'package:flutter/material.dart' hide Step;
 import 'package:flutter/services.dart';
@@ -14,11 +14,8 @@ import 'package:provider/provider.dart';
 import 'package:survey_kit/survey_kit.dart';
 
 class BasicQuestionnairePage extends StatefulWidget {
-  //final String area;
-  //final Map<String, String?> answers;
   const BasicQuestionnairePage({
     super.key,
-    /* required this.answers*/
   });
 
   @override
@@ -59,21 +56,44 @@ class _BasicQuestionnairePageState extends State<BasicQuestionnairePage> {
                 return Text('Error: ${snapshot.error}');
               } else {
                 final task = snapshot.data;
+
                 return SurveyKit(
                   task: task!,
                   showProgress: true,
+                  surveyController: SurveyController(
+                    onNextStep: (context, resultFunction) {
+                      return true;
+                    },
+                    onStepBack: (context, resultFunction) {
+                      return true;
+                    },
+                    onCloseSurvey: (context, resultFunction) => true,
+                  ),
                   localizations: <String, String>{
                     'cancel': context.tr('cancel'),
                     'next': context.tr('next')
                   },
+                  surveyProgressbarConfiguration: SurveyProgressConfiguration(
+                    backgroundColor: Colors.white,
+                    showLabel: true,
+                    label: (from, to) => Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        '[$from / $to]',
+                        style: const TextStyle(
+                            color: Colors.black, fontSize: 13.0),
+                      ),
+                    ),
+                    progressbarColor: Colors.grey.shade200,
+                  ),
                   onResult: (result) async {
                     Map<String, String?> adaptedAnswers = {};
                     if (result.finishReason == FinishReason.COMPLETED) {
                       Map<String, String?> adaptedAnswers =
                           Questionnaire().adaptedResult({}, result);
-                      int risk = questionnaire.getResult(answers);
+                      int risk = questionnaire.getResult(adaptedAnswers);
                       String level = questionnaire.getRiskLevel(risk);
-
+                      print(risk);
                       await houseProvider.setBasicAnswers(
                           result.startDate, adaptedAnswers, 'Completed');
                       await houseProvider.setBasicCompleted(
@@ -82,7 +102,7 @@ class _BasicQuestionnairePageState extends State<BasicQuestionnairePage> {
                         result.endDate,
                         level,
                       );
-                      houseProvider.updateHouse();
+                      await houseProvider.updateHouse();
 
                       print('Task completed with result: $result');
                       Navigator.of(context).push(

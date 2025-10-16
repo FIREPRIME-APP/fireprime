@@ -1,9 +1,12 @@
 {
     "add_house": "Add house",
-    "more_info": "More information",
+    "more_info": "About the App",
+    "fireprime_intro": "FIREPRIME is an application for self-assessing the risk of wildfires in homes located at the urban-forest interface.",
+    "instructions_intro": "To self-assess your home, start by adding it with the corresponding information.",
 
-    "language_page_title": "Prefered language",
-   
+    "language_page_title": "Preferred language",
+
+
     "english": "English",
     "spanish": "Spanish",
     "catalan": "Catalan",
@@ -82,22 +85,28 @@
     "more_info_title": "About Fireprime",
     "fireprime": "Fireprime",
     "about_intro": "Wildfire risk self-assessment at the parcel level",
-    "about_text": "This application has been developed under the FIREPRIME project, co-financed by the European Union. The integrated risk analysis algorithm was created by the research groups UPC-CERTEC, RISE, and BOKU, while its implementation was carried out by the UPC-GESSI group.",
-    "privacy_title": "Data Privacy",
-    "privacy_text": "The information entered is stored locally on the device and is not shared with third parties. Data can be deleted at any time by removing the application. Only interactions with the application are anonymously registred.",
+    "about_text": "This application has been developed by UPC-GESSI, while the integrated risk analysis algorithm was created by UPC-CERTEC, RISE, and BOKU. The information entered is stored locally on the device and is not shared with third parties. Data can be deleted by uninstalling the application.",
+    "about_text_eu": "Funded by the European Union. However, the views and opinions expressed are solely those of the authors and do not necessarily reflect those of the European Union or DG-ECHO. Neither the European Union nor the granting authority can be held responsible.",
 
-    "choose_mode": "Autoavaluació del risc d'incendi forestal",
-    "basic_mode_intro": "L'avaluació bàsica és una opció ràpida i senzilla, adreçada a residents que viuen en zones amb risc d'incendi. Consta de 10 preguntes amb resposta Sí o No sobre l'entorn i la construcció de l'habitatge.",
-    "basic_mode": "Avaluació bàsica",
-    "basic": "Bàsica",
-    "advanced_mode_intro": "L'avaluació avançada, adreçada tant a tècnics com a residents que volen aprofundir en l'anàlisi, inclou 25 preguntes multiresposta sobre la ubicació de l'habitatge, la gestió del combustible proper i els materials constructius. El resultat de l'avaluació és un valor numèric que indica la probabilitat que l'habitatge pateixi danys en cas d'incendi, si no s'hi aplica cap acció d'extinció. Aquest resultat va acompanyat de de recomanacions personalitzades per reduir-lo.",
-    "advanced_mode": "Avaluació avançada",
-    "advanced": "Avançada",
+    "choose_mode_title": "Wildfire Risk Self-Assessment",
+    "basic_mode_intro": "The basic assessment is a quick and simple option aimed at residents living in fire-prone areas. It consists of 10 yes/no questions about the environment and the construction of the house.",
+    "basic_mode": "Basic Assessment",
+    "basic": "Basic",
+    "advanced_mode_intro": "The advanced assessment, aimed at both technicians and residents who want to delve deeper into the analysis, includes 25 multiple-choice questions about the location of the house, the management of nearby fuel, and the building materials. The result of the assessment is a numerical value indicating the likelihood of the house suffering damage in the event of a fire, if no extinguishing action is taken. This result is accompanied by personalized recommendations to reduce it.",
+    "advanced_mode": "Advanced Assessment",
+    "advanced": "Advanced",
+
+    "basic_questionnaire_title": "Basic Questionnaire",
+    "basic_questionnaire_intro": "Check the vulnerability of the house with a 10-question questionnaire.",
 
     "yes": "Yes",
     "no": "No",
 
-    "advices": "Preparation and safety tips",
+    "advices": "Tips",
+    "advices_title": "Preparation and Safety Tips",
+    "advices_intro": "Preparation and safety tips in case of fire",
+
+    "downloading": "Downloading",
 
     "last_evaluation": "Last evaluation",
     "date": "Date",
@@ -144,7 +153,10 @@
     "calculating":"Calculating the result",
     
     "result": "Result",
-    "result_intro": "Risc level",
+    "result_intro": "Risk level",
+
+    "vulnerability_intro": "Vulnerability level",
+    "vulnerability": "Vulnerability",
 
     "risk_info": "This value depends on the Hazard factor and your house vulnerability.",
     "hazard_info": "This value depends on your house localization.",
@@ -195,6 +207,13 @@
         "low_text": "Your home is located in an area {hazard_level} to wildfires and is {vulnerability_level} to them. As a result, its risk level is {risk}. Keep your house in good condition to maintain its good resistance against wildfires."
     },
 
+    "vulnerability_text": {
+        "extreme_text": "Your home is {vulnerability_level} to wildfires. As a result, its risk level is {risk}. Follow the provided recommendations to improve your home's resilience and reduce the likelihood of it burning.",
+        "high_text": "Your home is {vulnerability_level} to wildfires. As a result, its risk level is {risk}. Try to follow the provided recommendations to improve your home's resilience and reduce the likelihood of it burning.",
+        "moderate_text": "Your home is {vulnerability_level} to wildfires. As a result, its risk level is {risk}. Follow the provided recommendations to reduce the likelihood of it burning and keep doing the maintenance of the property.",
+        "low_text": "Your home is {vulnerability_level} to wildfires. As a result, its risk level is {risk}. Keep doing the maintenance of your house to maintain its good resistance against wildfires and if possible, try to follow the recommendations provided."
+    },
+
     "hazard_levels": {
         "extreme": "extremely prone",
         "high": "highly prone",
@@ -217,9 +236,9 @@
     },
 
     "risk_text" : {
-        "spain_high": "Your home is at high risk. Completing the advanced evaluation can help you identify critical points and find ways to reduce the risk. Don't forget to check the preparation and safety tips in case of fire.",
-        "spain_moderate": "Your home is at moderate risk. If you want to better understand your situation, you can complete the advanced evaluation and receive more detailed recommendations. We also recommend checking the preparation and safety tips in case of fire。",
-        "spain_low": "Your home is at low risk, but don't get complacent. Keep the surroundings clean and check the preparation and safety tips in case of fire.",
+        "high": "Your home is at high risk. Completing the advanced evaluation can help you identify critical points and find ways to reduce the risk. Don't forget to check the preparation and safety tips in case of fire.",
+        "moderate": "Your home is at moderate risk. If you want to better understand your situation, you can complete the advanced evaluation and receive more detailed recommendations. We also recommend checking the preparation and safety tips in case of fire.",
+        "low": "Your home is at low risk, but don't get complacent. Keep the surroundings clean and check the preparation and safety tips in case of fire.",
         "austria_high": "",
         "austria_moderate": "",
         "austria_low": ""

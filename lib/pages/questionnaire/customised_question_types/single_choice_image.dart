@@ -105,17 +105,6 @@ class _CustomViewState extends State<SingleChoiceImageView> {
 
   @override
   Widget build(BuildContext context) {
-    /*return FutureBuilder<List<CustomisedImage>>(
-        future: getValidImages(),
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            return const Center();
-          } else if (snapshot.hasError || !snapshot.hasData) {
-            return Center(
-                child: Text('Error loading images: ${snapshot.error}'));
-          }
-          final validImages = snapshot.data!;
-*/
     return StepView(
       step: widget.questionStep,
       resultFunction: () {
@@ -191,71 +180,6 @@ class _CustomViewState extends State<SingleChoiceImageView> {
                   );
                 },
               ),
-              /* if (widget.questionStep.otherOption)
-                    Column(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 14.0),
-                          child: ListTile(
-                            title: _isEditing
-                                ? TextField(
-                                    enabled: _isEditing,
-                                    style:
-                                        Theme.of(context).textTheme.headlineSmall,
-                                    decoration: InputDecoration(
-                                        hintText: context.tr('other')),
-                                    onSubmitted: (editedText) {
-                                      setState(() {
-                                        _selectedChoice = TextChoice(
-                                            text: editedText, value: editedText);
-                                        _editableText = editedText;
-                                        _isEditing = false;
-                                      });
-                                    },
-                                    controller:
-                                        TextEditingController(text: _editableText),
-                                  )
-                                : Text(
-                                    _editableText.isEmpty
-                                        ? context.tr('other')
-                                        : _editableText,
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .headlineSmall
-                                        ?.copyWith(
-                                          color:
-                                              _selectedChoice?.text == _editableText
-                                                  ? Theme.of(context).primaryColor
-                                                  : Theme.of(context)
-                                                      .textTheme
-                                                      .headlineSmall
-                                                      ?.color,
-                                        ),
-                                  ),
-                            onTap: () {
-                              _toggleEditing();
-                              if (_selectedChoice == null ||
-                                  _selectedChoice?.text != _editableText) {
-                                setState(() {
-                                  _selectedChoice = TextChoice(
-                                      text: _editableText, value: _editableText);
-                                });
-                              }
-                            },
-                            trailing: _selectedChoice?.text == _editableText
-                                ? Icon(Icons.check,
-                                    size: 32, color: Theme.of(context).primaryColor)
-                                : const SizedBox(
-                                    width: 32,
-                                    height: 32,
-                                  ),
-                          ),
-                        ),
-                        const Divider(
-                          color: Colors.grey,
-                        )
-                      ],
-                    ),*/
             ],
           )
         ],
@@ -290,7 +214,7 @@ class _CustomViewState extends State<SingleChoiceImageView> {
         padding: const EdgeInsets.only(top: 20.0),
         scrollDirection: Axis.horizontal,
         itemCount: widget.images.length,
-        separatorBuilder: (context, _) => const SizedBox(width: 12),
+        separatorBuilder: (context, _) => const SizedBox(width: 8),
         itemBuilder: (context, index) {
           // return FutureBuilder<bool>(
           //   future: _checkImageExists(widget.images[index].path),
@@ -319,7 +243,7 @@ class _CustomViewState extends State<SingleChoiceImageView> {
               ),
               const SizedBox(height: 4),
               SizedBox(
-                width: 250,
+                width: 200,
                 child: Text(widget.images[index].description,
                     style: Theme.of(context).textTheme.bodySmall,
                     textAlign: TextAlign.center),

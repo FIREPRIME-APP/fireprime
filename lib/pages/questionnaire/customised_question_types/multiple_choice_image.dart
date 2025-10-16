@@ -64,7 +64,6 @@ class _CustomViewState extends State<MultipleChoiceImageView> {
   bool _showDescription = false;
 
   List<TextChoice> _selectedChoices = [];
-//  late final TextEditingController _controller;
 
   @override
   void initState() {
@@ -74,7 +73,6 @@ class _CustomViewState extends State<MultipleChoiceImageView> {
     _selectedChoices =
         widget.result?.result ?? _multipleChoiceAnswerFormat.defaultSelection;
     _startDate = DateTime.now();
-    // _controller = TextEditingController();
   }
 
   void _toggleDescription() {

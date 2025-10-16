@@ -2,83 +2,78 @@
     "questions": [
         {
             "id": "BQ1",
-            "question": "My house is located next to a forest.",
-            "description": "",
+            "question": "My home is located next to a forest or an area with abundant vegetation",
             "images": [
                 {
-                    "path": "BQ1.1",
-                    "description": ""
+                    "path": "BQ1.1"
                 }
             ]
         },
         {
             "id": "BQ2",
-            "question": "My house is located halfway up a slope or on top of a ridge.",
-            "description": "",
+            "question": "My home is situated on a slope or at the top of a ridge",
             "images": [
                 {
-                    "path": "BQ2.1",
-                    "description": ""
+                    "path": "BQ2.1"
                 }
             ]
         },
         {
             "id": "BQ3",
-            "question": "The exterior cladding of my house is made of combustible material.",
-            "description": "",
+            "question": "The exterior cladding of my home is made of combustible material (such as wood or plastic)",
             "images": [
                 {
-                    "path": "BQ3.1",
-                    "description": ""
+                    "path": "BQ3.1"
                 }
             ]
         },
         {
             "id": "BQ4",
-            "question": "The roof, porch or balcony are made of combustible material.",
-            "description": ""
+            "question": "The roof, porch, or balcony are made of combustible material"
         },
         {
             "id": "BQ5",
-            "question": "The windows of my house are single-pane.",
-            "description": "",
+            "question": "The glass in exterior windows and doors is single-pane",
             "images": [
                 {
-                    "path": "BQ5.1",
-                    "description": ""
+                    "path": "BQ5.1"
                 }
             ]
         },
         {
             "id": "BQ6",
-            "question": "I have unprotected windows, without shutters or blinds.",
-            "description": ""
+            "question": "I have exterior windows and doors without protection, without shutters or blinds"
         },
         {
             "id": "BQ7",
-            "question": "I have ventilation openings without any protection.",
-            "description": ""
+            "question": "I have ventilation openings and/or chimneys without any protection",
+            "images": [
+                {
+                    "path": "BQ7.1"
+                }
+            ]
         },
         {
             "id": "BQ8",
-            "question": "There is an accumulation of vegetation and combustible materials around the house.",
-            "description": "",
+            "question": "There is an accumulation of plant debris and/or combustible materials (such as plastic furniture or junk) around the home",
             "images": [
                 {
-                    "path": "BQ8.1",
-                    "description": ""
+                    "path": "BQ8.1"
                 }
             ]
         },
         {
             "id": "BQ9",
-            "question": "There is an accumulation of leaves and twigs in the gutters and/or on the roof.",
-            "description": ""
+            "question": "There is an accumulation of leaves and twigs in the gutters and/or on the roof",
+            "images": [
+                {
+                    "path": "BQ9.1"
+                }
+            ]
         },
         {
             "id": "BQ10",
-            "question": "There is a fuel deposit near the building.",
-            "description": ""
+            "question": "There is a fuel tank and/or butane cylinders near the building"
         }
     ]
 }

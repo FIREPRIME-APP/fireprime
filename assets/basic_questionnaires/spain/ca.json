@@ -2,83 +2,78 @@
     "questions": [
         {
             "id": "BQ1",
-            "question": "El meu habitatge es troba a tocar d'una massa forestal.",
-            "description": "",
+            "question": "El meu habitatge es troba a tocar d'un bosc o zona amb abundant vegetació",
             "images": [
                 {
-                    "path": "BQ1.1",
-                    "description": "Descripció de la imatge"
+                    "path": "BQ1.1"
                 }
             ]
         },
         {
             "id": "BQ2",
-            "question": "El meu habitatge està situat a mitja pendent o al capdamunt d'una carena.",
-            "description": "",
+            "question": "El meu habitatge està situat a mitja pendent o al capdamunt d'una carena",
             "images": [
                 {
-                    "path": "BQ2.1",
-                    "description": "Descripció de la imatge"
+                    "path": "BQ2.1"
                 }
             ]
         },
         {
             "id": "BQ3",
-            "question": "El revestiment exterior del meu habitatge és de material combustible.",
-            "description": "",
+            "question": "El revestiment exterior del meu habitatge és de material combustible (com fusta o plàstic)",
             "images": [
                 {
-                    "path": "BQ3.1",
-                    "description": "Descripció de la imatge"
+                    "path": "BQ3.1"
                 }
             ]
         },
         {
             "id": "BQ4",
-            "question": "La teulada, el porxo o el balcó són de material combustible.",
-            "description": ""
+            "question": "La teulada, el porxo o el balcó són de material combustible"
         },
         {
             "id": "BQ5",
-            "question": "Els vidres del meu habitatge són d'una sola fulla.",
-            "description": "",
+            "question": "Els vidres de finestres i portes exteriors són d'una sola fulla o làmina",
             "images": [
                 {
-                    "path": "BQ5.1",
-                    "description": "Descripció de la imatge"
+                    "path": "BQ5.1"
                 }
             ]
         },
         {
             "id": "BQ6",
-            "question": "Tinc vidres sense protecció, sense persianes ni porticons.",
-            "description": ""
+            "question": "Tinc vidres de finestres i portes exteriors sense protecció, sense persianes ni porticons"
         },
         {
             "id": "BQ7",
-            "question": "Tinc obertures de ventilació sense cap protecció.",
-            "description": ""
+            "question": "Tinc obertures de ventilació i/o xemeneies sense cap protecció",
+            "images": [
+                {
+                    "path": "BQ7.1"
+                }
+            ]
         },
         {
             "id": "BQ8",
-            "question": "Hi ha acumulació de restes vegetals i materials combustibles al voltant de l'habitatge.",
-            "description": "",
+            "question": "Hi ha acumulació de restes vegetals i/o materials combustibles (com mobles de plàstic o trastos) al voltant de l'habitatge",
             "images": [
                 {
-                    "path": "BQ8.1",
-                    "description": "Descripció de la imatge"
+                    "path": "BQ8.1"
                 }
             ]
         },
         {
             "id": "BQ9",
-            "question": "Hi ha acumulació de fullaraca i branquillons a les canaletes de desaiguat i/o a la teulada.",
-            "description": ""
+            "question": "Hi ha acumulació de fullaraca i branquillons a les canaletes de desaiguat i/o a la teulada",
+            "images": [
+                {
+                    "path": "BQ9.1"
+                }
+            ]
         },
         {
             "id": "BQ10",
-            "question": "Hi ha un dipòsit de combustible a prop de l'edifici.",
-            "description": ""
+            "question": "Hi ha un dipòsit de combustible i/o bombones de butà a prop de l'edifici"
         }
     ]
 }

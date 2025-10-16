@@ -6,9 +6,10 @@ import 'package:fireprime/model/house.dart';
 import 'package:fireprime/pages/house/choose_mode.dart';
 import 'package:fireprime/pages/house/edit_house_page.dart';
 import 'package:fireprime/pages/house/house_list_page.dart';
-import 'package:fireprime/pages/mitigation/advices_page.dart';
+import 'package:fireprime/pages/mitigation/basic/advices_page.dart';
 import 'package:fireprime/pages/questionnaire/basic/basic_questionnaire.dart';
-import 'package:fireprime/pages/result/basic_result.dart';
+import 'package:fireprime/pages/result/basic/basic_historical_results_page.dart';
+import 'package:fireprime/pages/result/basic/basic_result.dart';
 import 'package:fireprime/providers/house_provider.dart';
 import 'package:fireprime/widgets/button_card.dart';
 import 'package:fireprime/widgets/card_text.dart';
@@ -250,7 +251,7 @@ class BasicHousePage extends StatelessWidget {
                     if (basicResult != null && basicResult.completed)
                       ButtonCard(
                         currentHouse: currentHouse,
-                        description: context.tr('update_questionanaire_intro'),
+                        description: context.tr('update_questionnaire_intro'),
                         buttonText: context.tr('update'),
                         cardColor: const Color.fromARGB(255, 184, 194, 219),
                         onPressed: () {
@@ -346,14 +347,14 @@ class BasicHousePage extends StatelessWidget {
                         List<BasicResult> basicResults =
                             house.getBasicResults();
                         //TODO RESULTS HISTORY PAGE
-                        /*
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) =>
-                                          const BasicResultPage(),
-                                    ),
-                                  );*/
+
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => BasicHistoricalResultsPage(
+                                basicResults: basicResults),
+                          ),
+                        );
                       },
                       enabled: _enableHistoryButton(currentHouse, basicResult),
                     ),
@@ -365,12 +366,12 @@ class BasicHousePage extends StatelessWidget {
     );
   }
 
-  bool _enableHistoryButton(House currentHouse, BasicResult? basicResult) {
+  bool _enableHistoryButton(House currentHouse, BasicResult? lastBasicResult) {
     if (currentHouse.basicResultIds != null) {
       int length = currentHouse.basicResultIds!.length;
       if (length > 1) {
         if (length > 2) return true;
-        if (basicResult != null && basicResult.completed) {
+        if (lastBasicResult != null && lastBasicResult.completed) {
           return true;
         }
       }

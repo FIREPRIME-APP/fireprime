@@ -1,4 +1,4 @@
-import 'package:easy_localization/easy_localization.dart';
+/*import 'package:easy_localization/easy_localization.dart';
 import 'package:fireprime/constants.dart';
 import 'package:fireprime/pages/questionnaire/basic/basic_questionnaire.dart';
 import 'package:flutter/material.dart';
@@ -110,4 +110,4 @@ class _AreaSelectionState extends State<AreaSelection> {
       ),
     );
   }
-}
+}*/

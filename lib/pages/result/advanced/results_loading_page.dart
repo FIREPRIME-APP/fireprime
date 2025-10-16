@@ -2,7 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:fireprime/firebase/answer_manage.dart';
 import 'package:fireprime/model/event_probability.dart';
 import 'package:fireprime/model/house.dart';
-import 'package:fireprime/pages/result/result_page.dart';
+import 'package:fireprime/pages/result/advanced/result_page.dart';
 import 'package:fireprime/providers/house_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -69,7 +69,7 @@ class ResultsLoadingPage extends StatelessWidget {
               risk.then((calculatedRisk) {
                 saveAnswerData(
                   houseId: house.name,
-                  houseAddress: house.address,
+                  houseAddress: house.address ?? '',
                   answers: answersAdapted,
                   lat: house.lat ?? 0.0,
                   long: house.long ?? 0.0,

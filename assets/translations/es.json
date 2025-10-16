@@ -1,8 +1,12 @@
 {
     "add_house": "Añadir casa",
-    "more_info": "Más información",
-    
+    "more_info": "Sobre la App",
+    "fireprime_intro": "FIREPRIME es una aplicación para autoevaluar el riesgo de incendio forestal en viviendas situadas en la interfaz urbano-forestal.",
+    "instructions_intro": "Para autoevaluar su vivienda, comience por agregarla con la información correspondiente.",
+
+
     "language_page_title": "Idioma preferido",
+    
    
     "english": "Inglés",
     "spanish": "Castellano",
@@ -82,23 +86,28 @@
     "more_info_title": "Acerca de FirePrime",
     "fireprime": "Fireprime",
     "about_intro": "Autoevaluación del riesgo de incendio forestal a escala de parcela",
-    "about_text": "Esta aplicación ha sido desarrollada en el marco del proyecto FIREPRIME, cofinanciado por la Unión Europea. El algoritmo de análisis de riesgo integrado ha sido creado por los grupos de investigación UPC-CERTEC, RISE y BOKU, mientras que su implementación ha sido realizada por el grupo UPC-GESSI.",
-    "privacy_title": "Privacidad de datos",
-    "privacy_text": "La información introducida se almacena localmente en el dispositivo y no se comparte con terceros. Los datos pueden ser eliminados en cualquier momento al suprimir la aplicación. Solo se registran de manera anónima las interacciones con la aplicación.",
+    "about_text": "Esta aplicación ha sido desarrollada por UPC-GESSI, mientras que el algoritmo de análisis de riesgo integrado ha sido creado por UPC-CERTEC, RISE y BOKU. La información introducida se almacena localmente en el dispositivo y no se comparte con terceros. Los datos pueden eliminarse desinstalando la aplicación.",
+    "about_text_eu": "Financiado por la Unión Europea. No obstante, las opiniones y puntos de vista expresados son exclusivamente de los autores y no reflejan necesariamente los de la Unión Europea ni los de la DG-ECHO. Ni la Unión Europea ni la autoridad otorgante pueden ser considerados responsables",
 
+    "choose_mode_title": "Autoevaluación del riesgo de incendio forestal",
+    "basic_mode_intro": "La evaluación básica es una opción rápida y sencilla, dirigida a residentes que viven en zonas con riesgo de incendio. Consta de 10 preguntas con respuesta Sí o No sobre el entorno y la construcción de la vivienda.",
+    "basic_mode": "Evaluación básica",
+    "basic": "Básica",
+    "advanced_mode_intro": "La evaluación avanzada, dirigida tanto a técnicos como a residentes que quieren profundizar en el análisis, incluye 25 preguntas multirespuesta sobre la ubicación de la vivienda, la gestión del combustible cercano y los materiales de construcción. El resultado de la evaluación es un valor numérico que indica la probabilidad de que la vivienda sufra daños en caso de incendio, si no se aplica ninguna acción de extinción. Este resultado va acompañado de recomendaciones personalizadas para reducirlo.",
+    "advanced_mode": "Evaluación avanzada",
+    "advanced": "Avanzada",
 
-    "choose_mode": "Autoavaluació del risc d'incendi forestal",
-    "basic_mode_intro": "L'avaluació bàsica és una opció ràpida i senzilla, adreçada a residents que viuen en zones amb risc d'incendi. Consta de 10 preguntes amb resposta Sí o No sobre l'entorn i la construcció de l'habitatge.",
-    "basic_mode": "Avaluació bàsica",
-    "basic": "Bàsica",
-    "advanced_mode_intro": "L'avaluació avançada, adreçada tant a tècnics com a residents que volen aprofundir en l'anàlisi, inclou 25 preguntes multiresposta sobre la ubicació de l'habitatge, la gestió del combustible proper i els materials constructius. El resultat de l'avaluació és un valor numèric que indica la probabilitat que l'habitatge pateixi danys en cas d'incendi, si no s'hi aplica cap acció d'extinció. Aquest resultat va acompanyat de de recomanacions personalitzades per reduir-lo.",
-    "advanced_mode": "Avaluació avançada",
-    "advanced": "Avançada",
+    "basic_questionnaire_title": "Cuestionario básico",
+    "basic_questionnaire_intro": "Evalúa la vulnerabilidad de la vivienda con un cuestionario de 10 preguntas.",
 
     "yes": "Sí",
     "no": "No",
 
-    "advices": "Consejos de preparación y seguridad",
+    "advices": "Consejos",
+    "advices_title": "Consejos de preparación y seguridad",
+    "advices_intro": "Consejos de preparación y seguridad en caso de incendio",
+
+    "downloading": "Descargando",
 
     "last_evaluation": "Última evaluación",
     "date": "Fecha",
@@ -146,6 +155,9 @@
     
     "result": "Resultado",
     "result_intro": "Nivel de riesgo",
+
+    "vulnerability_intro": "Nivel de vulnerabilidad",
+    "vulnerability": "Vulnerabilidad",
 
     "risk_info": "Este valor depende del factor Hazard y de la vulnerabilidad de la casa",
     "hazard_info": "Este valor depende de la localización de su casa.",
@@ -198,6 +210,12 @@
         "low_text": "Su hogar se encuentra en una zona {hazard_level} de incendios forestales y es {vulnerability_level} a ellos. Como resultado, su nivel de riesgo es {risk}. Siga haciendo el mantenimiento de su hogar para mantener su buena resistencia contra los incendios forestales"
     },
 
+     "vulnerability_text": {
+        "high_text": "Su hogar es {vulnerability_level} a los incendios forestales. Como resultado, su nivel de riesgo es {risk}. Siga las recomendaciones proporcionadas para mejorar la resiliencia de su hogar y reducir la probabilidad de que se queme.",
+        "moderate_text": "Su hogar es {vulnerability_level} a los incendios forestales. Como resultado, su nivel de riesgo es {risk}. Siga las recomendaciones proporcionadas para reducir la probabilidad de que se queme y siga haciendo el mantenimiento de la propiedad.",
+        "low_text": "Su hogar es {vulnerability_level} a los incendios forestales. Como resultado, su nivel de riesgo es {risk}. Siga haciendo el mantenimiento de su hogar para mantener su buena resistencia contra los incendios forestales y, si es posible, intente seguir las recomendaciones proporcionadas."
+    },
+
     "hazard_levels": {
         "extreme": "extremadamente propensa",
         "high": "muy propensa",
@@ -220,9 +238,9 @@
     },
 
     "risk_text" : {
-        "spain_high": "Su vivienda presenta un riesgo alto. Realizar la evaluación avanzada puede ayudarle a detectar los puntos críticos y ver cómo reducir el riesgo. No olvide consultar los consejos de preparación y seguridad en caso de incendio.",
-        "spain_moderate": "Su vivienda tiene un riesgo moderado. Si desea conocer mejor su situación, puede realizar la evaluación avanzada y recibir recomendaciones más detalladas. También le recomendamos consultar los consejos de preparación y seguridad en caso de incendio.",
-        "spain_low": "Su vivienda tiene un riesgo bajo, pero no se confíe. Mantenga el entorno limpio y consulte los consejos de preparación y seguridad en caso de incendio.",
+        "high": "Su vivienda presenta un riesgo alto. Realizar la evaluación avanzada puede ayudarle a detectar los puntos críticos y ver cómo reducir el riesgo. No olvide consultar los consejos de preparación y seguridad en caso de incendio.",
+        "moderate": "Su vivienda tiene un riesgo moderado. Si desea conocer mejor su situación, puede realizar la evaluación avanzada y recibir recomendaciones más detalladas. También le recomendamos consultar los consejos de preparación y seguridad en caso de incendio.",
+        "low": "Su vivienda tiene un riesgo bajo, pero no se confíe. Mantenga el entorno limpio y consulte los consejos de preparación y seguridad en caso de incendio.",
         "austria_high": "",
         "austria_moderate": "",
         "austria_low": ""

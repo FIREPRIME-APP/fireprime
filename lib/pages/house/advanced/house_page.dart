@@ -2,7 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:fireprime/constants.dart';
 import 'package:fireprime/firebase/event_manage.dart';
 import 'package:fireprime/pages/house/choose_mode.dart';
-import 'package:fireprime/pages/mitigation/mitigation_page.dart';
+import 'package:fireprime/pages/mitigation/advanced/mitigation_page.dart';
 import 'package:fireprime/providers/house_provider.dart';
 import 'package:fireprime/widgets/gauge.dart';
 import 'package:fireprime/pages/house/edit_house_page.dart';
@@ -10,9 +10,9 @@ import 'package:fireprime/pages/house/house_list_page.dart';
 import 'package:fireprime/model/house.dart';
 import 'package:fireprime/model/questionnaire/questionnaire.dart';
 import 'package:fireprime/model/risk_assessment.dart';
-import 'package:fireprime/pages/questionnaire/questionnaire_page.dart';
-import 'package:fireprime/pages/result/historical_results_page.dart';
-import 'package:fireprime/pages/result/result_page.dart';
+import 'package:fireprime/pages/questionnaire/advanced/questionnaire_page.dart';
+import 'package:fireprime/pages/result/advanced/historical_results_page.dart';
+import 'package:fireprime/pages/result/advanced/result_page.dart';
 import 'package:fireprime/widgets/card_text.dart';
 import 'package:fireprime/widgets/house_delete_alert.dart';
 import 'package:flutter/material.dart';
@@ -71,7 +71,7 @@ class _HousePageState extends State<HousePage> {
               Navigator.of(context).push(
                 MaterialPageRoute(
                   builder: (BuildContext context) {
-                    return const ChooseMode();
+                    return const HouseListPage();
                   },
                 ),
               );
@@ -146,7 +146,10 @@ class _HousePageState extends State<HousePage> {
                   //_buildVulnerabilityResults(
                   //  context, houseProvider, currentHouse),
                   _buildVulnerabilityResults(
-                      context, lastCompletedRiskAssessment, currentHouse),
+                      context,
+                      lastCompletedRiskAssessment,
+                      currentHouse,
+                      houseProvider.checkIfShowHazard()),
                   const SizedBox(
                     height: 20,
                   ),
@@ -217,12 +220,12 @@ class _HousePageState extends State<HousePage> {
                               print(
                                   'Last step id: ${riskAssessment?.lastStepId}');
                               if (riskAssessment?.lastStepId != null) {
-                                return QuestionnairePage(
+                                return const QuestionnairePage(
                                     // answers: riskAssessment!.answers,
                                     // lastQuestionId: riskAssessment.lastStepId,
                                     );
                               } else {
-                                return QuestionnairePage(
+                                return const QuestionnairePage(
                                     //   answers: riskAssessment!.answers,
                                     );
                               }
@@ -276,6 +279,7 @@ class _HousePageState extends State<HousePage> {
                           builder: (BuildContext context) {
                             return HistoricalResultsPage(
                               riskAssessments: riskAssessments,
+                              showHazard: houseProvider.checkIfShowHazard(),
                             );
                           },
                         ),
@@ -369,12 +373,8 @@ class _HousePageState extends State<HousePage> {
   //Widget _buildVulnerabilityResults(
   //  BuildContext context, HouseProvider houseProvider, House currentHouse) {
   Widget _buildVulnerabilityResults(BuildContext context,
-      RiskAssessment? lastRiskAssessment, House currentHouse) {
+      RiskAssessment? lastRiskAssessment, House currentHouse, bool showHazard) {
     DateFormat dateFormat = DateFormat('dd-MM-yyyy');
-
-    //final lastProbability = houseProvider.getLastProbability();
-    //  final lastResults = lastRiskAssessment?.results ?? {};
-    //final lastResults = houseProvider.getLastResults();
 
     return SizedBox(
       width: double.infinity,
@@ -426,7 +426,9 @@ class _HousePageState extends State<HousePage> {
                             ),
                             Center(
                               child: CardText(
-                                title: context.tr('risk'),
+                                title: showHazard
+                                    ? context.tr('risk')
+                                    : context.tr('vulnerability'),
                                 text: (lastRiskAssessment.risk * 100)
                                     .toStringAsFixed(0),
                                 size: 18,

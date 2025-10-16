@@ -1,4 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:fireprime/notifications/local_notification.dart';
 import 'package:fireprime/pages/information/about_page.dart';
 import 'package:fireprime/constants.dart';
 import 'package:fireprime/firebase/event_manage.dart';
@@ -8,6 +9,7 @@ import 'package:fireprime/pages/house/create_house_page.dart';
 import 'package:fireprime/pages/language/language_page.dart';
 import 'package:fireprime/widgets/house_card.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:provider/provider.dart';
 //import 'package:shared_preferences/shared_preferences.dart';
 
@@ -20,9 +22,14 @@ class HouseListPage extends StatefulWidget {
 
 class _HouseListPageState extends State<HouseListPage> {
   // bool _showPopup = false;
+  final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
+      FlutterLocalNotificationsPlugin();
 
   @override
   void initState() {
+    //notifications...
+    LocalNotification().init();
+    print('LocalNotification initialized');
     super.initState();
 
     // _checkIfAcceptedPrivacy();
@@ -91,8 +98,21 @@ class _HouseListPageState extends State<HouseListPage> {
                         20,
                         MediaQuery.of(context).padding.bottom + 20),
                     child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
+                        /* ElevatedButton(
+                          onPressed: () {
+                            LocalNotification().showNotification(
+                                0, 'Test', 'This is a test notification');
+                          },
+                          child: Text(context.tr('test')),
+                        ), */
                         _buildHeader(context),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        _buildIntro(context, houses.isEmpty),
+
                         /* ElevatedButton(
                           child: Text('Basic'),
                           onPressed: () {
@@ -106,7 +126,7 @@ class _HouseListPageState extends State<HouseListPage> {
                           },
                         ),*/
                         const SizedBox(
-                          height: 20.0,
+                          height: 10.0,
                         ),
                         if (houses.isNotEmpty)
                           ...houses.entries.map(
@@ -129,6 +149,45 @@ class _HouseListPageState extends State<HouseListPage> {
           }
         },
       ),
+    );
+  }
+
+  Widget _buildIntro(BuildContext context, bool showInstructions) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 5.0),
+          child: Text(
+            context.tr('fireprime_intro'),
+            style: const TextStyle(fontSize: 14.0, color: Colors.black),
+          ),
+        ),
+        const SizedBox(height: 10.0),
+        if (showInstructions)
+          Card(
+            color: Colors.blueGrey[50],
+            surfaceTintColor: Colors.white,
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                children: [
+                  const Icon(Icons.info_outline),
+                  const SizedBox(width: 8.0),
+                  Expanded(
+                    child: Text(
+                      context.tr('instructions_intro'),
+                      style: const TextStyle(
+                          fontSize: 12.0, color: Colors.black54),
+                      textAlign: TextAlign.start,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+      ],
     );
   }
 

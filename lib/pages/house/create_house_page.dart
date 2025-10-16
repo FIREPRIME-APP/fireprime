@@ -37,14 +37,13 @@ class _CreateHousePageState extends State<CreateHousePage> {
     super.initState();
     _name.addListener(_checkInput);
     _zipCode.addListener(_checkInput);
-    _address.addListener(_checkInput);
+    // _address.addListener(_checkInput);
   }
 
   void _checkInput() {
     setState(() {
       if (_name.text.isNotEmpty &&
           _zipCode.text.isNotEmpty &&
-          _address.text.isNotEmpty &&
           _selectedEnvironment != null) {
         _enabled = true;
       } else {
@@ -71,10 +70,10 @@ class _CreateHousePageState extends State<CreateHousePage> {
       ScaffoldMessenger.of(context).showSnackBar(
         Utils.snackBar(context.tr('warning_unfilled_name')),
       );
-    } else if (_address.text.isEmpty) {
+      /* } else if (_address.text.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
         Utils.snackBar(context.tr('warning_unfilled_address')),
-      );
+      );*/
     } else if (_selectedEnvironment == null) {
       ScaffoldMessenger.of(context).showSnackBar(
         Utils.snackBar(context.tr('warning_unselected_country')),
@@ -83,8 +82,7 @@ class _CreateHousePageState extends State<CreateHousePage> {
       ScaffoldMessenger.of(context).showSnackBar(
         Utils.snackBar(context.tr('warning_house_name_exists')),
       );
-    } else if (_address.text.isNotEmpty &&
-        _name.text.isNotEmpty &&
+    } else if (_name.text.isNotEmpty &&
         _zipCode.text.isNotEmpty &&
         _selectedEnvironment != null) {
       saveEventdata(screenId: 'create_house_page', buttonId: 'create_house');
@@ -191,6 +189,7 @@ class _CreateHousePageState extends State<CreateHousePage> {
                   controller: _name,
                   screenId: 'create_house_page',
                   buttonId: 'name',
+                  maxLength: 16,
                 ),
                 const SizedBox(height: 10.0),
                 /*InputField(
@@ -240,7 +239,7 @@ class _CreateHousePageState extends State<CreateHousePage> {
                   ),
                   const SizedBox(height: 10.0),
                   InputField(
-                    label: '*  ${context.tr('address')}:',
+                    label: '${context.tr('address')}:',
                     controller: _address,
                     screenId: 'create_house_page',
                     buttonId: 'address',

@@ -10,7 +10,9 @@ class Mitigation {
       String data = await rootBundle.loadString(filePath);
       return json.decode(data);
     } catch (e) {
-      throw Exception('Failed to load mitigations');
+      String filePath = 'assets/mitigations_text/en.json';
+      String data = await rootBundle.loadString(filePath);
+      return json.decode(data);
     }
   }
 

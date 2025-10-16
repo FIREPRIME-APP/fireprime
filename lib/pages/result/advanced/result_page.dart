@@ -1,9 +1,10 @@
 import 'dart:io';
+import 'dart:ui';
 
 import 'package:fireprime/constants.dart';
 import 'package:fireprime/firebase/event_manage.dart';
-import 'package:fireprime/pages/mitigation/mitigation.dart';
-import 'package:fireprime/pages/mitigation/mitigation_page.dart';
+import 'package:fireprime/pages/mitigation/advanced/mitigation.dart';
+import 'package:fireprime/pages/mitigation/advanced/mitigation_page.dart';
 import 'package:fireprime/pdf_creation/pdf_creator.dart';
 import 'package:fireprime/widgets/gauge.dart';
 import 'package:fireprime/model/event_probability.dart';
@@ -14,7 +15,10 @@ import 'package:fireprime/widgets/info_dialog.dart';
 import 'package:fireprime/widgets/card_text.dart';
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter/rendering.dart';
+import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
+import 'package:screenshot/screenshot.dart';
 
 class ResultPage extends StatefulWidget {
   //final House house;
@@ -47,6 +51,8 @@ class _ResultPageState extends State<ResultPage> {
 
   bool _showFactors = false;
 
+  bool _showHazard = true;
+
   String riskAssessmentId = '';
 
   final ScrollController scrollCtrl = ScrollController();
@@ -68,13 +74,15 @@ class _ResultPageState extends State<ResultPage> {
 
     final houseProvider = Provider.of<HouseProvider>(context, listen: false);
 
+    _showHazard = houseProvider.checkIfShowHazard();
+
     RiskAssessment? riskAssessment = houseProvider.getCompletedRiskAssessment();
     RiskAssessment? oldRiskAssessment = houseProvider.getOldRiskAssessment();
 
     if (riskAssessment != null) {
       risk = riskAssessment.risk;
       allProbabilities = riskAssessment.allProbabilities;
-      if (riskAssessment.hazard != null) {
+      if (riskAssessment.hazard != null && _showHazard) {
         hazard = riskAssessment.hazard!;
       } else {
         hazard = 1.0;
@@ -125,6 +133,8 @@ class _ResultPageState extends State<ResultPage> {
 
   @override
   Widget build(BuildContext context) {
+    //Map<String, GlobalKey> linearGaugesKeys =
+
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -150,8 +160,12 @@ class _ResultPageState extends State<ResultPage> {
         padding: const EdgeInsets.all(20.0),
         child: Column(
           children: [
-            Text(context.tr('result_intro'),
-                style: Theme.of(context).textTheme.titleLarge!),
+            //radialGauge(risk, screenshotController),
+            _showHazard
+                ? Text(context.tr('result_intro'),
+                    style: Theme.of(context).textTheme.titleLarge!)
+                : Text(context.tr('vulnerability_intro'),
+                    style: Theme.of(context).textTheme.titleLarge!),
             Card(
               child: Stack(
                 children: [
@@ -165,11 +179,14 @@ class _ResultPageState extends State<ResultPage> {
                     ),
                   ),
                   Gauge.gaugeProbabilityText(
-                      risk * 100,
-                      context.tr('risk'),
-                      20,
-                      getRiskInfo(hazard * 100, vulnerability * 100, risk * 100,
-                          context)),
+                    risk * 100,
+                    _showHazard
+                        ? context.tr('risk')
+                        : context.tr('vulnerability'),
+                    20,
+                    getRiskInfo(hazard * 100, vulnerability * 100, risk * 100,
+                        context, _showHazard),
+                  ),
                   Padding(
                     padding: const EdgeInsets.fromLTRB(20, 0, 10, 20),
                     child: Column(
@@ -177,80 +194,86 @@ class _ResultPageState extends State<ResultPage> {
                         const SizedBox(
                           height: 200,
                         ),
-                        const Divider(
-                          thickness: 1.5,
-                          color: Colors.grey,
-                        ),
-                        Row(
-                          children: [
-                            CardText(
-                                title: context.tr('hazard'),
-                                text: (hazard * 100).toStringAsFixed(0),
-                                size: 15,
-                                color: Colors.black),
-                            const SizedBox(
-                              width: 5,
-                            ),
-                            InfoDialog(
-                                icon: Icons.info_outline,
-                                iconSize: 15,
-                                text: context.tr('hazard_info'),
-                                fontSize: 12)
-                          ],
-                        ),
-                        const SizedBox(
-                          height: 15,
-                        ),
-                        Gauge.linearGauge((hazard * 100), 20, 15, 15, null),
-                        const SizedBox(
-                          height: 15,
-                        ),
-                        Row(
-                          children: [
-                            Expanded(
-                              child: CardText(
-                                title: context.tr('house_vulnerability'),
-                                text: (vulnerability * 100).toStringAsFixed(0),
-                                size: 15,
-                                color:
-                                    null, //Utils.textColor(vulnerability * 100)
+                        if (_showHazard) ...[
+                          const Divider(
+                            thickness: 1.5,
+                            color: Colors.grey,
+                          ),
+                          Row(
+                            children: [
+                              CardText(
+                                  title: context.tr('hazard'),
+                                  text: (hazard * 100).toStringAsFixed(0),
+                                  size: 15,
+                                  color: Colors.black),
+                              const SizedBox(
+                                width: 5,
                               ),
-                            ),
-                            const SizedBox(
-                              width: 5,
-                            ),
-                            ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                  backgroundColor: _showFactors
-                                      ? const Color.fromARGB(255, 223, 225, 228)
-                                      : const Color.fromARGB(
-                                          255, 252, 252, 252)),
-                              onPressed: () {
-                                _toggleFactors();
-                                scrollCtrl.animateTo(
-                                  scrollCtrl.position.extentTotal,
-                                  duration: const Duration(milliseconds: 1000),
-                                  curve: Curves.easeInOut,
-                                );
-                              },
-                              child: Text(
-                                _showFactors
-                                    ? context.tr('hide')
-                                    : context.tr('details'),
-                                style: const TextStyle(
-                                  color: Constants.blueDark,
-                                  fontSize: 13,
+                              InfoDialog(
+                                  icon: Icons.info_outline,
+                                  iconSize: 15,
+                                  text: context.tr('hazard_info'),
+                                  fontSize: 12)
+                            ],
+                          ),
+                          const SizedBox(
+                            height: 15,
+                          ),
+                          Gauge.linearGauge(
+                              (hazard * 100), 20, 15, 15, null, true, 12),
+                          const SizedBox(
+                            height: 15,
+                          ),
+                          Row(
+                            children: [
+                              Expanded(
+                                child: CardText(
+                                  title: context.tr('house_vulnerability'),
+                                  text:
+                                      (vulnerability * 100).toStringAsFixed(0),
+                                  size: 15,
+                                  color:
+                                      null, //Utils.textColor(vulnerability * 100)
                                 ),
                               ),
-                            ),
-                          ],
-                        ),
-                        Gauge.linearGauge(
-                            (vulnerability * 100), 20, 15, 15, null),
-                        const SizedBox(
-                          height: 15,
-                        ),
-                        if (_showFactors) ...[
+                              const SizedBox(
+                                width: 5,
+                              ),
+                              ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                    backgroundColor: _showFactors
+                                        ? const Color.fromARGB(
+                                            255, 223, 225, 228)
+                                        : const Color.fromARGB(
+                                            255, 252, 252, 252)),
+                                onPressed: () {
+                                  _toggleFactors();
+                                  scrollCtrl.animateTo(
+                                    scrollCtrl.position.extentTotal,
+                                    duration:
+                                        const Duration(milliseconds: 1000),
+                                    curve: Curves.easeInOut,
+                                  );
+                                },
+                                child: Text(
+                                  _showFactors
+                                      ? context.tr('hide')
+                                      : context.tr('details'),
+                                  style: const TextStyle(
+                                    color: Constants.blueDark,
+                                    fontSize: 13,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          Gauge.linearGauge((vulnerability * 100), 20, 15, 15,
+                              null, true, 12),
+                          const SizedBox(
+                            height: 15,
+                          ),
+                        ],
+                        if (_showFactors || !_showHazard) ...[
                           const Divider(
                             color: Colors.grey,
                             thickness: 1.5,
@@ -307,7 +330,7 @@ class _ResultPageState extends State<ResultPage> {
                                   ],
                                 ),
                                 Gauge.linearGauge(entry.value.probability * 100,
-                                    20, 15, 15, null)
+                                    20, 15, 15, null, true, 12)
                               ],
                             ),
                         ],
@@ -317,73 +340,15 @@ class _ResultPageState extends State<ResultPage> {
                 ],
               ),
             ),
+
             const SizedBox(
               height: 15,
             ),
             //En cas que es vulgui moure el botó de check improvements, copiar tot el codi d'ElevatedButton i enganxar-lo després del bucle de for
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                  backgroundColor: Constants.blueDark, elevation: 5.0),
-              child: Text(
-                context.tr('check_improvements'),
-                style: const TextStyle(color: Colors.white),
-              ),
-              onPressed: () {
-                saveEventdata(
-                    screenId: 'result_page', buttonId: 'check_improvements');
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (BuildContext context) {
-                      return const MitigationPage();
-                    },
-                  ),
-                );
-              },
-            ),
-
-            //Prova de pdf TODO
-            const SizedBox(
-              height: 15,
-            ),
-
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                  backgroundColor: Constants.blueDark, elevation: 5.0),
-              child: Text(context.tr('results_download'),
-                  style: const TextStyle(color: Colors.white)),
-              onPressed: () async {
-                Map<String, dynamic>? mitigations =
-                    await Mitigation.loadMitigations(
-                        Localizations.localeOf(context).languageCode);
-                Map<String, List<Map<String, String>>> mitigationsTexts =
-                    Mitigation.getMitigationsTextsByAnswer(
-                        mitigations!, answers);
-
-                Map<String, List<String>> mitigationsTextPdf = {};
-                mitigationsTexts.forEach((key, value) {
-                  mitigationsTextPdf[key] =
-                      value.map((e) => e['text']!).toList();
-                });
-
-                saveEventdata(
-                    screenId: 'result_page', buttonId: 'download_results');
-
-                File pdf = await PdfCreator.generateResultsPdf(
-                    riskAssessmentId,
-                    risk,
-                    hazard,
-                    vulnerability,
-                    subProbabilities,
-                    mitigationsTextPdf,
-                    getRiskInfo(hazard * 100, vulnerability * 100, risk * 100,
-                        context));
-                PdfCreator.openPdf(pdf);
-              },
-            ),
 
             //Segon nivell de linear gauge
             for (var entry in _showLinearGauge.entries)
-              if (entry.value && _showFactors)
+              if (entry.value && (_showFactors || !_showHazard))
                 Column(
                   children: [
                     const Divider(color: Colors.grey, thickness: 1.5),
@@ -425,12 +390,107 @@ class _ResultPageState extends State<ResultPage> {
                     )
                   ],
                 ),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                  backgroundColor: Constants.blueDark, elevation: 5.0),
+              child: Text(
+                context.tr('check_improvements'),
+                style: const TextStyle(color: Colors.white),
+              ),
+              onPressed: () {
+                saveEventdata(
+                    screenId: 'result_page', buttonId: 'check_improvements');
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (BuildContext context) {
+                      return const MitigationPage();
+                    },
+                  ),
+                );
+              },
+            ),
 
+            const SizedBox(
+              height: 15,
+            ),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                  backgroundColor: Constants.blueDark, elevation: 5.0),
+              child: Text(context.tr('results_download'),
+                  style: const TextStyle(color: Colors.white)),
+              onPressed: () async {
+                showDialog(
+                  context: context,
+                  barrierDismissible: false,
+                  builder: (context) {
+                    return AlertDialog(
+                        content: Container(
+                      height: 80,
+                      width: 200,
+                      color: Colors.blueGrey[50],
+                      child: Center(
+                          child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const CircularProgressIndicator(),
+                          const SizedBox(height: 10),
+                          Text(
+                            context.tr('downloading'),
+                          ),
+                        ],
+                      )),
+                    ));
+                  },
+                );
+                try {
+                  Map<String, dynamic>? mitigations =
+                      await Mitigation.loadMitigations(
+                          Localizations.localeOf(context).languageCode);
+                  Map<String, List<Map<String, String>>> mitigationsTexts =
+                      Mitigation.getMitigationsTextsByAnswer(
+                          mitigations!, answers);
+
+                  Map<String, List<String>> mitigationsTextPdf = {};
+                  mitigationsTexts.forEach((key, value) {
+                    mitigationsTextPdf[key] =
+                        value.map((e) => e['text']!).toList();
+                  });
+
+                  saveEventdata(
+                      screenId: 'result_page', buttonId: 'download_results');
+
+                  File pdf = await PdfCreator.generateAdvancedResultsPdf(
+                    risk,
+                    hazard,
+                    vulnerability,
+                    subProbabilities,
+                    mitigationsTextPdf,
+                    getRiskInfo(hazard * 100, vulnerability * 100, risk * 100,
+                        context, _showHazard),
+                    _showHazard,
+                  );
+                  Navigator.of(context).pop();
+                  if (Platform.isIOS) await PdfCreator.openPdf(pdf);
+                } catch (e) {
+                  print('Error generating or opening PDF: $e');
+                  Navigator.of(context).pop();
+                }
+              },
+            ),
             //Enganxar el codi del botó de check improvements aquí si es vol que es quedi al final
           ],
         ),
       ),
     );
+  }
+
+  Future<Uint8List> captureGaugeAsImage(GlobalKey key) async {
+    RenderRepaintBoundary boundary =
+        key.currentContext!.findRenderObject() as RenderRepaintBoundary;
+
+    var image = await boundary.toImage(pixelRatio: 3.0);
+    ByteData? byteData = await image.toByteData(format: ImageByteFormat.png);
+    return byteData!.buffer.asUint8List();
   }
 
   double? getLastSubProb(String key1, String key2) {
@@ -442,19 +502,29 @@ class _ResultPageState extends State<ResultPage> {
     return null;
   }
 
-  String getRiskInfo(
-      double hazard, double vulnerability, double risk, BuildContext context) {
+  String getRiskInfo(double hazard, double vulnerability, double risk,
+      BuildContext context, bool showHazard) {
     String hazardLevel = getLevel(hazard);
     String vulnerabilityLevel = getLevel(vulnerability);
-    String textId = getInfoText(hazardLevel, vulnerabilityLevel);
+    String textId = showHazard
+        ? getInfoText(hazardLevel, vulnerabilityLevel)
+        : '${vulnerabilityLevel}_text';
     String riskLevel = getRiskLevel(risk);
 
-    return context.tr('hazard_vulnerability_text.$textId', namedArgs: {
-      'hazard_level': context.tr('hazard_levels.$hazardLevel'),
-      'vulnerability_level':
-          context.tr('vulnerability_levels.$vulnerabilityLevel'),
-      'risk': context.tr('risk_levels.$riskLevel'),
-    });
+    if (showHazard) {
+      return context.tr('hazard_vulnerability_text.$textId', namedArgs: {
+        'hazard_level': context.tr('hazard_levels.$hazardLevel'),
+        'vulnerability_level':
+            context.tr('vulnerability_levels.$vulnerabilityLevel'),
+        'risk': context.tr('risk_levels.$riskLevel'),
+      });
+    } else {
+      return context.tr('vulnerability_text.$textId', namedArgs: {
+        'vulnerability_level':
+            context.tr('vulnerability_levels.$vulnerabilityLevel'),
+        'risk': context.tr('risk_levels.$riskLevel'),
+      });
+    }
   }
 
   String getLevel(double value) {
@@ -513,4 +583,52 @@ class _ResultPageState extends State<ResultPage> {
     }
     return '';
   }
+
+  Future<Uint8List> captureAsImage(GlobalKey key) async {
+    RenderRepaintBoundary boundary =
+        key.currentContext!.findRenderObject() as RenderRepaintBoundary;
+
+    var image = await boundary.toImage(pixelRatio: 3.0);
+    ByteData? byteData = await image.toByteData(format: ImageByteFormat.png);
+    return byteData!.buffer.asUint8List();
+  }
+
+  /* Widget radialGauge(double value, ScreenshotController screenshotController) {
+    print('in screenshoot');
+    return Screenshot(
+      controller: screenshotController,
+      child: Stack(
+        children: [
+          Center(
+            child: Container(
+              height: 200,
+              width: 200,
+              padding: const EdgeInsets.all(20),
+              color: Colors.transparent,
+              child: Gauge.radialGauge(value * 100, 15, 6),
+            ),
+          ),
+        ],
+      ),
+    );
+    //Uint8List radialGauge = await captureAsImage(gaugeKey);
+  }*/
+
+  /*Future<Map<String, Uint8List>> linearGauges(
+      Map<String, EventProbability> subProbabilities) async {
+    Map<String, Uint8List> linearGauges = {};
+    for (var subProb in subProbabilities.entries) {
+      GlobalKey linearKey = GlobalKey();
+      Offstage(
+        child: RepaintBoundary(
+          key: linearKey,
+          child: Gauge.linearGauge(
+              subProb.value.probability * 100, 25, 15, 30, null, true, 12),
+        ),
+      );
+
+      linearGauges[subProb.key] = await captureAsImage(linearKey);
+    }
+    return linearGauges;
+  }*/
 }

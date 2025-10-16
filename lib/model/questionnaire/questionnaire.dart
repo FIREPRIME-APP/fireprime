@@ -1,7 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:fireprime/model/customised_image.dart';
-import 'package:fireprime/pages/questionnaire/multiple_choice_image.dart';
-import 'package:fireprime/pages/questionnaire/single_choice_image.dart';
+import 'package:fireprime/pages/questionnaire/customised_question_types/multiple_choice_image.dart';
+import 'package:fireprime/pages/questionnaire/customised_question_types/single_choice_image.dart';
 import 'package:fireprime/providers/images_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
