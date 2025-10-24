@@ -3,6 +3,7 @@ import 'dart:ui';
 
 import 'package:fireprime/constants.dart';
 import 'package:fireprime/firebase/event_manage.dart';
+import 'package:fireprime/model/house.dart';
 import 'package:fireprime/pages/mitigation/advanced/mitigation.dart';
 import 'package:fireprime/pages/mitigation/advanced/mitigation_page.dart';
 import 'package:fireprime/pdf_creation/pdf_creator.dart';
@@ -18,7 +19,6 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
-import 'package:screenshot/screenshot.dart';
 
 class ResultPage extends StatefulWidget {
   //final House house;
@@ -55,7 +55,11 @@ class _ResultPageState extends State<ResultPage> {
 
   String riskAssessmentId = '';
 
+  DateTime date = DateTime.now();
+
   final ScrollController scrollCtrl = ScrollController();
+
+  late HouseProvider houseProvider;
 
   bool _toggleFactors() {
     setState(() {
@@ -72,7 +76,7 @@ class _ResultPageState extends State<ResultPage> {
   void initState() {
     super.initState();
 
-    final houseProvider = Provider.of<HouseProvider>(context, listen: false);
+    houseProvider = Provider.of<HouseProvider>(context, listen: false);
 
     _showHazard = houseProvider.checkIfShowHazard();
 
@@ -89,6 +93,7 @@ class _ResultPageState extends State<ResultPage> {
       }
       vulnerability = riskAssessment.vulnerability!;
       answers = riskAssessment.answers;
+      date = riskAssessment.fiDate;
 
       for (var entry in allProbabilities!.entries) {
         for (var subEntry in entry.value.subEvents!.entries) {
@@ -459,6 +464,9 @@ class _ResultPageState extends State<ResultPage> {
                   saveEventdata(
                       screenId: 'result_page', buttonId: 'download_results');
 
+                  House house =
+                      houseProvider.getHouse(houseProvider.currentHouse!);
+
                   File pdf = await PdfCreator.generateAdvancedResultsPdf(
                     risk,
                     hazard,
@@ -468,6 +476,8 @@ class _ResultPageState extends State<ResultPage> {
                     getRiskInfo(hazard * 100, vulnerability * 100, risk * 100,
                         context, _showHazard),
                     _showHazard,
+                    house,
+                    DateFormat('dd-MM-yyyy').format(date),
                   );
                   Navigator.of(context).pop();
                   if (Platform.isIOS) await PdfCreator.openPdf(pdf);

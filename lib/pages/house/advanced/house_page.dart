@@ -4,6 +4,7 @@ import 'package:fireprime/firebase/event_manage.dart';
 import 'package:fireprime/pages/house/choose_mode.dart';
 import 'package:fireprime/pages/mitigation/advanced/mitigation_page.dart';
 import 'package:fireprime/providers/house_provider.dart';
+import 'package:fireprime/widgets/button_card.dart';
 import 'package:fireprime/widgets/gauge.dart';
 import 'package:fireprime/pages/house/edit_house_page.dart';
 import 'package:fireprime/pages/house/house_list_page.dart';
@@ -43,7 +44,9 @@ class _HousePageState extends State<HousePage> {
         title: Text(
           context.tr('advanced_mode'),
           style: const TextStyle(
-              fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black),
+              fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black),
+          softWrap: true,
+          overflow: TextOverflow.visible,
         ),
         /*Image.asset(
           Constants.logoA,
@@ -155,12 +158,12 @@ class _HousePageState extends State<HousePage> {
                   ),
 
                   if (riskAssessment != null && riskAssessment.completed)
-                    _buttonCard(
-                      currentHouse,
-                      context.tr('update_questionnaire_intro'),
-                      context.tr('update'),
-                      const Color.fromARGB(255, 184, 194, 219),
-                      () {
+                    ButtonCard(
+                      currentHouse: currentHouse,
+                      description: context.tr('update_questionnaire_intro'),
+                      buttonText: context.tr('update'),
+                      cardColor: const Color.fromARGB(255, 184, 194, 219),
+                      onPressed: () {
                         saveEventdata(
                             screenId: 'house_page',
                             buttonId: 'update_questionnaire');
@@ -169,22 +172,20 @@ class _HousePageState extends State<HousePage> {
                             builder: (BuildContext context) {
                               Questionnaire().setEnvironment(
                                   currentHouse.environment); //TODO: CHECK
-                              return QuestionnairePage(
-                                  // answers: riskAssessment!.answers,
-                                  );
+                              return const QuestionnairePage();
                             },
                           ),
                         );
                       },
-                      true,
+                      enabled: true,
                     ),
                   if (riskAssessment == null)
-                    _buttonCard(
-                      currentHouse,
-                      context.tr('start_questionnaire_intro'),
-                      context.tr('check'),
-                      const Color.fromARGB(255, 184, 194, 219),
-                      () {
+                    ButtonCard(
+                      currentHouse: currentHouse,
+                      description: context.tr('start_questionnaire_intro'),
+                      buttonText: context.tr('check'),
+                      cardColor: const Color.fromARGB(255, 184, 194, 219),
+                      onPressed: () {
                         saveEventdata(
                             screenId: 'house_page',
                             buttonId: 'start_first_questionnaire');
@@ -200,15 +201,15 @@ class _HousePageState extends State<HousePage> {
                           ),
                         );
                       },
-                      true,
+                      enabled: true,
                     ),
                   if (riskAssessment != null && !riskAssessment.completed) ...[
-                    _buttonCard(
-                      currentHouse,
-                      context.tr('continue_questionnaire_intro'),
-                      context.tr('continue'),
-                      const Color.fromARGB(255, 184, 194, 219),
-                      () {
+                    ButtonCard(
+                      currentHouse: currentHouse,
+                      description: context.tr('continue_questionnaire_intro'),
+                      buttonText: context.tr('continue'),
+                      cardColor: const Color.fromARGB(255, 184, 194, 219),
+                      onPressed: () {
                         saveEventdata(
                             screenId: 'house_page',
                             buttonId: 'continue_questionnaire');
@@ -233,18 +234,18 @@ class _HousePageState extends State<HousePage> {
                           ),
                         );
                       },
-                      true,
+                      enabled: true,
                     ),
                   ],
                   const SizedBox(
                     height: 20,
                   ),
-                  _buttonCard(
-                    currentHouse,
-                    context.tr('mitigation_intro'),
-                    context.tr('check_improvements'),
-                    const Color.fromARGB(255, 159, 171, 201),
-                    () {
+                  ButtonCard(
+                    currentHouse: currentHouse,
+                    description: context.tr('mitigation_intro'),
+                    buttonText: context.tr('check_improvements'),
+                    cardColor: const Color.fromARGB(255, 159, 171, 201),
+                    onPressed: () {
                       saveEventdata(
                           screenId: 'house_page',
                           buttonId: 'check_improvements');
@@ -252,23 +253,23 @@ class _HousePageState extends State<HousePage> {
                         Navigator.of(context).push(
                           MaterialPageRoute(
                             builder: (BuildContext context) {
-                              return MitigationPage();
+                              return const MitigationPage();
                             },
                           ),
                         );
                       }
                     },
-                    lastCompletedRiskAssessment != null,
+                    enabled: lastCompletedRiskAssessment != null,
                   ),
                   const SizedBox(
                     height: 20,
                   ),
-                  _buttonCard(
-                    currentHouse,
-                    context.tr('results_history_intro'),
-                    context.tr('myResults'),
-                    const Color.fromARGB(255, 132, 149, 189),
-                    () {
+                  ButtonCard(
+                    currentHouse: currentHouse,
+                    description: context.tr('results_history_intro'),
+                    buttonText: context.tr('my_results'),
+                    cardColor: const Color.fromARGB(255, 132, 149, 189),
+                    onPressed: () {
                       saveEventdata(
                           screenId: 'house_page',
                           buttonId: 'view_results_history');
@@ -285,7 +286,7 @@ class _HousePageState extends State<HousePage> {
                         ),
                       );
                     },
-                    _enableButton(
+                    enabled: _enableButton(
                         currentHouse.riskAssessmentIds.length, riskAssessment),
                   ),
                   const SizedBox(
@@ -296,76 +297,6 @@ class _HousePageState extends State<HousePage> {
             ),
           );
         },
-      ),
-    );
-  }
-
-  Widget _buttonCard(House currentHouse, String description, String buttonText,
-      Color cardColor, VoidCallback onPressed, bool enabled) {
-    return Container(
-      width: double.infinity,
-      decoration: BoxDecoration(
-        color: Constants.blueDark,
-        borderRadius: BorderRadius.circular(15),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey.withOpacity(0.5),
-            spreadRadius: 0,
-            blurRadius: 5,
-            offset: const Offset(0, 7),
-          ),
-        ],
-      ),
-      child: Card(
-        color: cardColor,
-        child: Padding(
-          padding: const EdgeInsets.all(20.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                description,
-                style: const TextStyle(
-                  fontSize: 17,
-                  color: Colors.black,
-                ),
-              ),
-              const SizedBox(
-                height: 15,
-              ),
-              Center(
-                child: Container(
-                  height: 50,
-                  decoration: BoxDecoration(
-                    border: Border.all(color: Colors.white, width: 3),
-                    borderRadius: BorderRadius.circular(25),
-                    boxShadow: const [
-                      BoxShadow(
-                        color: Colors.black26,
-                        spreadRadius: 0,
-                        blurRadius: 5,
-                        offset: Offset(0, 7),
-                      ),
-                    ],
-                  ),
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color.fromARGB(255, 112, 126, 158),
-                      disabledBackgroundColor: Colors.grey.shade400,
-                    ),
-                    onPressed: enabled ? onPressed : null,
-                    child: Text(
-                      buttonText,
-                      style: TextStyle(
-                          color: enabled ? Colors.black : Colors.black38,
-                          fontSize: 16),
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
       ),
     );
   }
@@ -570,7 +501,7 @@ class _HousePageState extends State<HousePage> {
             title: Text(context.tr('unable_to_get_latlong_title'),
                 style:
                     const TextStyle(fontSize: 15, fontWeight: FontWeight.bold)),
-            content: Text(context.tr('unable_to_get_latlong_message_house'),
+            content: Text(context.tr('unable_to_get_latlong_message'),
                 style: const TextStyle(fontSize: 15)),
             actions: <Widget>[
               TextButton(

@@ -146,7 +146,7 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                       showProgress: true,
                       localizations: <String, String>{
                         'cancel': context.tr('cancel'),
-                        'next': context.tr('next')
+                        // 'next': context.tr('next')
                       },
                       themeData: Theme.of(context),
                       surveyProgressbarConfiguration:
@@ -211,10 +211,12 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
 
   List<Step> setSteps(Map<String, String?> answers) {
     List<Step> steps = [
-      InstructionStep(
+      IntroductionCustomisedStep(
+          stepIdentifier: StepIdentifier(id: 'introduction'),
           title: context.tr('questionnaire'),
           text: context.tr('questionnaire_intro'),
-          showAppBar: true)
+          showAppBar: false,
+          buttonText: context.tr('start'))
     ];
 
     for (var questions in questionnaire.questions) {
@@ -226,6 +228,7 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
             otherOption: questions['otherOption'],
             context: context,
             answers: answers,
+            buttonText: context.tr('next'),
           ),
         );
       } else if (questions['type'] == 'multipleChoice') {
@@ -235,6 +238,7 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
           otherOption: questions['otherOption'],
           context: context,
           answers: answers,
+          buttonText: context.tr('next'),
         ));
       } else if (questions['type'] == 'instructionStep') {
         steps.add(
@@ -242,6 +246,7 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
             stepIdentifier: StepIdentifier(id: questions['stepId']),
             title: context.tr('${questions['stepId']}.title'),
             text: context.tr('${questions['stepId']}.text'),
+            buttonText: context.tr('next'),
           ),
         );
       }

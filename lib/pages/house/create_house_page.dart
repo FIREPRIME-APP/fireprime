@@ -1,3 +1,4 @@
+import 'package:diacritic/diacritic.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:fireprime/autocomplete/zip_code.dart';
 import 'package:fireprime/config.dart';
@@ -60,7 +61,8 @@ class _CreateHousePageState extends State<CreateHousePage> {
     return Map.fromEntries(
       countries.entries.toList()
         ..sort(
-          (e1, e2) => e1.value.compareTo(e2.value),
+          (e1, e2) =>
+              removeDiacritics(e1.value).compareTo(removeDiacritics(e2.value)),
         ),
     );
   }
@@ -70,10 +72,6 @@ class _CreateHousePageState extends State<CreateHousePage> {
       ScaffoldMessenger.of(context).showSnackBar(
         Utils.snackBar(context.tr('warning_unfilled_name')),
       );
-      /* } else if (_address.text.isEmpty) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        Utils.snackBar(context.tr('warning_unfilled_address')),
-      );*/
     } else if (_selectedEnvironment == null) {
       ScaffoldMessenger.of(context).showSnackBar(
         Utils.snackBar(context.tr('warning_unselected_country')),
@@ -86,9 +84,37 @@ class _CreateHousePageState extends State<CreateHousePage> {
         _zipCode.text.isNotEmpty &&
         _selectedEnvironment != null) {
       saveEventdata(screenId: 'create_house_page', buttonId: 'create_house');
-
-      Map<String, dynamic> latLong = await ZipCode()
-          .getLatLongByZipCode(_zipCode.text, _selectedCountryCode!);
+      Map<String, dynamic> latLong = {};
+      showDialog(
+        context: context,
+        barrierDismissible: false,
+        builder: (BuildContext context) {
+          return AlertDialog(
+              content: Container(
+            height: 80,
+            width: 200,
+            color: Colors.blueGrey[50],
+            child: Center(
+                child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const CircularProgressIndicator(),
+                const SizedBox(height: 10),
+                Text(
+                  context.tr('loading'),
+                ),
+              ],
+            )),
+          ));
+        },
+      );
+      try {
+        latLong = await ZipCode()
+            .getLatLongByZipCode(_zipCode.text, _selectedCountryCode!);
+        Navigator.of(context).pop();
+      } catch (e) {
+        Navigator.of(context).pop();
+      }
 
       if (latLong.isEmpty) {
         showDialog(

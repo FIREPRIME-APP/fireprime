@@ -20,6 +20,12 @@ class Questionnaire {
 
   List<Map<String, dynamic>> questions = [
     {
+      'stepId': 'I1',
+      'type': 'instructionStep',
+      'title': 'buildingTitle',
+      'text': 'buildingText',
+    },
+    {
       'stepId': 'Q1',
       'textChoices': ['100comb', 'more50comb', 'less50comb', '0comb'],
       'otherOption': false,
@@ -130,7 +136,7 @@ class Questionnaire {
       'type': 'singleChoice',
     },
     {
-      'stepId': 'I1',
+      'stepId': 'I2',
       'type': 'instructionStep',
       'title': 'buildSurrondingsTitle',
       'text': 'buildSurrondings',
@@ -308,7 +314,7 @@ class Questionnaire {
       'type': 'conditional',
       'conditions': {
         'yesSemiConf': 'Q9',
-        'noSemiConf': 'I1',
+        'noSemiConf': 'I2',
       },
     },
     /* {
@@ -421,6 +427,7 @@ class Questionnaire {
     String? text,
     List<CustomisedImage>? images,
     bool? alwaysShowDescription,
+    required String buttonText,
   }) {
     return SingleChoiceImageStep(
       stepIdentifier: StepIdentifier(id: stepId),
@@ -438,7 +445,8 @@ class Questionnaire {
         textChoices: getTextChoices(textChoices, stepId, context),
         defaultSelection: getChoice(answers, stepId, context),
       ),
-      alwaysShowDescription: alwaysShowDescription ?? false,
+      buttonText: buttonText,
+      //alwaysShowDescription: alwaysShowDescription ?? false,
     );
   }
 
@@ -477,7 +485,8 @@ class Questionnaire {
       required textChoices,
       required otherOption,
       required BuildContext context,
-      required Map<String, String?> answers}) {
+      required Map<String, String?> answers,
+      required String buttonText}) {
     return MultipleChoiceImageStep(
       stepIdentifier: StepIdentifier(id: stepId),
       title: context.tr('$stepId.title'),
@@ -494,6 +503,7 @@ class Questionnaire {
         defaultSelection: getMultipleChoice(stepId, answers, context),
         maxAnswers: 3,
       ),
+      buttonText: buttonText,
     );
   }
 

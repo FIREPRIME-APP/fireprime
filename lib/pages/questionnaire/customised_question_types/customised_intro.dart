@@ -26,6 +26,7 @@ class IntroductionCustomisedStep extends Step {
     required this.text,
     super.canGoBack = true,
     super.showAppBar = true,
+    super.buttonText = 'Start',
   });
 
   @override
@@ -40,7 +41,6 @@ class IntroductionCustomisedStep extends Step {
 
   @override
   Map<String, dynamic> toJson() {
-    // TODO: implement toJson
     throw UnimplementedError();
   }
 }
@@ -66,7 +66,7 @@ class _IntroductionCustomisedViewState
       step: widget.introductionStep,
       title: Text(
         widget.introductionStep.title,
-        style: Theme.of(context).textTheme.displayMedium,
+        style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
         textAlign: TextAlign.center,
       ),
       resultFunction: () => IntroductionResult(
@@ -75,11 +75,11 @@ class _IntroductionCustomisedViewState
         DateTime.now(),
       ),
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 14.0),
+        padding: const EdgeInsets.symmetric(horizontal: 20.0),
         child: Text(
           widget.introductionStep.text,
-          style: Theme.of(context).textTheme.bodyMedium,
-          textAlign: TextAlign.center,
+          style: const TextStyle(fontSize: 15, color: Colors.black),
+          textAlign: TextAlign.start,
         ),
       ),
     );

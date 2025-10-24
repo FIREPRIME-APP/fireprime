@@ -3,7 +3,6 @@ import 'package:fireprime/model/customised_image.dart';
 import 'package:fireprime/firebase/event_manage.dart';
 import 'package:fireprime/widgets/selection_list_tile.dart';
 import 'package:flutter/material.dart' hide Step;
-import 'package:flutter/services.dart';
 import 'package:insta_image_viewer/insta_image_viewer.dart';
 import 'package:survey_kit/survey_kit.dart';
 
@@ -16,17 +15,18 @@ class SingleChoiceImageStep extends Step {
   final bool otherOption;
   bool alwaysShowDescription = false;
 
-  SingleChoiceImageStep({
-    required super.stepIdentifier,
-    super.isOptional = false,
-    required this.title,
-    required this.text,
-    required this.description,
-    required this.otherOption,
-    required this.images,
-    required this.answerFormat,
-    required this.alwaysShowDescription,
-  });
+  SingleChoiceImageStep(
+      {required super.stepIdentifier,
+      super.isOptional = false,
+      required this.title,
+      required this.text,
+      required this.description,
+      required this.otherOption,
+      required this.images,
+      required this.answerFormat,
+      required super.buttonText
+      //required this.alwaysShowDescription,
+      });
 
   @override
   Widget createView({required QuestionResult? questionResult}) {
@@ -65,7 +65,7 @@ class _CustomViewState extends State<SingleChoiceImageView> {
   late final SingleChoiceAnswerFormat _singleChoiceAnswerFormat;
   TextChoice? _selectedChoice;
   bool _showDescription = false;
-  bool _isEditing = false;
+  //bool _isEditing = false;
 
   late final TextEditingController _controller;
 
@@ -82,20 +82,20 @@ class _CustomViewState extends State<SingleChoiceImageView> {
 
   void _toggleDescription() {
     if (_showDescription) {
-      saveEventdata(screenId: 'questionnaire_page', buttonId: 'hide_desc');
+      saveEventdata(screenId: 'questionnaire_page', buttonId: 'hide_help');
     } else {
-      saveEventdata(screenId: 'questionnaire_page', buttonId: 'show_desc');
+      saveEventdata(screenId: 'questionnaire_page', buttonId: 'show_help');
     }
     setState(() {
       _showDescription = !_showDescription;
     });
   }
 
-  void _toggleEditing() {
+  /* void _toggleEditing() {
     setState(() {
       _isEditing = !_isEditing;
     });
-  }
+  }*/
 
   @override
   void dispose() {
@@ -139,7 +139,20 @@ class _CustomViewState extends State<SingleChoiceImageView> {
               style: Theme.of(context).textTheme.bodyMedium,
             ),
           ),
-          (!widget.questionStep.alwaysShowDescription)
+          if (widget.questionStep.description.isNotEmpty &&
+              widget.questionStep.description != '')
+            ElevatedButton(
+              onPressed: _toggleDescription,
+              style: ElevatedButton.styleFrom(
+                backgroundColor: _showDescription
+                    ? const Color.fromARGB(255, 223, 225, 228)
+                    : const Color.fromARGB(255, 252, 252, 252),
+              ),
+              child: Text(
+                context.tr('help'),
+              ),
+            ),
+          /* (!widget.questionStep.alwaysShowDescription)
               ? ElevatedButton(
                   onPressed: _toggleDescription,
                   style: ElevatedButton.styleFrom(
@@ -154,9 +167,15 @@ class _CustomViewState extends State<SingleChoiceImageView> {
                     style: TextStyle(color: Theme.of(context).primaryColor),
                   ),
                 )
-              : const SizedBox.shrink(),
-          if (_showDescription || widget.questionStep.alwaysShowDescription)
+              : const SizedBox.shrink(),*/
+          if (_showDescription /*|| widget.questionStep.alwaysShowDescription*/)
             showDescription(),
+          //  const SizedBox(height: 10),
+          if (widget.images.isNotEmpty)
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20.0),
+              child: imageWidget(),
+            ),
           Column(
             children: [
               const Divider(
@@ -174,7 +193,7 @@ class _CustomViewState extends State<SingleChoiceImageView> {
                         _selectedChoice = tc;
                       }
                       setState(() {});
-                      _isEditing = false;
+                      //_isEditing = false;
                     },
                     isSelected: _selectedChoice == tc,
                   );
@@ -196,9 +215,8 @@ class _CustomViewState extends State<SingleChoiceImageView> {
           Text(
             widget.questionStep.description,
             style: Theme.of(context).textTheme.bodySmall,
-            textAlign: TextAlign.justify,
           ),
-          if (widget.images.isNotEmpty) imageWidget(),
+          //if (widget.images.isNotEmpty) imageWidget(),
           const SizedBox(
             height: 20,
           ),

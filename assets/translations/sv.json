@@ -1,2 +1,66 @@
 {
+    "add_house": "lägg till bostad",
+    "more_info": "om appen",
+    "fireprime_intro": "FIREPRIME är en app som hjälper dig att självbedöma risken för skogsbrand vid din bostad. Du kan genomföra två typer av bedömningar: en grundläggande och en avancerad. Du får också tillgång till viktiga råd om förberedelser och säkerhet.",
+    "instructions_intro": "För att komma igång, ange din bostads plats.",
+
+    "notification_title": "Påminnelse",
+    "notification_body": "Det har gått ett år sedan du gjorde självutvärderingen av brandrisken. Gör en ny utvärdering för att se om de förbättringar du har genomfört har minskat ditt hems sårbarhet.",
+
+    "english": "Engelska",
+    "spanish": "Spanska",
+    "catalan": "Katalanska",
+    "german": "Tyska",
+    "swedish": "Svenska",
+
+    "more_info_title": "Om FirePrime",
+    "fireprime": "Fireprime",
+    "about_intro": "Självbedömning av risken för skogsbrand på fastighetsnivå",
+    "about_text": " Denna app har utvecklats av UPC-GESSI, medan den integrerade riskanalysalgoritmen har tagits fram av UPC-CERTEC, RISE och BOKU. Informationen du anger sparas lokalt på enheten och delas inte med tredje part. Uppgifterna kan tas bort genom att avinstallera appen.",
+    "about_text_eu": "Finansierad av Europeiska unionen. De åsikter och ståndpunkter som uttrycks är dock endast författarnas och återspeglar inte nödvändigtvis Europeiska unionens eller GD ECHOs ståndpunkt. Varken Europeiska unionen eller den beviljande myndigheten kan hållas ansvariga för innehållet.",
+    "contact_us": "Kontakta oss",
+    "contact_us_text": "Lämna gärna ett meddelande om du har synpunkter eller frågor om appen. Ange din e-postadress så hör vi av oss snart.",
+
+    "choose_mode_title": "Självbedömning av risken för skogsbrand",
+    "basic_mode_intro1": "Den grundläggande bedömningen ",
+    "basic_mode_intro2": "är ett snabbt och enkelt alternativ, riktat till boende i områden med risk för skogsbrand. Den består av ",
+    "basic_mode_intro3": "10 ja- eller nej-frågor ",
+    "basic_mode_intro4": "om bostadens omgivning och konstruktion.",
+    "basic_mode": "Grundläggande bedömning",
+    "basic": "Grundläggande",
+
+    "advanced_mode_intro1": "Den avancerade bedömningen ",
+    "advanced_mode_intro2": "riktar sig både till fackpersoner och boende som vill göra en mer detaljerad analys. Den innehåller ",
+    "advanced_mode_intro3": "23 lervalsfrågor ",
+    "advanced_mode_intro4": "om bostadens läge, hantering av brännbart material i närheten och byggmaterial. \n Resultatet är ett numeriskt värde som visar sannolikheten för att bostaden skadas vid en skogsbrand, om inga släckningsinsatser görs. Resultatet åtföljs av ",
+    "advanced_mode_intro5": "personligt anpassade rekommendationer ",
+    "advanced_mode_intro6": "för att minska risken.",
+    "advanced_mode": "Avancerad bedömning",
+    "advanced": "Avancerad",
+
+    "advices_title": "Råd om förberedelser och säkerhet",
+    "advices_intro": "Råd om förberedelser och säkerhet vid brand",
+
+    "advices": "Råd",
+
+    "questionnaire": "INSTRUKTIONER",
+    "questionnaire_intro": "· Frågeformuläret består av 23 frågor med flera svarsalternativ. Om inget annat anges, välj endast ett alternativ. \n· Det innehåller bilder och förklaringar för att hjälpa dig att förstå vissa tekniska begrepp. \n· Vid osäkerhet, välj det alternativ som bäst beskriver din situation. \n· Ta den tid du behöver: det kan ta upp till 30 minuter eftersom det kräver att du noggrant observerar husets fasad och omgivning. Du kan besvara frågorna vid olika tillfällen. \n· Svara med tanke på husets tillstånd under de månader då risken för skogsbrand är som störst. \n· Det rekommenderas att du gör utvärderingen minst en gång om året eller efter större förändringar i huset eller omgivningen. \n Frågeformuläret är indelat i två delar: byggnad och omgivning.",
+
+    "help": "Hjälp",
+
+    "basic_questionnaire_title": "Grundläggande frågeformulär",
+    "basic_questionnaire_intro": "Utvärdera din bostads sårbarhet genom att svara Ja eller Nej på ett frågeformulär med 10 frågor. \nVid osäkerhet, välj det alternativ som bäst representerar din situation.",
+
+    "yes": "Ja",
+    "no": "Nej",
+
+    "I1": {
+        "title": "Questions about the building",
+    "text": "Byggnadselement och material i hus som ligger i gränszonen mellan bebyggelse och skog kan ha svaga punkter som gör det lättare för elden att ta sig in. I den här första delen ska du kontrollera hela byggnadens yttre för att hitta dessa sårbarheter."
+    },
+    
+    "I2": {
+        "title": "Questions about the environment",
+    "text": "Brännbara material nära byggnaden är sådana som kan fatta eld vid en brand. Exempel på naturligt brännbart material är cypreshäckar, torrt gräs, buskar, träd osv. Gräsmattor eller grönt gräs räknas inte som brännbart. Exempel på icke-naturligt brännbart material är trädgårdsmöbler, redskaps- eller djurhus, pergolor, trädäck, skjul, fordon osv. Dessutom påverkar även markens lutning och närheten till skogen i hög grad tomtens brandrisk."
+    }
 }

@@ -64,13 +64,13 @@ class HouseCard extends StatelessWidget {
                               ),
                             );
                           } else if (value == 1) {
+                            houseProvider.setCurrentHouse(houseKey);
                             saveEventdata(
                                 screenId: 'house_page',
                                 buttonId: 'delete_house');
                             await showDialog(
                               context: context,
                               builder: (BuildContext context) {
-                                houseProvider.setCurrentHouse(houseKey);
                                 return const DeleteAlert();
                               },
                             );

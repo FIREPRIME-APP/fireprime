@@ -11,6 +11,7 @@ class ButtonCard extends StatelessWidget {
   final bool enabled;
 
   const ButtonCard({
+    super.key,
     required this.currentHouse,
     required this.description,
     required this.buttonText,

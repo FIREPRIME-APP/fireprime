@@ -1,55 +1,58 @@
 
-# Consells de preparació i seguretat en cas d’incendi
+# Preparedness and safety advice in case of wildfire
 
-**Consells basats en les recomanacions oficials de Bombers de la Generalitat.** En cas d’incendi, seguiu sempre les instruccions de les autoritats i informeu-vos a través de:
-- Alertes de Protecció Civil al mòbil
-- Bombers i cossos de seguretat al lloc dels fets
-- Xarxes socials oficials: @emergenciescat, @bomberscat, @agentsruralscat
-- Mitjans de comunicació
+**These tips are based on the official recommendations of the Catalan Fire and Rescue Service (Bombers de la Generalitat de Catalunya, Spain).** In the event of a wildfire, always follow the instructions of local authorities and stay informed via mobile alerts, as well as from firefighters and security forces on site.
+-  Civil Protection alerts on your mobile phone
+-  Firefighters and security forces at the scene
+-  Official social media accounts: for Catalonia: @emergenciescat, @bomberscat, @agentsruralscat
+-  Media outlets
 
-
-
-## Protegiu la vostra llar del foc
-- Franja de 2 m sense vegetació al voltant de la façana
-- 6 m de distància entre arbres perquè no es toquin
-- Teulades, porxos i tendals nets de fulles seques
-- Doble vidre i protecció amb persianes no combustibles
-- Res de llenya ni materials inflamables a tocar de la casa
-- Combustibles guardats en espais ventilats i protegits
-- Xemeneies i reixetes cobertes amb malles metàl·liques
-- Eviteu tanques i porxos de bruc, xiprer o tuia
-- Mànega de reg llarga i flexible a punt
-- Equip d’emergència apunt incloent-hi farmaciola, llanterna i ràdio
-
-
-
-## Què fer si s’acosta el foc —  Confinament
-
-Confinar-se és la millor protecció si arriba el foc. L’arribada del front de foc és molt estressant i pot durar diversos minuts. No sortiu, encara que l’instint us ho demani. Només evacueu si les autoritats ho indiquen. 
-
-- Confineu-vos dins de casa amb la família i animals domèstics, en una zona interior.
-- Taqueu totes les portes (interiors i exteriors), les finestres i abaixeu persianes.
-- Desconnecteu el gas, butà o gasoil.
-- Apagueu l’aire condicionat abans que arribi el front de foc i no l’encengueu fins que l’aire exterior torni a ser net.
-- Retireu cortines i tendals si teniu temps. Allunyeu els mobles de la façana.
-- Deixeu el cotxe al garatge amb les claus posades. Si no, aparqueu-lo a 6 m de la casa.
-- Remulleu les zones exteriors (sense arriscar-vos).
-- Deixeu lliures els accessos per als equips d’emergència.
-- Segelleu amb roba humida les entrades de fum (com les juntes de les portes).
-- Protegiu-vos amb roba de cotó
-- No sortiu fins que sigui segur fer-ho. Escolteu les autoritats.
+## How can you protect your home from wildfires?
+- 2-metre vegetation-free strip around the house façade
+- 6 metres between trees so that their crowns do not touch
+- Roofs, porches and awnings free of dry leaves
+- No firewood or flammable materials close to the house
+- Fuels stored in protected and ventilated spaces
+- Double glazing and non-combustible shutters or blinds
+- Chimneys and vents covered with metal mesh
+- Avoid fences and porches made of dry brush, cypress or thuja
+- Long, flexible garden hose ready for use
+- Emergency kit prepared: ID, phone with charger, cash, first aid kit, essential medication, flashlight and radio
+- Make sure everyone in your household knows how to respond
+- If you anticipate difficulty confining or evacuating (e.g., due to reduced mobility), inform the authorities
 
 
 
-## En cas d'evacuació ordenada per les autoritats 
+## What to do if a wildfire approaches your home
 
-- Tanqueu la casa i desconnecteu electricitat i gas. 
-- Marxeu cap al lloc indicat pels serveis de seguretat.
-- Vestiu roba de cotó i calçat adequat.
-- Porteu només l’imprescindible: documentació, mòbil, carregador, diners i medicació essencial.
+Sheltering in place is the best protection when fire is near. Stay calm and evacuate only if instructed by emergency services.
+
+- Shelter inside the house with your household members and pets
+- Wear long-sleeved cotton clothing
+- Keep your emergency kit within reach
+- Close all interior and exterior doors, windows, and lower shutters
+- Seal any smoke entry points with wet cloths (e.g., door gaps)
+- Turn off gas, butane or diesel supplies
+- Turn off air conditioning until the outside air is free of smoke
+- If time allows, remove curtains and awnings and move furniture away from the façade
+- Leave your car in the garage with the keys in the ignition; if not, park it at least 6 metres from the house
+- If it's safe and time permits, thoroughly wet the outer parts of the house
+- Keep access clear for emergency vehicles
+- Follow emergency service instructions and do not leave until it is safe to do so
+
+
+
+## What to do if evacuation is ordered
+
+- Lock the house and disconnect electricity and gas
+- Go to the location indicated by emergency services
+- If you need help evacuating, inform emergency responders
+- Wear long-sleeved cotton clothing, cover your head, and wear appropriate footwear
+- Bring only your emergency kit: ID, phone with charger, cash, first aid kit, essential medication, flashlight, and radio
+
 
 \
 \
-**Trobareu més informació a:**\
-[Departament d'Interior i Seguretat Pública](https://interior.gencat.cat/ca/incendis-forestals/inici/)
+**You can find more information at:**\
+[Department of the Interior and Public Security](https://interior.gencat.cat/ca/incendis-forestals/inici/)
 

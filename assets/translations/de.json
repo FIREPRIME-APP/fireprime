@@ -1,7 +1,65 @@
 {
+    "add_house": "Wohnort hinzufügen",
+    "more_info": "Über diese App",
+    "fireprime_intro": "FIREPRIME ist eine App, mit der Sie das Waldbrandrisiko für Ihr Zuhause selbst einschätzen können. Sie können zwei Arten von Bewertungen durchführen: eine grundlegende und eine erweiterte. Außerdem erhalten Sie wichtige Hinweise zur Vorbereitung und Sicherheit.",
+    "instructions_intro": "Um zu beginnen, geben Sie den Standort Ihres Hauses ein.",
+    
+    "notification_title": "Erinnerung",
+    "notification_body": "Vor einem Jahr haben Sie den Fragebogen zur Selbsteinschätzung des Brandrisikos ausgefüllt. Machen Sie die Bewertung erneut, um zu sehen, ob Ihre Verbesserungen die Verwundbarkeit Ihres Hauses verringert haben.",
+
     "english": "Englisch",
     "spanish": "Spanisch",
     "catalan": "Katalanisch",
     "german": "Deutsch",
-    "swedish": "Schwedisch"
+    "swedish": "Schwedisch",
+
+    "more_info_title": "Über Fireprime",
+    "fireprime": "Fireprime",
+    "about_text": "Diese App wurde von UPC-GESSI entwickelt. Der integrierte Risikoanalyse-Algorithmus wurde von UPC-CERTEC, RISE und BOKU erstellt. Die eingegebenen Daten werden lokal auf dem Gerät gespeichert und nicht an Dritte weitergegeben. Die Daten können gelöscht werden, indem die App deinstalliert wird.",
+    "about_text_eu": "Finanziert durch die Europäische Union. Die geäußerten Ansichten und Meinungen sind jedoch ausschließlich die der Autoren und spiegeln nicht unbedingt die der Europäischen Union oder der GD ECHO wider. Weder die Europäische Union noch die bewilligende Behörde können für den Inhalt verantwortlich gemacht werden.",
+
+    "contact_us": "Kontaktieren Sie uns",
+    "contact_us_text": "Hinterlassen Sie uns eine Nachricht, wenn Sie Fragen oder Anmerkungen zur App haben. Geben Sie Ihre E-Mail-Adresse an, und wir melden uns in Kürze bei Ihnen.",
+
+    "basic_mode_intro1": "Die grundlegende Bewertung ",
+    "basic_mode_intro2": "ist eine schnelle und einfache Option, die sich an Bewohner in Gebieten mit Waldbrandrisiko richtet. Sie besteht aus ",
+    "basic_mode_intro3": "10 Ja-/Nein-Fragen ",
+    "basic_mode_intro4": "zur Umgebung und Bauweise der Wohnung.",
+    "basic_mode": "Grundlegende Bewertung",
+    "basic": "Grundlegend",
+
+    "advanced_mode_intro1": "Die erweiterte Bewertung ",
+    "advanced_mode_intro2": "richtet sich sowohl an Fachleute als auch an Bewohner, die eine vertiefte Analyse wünschen. Sie umfasst ",
+    "advanced_mode_intro3": "23 Multiple-Choice-Fragen ",
+    "advanced_mode_intro4": "zur Lage des Hauses, zum Umgang mit brennbarem Material in der Nähe und zu den Baumaterialien. Das Ergebnis ist ein numerischer Wert, der die Wahrscheinlichkeit angibt, dass das Haus im Falle eines Brandes beschädigt wird - unter der Annahme, dass keine Löschmaßnahmen ergriffen werden. Das Ergebnis wird von ",
+    "advanced_mode_intro5": "personalisierten Empfehlungen ",
+    "advanced_mode_intro6": "personalisierten Empfehlungen.",
+    "advanced_mode": "Erweiterte Bewertung",
+    "advanced": "Erweiterte",
+
+    "advices_title": "Ratschläge zur Vorbereitung und Sicherheit",
+    "advices_intro": "Ratschläge zur Vorbereitung und Sicherheit im Brandfall",
+    
+    "advices": "Ratschläge",
+
+    "questionnaire": "ANLEITUNG",
+    "questionnaire_intro": "· Der Fragebogen besteht aus 23 Fragen mit mehreren Antwortmöglichkeiten. Sofern nicht anders angegeben, wählen Sie nur eine Option aus. \n· Er enthält Bilder und Erklärungen, um technische Begriffe besser zu verstehen. \n· Im Zweifelsfall wählen Sie die Option, die Ihre Situation am besten beschreibt. \n· Nehmen Sie sich ausreichend Zeit: Die Beantwortung kann bis zu 30 Minuten dauern, da Fassade und Umgebung sorgfältig beobachtet werden müssen. Sie können den Fragebogen auch in mehreren Etappen ausfüllen. \n· Antworten Sie unter Berücksichtigung des Zustands Ihres Hauses in den Monaten mit dem höchsten Waldbrandrisiko. \n· Es wird empfohlen, die Selbsteinschätzung mindestens einmal jährlich oder nach wesentlichen Änderungen am Haus oder in der Umgebung zu wiederholen.\n· Der Fragebogen ist in zwei Teile gegliedert: Gebäude und Umgebung.",
+
+    "help": "Hilfe",
+
+    "basic_questionnaire_title": "Grundlegender Fragebogen",
+    "basic_questionnaire_intro": "Bewerten Sie die Verwundbarkeit Ihres Hauses, indem Sie mit Ja oder Nein auf einen Fragebogen mit 10 Fragen antworten. \n  Wählen Sie im Zweifelsfall die Option, die Ihre Situation am besten beschreibt.",
+
+    "yes": "Ja",
+    "no": "Nein",
+
+    "I1": {
+        "title": "Questions about the building",
+        "text": "Die Baumaterialien und -elemente von Gebäuden in der Wald-Siedlungs-Grenze können Schwachstellen aufweisen, die das Eindringen von Feuer begünstigen. In diesem ersten Teil sollte die gesamte Gebäudehülle überprüft werden, um solche Schwachstellen zu erkennen."
+    },
+    "I2": {
+        "title": "Questions about the environment",
+        "text": "Brennbare Elemente in der Nähe des Gebäudes sind solche, die bei einem Brand Feuer fangen können. Beispiele für natürliche brennbare Materialien sind Zypressenhecken, trockenes Gras, Sträucher, Bäume usw. Rasen oder grünes Gras gelten nicht als brennbar. Beispiele für nicht-natürliche brennbare Elemente sind Gartenmöbel, Geräte- oder Tierhütten, Pergolen, Holzterrassen, Schuppen, Fahrzeuge usw. Zudem haben die Hangneigung des Geländes und die Nähe zum Wald einen wesentlichen Einfluss auf das Brandrisiko des Grundstücks."
+    }
+
 }

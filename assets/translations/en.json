@@ -1,11 +1,13 @@
 {
     "add_house": "Add house",
     "more_info": "About the App",
-    "fireprime_intro": "FIREPRIME is an application for self-assessing the risk of wildfires in homes located at the urban-forest interface.",
-    "instructions_intro": "To self-assess your home, start by adding it with the corresponding information.",
+    "fireprime_intro": "FIREPRIME is an app that helps you self-assess the wildfire risk of your home.You can carry out two types of assessment: a basic one and an advanced one, and also access key preparedness and safety advice.",
+    "instructions_intro": "To get started, enter your home's location.",
+
+    "notification_title": "Reminder",
+    "notification_body": "It's been a year since you completed the wildfire risk self-assessment. Take the questionnaire again to see if the improvements you've made have reduced your home's vulnerability.",
 
     "language_page_title": "Preferred language",
-
 
     "english": "English",
     "spanish": "Spanish",
@@ -13,21 +15,206 @@
     "german": "German",
     "swedish": "Swedish",
 
+    "more_info_title": "About Fireprime",
+    "fireprime": "Fireprime",
+    "about_intro": "Wildfire risk self-assessment at the parcel level",
+    "about_text": "This app was developed by UPC-GESSI, while the integrated risk analysis algorithm was created by UPC-CERTEC, RISE, and BOKU. All data entered is stored locally on the device and is not shared with third parties.  Data can be deleted by uninstalling the app.",
+    "about_text_eu": "Funded by the European Union. However, the views and opinions expressed are solely those of the authors and do not necessarily reflect those of the European Union or DG-ECHO. Neither the European Union nor the granting authority can be held responsible for them.",
+
+    "contatct_us": "Contact us",
+    "contact_us_text": "Leave us a message if you have any feedback or questions about the app. Include your email address and we'll get back to you shortly.",
+
+    "choose_mode_title": "Wildfire Risk Self-Assessment",
+    "basic_mode_intro1": "The basic assessment ",
+    "basic_mode_intro2": "is a quick and simple option, aimed at residents living in wildfire risk areas. It consists of ",
+    "basic_mode_intro3": "10 Yes/No questions ",
+    "basic_mode_intro4": "about the home's surroundings and construction.",
+    "basic_mode": "Basic Assessment",
+    "basic": "Basic",
+    
+    "advanced_mode_intro1": "The advanced assessment, ",
+    "advanced_mode_intro2": "intended for both risk managers and residents seeking a deeper analysis, includes ",
+    "advanced_mode_intro3": "23 multiple-choice questions ",
+    "advanced_mode_intro4": "about the location of the home, nearby fuel management, and building materials. \nThe result is a numerical value that indicates the likelihood of the home being damaged in the event of a wildfire, assuming no suppression actions are taken. This result is accompanied by ",
+    "advanced_mode_intro5": "personalized recommendations ",
+    "advanced_mode_intro6": "to help reduce the risk. ",
+    "advanced_mode": "Advanced Assessment",
+    "advanced": "Advanced",
+
     "add_house_intro": "Fill in the information of your house",
     "name": "Name",
     "address": "Address",
     "country": "Country",
     "zip_code": "Zip code",
     "warning_unfilled_name": "Please fill in the name of the house",
-    "warning_unfilled_address": "Please fill in the address of the house",
     "warning_unselected_country": "Please select the country of the house",
     "warning_unfilled_zip_code": "Please fill in the zip code of the house",
     "warning_house_name_exists": "House name already used",
     "unable_to_get_latlong_title": "Unable to get the location",
-    "unable_to_get_latlong_message": "Please check your internet connection. Try to edit your address and select one of the suggestions or edit it later. You can continue without the location, but the results may not be accurate.",
+    "unable_to_get_latlong_message": "This house has no location information. Please check your internet connection and try to edit your zip code. You can continue without the location, but the results may not be accurate.",
+    "wrong_zip_code": "Wrong zip code, please check the introduced information.",
+    "loading": "Loading",
+
     "try_again": "Try again",
     "accept": "Accept",
     "close": "Close",
+    
+    "delete_house_warning_intro": "Are you sure you want to delete this house?",
+    "delete_house_warning_text": "Deleting the house will also delete all information related to the risk assessments and it cannot be recovered.",
+
+    "delete_house": "Delete house",
+    "cancel": "Cancel",
+    "delete": "Delete",
+
+    "edit_house_intro": "Edit your house information",
+
+    "edit_house": "Edit house",
+    "save": "Save",
+    "edit": "Edit",
+
+    "last_evaluation": "Last evaluation",
+    "date": "Date",
+    "risk": "Risk",
+    "vulnerability": "Vulnerability",
+    "no_results_available": "No results available",
+
+    "start_questionnaire_intro": "Check your house risk with a questionnaire!",
+    "update_questionnaire_intro": "Update your answers of the questionnaire",
+    "continue_questionnaire_intro": "Continue the questionnaire to check your house risk",
+    
+    "mitigation_intro": "Check the improvements to reduce the risk of your house",
+    "check_improvements": "Check improvements!",
+
+    "advices_title": "Preparation and Safety Tips",
+    "advices_intro": "Preparation and safety tips in case of fire",
+
+    "results_history_intro": "Check your results history",
+
+    "unable_to_get_latlong_message_house": "This house has no location information. Please check your internet connection. Edit the address and select one of the suggestions. You can continue without the location, but the results may not be accurate.",
+
+    "details": "Details",
+    "check": "Check",
+    "update": "Update",
+    "advices": "Advices",
+    "continue": "Continue",
+    "my_results": "My results",
+
+    "advanced_mode_title": "Advanced mode questionnaire",
+
+    "questionnaire": "INSTRUCTIONS",
+    "questionnaire_intro": "· The questionnaire consists of 23 questions with multiple answer options. Unless otherwise indicated, you should select only one. \n· It includes images and explanations to help you understand some technical concepts. \n· If in doubt, choose the option that best describes your situation. \n· Take your time: it may take up to 30 minutes, as you’ll need to carefully observe the façade and surroundings of your home. You can complete it at different times. \n· Answer based on the condition of your home during the months of highest wildfire risk. \n·It is recommended to repeat the assessment at least once a year or after significant changes to the house or its surroundings. \n·The questionnaire is divided into two parts: building and surroundings.",
+    "next": "Next",
+    "start": "Start",
+    "questionnaire_finish_text": "Check your results!", 
+
+    "help": "Help",
+
+    "basic_questionnaire_title": "Basic Questionnaire",
+    "basic_questionnaire_intro": "Assess the vulnerability of your home by answering Yes or No to a 10-question survey. \nIf in doubt, choose the option that best represents your situation.",
+
+    "yes": "Yes",
+    "no": "No",
+
+    "calculating":"Calculating the result",
+    "result": "Result",
+    "result_intro": "Risk level",
+    "vulnerability_intro": "Vulnerability level",
+
+    "hazard_info": "This value depends on your house localization.",
+    "hazard": "Wildfire risk",
+    "house_vulnerability": "Your house vulnerability",
+    "hide": "Hide",
+
+    "downloading": "Downloading",
+
+    "exterior_envelope": "Facade materials",
+    "non_combustible_foundation": "Facade covering adjacent to the ground",
+    "façade": "Facade",
+    "roof_material": "Roof material",
+    "roof_maintenance-1": "Roof maintenance",
+    "roof_maintenance-2": "Roof maintenance",
+    "roof": "Roof",
+    "glazing_failure": "Glass",
+    "shutter_failure": "Shutter",
+    "glazing_systems": "Glass enclosure",
+    "vents": "Ventilation",
+    "semi_confined": "Semi-confined space",
+    "fuels_glazing_systems": "Combustibles in front of glass enclosures",
+    "fuels_roof": "Combustibles near the roof",
+    "fuels_combustible_facade": "Combustibles in contact with the facade",
+    "surface_fuels": "Continuous grass or shrub area",
+    "fuels_close_to_building": "Risk associated with combustibles near the building",
+    "fuelsLPG": "Combustibles near hydrocarbon tanks",
+    "space_art_fuels": "Separation between non-natural combustibles",
+    "fuel_close_to_trees": "Non-natural combustibles near highly flammable vegetation",
+    "artificial_fuels": "Non-natural combustibles within the plot",
+    "wildland_vegetation": "Wildland vegetation",
+    "vegetation_type": "Vegetation flammability level",
+    "vegetation_continuity": "Horizontal continuity of vegetation",
+    "tree_pruning": "Vertical continuity of vegetation",
+    "surface_fuel_depth": "Height of the continuous grass or young shrub area",
+    "dead_vegetation": "Dead vegetation",
+    "vegetation": "Natural combustibles within the plot",
+    "property_perimeter": "Plot boundary",
+    "slope": "Terrain slope",
+    "structural_vulnerabilities": "Structural vulnerabilities",
+    "fire_reaches_building": "Risk of fire spread to the building",
+
+    "results_download": "Download the results",
+    
+    "advanced_result_pdf_title": "Result of the advanced wildfire risk assessment",
+    "basic_result_pdf_title": "Result of the basic wildfire risk assessment",
+    "house": "House",
+
+    "mitigation_title": "Improvements",
+    "improve": "Improve",
+    "save_answers": "Save the answer and update the questionnaire",
+    "done": "Done",
+    
+    "hazard_vulnerability_text": {
+        "extreme_high_text": "Your home is located in an area {hazard_level} to wildfires and is {vulnerability_level} to them. As a result, its risk level is {risk}. Follow the provided recommendations to improve your home's resilience and reduce the likelihood of it burning.",
+        "extreme_moderate_text": "Your home is located in an area {hazard_level} to wildfires and is {vulnerability_level} to them. As a result, its risk level is {risk}. Follow the provided recommendations to reduce the likelihood of it burning and keep doing the maintenance of the property.",
+        "high_moderate_text": "Your home is located in an area {hazard_level} to wildfires and is {vulnerability_level} to them. As a result, its risk level is {risk}. Try to follow the provided recommendations to improve your home's resilience and reduce the likelihood of it burning.",
+        "moderate_text": "Your home is located in an area {hazard_level} to wildfires and is {vulnerability_level} to them. As a result, its risk level is {risk}. Try to follow the provided recommendations to reduce the likelihood of it burning and keep doing the maintenance of the property.",
+        "low_extreme_high_text": "Your home is located in an area {hazard_level} to wildfires but is {vulnerability_level} to them. As a result, its risk level is {risk}. Try to follow the provided recommendations to improve your home's resilience and reduce the likelihood of it burning.",
+        "extreme_low_text": "Your home is located in an area {hazard_level} to wildfires and is {vulnerability_level} to them. As a result, its risk level is {risk}. Keep your house in good condition to maintain its good resistance against wildfires and if possible, try to follow the recommendations provided.",
+        "low_moderate_text": "Your home is located in an area {hazard_level} to wildfires but is {vulnerability_level} to them. As a result, its risk level is {risk}. Keep your house in good condition to maintain its good resistance against wildfires and if possible, try to follow the recommendations provided.",
+        "low_text": "Your home is located in an area {hazard_level} to wildfires and is {vulnerability_level} to them. As a result, its risk level is {risk}. Keep your house in good condition to maintain its good resistance against wildfires."
+    },
+
+    "vulnerability_text": {
+        "extreme_text": "Your home is {vulnerability_level} to wildfires. As a result, its risk level is {risk}. Follow the provided recommendations to improve your home's resilience and reduce the likelihood of it burning.",
+        "high_text": "Your home is {vulnerability_level} to wildfires. As a result, its risk level is {risk}. Try to follow the provided recommendations to improve your home's resilience and reduce the likelihood of it burning.",
+        "moderate_text": "Your home is {vulnerability_level} to wildfires. As a result, its risk level is {risk}. Follow the provided recommendations to reduce the likelihood of it burning and keep doing the maintenance of the property.",
+        "low_text": "Your home is {vulnerability_level} to wildfires. As a result, its risk level is {risk}. Keep doing the maintenance of your house to maintain its good resistance against wildfires and if possible, try to follow the recommendations provided."
+    },
+
+    "hazard_levels": {
+        "extreme": "extremely prone",
+        "high": "highly prone",
+        "moderate": "prone",
+        "low": "not prone"
+    },
+
+    "vulnerability_levels": {
+        "extreme": "highly vulnerable",
+        "high": "very vulnerable",
+        "moderate": "vulnerable",
+        "low": "lowly vulnerable"
+    },
+
+    "risk_levels": {
+        "extreme": "extreme",
+        "high": "high",
+        "moderate": "moderate",
+        "low": "low"
+    },
+
+    "risk_text" : {
+        "high": "Your home is at high risk. Completing the advanced evaluation can help you identify critical points and find ways to reduce the risk. Don't forget to check the preparation and safety tips in case of fire.",
+        "moderate": "Your home is at moderate risk. If you want to better understand your situation, you can complete the advanced evaluation and receive more detailed recommendations. We also recommend checking the preparation and safety tips in case of fire.",
+        "low": "Your home is at low risk, but don't get complacent. Keep the surroundings clean and check the preparation and safety tips in case of fire."
+    },
 
     "european_countries": {
         "albania": "Albania",
@@ -81,178 +268,11 @@
         "vaticanCity": "Vatican City"
     },
 
-    
-    "more_info_title": "About Fireprime",
-    "fireprime": "Fireprime",
-    "about_intro": "Wildfire risk self-assessment at the parcel level",
-    "about_text": "This application has been developed by UPC-GESSI, while the integrated risk analysis algorithm was created by UPC-CERTEC, RISE, and BOKU. The information entered is stored locally on the device and is not shared with third parties. Data can be deleted by uninstalling the application.",
-    "about_text_eu": "Funded by the European Union. However, the views and opinions expressed are solely those of the authors and do not necessarily reflect those of the European Union or DG-ECHO. Neither the European Union nor the granting authority can be held responsible.",
 
-    "choose_mode_title": "Wildfire Risk Self-Assessment",
-    "basic_mode_intro": "The basic assessment is a quick and simple option aimed at residents living in fire-prone areas. It consists of 10 yes/no questions about the environment and the construction of the house.",
-    "basic_mode": "Basic Assessment",
-    "basic": "Basic",
-    "advanced_mode_intro": "The advanced assessment, aimed at both technicians and residents who want to delve deeper into the analysis, includes 25 multiple-choice questions about the location of the house, the management of nearby fuel, and the building materials. The result of the assessment is a numerical value indicating the likelihood of the house suffering damage in the event of a fire, if no extinguishing action is taken. This result is accompanied by personalized recommendations to reduce it.",
-    "advanced_mode": "Advanced Assessment",
-    "advanced": "Advanced",
-
-    "basic_questionnaire_title": "Basic Questionnaire",
-    "basic_questionnaire_intro": "Check the vulnerability of the house with a 10-question questionnaire.",
-
-    "yes": "Yes",
-    "no": "No",
-
-    "advices": "Tips",
-    "advices_title": "Preparation and Safety Tips",
-    "advices_intro": "Preparation and safety tips in case of fire",
-
-    "downloading": "Downloading",
-
-    "last_evaluation": "Last evaluation",
-    "date": "Date",
-    "risk": "Risk",
-    "no_results_available": "No results available",
-
-    "start_questionnaire_intro": "Check your house risk with a questionnaire!",
-    "update_questionnaire_intro": "Update your answers of the questionnaire",
-    "continue_questionnaire_intro": "Continue the questionnaire to check your house vulnerability",
-    
-    "results_history_intro": "Check your results history",
-
-    "delete_house_warning_intro": "Are you sure you want to delete this house?",
-    "delete_house_warning_text": "Deleting the house will also delete all information related to the risk assessments and it cannot be recovered.",
-
-    "unable_to_get_latlong_message_house": "This house has no location information. Please check your internet connection. Edit the address and select one of the suggestions. You can continue without the location, but the results may not be accurate.",
-
-    "details": "Details",
-    "check": "Check",
-    "update": "Update",
-    "continue": "Continue",
-    "myResults": "My results",
-
-    "edit_house": "Edit house",
-    "delete_house": "Delete house",
-    "cancel": "Cancel",
-    "delete": "Delete",
-    "edit": "Edit",
-
-    "edit_house_intro": "Edit your house information",
-    
-    "save": "Save",
-
-    "questionnaire": "Questionnaire",
-    "questionnaire_intro": "The questionnaire consists of two parts: the first focuses on the building characteristics and the second on its surroundings.",
-    "next": "Next",
-    "questionnaire_finish_text": "Check your results!", 
-    "done": "Done!",
-    
-    "show_description": "Show description",
-    "hide_description": "Hide description",
-    "max_multiple_choices": "You can select a maximum of {} options",
-
-    "calculating":"Calculating the result",
-    
-    "result": "Result",
-    "result_intro": "Risk level",
-
-    "vulnerability_intro": "Vulnerability level",
-    "vulnerability": "Vulnerability",
-
-    "risk_info": "This value depends on the Hazard factor and your house vulnerability.",
-    "hazard_info": "This value depends on your house localization.",
-    "hazard": "Wildfire risk",
-    "house_vulnerability": "Your house vulnerability",
-    
-    "exterior_envelope": "Facade materials",
-    "non_combustible_foundation": "Facade covering adjacent to the ground",
-    "façade": "Facade",
-    "roof_material": "Roof material",
-    "roof_maintenance-1": "Roof maintenance",
-    "roof_maintenance-2": "Roof maintenance",
-    "roof": "Roof",
-    "glazing_failure": "Glass",
-    "shutter_failure": "Shutter",
-    "glazing_systems": "Glass enclosure",
-    "vents": "Ventilation",
-    "semi_confined": "Semi-confined space",
-    "fuels_glazing_systems": "Combustibles in front of glass enclosures",
-    "fuels_roof": "Combustibles near the roof",
-    "fuels_combustible_facade": "Combustibles in contact with the facade",
-    "surface_fuels": "Continuous grass or shrub area",
-    "fuels_close_to_building": "Risk associated with combustibles near the building",
-    "fuelsLPG": "Combustibles near hydrocarbon tanks",
-    "space_art_fuels": "Separation between non-natural combustibles",
-    "fuel_close_to_trees": "Non-natural combustibles near highly flammable vegetation",
-    "artificial_fuels": "Non-natural combustibles within the plot",
-    "wildland_vegetation": "Wildland vegetation",
-    "vegetation_type": "Vegetation flammability level",
-    "vegetation_continuity": "Horizontal continuity of vegetation",
-    "tree_pruning": "Vertical continuity of vegetation",
-    "surface_fuel_depth": "Height of the continuous grass or young shrub area",
-    "dead_vegetation": "Dead vegetation",
-    "vegetation": "Natural combustibles within the plot",
-    "property_perimeter": "Plot boundary",
-    "slope": "Terrain slope",
-    "structural_vulnerabilities": "Structural vulnerabilities",
-    "fire_reaches_building": "Risk of fire spread to the building",
-
-    "hazard_vulnerability_text": {
-        "extreme_high_text": "Your home is located in an area {hazard_level} to wildfires and is {vulnerability_level} to them. As a result, its risk level is {risk}. Follow the provided recommendations to improve your home's resilience and reduce the likelihood of it burning.",
-        "extreme_moderate_text": "Your home is located in an area {hazard_level} to wildfires and is {vulnerability_level} to them. As a result, its risk level is {risk}. Follow the provided recommendations to reduce the likelihood of it burning and keep doing the maintenance of the property.",
-        "high_moderate_text": "Your home is located in an area {hazard_level} to wildfires and is {vulnerability_level} to them. As a result, its risk level is {risk}. Try to follow the provided recommendations to improve your home's resilience and reduce the likelihood of it burning.",
-        "moderate_text": "Your home is located in an area {hazard_level} to wildfires and is {vulnerability_level} to them. As a result, its risk level is {risk}. Try to follow the provided recommendations to reduce the likelihood of it burning and keep doing the maintenance of the property.",
-        "low_extreme_high_text": "Your home is located in an area {hazard_level} to wildfires but is {vulnerability_level} to them. As a result, its risk level is {risk}. Try to follow the provided recommendations to improve your home's resilience and reduce the likelihood of it burning.",
-        "extreme_low_text": "Your home is located in an area {hazard_level} to wildfires and is {vulnerability_level} to them. As a result, its risk level is {risk}. Keep your house in good condition to maintain its good resistance against wildfires and if possible, try to follow the recommendations provided.",
-        "low_moderate_text": "Your home is located in an area {hazard_level} to wildfires but is {vulnerability_level} to them. As a result, its risk level is {risk}. Keep your house in good condition to maintain its good resistance against wildfires and if possible, try to follow the recommendations provided.",
-        "low_text": "Your home is located in an area {hazard_level} to wildfires and is {vulnerability_level} to them. As a result, its risk level is {risk}. Keep your house in good condition to maintain its good resistance against wildfires."
+    "I1": {
+        "title": "Questions about the building",
+        "text": "The construction elements and materials of buildings located in the wildland-urban interface may have weak points that allow fire to enter. In this first section, you should inspect the entire building envelope to identify these vulnerabilities."
     },
-
-    "vulnerability_text": {
-        "extreme_text": "Your home is {vulnerability_level} to wildfires. As a result, its risk level is {risk}. Follow the provided recommendations to improve your home's resilience and reduce the likelihood of it burning.",
-        "high_text": "Your home is {vulnerability_level} to wildfires. As a result, its risk level is {risk}. Try to follow the provided recommendations to improve your home's resilience and reduce the likelihood of it burning.",
-        "moderate_text": "Your home is {vulnerability_level} to wildfires. As a result, its risk level is {risk}. Follow the provided recommendations to reduce the likelihood of it burning and keep doing the maintenance of the property.",
-        "low_text": "Your home is {vulnerability_level} to wildfires. As a result, its risk level is {risk}. Keep doing the maintenance of your house to maintain its good resistance against wildfires and if possible, try to follow the recommendations provided."
-    },
-
-    "hazard_levels": {
-        "extreme": "extremely prone",
-        "high": "highly prone",
-        "moderate": "prone",
-        "low": "not prone"
-    },
-
-    "vulnerability_levels": {
-        "extreme": "highly vulnerable",
-        "high": "very vulnerable",
-        "moderate": "vulnerable",
-        "low": "lowly vulnerable"
-    },
-
-    "risk_levels": {
-        "extreme": "extreme",
-        "high": "high",
-        "moderate": "moderate",
-        "low": "low"
-    },
-
-    "risk_text" : {
-        "high": "Your home is at high risk. Completing the advanced evaluation can help you identify critical points and find ways to reduce the risk. Don't forget to check the preparation and safety tips in case of fire.",
-        "moderate": "Your home is at moderate risk. If you want to better understand your situation, you can complete the advanced evaluation and receive more detailed recommendations. We also recommend checking the preparation and safety tips in case of fire.",
-        "low": "Your home is at low risk, but don't get complacent. Keep the surroundings clean and check the preparation and safety tips in case of fire.",
-        "austria_high": "",
-        "austria_moderate": "",
-        "austria_low": ""
-    },
-
-    "hide": "Hide",
-    "mitigation_intro": "Check the improvements to reduce the risk of your house",
-    "check_improvements": "Check improvements!",
-    "results_download": "Download the results",
-
-    
-    "mitigation_title": "Improvements",
-
-
     "Q1": {
         "title": "Exterior envelope",
         "question": "What percentage of the building's exterior envelope surface (i.e., external walls, balconies - excluding windows, window shutters, porches and the roof) is made of combustible materials?",
@@ -347,9 +367,9 @@
         "nonCombThin": "Non-combustible materials such as aluminium or steel (e.g., shutters without glazing - such as a garage door)",
         "nonCombThick": "Non-combustible materials such as bricks or concrete"
     },
-    "I1": {
-        "title": "House surroundings",
-        "text": "Next, you will answer questions about the surroundings of your house"
+    "I2": {
+        "title": "Questions about the environment",
+        "text": "Combustible elements near the building are those that can catch fire during a wildfire. Examples of natural combustible elements include cypress hedges, dry grass, shrubs, trees, etc. Lawns or green grass are not considered combustible. Examples of non-natural combustible elements include garden furniture, tool or animal sheds, pergolas, wooden decking, outbuildings, vehicles, etc. Additionally, the slope of the terrain and the proximity to the forest are also key factors that influence the fire risk of the property."
     },
     "Q11-1": {
         "title": "Fuels located close to the building",

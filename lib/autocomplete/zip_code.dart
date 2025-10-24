@@ -13,7 +13,11 @@ class ZipCode {
     print('Fetching lat/long for zip code: $baseURL');
 
     try {
-      final response = await http.get(url);
+      final response = await http.get(url).timeout(const Duration(seconds: 10),
+          onTimeout: () {
+        print('Request to $baseURL timed out');
+        return http.Response('Error: Request timed out', 408);
+      });
       if (response.statusCode == 200) {
         print('Response: ${response.body}');
         final data = json.decode(response.body);

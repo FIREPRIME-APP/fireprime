@@ -209,6 +209,7 @@ class _MitigationQuestionnaireState extends State<MitigationQuestionnaire> {
             otherOption: false,
             context: context,
             answers: answers,
+            buttonText: context.tr('next'),
           ),
         );
       } else if (question['type'] == 'multipleChoice') {
@@ -218,6 +219,7 @@ class _MitigationQuestionnaireState extends State<MitigationQuestionnaire> {
           otherOption: false,
           context: context,
           answers: answers,
+          buttonText: context.tr('next'),
         ));
       }
     }

@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:easy_localization/easy_localization.dart';
@@ -10,6 +11,7 @@ import 'package:fireprime/pages/mitigation/basic/advices_page.dart';
 import 'package:fireprime/pages/questionnaire/advanced/questionnaire_page.dart';
 import 'package:fireprime/pdf_creation/pdf_creator.dart';
 import 'package:fireprime/providers/house_provider.dart';
+import 'package:fireprime/widgets/button_card.dart';
 import 'package:fireprime/widgets/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -107,17 +109,32 @@ class _BasicResultPageState extends State<BasicResultPage> {
                   fontSize: 15,
                 ),
               ),
-              const SizedBox(height: 50),
+              const SizedBox(height: 30),
               Center(
                 child: Column(
                   children: [
-                    ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor: Constants.blueDark, elevation: 5.0),
-                      child: Text(
-                        context.tr('advices'),
-                        style: const TextStyle(color: Colors.white),
+                    if (level != 'low')
+                      ButtonCard(
+                        currentHouse: house,
+                        description: context.tr('advanced_mode_title'),
+                        buttonText: context.tr('advanced_mode'),
+                        cardColor: const Color.fromARGB(255, 184, 194, 219),
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const QuestionnairePage(),
+                            ),
+                          );
+                        },
+                        enabled: true,
                       ),
+                    const SizedBox(height: 20),
+                    ButtonCard(
+                      currentHouse: house,
+                      description: context.tr('advices_intro'),
+                      buttonText: context.tr('advices'),
+                      cardColor: const Color.fromARGB(255, 159, 171, 201),
                       onPressed: () {
                         Navigator.push(
                           context,
@@ -128,29 +145,11 @@ class _BasicResultPageState extends State<BasicResultPage> {
                           ),
                         );
                       },
+                      enabled: true,
                     ),
-                    const SizedBox(height: 10),
-                    if (level != 'low')
-                      ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                            backgroundColor: Constants.blueDark,
-                            elevation: 5.0),
-                        child: Text(
-                          context.tr('advanced_mode'),
-                          style: const TextStyle(color: Colors.white),
-                        ),
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const QuestionnairePage(
-                                  //answers: widget.answers,
-                                  ),
-                            ),
-                          );
-                        },
-                      ),
-                    const SizedBox(height: 10),
+                    const SizedBox(
+                      height: 20,
+                    ),
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(
                           backgroundColor: Constants.blueDark, elevation: 5.0),
@@ -193,15 +192,17 @@ class _BasicResultPageState extends State<BasicResultPage> {
                                   .toUpperCase() +
                               context.tr('risk_levels.$level').substring(1);
                           String riskText = context.tr('risk_text.$level');
-                          String markdownText =
+                          Map<String, dynamic> markdownText =
                               await _loadMarkdownData(context, area);
-
                           File pdf = await PdfCreator.generateBasicResultsPdf(
                             risk,
                             markdownText,
                             riskLevel,
                             riskText,
                             riskColor,
+                            house,
+                            DateFormat('dd-MM-yyyy')
+                                .format(basicResult!.fiDate),
                           );
                           Navigator.of(context).pop();
                           if (Platform.isIOS) await PdfCreator.openPdf(pdf);
@@ -226,14 +227,20 @@ class _BasicResultPageState extends State<BasicResultPage> {
     );
   }
 
-  Future<String> _loadMarkdownData(BuildContext context, String area) async {
+  Future<Map<String, dynamic>> _loadMarkdownData(
+      BuildContext context, String area) async {
     final localeCode = context.locale.languageCode;
-    final path = 'assets/advices/$area/$localeCode.md';
+    final path = 'assets/advices/$area/$localeCode.json';
     try {
-      return await rootBundle.loadString(path);
+      return jsonDecode(await rootBundle.loadString(path));
     } catch (e) {
-      final defaultPath = 'assets/advices/default/$localeCode.md';
-      return await rootBundle.loadString(defaultPath);
+      try {
+        final defaultPath = 'assets/advices/$area/en.json';
+        return jsonDecode(await rootBundle.loadString(defaultPath));
+      } catch (e) {
+        const defaultPath = 'assets/advices/default/en.json';
+        return jsonDecode(await rootBundle.loadString(defaultPath));
+      }
     }
   }
 }

@@ -5,7 +5,7 @@
             "question": "My home is located next to a forest or an area with abundant vegetation",
             "images": [
                 {
-                    "path": "BQ1.1"
+                    "path": "BQ1"
                 }
             ]
         },
@@ -14,7 +14,7 @@
             "question": "My home is situated on a slope or at the top of a ridge",
             "images": [
                 {
-                    "path": "BQ2.1"
+                    "path": "BQ2"
                 }
             ]
         },
@@ -23,7 +23,7 @@
             "question": "The exterior cladding of my home is made of combustible material (such as wood or plastic)",
             "images": [
                 {
-                    "path": "BQ3.1"
+                    "path": "BQ3"
                 }
             ]
         },
@@ -33,47 +33,42 @@
         },
         {
             "id": "BQ5",
-            "question": "The glass in exterior windows and doors is single-pane",
+            "question": "The windows and exterior doors have single-pane glass",
             "images": [
                 {
-                    "path": "BQ5.1"
+                    "path": "BQ5"
                 }
             ]
         },
         {
             "id": "BQ6",
-            "question": "I have exterior windows and doors without protection, without shutters or blinds"
+            "question": "The windows and exterior doors have no protection - no shutters or blinds"
         },
         {
             "id": "BQ7",
-            "question": "I have ventilation openings and/or chimneys without any protection",
+            "question": "I have ventilation openings and/or chimneys without any protective cover",
             "images": [
                 {
-                    "path": "BQ7.1"
+                    "path": "BQ7"
                 }
             ]
         },
         {
             "id": "BQ8",
-            "question": "There is an accumulation of plant debris and/or combustible materials (such as plastic furniture or junk) around the home",
-            "images": [
-                {
-                    "path": "BQ8.1"
-                }
-            ]
+            "question": "There is an accumulation of vegetation debris and/or combustible materials (such as plastic furniture or junk) around the house"
         },
         {
             "id": "BQ9",
-            "question": "There is an accumulation of leaves and twigs in the gutters and/or on the roof",
+            "question": "There is an accumulation of dry leaves and twigs in the gutters and/or on the roof",
             "images": [
                 {
-                    "path": "BQ9.1"
+                    "path": "BQ9"
                 }
             ]
         },
         {
             "id": "BQ10",
-            "question": "There is a fuel tank and/or butane cylinders near the building"
+            "question": "There is a fuel tank and/or butane gas cylinders near the building"
         }
     ]
 }

@@ -1,8 +1,11 @@
 {
     "add_house": "Afegir habitatge",
-    "more_info": "Sobre l'App",
-    "fireprime_intro": "FIREPRIME és una aplicació per autoavaluar el risc d'incendi forestal en habitatges situats a la interfície urbanoforestal.",
-    "instructions_intro": "Per autoavaluar el vostre habitatge, comenceu per afegir-lo amb la informació corresponent.",
+    "more_info": "Sobre aquesta App",
+    "fireprime_intro": "FIREPRIME és una aplicació que t'ajuda a autoavaluar el risc d'incendi forestal del teu habitatge. Podràs fer dues tipologies d'avaluació: una de bàsica i una d'avançada, i accedir també als principals consells de preparació i seguretat.",
+    "instructions_intro": "Per començar, introdueix la ubicació del teu habitatge.",
+    
+    "notification_title": "Recordatori",
+    "notification_body": "Fa un any que vas fer el qüestionari d'autoavaluació del risc d'incendi. Torna a respondre'l per veure si les millores que has aplicat han reduït la vulnerabilitat del teu habitatge.",
     
     "language_page_title": "Idioma preferit",
    
@@ -12,22 +15,206 @@
     "german": "Alemany",
     "swedish": "Suec",
 
+    "more_info_title": "Sobre Fireprime",
+    "fireprime": "Fireprime",
+    "about_intro": "Autoavaluació del risc d'incendi forestal a escala de parcel·la",
+    "about_text": "Aquesta aplicació ha estat desenvolupada per UPC-GESSI, mentre que l'algoritme d'anàlisi de risc integrat ha estat creat per UPC-CERTEC, RISE i BOKU. La informació introduïda s'emmagatzema localment al dispositiu i no es comparteix amb tercers. Es poden eliminar les dades suprimint l'aplicació.",
+    "about_text_eu": "Finançat per la Unió Europea. Tanmateix, les opinions i punts de vista expressats són exclusivament dels autors i no reflecteixen necessàriament els de la Unió Europea ni els de la DG-ECHO. Ni la Unió Europea ni l'autoritat atorgant en poden ser considerades responsables.",
+
+    "contact_us": "Contacta amb nosaltres",
+    "contact_us_text": "Deixa'ns un missatge si vols fer-nos arribar algun comentari o consulta sobre l'aplicació. Inclou la teva adreça electrònica i et respondrem ben aviat.",
+
+    "choose_mode_title": "Autoavaluació del risc d'incendi forestal",
+    "basic_mode_intro1": "L'avaluació bàsica ",
+    "basic_mode_intro2": "és una opció ràpida i senzilla, adreçada a residents que viuen en zones amb risc d'incendi. Consta de ",
+    "basic_mode_intro3": "10 preguntes amb resposta Sí o No ",
+    "basic_mode_intro4": "sobre l'entorn i la construcció de l'habitatge.",
+    "basic_mode": "Avaluació bàsica",
+    "basic": "Bàsica",
+
+    "advanced_mode_intro1": "L'avaluació avançada",
+    "advanced_mode_intro2": ", adreçada tant a tècnics com a residents que volen aprofundir en l'anàlisi, inclou ",
+    "advanced_mode_intro3": "23 preguntes multiresposta ",
+    "advanced_mode_intro4": "sobre la ubicació de l'habitatge, la gestió del combustible proper i els materials constructius.\nEl resultat de l'avaluació és un valor numèric que indica la probabilitat que l'habitatge pateixi danys en cas d'incendi, si no s'hi aplica cap acció d'extinció. Aquest resultat va acompanyat de ",
+    "advanced_mode_intro5": "recomanacions personalitzades ",
+    "advanced_mode_intro6": "per reduir-lo.",
+    "advanced_mode": "Avaluació avançada",
+    "advanced": "Avançada",
+
     "add_house_intro": "Ompliu la informació de l'habitatge",
     "name": "Nom",
     "address": "Adreça",
     "country": "País",
     "zip_code": "Codi postal",
     "warning_unfilled_name": "Si us plau, introduïu el nom de l'habitatge",
-    "warning_unfilled_address": "Si us plau, introduïu l'adreça de l'habitatge",
     "warning_unselected_country": "Si us plau, seleccioneu el país de l'habitatge",
     "warning_unfilled_zip_code": "Si us plau, introduïu el codi postal de l'habitatge",
     "warning_house_name_exists": "Aquest nom d'habitatge ja existeix",
     "unable_to_get_latlong_title": "No es pot obtenir la localització",
-    "unable_to_get_latlong_message": "Si us plau, comproveu la vostra connexió a Internet. Intenteu editar la vostra adreça i seleccioneu un dels suggeriments o editeu-lo més tard. Podeu continuar sense la ubicació, però els resultats poden no ser precisos.",
+    "unable_to_get_latlong_message": "Aquest habitatge no té informació d'ubicació. Si us plau, comproveu la vostra connexió a Internet. Intenteu editar el vostre codi postal. Podeu continuar sense la ubicació, però els resultats poden no ser precisos.",
+    "wrong_zip_code": "Codi postal incorrecte, comprovi la informació introduïda",
+    "loading": "Carregant",
+    
     "try_again": "Reintentar",
     "accept": "Acceptar",
     "close": "Tancar",
+
+    "delete_house_warning_intro": "Estàs segur que vols eliminar aquest habitatge?",
+    "delete_house_warning_text": "En eliminar l'habitatge també s'eliminarà tota la informació relativa a les avaluacions de risc i no es podrà recuperar.",
+
+    "delete_house": "Eliminar habitatge",
+    "cancel": "Cancel·lar",
+    "delete": "Eliminar",
+
+    "edit_house_intro": "Edita la informació de l'habitatge",
+
+    "edit_house": "Editar habitatge",
+    "save": "Guardar",
+    "edit": "Editar",
+
+    "last_evaluation": "Última avaluació",
+    "date": "Data",
+    "risk": "Risc",
+    "vulnerability": "Vulnerabilitat",
+    "no_results_available": "No hi ha resultats",
+
+    "start_questionnaire_intro": "Comprova el risc de l'habitatge amb un qüestionari!",
+    "update_questionnaire_intro": "Actualitza les respostes del qüestionari",
+    "continue_questionnaire_intro": "Continua el qüestionari per comprovar el risc de l'habitatge",
+
+    "mitigation_intro": "Consulta les millores per reduir el risc de l'habitatge",
+    "check_improvements": "Consulta les millores!",
+
+    "advices_title": "Consells de preparació i seguretat",
+    "advices_intro": "Consells de preparació i seguretat en cas d'incendi",
+
+    "results_history_intro": "Consulta el teu històric de resultats",
+
+    "details": "Detalls",
+    "check": "Comprovar",
+    "update": "Actualitzar",
+    "continue": "Continuar",
+    "advices": "Consells",
+    "my_results": "Resultats",
+
+    "advanced_mode_title": "Qüestionari del mode avançat",
+
+    "questionnaire": "INSTRUCCIONS",
+    "questionnaire_intro": "· El qüestionari té 23 preguntes amb diverses opcions de resposta. Si no s'indica el contrari, només se n'ha de triar una. \n· Inclou imatges i explicacions per entendre alguns conceptes tècnics. \n· En cas de dubte, trieu l'opció que millor descrigui la vostra situació. \n· Dediqueu-hi temps: pot durar fins a 30 minuts, ja que cal observar bé la façana i l'entorn. Podeu fer-lo en diferents moments. \n· Responeu pensant en l'estat de l'habitatge durant els mesos de més risc d'incendi. \n· Es recomana repetir-lo com a mínim un cop l'any o després de canvis importants a l'habitatge o l'entorn. \n· El qüestionari s'estructura en dues parts: edifici i entorn.",
+    "start": "Comencem",
+    "next": "Següent",
+    "questionnaire_finish_text": "Comprova el resultat!", 
+
+    "help": "Ajuda",
+
+    "basic_questionnaire_title": "Qüestionari bàsic",
+    "basic_questionnaire_intro": "Avalua la vulnerabilitat del teu habitatge responent Sí o No a un qüestionari de 10 preguntes. \nEn cas de dubte, tria l'opció que millor representi la teva situació.",
     
+    "yes": "Sí",
+    "no": "No",
+
+    "calculating": "Calculant el resultat",
+    "result": "Resultat",
+    "result_intro": "Nivell de risc",
+    "vulnerability_intro": "Nivell de vulnerabilitat",
+
+    "hazard_info": "Aquest valor depèn de la localització de l'habitatge.",
+    "hazard": "Perill d'incendi forestal",
+    "house_vulnerability": "Vulnerabilitat de l'habitatge",
+    "hide": "Ocultar",
+
+
+    "downloading": "Descarregant",
+
+    "exterior_envelope": "Materials de la façana",
+    "non_combustible_foundation": "Recobriment de la façana adjacent a terra",
+    "façade": "Façana",
+    "roof_material": "Material de la teulada",
+    "roof_maintenance-1": "Manteniment de la teulada",
+    "roof_maintenance-2": "Manteniment de la teulada",
+    "roof": "Teulada",
+    "glazing_failure": "Vidres",
+    "shutter_failure": "Persianes",
+    "glazing_systems": "Tancaments de vidre",
+    "vents": "Ventilacions",
+    "semi_confined": "Espais semiconfinats",
+    "fuels_glazing_systems": "Combustibles davant de tancaments de vidre",
+    "fuels_roof": "Combustibles propers a la teulada",
+    "fuels_combustible_facade": "Combustibles en contacte amb la façana",
+    "surface_fuels": "Zona contínua d'herba o matolls",
+    "fuels_close_to_building": "Combustibles propers a l'edifici",
+    "fuelsLPG": "Combustibles a tocar de dipòsits d'hidrocarbur",
+    "space_art_fuels": "Separació entre combustibles no naturals",
+    "fuel_close_to_trees": "Combustibles no naturals propers a vegetació molt inflamable",
+    "artificial_fuels": "Combustibles no naturals dins la parcel·la",
+    "wildland_vegetation": "Vegetació forestal",
+    "vegetation_type": "Grau d'inflamabilitat de la vegetació",
+    "vegetation_continuity": "Continuïtat horitzontal de la vegetació",
+    "tree_pruning": "Continuïtat vertical de la vegetació",
+    "surface_fuel_depth": "Alçada de la zona contínua d'herba o matolls joves",
+    "dead_vegetation": "Vegetació morta",
+    "vegetation": "Combustibles naturals dins la parcel·la",
+    "property_perimeter": "Delimitació de la parcel·la",
+    "slope": "Relleu",
+    "structural_vulnerabilities": "Vulnerabilitats estructurals",
+    "fire_reaches_building": "Perill de propagació del foc fins l'edifici",
+
+    "results_download": "Descarrega els resultats",
+
+    "advanced_result_pdf_title": "Resultat de l'avaluació avançada del risc d'incendi forestal",
+    "basic_result_pdf_title": "Resultat de l'avaluació bàsica del risc d'incendi forestal",
+    "house": "Habitatge",
+
+    "mitigation_title": "Millores",
+    "improve": "Millora",
+    "save_answers": "Guarda la resposta i actualitza el qüestionari",
+    "done": "Fet",
+
+    "hazard_vulnerability_text": {
+        "extreme_high_text": "La seva llar es troba en una zona {hazard_level} als incendis forestals i és {vulnerability_level} a ells. Com a resultat, el seu nivell de risc és {risk}. Seguiu les recomanacions proporcionades per millorar la resiliència de la vostra llar i reduir la probabilitat que es cremi.",
+        "extreme_moderate_text": "La seva llar es troba en una zona {hazard_level} als incendis forestals i és {vulnerability_level} a ells. Com a resultat, el seu nivell de risc és {risk}. Seguiu les recomanacions proporcionades per reduir la probabilitat de que cremi i segueixi fent el manteniment de la propietat.",
+        "high_moderate_text": "La seva llar es troba en una zona {hazard_level} als incendis forestals i és {vulnerability_level} a ells. Com a resultat, el seu nivell de risc és {risk}. Intenti seguir les recomanacions proporcionades per millorar la resiliència de la seva llar i reduir la probabilitat que es cremi.",
+        "moderate_text": "La seva llar es troba en una zona {hazard_level} als incendis forestals i és {vulnerability_level} a ells. Com a resultat, el seu nivell de risc és {risk}. Procuri seguir les recomanacions proporcionades per reduir la probabilitat que cremi i segueixi fent el manteniment de la propietat.",
+        "extreme_low_text": "La seva llar es troba en una zona {hazard_level} als incendis forestals i és {vulnerability_level} a ells. Com a resultat, el seu nivell de risc és {risk}. Segueixi fent el manteniment de casa seva per mantenir la seva bona resistència contra els incendis forestals i, si és possible, procuri seguir les recomanacions proporcionades.",
+        "low_extreme_high_text": "La seva llar es troba en una zona {hazard_level} als incendis forestals però és {vulnerability_level} a ells. Com a resultat, el seu nivell de risc és {risk}. Procuri seguir les recomanacions proporcionades per millorar la resiliència de la seva llar i reduir la probabilitat que es cremi.",
+        "low_moderate_text": "La seva llar es troba en una zona {hazard_level} als incendis forestals però és {vulnerability_level} a ells. Com a resultat, el seu nivell de risc és {risk}. Segueixi fent el manteniment de casa seva per mantenir la seva bona resistència contra els incendis forestals i, si és possible, procuri seguir les recomanacions proporcionades.",
+        "low_text": "La seva llar es troba en una zona {hazard_level} als incendis forestals i és {vulnerability_level} a ells. Com a resultat, el seu nivell de risc és {risk}. Segueixi fent el manteniment de casa seva per mantenir la seva bona resistència contra els incendis forestals."
+    },
+
+    "vulnerability_text": {
+        "extreme_text": "La seva llar és {vulnerability_level} als incendis forestals. Com a resultat, el seu nivell de risk és {risl}. Seguiu les recomanacions proporcionades per millorar la resiliència de la vostra llar i reduir la probabilitat que es cremi.",
+        "high_text": "La seva llar és {vulnerability_level} als incendis forestals. Com a resultat, el seu nivell de risc és {risk}. Seguiu les recomanacions proporcionades per millorar la resiliència de la vostra llar i reduir la probabilitat que es cremi.",
+        "moderate_text": "La seva llar és {vulnerability_level} als incendis forestals. Com a resultat, el seu nivell de risc és {risk}. Seguiu les recomanacions proporcionades per reduir la probabilitat de que cremi i segueixi fent el manteniment de la propietat.",
+        "low_text": "La seva llar és {vulnerability_level} als incendis forestals. Com a resultat, el seu nivell de risc és {risk}. Segueixi fent el manteniment de casa seva per mantenir la seva bona resistència contra els incendis forestals i, si és possible, procuri seguir les recomanacions proporcionades."
+    },
+
+    "hazard_levels": {
+        "extreme": "extremadament propensa",
+        "high": "molt propensa",
+        "moderate": "propensa",
+        "low": "poc propensa"
+    },
+
+    "vulnerability_levels": {
+        "extreme": "altament vulnerable",
+        "high": "molt vulnerable",
+        "moderate": "vulnerable",
+        "low": "poc vulnerable"
+    },
+    
+    "risk_levels": {
+        "extreme": "extrem",
+        "high": "alt",
+        "moderate": "moderat",
+        "low": "baix"
+    },
+
+    "risk_text" : {
+        "high": "El vostre habitatge presenta un risc alt. Fer l'avaluació avançada us pot ajudar a detectar els punts crítics i veure com reduir el risc. No oblideu consultar els consells de preparació i seguretat en cas d'incendi.",
+        "moderate": "El vostre habitatge té un risc moderat. Si voleu conèixer millor la vostra situació, podeu fer l'avaluació avançada i rebre recomanacions més detallades. També us recomanem consultar els consells de preparació i seguretat en cas d'incendi.",
+        "low": "El vostre habitatge té un risc baix, però no us confieu. Mantingueu l'entorn net i consulteu els consells de preparació i seguretat en cas d'incendi."
+    },
+
    "european_countries": {
         "albania": "Albània",
         "andorra": "Andorra",
@@ -79,178 +266,11 @@
         "unitedKingdom": "Regne Unit",
         "vaticanCity": "Ciutat del Vaticà"
     },
-    
-    "more_info_title": "Sobre Fireprime",
-    "fireprime": "Fireprime",
-    "about_intro": "Autoavaluació del risc d'incendi forestal a escala de parcel·la",
-    "about_text": "Aquesta aplicació ha estat desenvolupada per UPC-GESSI, mentre que l'algoritme d'anàlisi de risc integrat ha estat creat per UPC-CERTEC, RISE i BOKU. La informació introduïda s'emmagatzema localment al dispositiu i no es comparteix amb tercers. Es poden eliminar les dades suprimint l'aplicació.",
-    "about_text_eu": "Finançat per la Unió Europea. Tanmateix, les opinions i punts de vista expressats són exclusivament dels autors i no reflecteixen necessàriament els de la Unió Europea ni els de la DG-ECHO. Ni la Unió Europea ni l'autoritat atorgant en poden ser considerades responsables.",
 
-    "choose_mode_title": "Autoavaluació del risc d'incendi forestal",
-    "basic_mode_intro": "L'avaluació bàsica és una opció ràpida i senzilla, adreçada a residents que viuen en zones amb risc d'incendi. Consta de 10 preguntes amb resposta Sí o No sobre l'entorn i la construcció de l'habitatge.",
-    "basic_mode": "Avaluació bàsica",
-    "basic": "Bàsica",
-    "advanced_mode_intro": "L'avaluació avançada, adreçada tant a tècnics com a residents que volen aprofundir en l'anàlisi, inclou 25 preguntes multiresposta sobre la ubicació de l'habitatge, la gestió del combustible proper i els materials constructius. El resultat de l'avaluació és un valor numèric que indica la probabilitat que l'habitatge pateixi danys en cas d'incendi, si no s'hi aplica cap acció d'extinció. Aquest resultat va acompanyat de de recomanacions personalitzades per reduir-lo.",
-    "advanced_mode": "Avaluació avançada",
-    "advanced": "Avançada",
-
-    "basic_questionnaire_title": "Qüestionari bàsic",
-    "basic_questionnaire_intro": "Avalua la vulnerabilitat de l'habitatge amb un qüestionari de 10 preguntes.",
-    
-
-    "yes": "Sí",
-    "no": "No",
-
-    "advices": "Consells",
-    "advices_title": "Consells de preparació i seguretat",
-    "advices_intro": "Consells de preparació i seguretat en cas d'incendi",
-
-    "downloading": "Descarregant",
-
-    "last_evaluation": "Última avaluació",
-    "date": "Data",
-    "risk": "Risc",
-    "no_results_available": "No hi ha resultats",
-
-    "start_questionnaire_intro": "Comprova la vulnerabilitat de l'habitatge amb un qüestionari!",
-    "update_questionnaire_intro": "Actualitza les respostes del qüestionari",
-    "continue_questionnaire_intro": "Continua el qüestionari per comprobar la vulnerabilitat de l'habitatge",
-
-    "results_history_intro": "Consulta el teu històric de resultats",
-
-    "delete_house_warning_intro": "Estàs segur que vols eliminar aquest habitatge?",
-    "delete_house_warning_text": "En eliminar l'habitatge també s'eliminarà tota la informació relativa a les avaluacions de risc i no es podrà recuperar.",
-
-    "unable_to_get_latlong_message_house": "Aquest habitatge no té informació d'ubicació. Si us plau, comproveu la vostra connexió a Internet. Editeu l'adreça i seleccioneu un dels suggeriments. Podeu continuar sense la ubicació, però els resultats poden no ser precisos.",
-    "edit": "Editar",
-
-    "details": "Detalls",
-    "check": "Comprovar",
-    "update": "Actualitzar",
-    "continue": "Continuar",
-    "myResults": "Resultats",
-
-    "edit_house": "Editar habitatge",
-    "delete_house": "Eliminar habitatge",
-    "cancel": "Cancel·lar",
-    "delete": "Eliminar",
-
-    "edit_house_intro": "Edita la informació de l'habitatge",
-
-    "save": "Guardar",
-
-    "questionnaire": "Qüestionari",
-    "questionnaire_intro": "El qüestionari consta de dues parts: la primera se centra en les característiques de l'edifici i la segona en el seu entorn.",
-    "next": "Següent",
-    "questionnaire_finish_text": "Comprova el resultat!", 
-    "done": "Fet!",
-    
-    "show_description": "Mostrar detalls",
-    "hide_description": "Ocultar detalls",
-    "max_multiple_choices": "Pots seleccionar com a màxim fins a {} opcions",
-
-    "calculating":"Calculant el resultat",
-    
-    "result": "Resultat",
-    "result_intro": "Nivell de risc",
-
-    "vulnerability_intro": "Nivell de vulnerabilitat",
-    "vulnerability": "Vulnerabilitat",
-    "risk_info": "Aquest valor depen del factor Hazard i el risc del teu habitatge.",
-    "hazard_info": "Aquest valor depèn de la localització de l'habitatge.",
-    "hazard": "Perill d'incendi forestal",
-    "house_vulnerability": "Vulnerabilitat de l'habitatge",
-    "exterior_envelope": "Materials de la façana",
-    "non_combustible_foundation": "Recobriment de la façana adjacent a terra",
-    "façade": "Façana",
-    "roof_material": "Material de la teulada",
-    "roof_maintenance-1": "Manteniment de la teulada",
-    "roof_maintenance-2": "Manteniment de la teulada",
-    "roof": "Teulada",
-    "glazing_failure": "Vidres",
-    "shutter_failure": "Persianes",
-    "glazing_systems": "Tancaments de vidre",
-    "vents": "Ventilacions",
-    "semi_confined": "Espais semiconfinats",
-    "fuels_glazing_systems": "Combustibles davant de tancaments de vidre",
-    "fuels_roof": "Combustibles propers a la teulada",
-    "fuels_combustible_facade": "Combustibles en contacte amb la façana",
-    "surface_fuels": "Zona contínua d'herba o matolls",
-    "fuels_close_to_building": "Combustibles propers a l'edifici",
-    "fuelsLPG": "Combustibles a tocar de dipòsits d'hidrocarbur",
-    "space_art_fuels": "Separació entre combustibles no naturals",
-    "fuel_close_to_trees": "Combustibles no naturals propers a vegetació molt inflamable",
-    "artificial_fuels": "Combustibles no naturals dins la parcel·la",
-    "wildland_vegetation": "Vegetació forestal",
-    "vegetation_type": "Grau d'inflamabilitat de la vegetació",
-    "vegetation_continuity": "Continuïtat horitzontal de la vegetació",
-    "tree_pruning": "Continuïtat vertical de la vegetació",
-    "surface_fuel_depth": "Alçada de la zona contínua d'herba o matolls joves",
-    "dead_vegetation": "Vegetació morta",
-    "vegetation": "Combustibles naturals dins la parcel·la",
-    "property_perimeter": "Delimitació de la parcel·la",
-    "slope": "Relleu",
-    "structural_vulnerabilities": "Vulnerabilitats estructurals",
-    "fire_reaches_building": "Perill de propagació del foc fins l'edifici",
-
-
-    "hazard_vulnerability_text": {
-        "extreme_high_text": "La seva llar es troba en una zona {hazard_level} als incendis forestals i és {vulnerability_level} a ells. Com a resultat, el seu nivell de risc és {risk}. Seguiu les recomanacions proporcionades per millorar la resiliència de la vostra llar i reduir la probabilitat que es cremi.",
-        "extreme_moderate_text": "La seva llar es troba en una zona {hazard_level} als incendis forestals i és {vulnerability_level} a ells. Com a resultat, el seu nivell de risc és {risk}. Seguiu les recomanacions proporcionades per reduir la probabilitat de que cremi i segueixi fent el manteniment de la propietat.",
-        "high_moderate_text": "La seva llar es troba en una zona {hazard_level} als incendis forestals i és {vulnerability_level} a ells. Com a resultat, el seu nivell de risc és {risk}. Intenti seguir les recomanacions proporcionades per millorar la resiliència de la seva llar i reduir la probabilitat que es cremi.",
-        "moderate_text": "La seva llar es troba en una zona {hazard_level} als incendis forestals i és {vulnerability_level} a ells. Com a resultat, el seu nivell de risc és {risk}. Procuri seguir les recomanacions proporcionades per reduir la probabilitat que cremi i segueixi fent el manteniment de la propietat.",
-        "extreme_low_text": "La seva llar es troba en una zona {hazard_level} als incendis forestals i és {vulnerability_level} a ells. Com a resultat, el seu nivell de risc és {risk}. Segueixi fent el manteniment de casa seva per mantenir la seva bona resistència contra els incendis forestals i, si és possible, procuri seguir les recomanacions proporcionades.",
-        "low_extreme_high_text": "La seva llar es troba en una zona {hazard_level} als incendis forestals però és {vulnerability_level} a ells. Com a resultat, el seu nivell de risc és {risk}. Procuri seguir les recomanacions proporcionades per millorar la resiliència de la seva llar i reduir la probabilitat que es cremi.",
-        "low_moderate_text": "La seva llar es troba en una zona {hazard_level} als incendis forestals però és {vulnerability_level} a ells. Com a resultat, el seu nivell de risc és {risk}. Segueixi fent el manteniment de casa seva per mantenir la seva bona resistència contra els incendis forestals i, si és possible, procuri seguir les recomanacions proporcionades.",
-        "low_text": "La seva llar es troba en una zona {hazard_level} als incendis forestals i és {vulnerability_level} a ells. Com a resultat, el seu nivell de risc és {risk}. Segueixi fent el manteniment de casa seva per mantenir la seva bona resistència contra els incendis forestals."
+    "I1": {
+        "title": "Qüestions sobre l'edifici",
+        "text": "Els elements i materials de construcció dels edificis situats a la interfície urbanoforestal poden tenir punts febles que afavoreixin l'entrada del foc. En aquesta primera part, cal revisar tot l'envolvent de l'edifici per detectar aquestes vulnerabilitats."
     },
-
-    "vulnerability_text": {
-        "high_text": "La seva llar és {vulnerability_level} als incendis forestals. Com a resultat, el seu nivell de risc és {risk}. Seguiu les recomanacions proporcionades per millorar la resiliència de la vostra llar i reduir la probabilitat que es cremi.",
-        "moderate_text": "La seva llar és {vulnerability_level} als incendis forestals. Com a resultat, el seu nivell de risc és {risk}. Seguiu les recomanacions proporcionades per reduir la probabilitat de que cremi i segueixi fent el manteniment de la propietat.",
-        "low_text": "La seva llar és {vulnerability_level} als incendis forestals. Com a resultat, el seu nivell de risc és {risk}. Segueixi fent el manteniment de casa seva per mantenir la seva bona resistència contra els incendis forestals i, si és possible, procuri seguir les recomanacions proporcionades."
-    },
-
-    "hazard_levels": {
-        "extreme": "extremadament propensa",
-        "high": "molt propensa",
-        "moderate": "propensa",
-        "low": "poc propensa"
-    },
-
-    "vulnerability_levels": {
-        "extreme": "altament vulnerable",
-        "high": "molt vulnerable",
-        "moderate": "vulnerable",
-        "low": "poc vulnerable"
-    },
-    
-    "risk_levels": {
-        "extreme": "extrem",
-        "high": "alt",
-        "moderate": "moderat",
-        "low": "baix"
-    },
-
-    "risk_text" : {
-        "high": "El vostre habitatge presenta un risc alt. Fer l'avaluació avançada us pot ajudar a detectar els punts crítics i veure com reduir el risc. No oblideu consultar els consells de preparació i seguretat en cas d'incendi.",
-        "moderate": "El vostre habitatge té un risc moderat. Si voleu conèixer millor la vostra situació, podeu fer l'avaluació avançada i rebre recomanacions més detallades. També us recomanem consultar els consells de preparació i seguretat en cas d'incendi.",
-        "low": "El vostre habitatge té un risc baix, però no us confieu. Mantingueu l'entorn net i consulteu els consells de preparació i seguretat en cas d'incendi."
-    },
-
-
-    "hide": "Ocultar",
-    "mitigation_intro": "Consulta les millores per reduir el risc de l'habitatge",
-    "check_improvements": "Consulta les millores!",
-    "results_download": "Descarrega els resultats",
-    
-
-    
-    "mitigation_title": "Millores",
-    "improve": "Millora",
-    "save_answers": "Actualitza el qüestionari",
-
-
     "Q1": {
         "title": "Materials de la façana",
         "question": "Quin percentatge de la superfície de l'exterior de l'edifici (parets exteriors, balcons - sense tenir en compte persianes o porxos) està fet de materials combustibles?",
@@ -345,9 +365,9 @@
         "nonCombThin": "Material no combustible com l'acer o l'alumini ",
         "nonCombThick": "Materials no combustibles com els maons o el formigó"
     },
-    "I1": {
-        "title": "Entorn de l'edifici",
-        "text": "A continuació, respondràs preguntes sobre les característiques de l'entorn de l'edifici"
+    "I2": {
+        "title": "Qüestions sobre l'entorn",
+        "text": "Els elements combustibles a prop de l'edifici són aquells que poden cremar quan passa un incendi. Exemples d'elements combustibles naturals són les tanques de xiprer, l'herba seca, matolls, arbres, etc. La gespa o herba verda no es considera combustible. Exemples d'elements combustibles no naturals són el mobiliari de jardí, les casetes d'eines o per a animals, pèrgoles, entarimats de fusta, coberts, vehicles, etc. A més, la pendent del terreny i la proximitat del bosc també influeixen de manera important en el risc d'incendi de la parcel·la." 
     },
     "Q11-1": {
         "title": "Entorn de l'edifici",
@@ -355,7 +375,6 @@
         "description": "",
         "7closeToGlazing": "Sí",
         "7farFromGlazing": "No"
-        
     },
     "Q11-2": {
         "title": "Entorn de l'edifici",

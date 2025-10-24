@@ -29,7 +29,9 @@ class BasicHousePage extends StatelessWidget {
         title: Text(
           context.tr('basic_mode'),
           style: const TextStyle(
-              fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black),
+              fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black),
+          softWrap: true,
+          overflow: TextOverflow.visible,
         ),
         leading: IconButton(
           onPressed: () {
@@ -313,11 +315,35 @@ class BasicHousePage extends StatelessWidget {
                     ),
                     ButtonCard(
                       currentHouse: currentHouse,
+                      description: context.tr('results_history_intro'),
+                      buttonText: context.tr('my_results'),
+                      cardColor: const Color.fromARGB(255, 132, 149, 189),
+                      onPressed: () {
+                        saveEventdata(
+                            screenId: 'house_page',
+                            buttonId: 'view_basic_results_history');
+                        List<BasicResult> basicResults =
+                            house.getBasicResults();
+
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => BasicHistoricalResultsPage(
+                                basicResults: basicResults),
+                          ),
+                        );
+                      },
+                      enabled: _enableHistoryButton(currentHouse, basicResult),
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    ButtonCard(
+                      currentHouse: currentHouse,
                       description: context.tr('advices_intro'),
                       buttonText: context.tr('advices'),
                       cardColor: const Color.fromARGB(255, 159, 171, 201),
                       onPressed: () {
-                        //TODO ADVICES PAGE
                         saveEventdata(
                             screenId: 'house_page',
                             buttonId: 'view_basic_advices');
@@ -331,32 +357,6 @@ class BasicHousePage extends StatelessWidget {
                         );
                       },
                       enabled: true,
-                    ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    ButtonCard(
-                      currentHouse: currentHouse,
-                      description: context.tr('results_history_intro'),
-                      buttonText: context.tr('myResults'),
-                      cardColor: const Color.fromARGB(255, 132, 149, 189),
-                      onPressed: () {
-                        saveEventdata(
-                            screenId: 'house_page',
-                            buttonId: 'view_basic_results_history');
-                        List<BasicResult> basicResults =
-                            house.getBasicResults();
-                        //TODO RESULTS HISTORY PAGE
-
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => BasicHistoricalResultsPage(
-                                basicResults: basicResults),
-                          ),
-                        );
-                      },
-                      enabled: _enableHistoryButton(currentHouse, basicResult),
                     ),
                   ],
                 ),

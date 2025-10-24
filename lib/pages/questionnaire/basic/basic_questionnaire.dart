@@ -6,6 +6,7 @@ import 'package:fireprime/model/house.dart';
 import 'package:fireprime/model/questionnaire/basic_questionnaire.dart';
 import 'package:fireprime/model/questionnaire/questionnaire.dart';
 import 'package:fireprime/pages/house/basic/basic_house.dart';
+import 'package:fireprime/pages/questionnaire/customised_question_types/customised_intro.dart';
 import 'package:fireprime/pages/result/basic/basic_result.dart';
 import 'package:fireprime/providers/house_provider.dart';
 import 'package:flutter/material.dart' hide Step;
@@ -161,11 +162,17 @@ class _BasicQuestionnairePageState extends State<BasicQuestionnairePage> {
     List<Step> steps = [];
     print('answers: $answers');
     steps.add(
-      InstructionStep(
+      IntroductionCustomisedStep(
+          stepIdentifier: StepIdentifier(id: 'intro'),
+          title: context.tr('basic_questionnaire_title'),
+          text: context.tr('basic_questionnaire_intro'),
+          showAppBar: false,
+          buttonText: context.tr('start')),
+      /*InstructionStep(
         stepIdentifier: StepIdentifier(id: 'intro'),
         title: context.tr('basic_questionnaire_title'),
         text: context.tr('basic_questionnaire_intro'),
-      ),
+      ),*/
     );
 
     for (var question in questionnaire.questions) {
@@ -186,6 +193,7 @@ class _BasicQuestionnairePageState extends State<BasicQuestionnairePage> {
           textChoices: ['yes', 'no'],
           images: await getValidImages(questionnaire.images[questionId] ?? []),
           alwaysShowDescription: true,
+          buttonText: context.tr('next'),
         ),
       );
       print(steps);

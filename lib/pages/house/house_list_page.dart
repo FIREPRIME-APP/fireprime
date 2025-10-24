@@ -193,14 +193,14 @@ class _HouseListPageState extends State<HouseListPage> {
 
   Widget _buildHeader(BuildContext context) {
     return Row(children: [
-      const Expanded(
-        child: Center(
-          child: Image(
-            image: AssetImage(
-              Constants.logoA,
-            ),
-            fit: BoxFit.contain,
+      const Center(
+        child: Image(
+          image: AssetImage(
+            Constants.logoA,
           ),
+          height: 60,
+          width: 200,
+          fit: BoxFit.contain,
         ),
       ),
       const Spacer(),

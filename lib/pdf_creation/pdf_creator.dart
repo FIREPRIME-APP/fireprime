@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:android_intent_plus/android_intent.dart';
 import 'package:android_intent_plus/flag.dart';
 import 'package:fireprime/model/event_probability.dart';
+import 'package:fireprime/model/house.dart';
 import 'package:fireprime/widgets/gauge.dart';
 import 'package:flutter/material.dart' as wg;
 import 'package:flutter/services.dart';
@@ -16,16 +17,18 @@ import 'package:screenshot/screenshot.dart';
 
 class PdfCreator {
   static Future<File> generateAdvancedResultsPdf(
-    double risk,
-    double hazard,
-    double vulnerability,
-    Map<String, EventProbability> subProbabilities,
-    Map<String, List<String>> mitigationsText,
-    String riskInfo,
-    bool showHazard,
-    // Uint8List? gaugeImage,
-    // Map<String, Uint8List> linearGaugesImage,
-  ) async {
+      double risk,
+      double hazard,
+      double vulnerability,
+      Map<String, EventProbability> subProbabilities,
+      Map<String, List<String>> mitigationsText,
+      String riskInfo,
+      bool showHazard,
+      House house,
+      String date
+      // Uint8List? gaugeImage,
+      // Map<String, Uint8List> linearGaugesImage,
+      ) async {
     ScreenshotController screenshotController = ScreenshotController();
 
     final fireprimeLogoBytes =
@@ -65,14 +68,21 @@ class PdfCreator {
         pageFormat: PdfPageFormat.a4,
         margin: const pw.EdgeInsets.all(50),
         header: (context) => logosHeader(fireprimeLogoBytes, ueLogoBytes),
-        footer: (context) => customFooter(context),
+        footer: (context) => customFooter(context, date),
         build: (context) => [
-          customHeader('result'.tr()),
+          customHeader('advanced_result_pdf_title'.tr()),
+          houseInformation(house),
           addImage(gaugeImage, 100, 100),
           if (showHazard) ...[
             pw.Text(
               '${'risk'.tr()}: ${(risk * 100).toStringAsFixed(0)}',
               style: pw.TextStyle(fontSize: 16, fontWeight: pw.FontWeight.bold),
+            ),
+            pw.SizedBox(height: 10),
+            pw.Text(
+              riskInfo,
+              style: const pw.TextStyle(fontSize: 13),
+              textAlign: pw.TextAlign.justify,
             ),
             pw.SizedBox(height: 10),
             pw.Text(
@@ -97,11 +107,6 @@ class PdfCreator {
             ),
             pw.SizedBox(height: 10),
           ],
-          pw.Text(
-            riskInfo,
-            style: const pw.TextStyle(fontSize: 13),
-            textAlign: pw.TextAlign.justify,
-          ),
           pw.NewPage(),
           ...subProbWidgets,
           pw.SizedBox(height: 10),
@@ -227,12 +232,18 @@ class PdfCreator {
     );
   }
 
-  static pw.Widget customFooter(pw.Context context) {
+  static pw.Widget customFooter(pw.Context context, String date) {
     return pw.Container(
-      alignment: pw.Alignment.bottomRight,
-      child: pw.Text(
-        '${context.pageNumber}',
-        style: const pw.TextStyle(fontSize: 10),
+      padding: const pw.EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+      child: pw.Row(
+        mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
+        children: [
+          pw.Text(date, style: const pw.TextStyle(fontSize: 10)),
+          pw.Text(
+            '${context.pageNumber}',
+            style: const pw.TextStyle(fontSize: 10),
+          ),
+        ],
       ),
     );
   }
@@ -315,32 +326,37 @@ class PdfCreator {
     return subProbWidgets;
   }
 
-  static Future<File> generateBasicResultsPdf(int risk, String markdownText,
-      String riskLevel, String riskText, Color riskColor) async {
+  static Future<File> generateBasicResultsPdf(
+      int risk,
+      Map<String, dynamic> markdownText,
+      String riskLevel,
+      String riskText,
+      Color riskColor,
+      House house,
+      String date) async {
     final pdf = pw.Document();
 
     final fireprimeLogoBytes =
         await getImageFromAssets('assets/images/logos/FIREPRIME_Logo_A.png');
     final ueLogoBytes = await getImageFromAssets('assets/images/logos/ue.png');
 
-    final List<pw.Widget> markDownWidgets =
-        await HTMLToPdf().convertMarkdown(markdownText,
-            tagStyle: HtmlTagStyle(
-              h1Style: TextStyle(
-                fontSize: 100,
-                fontWeight: FontWeight.bold,
-              ),
-              h2Style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
-            ));
-
+    final List<List<pw.Widget>> markDownWidgets =
+        await _getMarkdownWidgets(markdownText);
     pdf.addPage(
       pw.MultiPage(
         pageFormat: PdfPageFormat.a4,
         margin: const pw.EdgeInsets.all(50),
         header: (context) => logosHeader(fireprimeLogoBytes, ueLogoBytes),
-        footer: (context) => customFooter(context),
+        footer: (context) => customFooter(context, date),
         build: (context) => [
-          customHeader('result'.tr()),
+          customHeader('basic_result_pdf_title'.tr()),
+          houseInformation(house),
+          pw.SizedBox(height: 10),
+          pw.Text(
+            '${'result_intro'.tr()}: $riskLevel',
+            style: pw.TextStyle(fontSize: 20, fontWeight: pw.FontWeight.bold),
+          ),
+          pw.SizedBox(height: 10),
           pw.Container(
             color: getRiskColor(riskColor),
             child: pw.Padding(
@@ -354,23 +370,18 @@ class PdfCreator {
           ),
           pw.SizedBox(height: 10),
           pw.Text(
-            '${'result_intro'.tr()}: $riskLevel',
-            style: pw.TextStyle(fontSize: 20, fontWeight: pw.FontWeight.bold),
-          ),
-          pw.SizedBox(height: 5),
-          pw.Text(
             riskText,
             style: const pw.TextStyle(fontSize: 13),
           ),
           pw.SizedBox(height: 20),
           pw.NewPage(),
           customHeader('advices'.tr()),
-          markDownWidgets.isNotEmpty
-              ? pw.Column(
-                  crossAxisAlignment: pw.CrossAxisAlignment.start,
-                  children: markDownWidgets,
-                )
-              : pw.SizedBox.shrink(),
+          ...markDownWidgets.expand((widgetList) {
+            return [
+              ...widgetList,
+              pw.SizedBox(height: 20),
+            ];
+          }),
         ],
       ),
     );
@@ -380,5 +391,94 @@ class PdfCreator {
 
   static PdfColor getRiskColor(Color color) {
     return PdfColor.fromInt(color.value);
+  }
+
+  static Future<List<List<Widget>>> _getMarkdownWidgets(
+      Map<String, dynamic> markdownText) async {
+    List<List<pw.Widget>> widgets = [];
+    HtmlTagStyle tagStyle = HtmlTagStyle(
+      h1Style: pw.TextStyle(
+        fontSize: 28,
+        fontWeight: pw.FontWeight.bold,
+      ),
+      h2Style: pw.TextStyle(
+        fontSize: 25,
+        fontWeight: pw.FontWeight.bold,
+      ),
+    );
+
+    widgets.add(
+      await HTMLToPdf().convertMarkdown(
+        markdownText['title'] ?? '',
+        tagStyle: tagStyle,
+      ),
+    );
+
+    widgets.add(
+      await HTMLToPdf().convertMarkdown(
+        markdownText['content'] ?? '',
+        tagStyle: tagStyle,
+      ),
+    );
+
+    for (var section in markdownText['sections']) {
+      widgets.add(
+        await HTMLToPdf().convertMarkdown(
+          section['title'] ?? '',
+          tagStyle: tagStyle,
+        ),
+      );
+      widgets.add(
+        await HTMLToPdf().convertMarkdown(
+          section['content'] ?? '',
+          tagStyle: tagStyle,
+        ),
+      );
+    }
+
+    widgets.add(
+      await HTMLToPdf().convertMarkdown(
+        markdownText['more_info'] ?? '',
+        tagStyle: tagStyle,
+      ),
+    );
+
+    return widgets;
+  }
+
+  static pw.Widget houseInformation(House house) {
+    return pw.Column(
+      crossAxisAlignment: pw.CrossAxisAlignment.start,
+      children: [
+        houseInformationRichText(18, 'house'.tr(), house.name),
+        pw.SizedBox(height: 5),
+        house.address != null && house.address != ''
+            ? houseInformationRichText(14, 'address'.tr(), house.address!)
+            : pw.Container(),
+        pw.SizedBox(height: 5),
+        houseInformationRichText(14, 'zip_code'.tr(), house.zipCode!),
+        pw.SizedBox(height: 5),
+        houseInformationRichText(
+            14, 'country'.tr(), 'european_countries.${house.environment}'.tr()),
+        pw.SizedBox(height: 10),
+      ],
+    );
+  }
+
+  static pw.RichText houseInformationRichText(
+      double fontSize, String title, String text) {
+    return pw.RichText(
+      text: pw.TextSpan(
+        text: '$title: ',
+        style: pw.TextStyle(fontSize: fontSize, fontWeight: pw.FontWeight.bold),
+        children: [
+          pw.TextSpan(
+            text: text,
+            style: pw.TextStyle(
+                fontSize: fontSize, fontWeight: pw.FontWeight.normal),
+          ),
+        ],
+      ),
+    );
   }
 }

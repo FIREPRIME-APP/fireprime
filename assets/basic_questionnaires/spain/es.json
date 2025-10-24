@@ -2,10 +2,10 @@
     "questions": [
         {
             "id": "BQ1",
-            "question": "Mi vivienda se encuentra junto a un bosque o zona con abundante vegetación",
+            "question": "Mi vivienda está junto a un bosque o zona con abundante vegetación",
             "images": [
                 {
-                    "path": "BQ1.1"
+                    "path": "BQ1"
                 }
             ]
         },
@@ -14,7 +14,7 @@
             "question": "Mi vivienda está situada en una ladera o en la cima de una cresta",
             "images": [
                 {
-                    "path": "BQ2.1"
+                    "path": "BQ2"
                 }
             ]
         },
@@ -23,7 +23,7 @@
             "question": "El revestimiento exterior de mi vivienda es de material combustible (como madera o plástico)",
             "images": [
                 {
-                    "path": "BQ3.1"
+                    "path": "BQ3"
                 }
             ]
         },
@@ -33,49 +33,42 @@
         },
         {
             "id": "BQ5",
-            "question": "Los cristales de ventanas y puertas exteriores son de una sola hoja o lámina",
+            "question": "Los cristales de las ventanas y puertas exteriores son de una sola hoja o lámina",
             "images": [
                 {
-                    "path": "BQ5.1"
+                    "path": "BQ5"
                 }
             ]
         },
         {
             "id": "BQ6",
-            "question": "Tengo cristales de ventanas y puertas exteriores sin protección, sin persianas ni contraventanas"
+            "question": "6. Tengo cristales en ventanas y puertas exteriores sin protección, sin persianas ni contraventanas"
         },
         {
             "id": "BQ7",
-            "question": "Tengo aberturas de ventilación y/o chimeneas sin ninguna protección",
+            "question": "7. Tengo aberturas de ventilación y/o chimeneas sin ninguna protección",
             "images": [
                 {
-                    "path": "BQ7.1"
+                    "path": "BQ7"
                 }
             ]
         },
         {
             "id": "BQ8",
-            "question": "Hay acumulación de restos vegetales y/o materiales combustibles (como muebles de plástico o trastos) alrededor de la vivienda",
-            "images": [
-                {
-                    "path": "BQ8.1"
-                   
-                }
-            ]
+            "question": "Hay acumulación de restos vegetales y/o materiales combustibles (como muebles de plástico o trastos) alrededor de la vivienda"
         },
         {
             "id": "BQ9",
-            "question": "Hay acumulación de hojarasca y ramitas en los canalones de desagüe y/o en el tejado",
+            "question": "Hay acumulación de hojas secas y ramitas en los canalones de desagüe y/o en el tejado",
             "images": [
                 {
-                    "path": "BQ9.1"
+                    "path": "BQ9"
                 }
             ]
         },
         {
             "id": "BQ10",
             "question": "Hay un depósito de combustible y/o bombonas de butano cerca del edificio"
-           
         }
     ]
 }

@@ -1,4 +1,3 @@
-//import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_app_check/firebase_app_check.dart';
@@ -64,7 +63,7 @@ void main() async {
           Locale('ca'),
           Locale('es'),
           Locale('de'),
-          //Locale('sv')
+          Locale('sv')
         ],
         path: 'assets/translations',
         fallbackLocale: const Locale('en'),
@@ -80,7 +79,7 @@ void main() async {
           Locale('ca'),
           Locale('es'),
           Locale('de'),
-          //Locale('sv')
+          Locale('sv')
         ],
         path: 'assets/translations',
         fallbackLocale: const Locale('en'),

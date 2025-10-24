@@ -23,6 +23,7 @@ class MultipleChoiceImageStep extends Step {
     required this.otherOption,
     required this.images,
     required this.answerFormat,
+    required super.buttonText,
   });
 
   @override
@@ -77,9 +78,9 @@ class _CustomViewState extends State<MultipleChoiceImageView> {
 
   void _toggleDescription() {
     if (_showDescription) {
-      saveEventdata(screenId: 'questionnaire_page', buttonId: 'hide_desc');
+      saveEventdata(screenId: 'questionnaire_page', buttonId: 'hide_help');
     } else {
-      saveEventdata(screenId: 'questionnaire_page', buttonId: 'show_desc');
+      saveEventdata(screenId: 'questionnaire_page', buttonId: 'show_help');
     }
     setState(() {
       _showDescription = !_showDescription;
@@ -137,16 +138,17 @@ class _CustomViewState extends State<MultipleChoiceImageView> {
             ),
           ),
           const SizedBox(height: 10),
-          Padding(
+          /* Padding(
             padding: const EdgeInsets.only(left: 20.0),
             child: const Text('max_multiple_choices',
                     // '${context.tr('max_multiple_choices', _multipleChoiceAnswerFormat.maxAnswers)}',
                     style: TextStyle(fontSize: 13),
                     textAlign: TextAlign.justify)
                 .tr(args: [_multipleChoiceAnswerFormat.maxAnswers.toString()]),
-          ),
-          Center(
-            child: ElevatedButton(
+          ),*/
+          if (widget.questionStep.description.isNotEmpty &&
+              widget.questionStep.description != '')
+            ElevatedButton(
               onPressed: _toggleDescription,
               style: ElevatedButton.styleFrom(
                 backgroundColor: _showDescription
@@ -154,14 +156,12 @@ class _CustomViewState extends State<MultipleChoiceImageView> {
                     : const Color.fromARGB(255, 252, 252, 252),
               ),
               child: Text(
-                _showDescription
-                    ? context.tr('hide_descdescription')
-                    : context.tr('show_description'),
-                style: TextStyle(color: Theme.of(context).primaryColor),
+                context.tr('help'),
               ),
             ),
-          ),
           if (_showDescription) showDescription(),
+          //const SizedBox(height: 10),
+          if (widget.images.isNotEmpty) imageWidget(),
           Column(
             children: [
               const Divider(
@@ -276,7 +276,7 @@ class _CustomViewState extends State<MultipleChoiceImageView> {
             widget.questionStep.description,
             style: Theme.of(context).textTheme.bodySmall,
           ),
-          if (widget.images.isNotEmpty) imageWidget(),
+          //if (widget.images.isNotEmpty) imageWidget(),
           const SizedBox(
             height: 20,
           ),
@@ -292,7 +292,7 @@ class _CustomViewState extends State<MultipleChoiceImageView> {
         padding: const EdgeInsets.only(top: 20.0),
         scrollDirection: Axis.horizontal,
         itemCount: widget.images.length,
-        separatorBuilder: (context, _) => const SizedBox(width: 12),
+        separatorBuilder: (context, _) => const SizedBox(width: 8),
         itemBuilder: (context, index) {
           return Column(
             children: [
@@ -305,8 +305,12 @@ class _CustomViewState extends State<MultipleChoiceImageView> {
                 ),
               ),
               const SizedBox(height: 4),
-              Text(widget.images[index].description,
-                  style: Theme.of(context).textTheme.bodySmall),
+              SizedBox(
+                width: 200,
+                child: Text(widget.images[index].description,
+                    style: Theme.of(context).textTheme.bodySmall,
+                    textAlign: TextAlign.center),
+              ),
             ],
           );
         },

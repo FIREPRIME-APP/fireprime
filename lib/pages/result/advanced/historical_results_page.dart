@@ -139,7 +139,7 @@ class _HistoricalResultsPageState extends State<HistoricalResultsPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          context.tr('myResults'),
+          context.tr('my_results'),
           style: Theme.of(context).textTheme.titleLarge!,
         ),
         leading: IconButton(
