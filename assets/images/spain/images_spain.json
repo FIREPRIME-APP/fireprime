@@ -17,6 +17,10 @@
         {
             "path": "assets/images/spain/Q2.1.png",
             "description": "spain-Q2_1"
+        },
+        {
+            "path": "assets/images/spain/Q2.2.png",
+            "description": "spain-Q2_2"
         }
     ],
     "Q3": [
@@ -93,16 +97,14 @@
             "description": "spain-Q10_1"
         }
     ],
-    "Q11-1": [
+    "Q11": [
         {
             "path": "assets/images/spain/Q11.1.png",
             "description": "spain-Q11_1"
-        }
-    ],
-    "Q11-2": [
+        },
         {
-            "path": "assets/images/spain/Q11.1.png",
-            "description": "spain-Q11_1"
+            "path": "assets/images/spain/Q11.2.png",
+            "description": "spain-Q11_2"
         }
     ],
     "Q12": [
@@ -115,22 +117,26 @@
         {
             "path": "assets/images/spain/Q13.1.png",
             "description": "spain-Q13_1"
+        },
+        {
+            "path": "assets/images/spain/Q13.2.png",
+            "description": "spain-Q13_2"
         }
     ],
     "Q14": [
         {
             "path": "assets/images/spain/Q14.1.png",
             "description": "spain-Q14_1"
-        },
-        {
-            "path": "assets/images/spain/Q14.2.png",
-            "description": "spain-Q14_2"
         }
     ],
     "Q15": [
         {
             "path": "assets/images/spain/Q15.1.png",
             "description": "spain-Q15_1"
+        },
+        {
+            "path": "assets/images/spain/Q15.2.png",
+            "description": "spain-Q15_2"
         }
     ],
     "Q16": [
@@ -143,6 +149,14 @@
         {
             "path": "assets/images/spain/Q17.1.png",
             "description": "spain-Q17_1"
+        },
+        {
+            "path": "assets/images/spain/Q17.2.png",
+            "description": "spain-Q17_2"
+        },
+        {
+            "path": "assets/images/spain/Q17.3.png",
+            "description": "spain-Q17_3"
         }
     ],
     "Q18": [
@@ -155,14 +169,6 @@
         {
             "path": "assets/images/spain/Q19.1.png",
             "description": "spain-Q19_1"
-        },
-        {
-            "path": "assets/images/spain/Q19.2.png",
-            "description": "spain-Q19_2"
-        },
-        {
-            "path": "assets/images/spain/Q19.3.png",
-            "description": "spain-Q19_3"
         }
     ],
     "Q20": [
@@ -181,48 +187,36 @@
         {
             "path": "assets/images/spain/Q22.1.png",
             "description": "spain-Q22_1"
+        },
+        {
+            "path": "assets/images/spain/Q22.2.png",
+            "description": "spain-Q22_2"
+        },
+        {
+            "path": "assets/images/spain/Q22.3.png",
+            "description": "spain-Q22_3"
+        },
+        {
+            "path": "assets/images/spain/Q22.4.png",
+            "description": "spain-Q22_4"
+        },
+        {
+            "path": "assets/images/spain/Q22.5.png",
+            "description": "spain-Q22_5"
+        },
+        {
+            "path": "assets/images/spain/Q22.6.png",
+            "description": "spain-Q22_6"
+        },
+        {
+            "path": "assets/images/spain/Q22.7.png",
+            "description": "spain-Q22_7"
         }
     ],
     "Q23": [
         {
             "path": "assets/images/spain/Q23.1.png",
             "description": "spain-Q23_1"
-        }
-    ],
-    "Q24": [
-        {
-            "path": "assets/images/spain/Q24.1.png",
-            "description": "spain-Q24_1"
-        },
-        {
-            "path": "assets/images/spain/Q24.2.png",
-            "description": "spain-Q24_2"
-        },
-        {
-            "path": "assets/images/spain/Q24.3.png",
-            "description": "spain-Q24_3"
-        },
-        {
-            "path": "assets/images/spain/Q24.4.png",
-            "description": "spain-Q24_4"
-        },
-        {
-            "path": "assets/images/spain/Q24.5.png",
-            "description": "spain-Q24_5"
-        },
-        {
-            "path": "assets/images/spain/Q24.6.png",
-            "description": "spain-Q24_6"
-        },
-        {
-            "path": "assets/images/spain/Q24.7.png",
-            "description": "spain-Q24_7"
-        }
-    ],
-    "Q25": [
-        {
-            "path": "assets/images/spain/Q25.1.png",
-            "description": "spain-Q25_1"
         }
     ]
 }

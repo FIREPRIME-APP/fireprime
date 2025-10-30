@@ -459,9 +459,9 @@
         "title": "Vegetation",
         "question": "Is there vertical continuity between tree crowns and other vegetation located below the trees, such as shrubs and grass?",
         "description": "",
-        "noPurning": "Yes",
-        "purning": "No",
-        "noApplicablePurning": "Not applicable (there are no trees on my property)"
+        "noPruning": "Yes",
+        "pruning": "No",
+        "noApplicablePruning": "Not applicable (there are no trees on my property)"
     },
     "Q22": {
         "title": "Vegetation",

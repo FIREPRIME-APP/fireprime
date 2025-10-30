@@ -107,91 +107,91 @@
      "7closeToGlazing": {
           "title": "Entorn de l'edifici",
           "text": "Considereu eliminar els combustibles (vegetació o altres elements no naturals) si es troben a prop de vidres que no es poden protegir.",
-          "questionId": "Q11-1"
+          "questionId": "Q11"
      },
      "5closeToGlazing": {
           "title": "Entorn de l'edifici",
           "text": "Considereu eliminar els combustibles (vegetació o altres elements no naturals) si es troben a prop de vidres que no es poden protegir.",
-          "questionId": "Q11-2"
+          "questionId": "Q11"
      },
      "closeToRoof": {
           "title": "Entorn de l'edifici",
           "text": "Considereu eliminar els combustibles (vegetació o altres elements no naturals) si es troben a prop d'elements combustibles adjacents a la teulada (e.g. ràfecs de fusta, canaletes de PVC per recollir aigües pluvials).",
-          "questionId": "Q12"
+          "questionId": "Q11"
      },
      "fuelsNotAgainstFacade": {
           "title": "Entorn de l'edifici",
           "text": "Considereu eliminar els combustibles (vegetació o altres elements no naturals) adjacents a la façana. Si hi teniu un entarimat de fusta, considereu millorar-ne la resistència al foc (e.g. amb pintures ignífugues, recobriments protectors, etc.).",
-          "questionId": "Q13"
+          "questionId": "Q12"
      },
      "contSurf": {
           "title": "Entorn de l'edifici",
           "text": "Considereu trencar la continuïtat del combustible natural mitjançant llits de grava o còdols.",
-          "questionId": "Q14"
+          "questionId": "Q13"
      },
      "closeToLPG": {
           "title": "Entorn de l'edifici",
           "text": "Retireu tots els elements combustibles en un radi de 2 metres al voltant de dipòsits d'hidrocarbur (dipòsits de GLP, bombones de gas, etc.).",
-          "questionId": "Q15"
+          "questionId": "Q14"
      },
      "spacingLess5": {
           "title": "Entorn de l'edifici",
           "text": "Considereu separar tant com pugueu els elements combustibles no naturals els uns dels altres.",
-          "questionId": "Q16" 
+          "questionId": "Q15" 
      },
      "placedIn20": {
           "title": "Entorn de l'edifici",
           "text": "Considereu mantenir allunyats del bosc (almenys 20 m) els elements combustibles no naturals.",
-          "questionId": "Q17"
+          "questionId": "Q15"
      },
      "vegIn30": {
           "title": "Entorn de l'edifici",
           "text": "Considereu dur a terme un tractament de reducció de combustible.",
-          "questionId": "Q18"
+          "questionId": "Q16"
      },
      "highFlam": {
           "title": "Entorn de l'edifici",
           "text": "Considereu enretirar les espècies molt inflamables en un radi de 30 m al voltant de l'edifici o substituir-les per altres espècies més resistents al foc.",
-          "questionId": "Q19"
+          "questionId": "Q17"
      },
      "contVeg": {
           "title": "Entorn de l'edifici",
           "text": "Gestioneu la vegetació que es trobi a menys de 30 metres de l'edifici generant discontinuïtat horitzontal entre els arbres i els arbustos per evitar la propagació del foc entre ells. Considereu eliminar o separar la vegetació.",
-          "questionId": "Q20"
+          "questionId": "Q18"
      },
-     "noPurning": {
+     "noPruning": {
           "title": "Entorn de l'edifici",
           "text": "Gestioneu la vegetació que es trobi a menys de 30 metres de l'edifici generant discontinuïtat vertical entre els arbres i els arbustos per evitar la propagació del foc entre ells. Considereu eliminar i podar la vegetació.",
-          "questionId": "Q21"
+          "questionId": "Q19"
      },
      "lowSurfaceMore10": {
           "title": "Entorn de l'edifici",
           "text": "Mantingueu l'alçada de la vegetació (herbes o matolls joves) de la zona contínua de combustible natural que envolta l'edifici a menys de 10 cm.",
-          "questionId": "Q22"
+          "questionId": "Q20"
      },
      "deadVeg": {
           "title": "Entorn de l'edifici",
           "text": "Enretireu les restes vegetals mortes o de poda periòdicament. Aquests combustibles són molt secs i s'encenen molt fàcilment en cas d'incendi.",
-          "questionId": "Q23"
+          "questionId": "Q21"
      },
      "woodenFence": {
           "title": "Entorn de l'edifici",
           "text": "Considereu pintar la tanca amb recobriments ignífugs (e.g. pintures retardants del foc), per millorar-ne la resistència al foc.",
-          "questionId": "Q24"
+          "questionId": "Q22"
      },
      "hedgerowHigh": {
           "title": "Entorn de l'edifici",
           "text": "Considereu substituir la tanca d'arbusts molt inflamables (e.g. xiprer o bruc) per una tanca poc inflamable o no inflamable (e.g. llorer-cirer) i altres opcions de tanca d'obra o de materials no combustibles).",
-          "questionId": "Q24"
+          "questionId": "Q22"
      },
      "metalPosts": {
           "title": "Entorn de l'edifici",
           "text": "Mantingueu la tanca lliure de vegetació per evitar la propagació del foc entre parcel·les veïnes.",
-          "questionId": "Q24"
+          "questionId": "Q22"
      },
      "chainLink": {
           "title": "Entorn de l'edifici",
           "text": "Mantingueu la tanca lliure de vegetació per evitar la propagació del foc entre parcel·les veïnes.",
-          "questionId": "Q24"
+          "questionId": "Q22"
      }
 }

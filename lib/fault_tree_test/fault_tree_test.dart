@@ -9,7 +9,7 @@ void main() {
     await FaultTree().loadFaultTree('assets/fault_tree_1.json');
   });
 
-  Map<String, double> q9 = {
+  /* Map<String, double> q9 = {
     "glazingSystemsSinglePane": 0.825,
     "glazingSystemsMultiplePane": 0.257,
     "glazingSystemsTempered": 0.09,
@@ -133,7 +133,7 @@ void main() {
         "Q21": "discontVeg",
         "Q22": "lowSurfaceLess10",
         "Q23": "noDeadVeg",
-        "Q18": "purning",
+        "Q18": "pruning",
         "Q24": "hedgerowLow",
       };
 
@@ -145,40 +145,76 @@ void main() {
       expect(node?.calculateProbability().toStringAsFixed(3),
           expectedResult.toStringAsFixed(3));
     });
-  });
+  });*/
 
   group('Fault Tree Test', () {
-    test('Fault Tree Test1', () {
+    test('Fault Tree Test WORST CASE', () {
       var results = {
         "Q1": "100comb",
-        "Q2": "height41to60",
-        "Q3": "roofFireRated",
+        "Q2": "height0",
+        "Q3": "roofNonFireRated",
         "Q4": "roofPoorlyMaintaned-1",
-        "Q5": "doublePane",
+        "Q5": "singlePane",
         "Q6": "noShutters",
-        "Q7": "ventCombProtection",
+        "Q7": "noVentProtection",
         "Q8": "yesSemiConf",
         "Q9": "glazingSystemsSinglePane",
-        "Q10": "nonCombThick",
-        "Q11": "7closeToGlazing",
-        "Q12": "closeToRoof",
-        "Q13": "fuelsNotAgainstFacade",
-        "Q14": "contSurf",
-        "Q15": "farFromLPG",
-        "Q16": "spacingMore5",
-        "Q17": "placedIn20",
-        "Q19": "noVegIn30",
-        "Q20": "lowFlam",
-        "Q21": "discontVeg",
-        "Q22": "lowSurfaceLess10",
-        "Q23": "noDeadVeg",
-        "Q18": "purning",
-        "Q24": "hedgerowLow",
+        "Q10": "combustibleEnvelope",
+        "Q11": "7closeToGlazing,closeToRoof",
+        "Q12": "fuelsNotAgainstFacade",
+        "Q13": "contSurf",
+        "Q14": "closeToLPG",
+        "Q15": "spacingLess5,placedIn20",
+        "Q16": "VegIn30",
+        "Q17": "highFlam",
+        "Q18": "contVeg",
+        "Q19": "lowSurfaceMore10",
+        "Q20": "deadVeg",
+        "Q21": "noPruning",
+        "Q22": "hedgerowHigh",
+        "Q23": "upperSlope",
       };
 
       FaultTree().setSelectedOptions(results);
 
-      double expectedResult = 0.983;
+      double expectedResult = 0.993;
+
+      expect(
+          FaultTree()
+              .calculateProbability(FaultTree().topEvent)
+              .toStringAsFixed(3),
+          expectedResult.toStringAsFixed(3));
+    });
+
+    test('Fault Tree Test BEST CASE', () {
+      var results = {
+        "Q1": "0comb",
+        "Q3": "roofFireRated",
+        "Q4": "roofWellMaintained-2",
+        "Q5": "tempered",
+        "Q6": "fireRatedShutters",
+        "Q7": "nonCombGoodCond",
+        "Q8": "yesSemiConf",
+        "Q9": "noGlazingSystems",
+        "Q10": "nonCombThick",
+        "Q11": "7farFromGlazing,farFromRoof",
+        "Q12": "fuelsAgainstFacade",
+        "Q13": "discontSurf",
+        "Q14": "noLPG",
+        "Q15": "spacingMore5,placedFurther20",
+        "Q16": "noVegIn30",
+        "Q17": "lowFlam",
+        "Q18": "discontVeg",
+        "Q19": "lowSurfaceLess10",
+        "Q20": "noDeadVeg",
+        "Q21": "pruning",
+        "Q22": "concreteMore2",
+        "Q23": "flatTerrain",
+      };
+
+      FaultTree().setSelectedOptions(results);
+
+      double expectedResult = 0.104;
 
       expect(
           FaultTree()

@@ -36,19 +36,19 @@
   },
   "Q14": {
     "contSurf": {
-      "add": ["Q22"],
+      "add": ["Q20"],
       "navigation": {
         "contSurf": "complete",
         "discontSurf": "complete"
       }
     },
     "discontSurf": {
-      "add": ["Q22"],
+      "add": ["Q20"],
       "navigation": {
-        "contSurf": "Q22",
+        "contSurf": "Q20",
         "discontSurf": "complete"
       },
-      "delete": ["Q22"] 
+      "delete": ["Q20"] 
     }
   }
 }

@@ -51,15 +51,30 @@ class FaultTree {
             .map((event) => _parseTree(event))
             .toList();
       }
-      if (faultTree['type'] == 'xor_gate') {
-        return XorGate(faultTree['gate_id'], inputEvents);
-      } else if (faultTree['type'] == 'and_gate') {
-        return AndGate(faultTree['gate_id'], inputEvents);
-      } else if (faultTree['type'] == 'or_gate') {
-        return OrGate(faultTree['gate_id'], inputEvents);
+      if (faultTree.containsKey('weight')) {
+        if (faultTree['type'] == 'xor_gate') {
+          return XorGate(
+              faultTree['gate_id'], inputEvents, faultTree['weight']);
+        } else if (faultTree['type'] == 'and_gate') {
+          return AndGate(
+              faultTree['gate_id'], inputEvents, faultTree['weight']);
+        } else if (faultTree['type'] == 'or_gate') {
+          return OrGate(faultTree['gate_id'], inputEvents, faultTree['weight']);
+        } else {
+          throw Exception(
+              'Does not exist this type of gate: ${faultTree['type']}');
+        }
       } else {
-        throw Exception(
-            'Does not exist this type of gate: ${faultTree['type']}');
+        if (faultTree['type'] == 'xor_gate') {
+          return XorGate(faultTree['gate_id'], inputEvents, 1.0);
+        } else if (faultTree['type'] == 'and_gate') {
+          return AndGate(faultTree['gate_id'], inputEvents, 1.0);
+        } else if (faultTree['type'] == 'or_gate') {
+          return OrGate(faultTree['gate_id'], inputEvents, 1.0);
+        } else {
+          throw Exception(
+              'Does not exist this type of gate: ${faultTree['type']}');
+        }
       }
     }
   }
@@ -291,7 +306,7 @@ void main() async {
     "Q20": "contVeg",
     "Q21": "lowSurfaceMore10",
     "Q22": "deadVeg",
-    "Q23": "noPurning",
+    "Q23": "noPruning",
     "Q24": "chainLink",
     "completionStep": "completion"
   };

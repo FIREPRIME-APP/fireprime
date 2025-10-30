@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:fireprime/fault_tree/node.dart';
 import 'package:fireprime/firebase/event_manage.dart';
 import 'package:fireprime/model/event_probability.dart';
@@ -240,6 +242,20 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
           answers: answers,
           buttonText: context.tr('next'),
         ));
+      } else if (questions['type'] == 'specialMultipleChoice') {
+        steps.add(
+          Questionnaire().buildSpecialMultipleChoiceImageStep(
+            stepId: questions['stepId'],
+            textChoices: questions['textChoices'],
+            allTextChoices: questions['allTextChoices'],
+            rules: questions['rules'],
+            initialSelection: questions['initialSelection'],
+            specialSelection: questions['specialSelection'],
+            context: context,
+            answers: answers,
+            buttonText: context.tr('next'),
+          ),
+        );
       } else if (questions['type'] == 'instructionStep') {
         steps.add(
           IntroductionCustomisedStep(

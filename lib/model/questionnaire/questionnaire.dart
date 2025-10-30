@@ -2,6 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:fireprime/model/customised_image.dart';
 import 'package:fireprime/pages/questionnaire/customised_question_types/multiple_choice_image.dart';
 import 'package:fireprime/pages/questionnaire/customised_question_types/single_choice_image.dart';
+import 'package:fireprime/pages/questionnaire/customised_question_types/special_multiple_choice.dart';
 import 'package:fireprime/providers/images_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -142,91 +143,121 @@ class Questionnaire {
       'text': 'buildSurrondings',
     },
     {
-      'stepId': 'Q11-1',
-      'textChoices': ['7closeToGlazing', '7farFromGlazing'],
-      'otherOption': false,
-      'type': 'singleChoice',
+      'stepId': 'Q11',
+      'type': 'specialMultipleChoice',
+      'textChoices': [
+        '7closeToGlazing',
+        '5closeToGlazing',
+        'closeToRoof',
+        'none'
+      ],
+      'allTextChoices': [
+        '7closeToGlazing',
+        '7farFromGlazing',
+        '5closeToGlazing',
+        '5farFromGlazing',
+        'closeToRoof',
+        'farFromRoof'
+      ],
+      'initialSelection': ['7farFromGlazing', '5farFromGlazing', 'farFromRoof'],
+      'rules': {
+        '7closeToGlazing': '7farFromGlazing',
+        '5closeToGlazing': '5farFromGlazing',
+        'closeToRoof': 'farFromRoof',
+      },
+      'specialSelection': 'none',
     },
-    {
+    /*  {
       'stepId': 'Q11-2',
       'textChoices': ['5closeToGlazing', '5farFromGlazing'],
       'otherOption': false,
       'type': 'singleChoice',
-    },
-    {
+    },*/
+    /* {
       'stepId': 'Q12',
       'textChoices': ['closeToRoof', 'farFromRoof', 'noCombElem'],
       'otherOption': false,
       'type': 'singleChoice',
-    },
+    },*/
     {
-      'stepId': 'Q13',
+      'stepId': 'Q12',
       'textChoices': ['fuelsNotAgainstFacade', 'fuelsAgainstFacade'],
       'otherOption': false,
       'type': 'singleChoice',
     },
     {
-      'stepId': 'Q14',
+      'stepId': 'Q13',
       'textChoices': ['contSurf', 'discontSurf'],
       'otherOption': false,
       'type': 'singleChoice',
     },
     {
-      'stepId': 'Q15',
+      'stepId': 'Q14',
       'textChoices': ['closeToLPG', 'farFromLPG', 'noLPG'],
       'otherOption': false,
       'type': 'singleChoice',
     },
     {
-      'stepId': 'Q16',
-      'textChoices': ['spacingMore5', 'spacingLess5', 'noSpacing'],
-      'otherOption': false,
-      'type': 'singleChoice',
+      'stepId': 'Q15',
+      'textChoices': ['spacingLess5', 'placedIn20', 'none'],
+      'allTextChoices': [
+        'spacingLess5',
+        'spacingMore5',
+        'placedIn20',
+        'placedFurther20',
+      ],
+      'initialSelection': ['spacingMore5', 'placedFurther20'],
+      'rules': {
+        'spacingLess5': 'spacingMore5',
+        'placedIn20': 'placedFurther20',
+      },
+      'type': 'specialMultipleChoice',
+      'specialSelection': 'none',
     },
-    {
+    /* {
       'stepId': 'Q17',
       'textChoices': ['placedIn20', 'placedFurther20', 'noPlacement'],
       'otherOption': false,
       'type': 'singleChoice',
-    },
+    }, */
     {
-      'stepId': 'Q18',
+      'stepId': 'Q16',
       'textChoices': ['vegIn30', 'noVegIn30'],
       'otherOption': false,
       'type': 'singleChoice',
     },
     {
-      'stepId': 'Q19',
+      'stepId': 'Q17',
       'textChoices': ['highFlam', 'mediumFlam', 'lowFlam', 'noVeg'],
       'otherOption': false,
       'type': 'singleChoice',
     },
     {
-      'stepId': 'Q20',
+      'stepId': 'Q18',
       'textChoices': ['discontVeg', 'contVeg', 'noApplicableDiscVeg'],
       'otherOption': false,
       'type': 'singleChoice',
     },
     {
-      'stepId': 'Q21',
-      'textChoices': ['purning', 'noPurning', 'noApplicablePurning'],
+      'stepId': 'Q19',
+      'textChoices': ['pruning', 'noPruning', 'noApplicablePruning'],
       'otherOption': false,
       'type': 'singleChoice',
     },
     {
-      'stepId': 'Q22',
+      'stepId': 'Q20',
       'textChoices': ['lowSurfaceLess10', 'lowSurfaceMore10'],
       'otherOption': false,
       'type': 'singleChoice',
     },
     {
-      'stepId': 'Q23',
+      'stepId': 'Q21',
       'textChoices': ['deadVeg', 'noDeadVeg', 'noApplicableDeadVeg'],
       'otherOption': false,
       'type': 'singleChoice',
     },
     {
-      'stepId': 'Q24',
+      'stepId': 'Q22',
       'textChoices': [
         'woodenFence',
         'hedgerowHigh',
@@ -241,7 +272,7 @@ class Questionnaire {
       'type': 'multipleChoice',
     },
     {
-      'stepId': 'Q25',
+      'stepId': 'Q23',
       'textChoices': ['flatTerrain', 'midSlope', 'upperSlope'],
       'otherOption': false,
       'type': 'singleChoice',
@@ -359,42 +390,42 @@ class Questionnaire {
       }
     },*/
 
-    {
+    /*  {
       'stepId': 'Q11-1',
       'type': 'conditional',
       'conditions': {
         "7farFromGlazing": "Q12",
         '7closeToGlazing': 'Q12',
       },
-    },
+    }, */
     {
-      'stepId': 'Q12',
+      'stepId': 'Q11',
       'type': 'conditionalSavedResult',
       'conditions': {},
       'savedResult': {
         'id': 'Q1',
         'conditions': {
-          '100comb': 'Q13',
-          'more50comb': 'Q13',
-          'less50comb': 'Q13',
-          '0comb': 'Q14',
+          '100comb': 'Q12',
+          'more50comb': 'Q12',
+          'less50comb': 'Q12',
+          '0comb': 'Q13',
         },
       }
     },
     {
-      'stepId': 'Q14',
+      'stepId': 'Q13',
       'type': 'saveResult',
-      'nextStep': 'Q15',
+      'nextStep': 'Q14',
     },
     {
-      'stepId': 'Q21',
+      'stepId': 'Q19',
       'type': 'conditionalSavedResult',
       'conditions': {},
       'savedResult': {
-        'id': 'Q14',
+        'id': 'Q13',
         'conditions': {
-          'contSurf': 'Q22',
-          'discontSurf': 'Q23',
+          'contSurf': 'Q20',
+          'discontSurf': 'Q21',
         },
       }
     }
@@ -450,36 +481,6 @@ class Questionnaire {
     );
   }
 
-  List<TextChoice> getTextChoices(
-      List<String> choices, String stepId, BuildContext context) {
-    List<TextChoice> textChoices = [];
-    for (var element in choices) {
-      if (context.tr('$stepId.$element') == '$stepId.$element') {
-        textChoices.add(TextChoice(text: context.tr(element), value: element));
-        continue;
-      }
-      textChoices.add(
-          TextChoice(text: context.tr('$stepId.$element'), value: element));
-    }
-    return textChoices;
-  }
-
-  TextChoice? getChoice(
-      Map<String, String?> answers, String key, BuildContext context) {
-    if (answers.containsKey(key)) {
-      if (context.tr('$key.${answers[key]}') != '$key.${answers[key]}') {
-        return TextChoice(
-            text: context.tr('$key.${answers[key]}'), value: answers[key]!);
-      } else if (context.tr('${answers[key]}') != '${answers[key]}') {
-        return TextChoice(
-            text: context.tr('${answers[key]}'), value: answers[key]!);
-      } else {
-        return null;
-      }
-    }
-    return null;
-  }
-
   MultipleChoiceImageStep buildMultipleChoiceImageStep(
       {required stepId,
       required textChoices,
@@ -505,6 +506,87 @@ class Questionnaire {
       ),
       buttonText: buttonText,
     );
+  }
+
+  SpecialMultipleChoiceImageStep buildSpecialMultipleChoiceImageStep(
+      {required String stepId,
+      required List<String> textChoices,
+      required List<String> allTextChoices,
+      required Map<String, String> rules,
+      required List<String> initialSelection,
+      required String specialSelection,
+      required BuildContext context,
+      required Map<String, String?> answers,
+      required String buttonText}) {
+    print('----buildSpecialMultipleChoiceImageStep----');
+    return SpecialMultipleChoiceImageStep(
+        stepIdentifier: StepIdentifier(id: stepId),
+        title: context.tr('$stepId.title'),
+        text: context.tr('$stepId.question'),
+        description: context.tr('$stepId.description'),
+        images: Provider.of<ImagesProvider>(context, listen: false)
+                .containsKey(stepId)
+            ? Provider.of<ImagesProvider>(context, listen: false)
+                .getImagePath(stepId, context)
+            : [],
+        answerFormat: MultipleChoiceAnswerFormat(
+            textChoices: getTextChoices(textChoices, stepId, context),
+            defaultSelection: getMultipleChoice(stepId, answers, context)),
+        buttonText: buttonText,
+        rules: rules,
+        initialSelection: getTextChoices(initialSelection, stepId, context),
+        specialSelection: specialSelection,
+        allTextChoices: getAllTextChoices(allTextChoices, stepId, context));
+  }
+
+  Map<String, TextChoice> getAllTextChoices(
+      List<String> choices, String stepId, BuildContext context) {
+    print('----getAllTextChoices----');
+    Map<String, TextChoice> textChoices = {};
+    for (var element in choices) {
+      if (context.tr('$stepId.$element') == '$stepId.$element') {
+        textChoices[element] =
+            TextChoice(text: context.tr(element), value: element);
+        continue;
+      }
+      textChoices[element] =
+          TextChoice(text: context.tr('$stepId.$element'), value: element);
+    }
+    for (var entry in textChoices.entries) {
+      print('key: ${entry.key}, value: ${entry.value.value}');
+    }
+    return textChoices;
+  }
+
+  List<TextChoice> getTextChoices(
+      List<String> choices, String stepId, BuildContext context) {
+    List<TextChoice> textChoices = [];
+    for (var element in choices) {
+      if (context.tr('$stepId.$element') == '$stepId.$element') {
+        textChoices.add(TextChoice(text: context.tr(element), value: element));
+        continue;
+      }
+      textChoices.add(
+          TextChoice(text: context.tr('$stepId.$element'), value: element));
+    }
+
+    return textChoices;
+  }
+
+  TextChoice? getChoice(
+      Map<String, String?> answers, String key, BuildContext context) {
+    if (answers.containsKey(key)) {
+      if (context.tr('$key.${answers[key]}') != '$key.${answers[key]}') {
+        return TextChoice(
+            text: context.tr('$key.${answers[key]}'), value: answers[key]!);
+      } else if (context.tr('${answers[key]}') != '${answers[key]}') {
+        return TextChoice(
+            text: context.tr('${answers[key]}'), value: answers[key]!);
+      } else {
+        return null;
+      }
+    }
+    return null;
   }
 
   List<TextChoice> getMultipleChoice(

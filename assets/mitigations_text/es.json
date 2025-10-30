@@ -107,91 +107,91 @@
     "7closeToGlazing": {
         "title": "Entorno del edificio",
         "text": "Considere eliminar los combustibles (vegetación u otros elementos no naturales) si se encuentran cerca de vidrios que no se pueden proteger.",
-        "questionId": "Q11-1"
+        "questionId": "Q11"
     },
     "5closeToGlazing": {
         "title": "Entorno del edificio",
         "text": "Considere eliminar los combustibles (vegetación u otros elementos no naturales) si se encuentran cerca de vidrios que no se pueden proteger.",
-        "questionId": "Q11-2"
+        "questionId": "Q11"
     },
     "closeToRoof": {
         "title": "Entorno del edificio",
         "text": "Considere eliminar los combustibles (vegetación u otros elementos no naturales) si se encuentran cerca de elementos combustibles adyacentes al tejado (por ejemplo, aleros de madera, canalones de PVC para recoger aguas pluviales).",
-        "questionId": "Q12"
+        "questionId": "Q11"
     },
     "fuelsNotAgainstFacade": {
         "title": "Entorno del edificio",
         "text": "Considere eliminar los combustibles (vegetación u otros elementos no naturales) adyacentes a la fachada. Si tiene una tarima de madera, considere mejorar su resistencia al fuego (por ejemplo, con pinturas ignífugas, recubrimientos protectores, etc.).",
-        "questionId": "Q13"
+        "questionId": "Q12"
     },
     "contSurf": {
         "title": "Entorno del edificio",
         "text": "Considere romper la continuidad del combustible natural mediante lechos de grava o guijarros.",
-        "questionId": "Q14"
+        "questionId": "Q13"
     },
     "closeToLPG": {
         "title": "Entorno del edificio",
         "text": "Retire todos los elementos combustibles en un radio de 2 metros alrededor de depósitos de hidrocarburos (depósitos de GLP, bombonas de gas, etc.).",
-        "questionId": "Q15"
+        "questionId": "Q14"
     },
     "spacingLess5": {
         "title": "Entorno del edificio",
         "text": "Considere separar tanto como sea posible los elementos combustibles no naturales entre sí.",
-        "questionId": "Q16"
+        "questionId": "Q15"
     },
     "placedIn20": {
         "title": "Entorno del edificio",
         "text": "Considere mantener los elementos combustibles no naturales alejados del bosque (al menos 20 m).",
-        "questionId": "Q17"
+        "questionId": "Q15"
     },
     "vegIn30": {
         "title": "Entorno del edificio",
         "text": "Considere realizar un tratamiento de reducción de combustible.",
-        "questionId": "Q18"
+        "questionId": "Q16"
     },
     "highFlam": {
         "title": "Entorno del edificio",
         "text": "Considere retirar las especies muy inflamables en un radio de 30 m alrededor del edificio o sustituirlas por otras especies más resistentes al fuego.",
-        "questionId": "Q19"
+        "questionId": "Q17"
     },
     "contVeg": {
         "title": "Entorno del edificio",
         "text": "Gestione la vegetación que se encuentre a menos de 30 metros del edificio generando discontinuidad horizontal entre los árboles y los arbustos para evitar la propagación del fuego entre ellos. Considere eliminar o separar la vegetación.",
-        "questionId": "Q20"
+        "questionId": "Q18"
     },
-    "noPurning": {
+    "noPruning": {
         "title": "Entorno del edificio",
         "text": "Gestione la vegetación que se encuentre a menos de 30 metros del edificio generando discontinuidad vertical entre los árboles y los arbustos para evitar la propagación del fuego entre ellos. Considere eliminar y podar la vegetación.",
-        "questionId": "Q21"
+        "questionId": "Q19"
     },
     "lowSurfaceMore10": {
         "title": "Entorno del edificio",
         "text": "Mantenga la altura de la vegetación (hierbas o arbustos jóvenes) de la zona continua de combustible natural que rodea el edificio a menos de 10 cm.",
-        "questionId": "Q22"
+        "questionId": "Q20"
     },
     "deadVeg": {
         "title": "Entorno del edificio",
         "text": "Retire los restos vegetales muertos o de poda periódicamente. Estos combustibles son muy secos y se encienden muy fácilmente en caso de incendio.",
-        "questionId": "Q23"
+        "questionId": "Q21"
     },
     "woodenFence": {
         "title": "Entorno del edificio",
         "text": "Considere pintar la valla con recubrimientos ignífugos (por ejemplo, pinturas retardantes del fuego), para mejorar su resistencia al fuego.",
-        "questionId": "Q24"
+        "questionId": "Q22"
     },
     "hedgerowHigh": {
           "title": "Entorno del edificio",
           "text": "Considerad sustituir la valla de arbustos muy inflamables (por ejemplo, ciprés o brezo) por una valla poco inflamable o no inflamable (por ejemplo, laurel cerezo) y otras opciones de valla de obra o de materiales no combustibles.",
-          "questionId": "Q24"
+          "questionId": "Q22"
      },
      "metalPosts": {
           "title": "Entorno del edificio",
           "text": "Mantened la valla libre de vegetación para evitar la propagación del fuego entre parcelas vecinas.",
-          "questionId": "Q24"
+          "questionId": "Q22"
      },
      "chainLink": {
           "title": "Entorno del edificio",
           "text": "Mantened la valla libre de vegetación para evitar la propagación del fuego entre parcelas vecinas.",
-          "questionId": "Q24"
+          "questionId": "Q22"
      }
 }   

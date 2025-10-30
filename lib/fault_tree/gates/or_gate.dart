@@ -6,7 +6,7 @@ import 'package:fireprime/fault_tree/selectedOptions.dart';
 class OrGate extends Gate {
   List<Node> selectedInputs = [];
 
-  OrGate(super.id, super.inputEvents) {
+  OrGate(super.id, super.inputEvents, super.weight) {
     super.gateType = 'or_gate';
   }
 
@@ -43,6 +43,6 @@ class OrGate extends Gate {
       //}
       //probability *= (1 - event.calculateProbability());
     }
-    return probability = 1 - probability;
+    return probability = (1 - probability) * weight;
   }
 }

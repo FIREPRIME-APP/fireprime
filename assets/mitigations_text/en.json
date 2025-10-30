@@ -107,92 +107,92 @@
      "7closeToGlazing": {
          "title": "Building Surroundings",
          "text": "Consider removing combustibles (vegetation or other non-natural elements) if they are near glass that cannot be protected.",
-         "questionId": "Q11-1"
+         "questionId": "Q11"
      },
      "5closeToGlazing": {
          "title": "Building Surroundings",
          "text": "Consider removing combustibles (vegetation or other non-natural elements) if they are near glass that cannot be protected.",
-         "questionId": "Q11-2"
+         "questionId": "Q11"
      },
      "closeToRoof": {
          "title": "Building Surroundings",
          "text": "Consider removing combustibles (vegetation or other non-natural elements) if they are near combustible elements adjacent to the roof (e.g., wooden eaves, PVC gutters for collecting rainwater).",
-         "questionId": "Q12"
+         "questionId": "Q11"
      },
      "fuelsNotAgainstFacade": {
          "title": "Building Surroundings",
          "text": "Consider removing combustibles (vegetation or other non-natural elements) adjacent to the facade. If you have a wooden decking, consider improving its fire resistance (e.g., with fire-retardant paints, protective coatings, etc.).",
-         "questionId": "Q13"
+         "questionId": "Q12"
      },
      "contSurf": {
          "title": "Building Surroundings",
          "text": "Consider breaking the continuity of natural fuel with gravel or cobblestone beds.",
-         "questionId": "Q14"
+         "questionId": "Q13"
      },
      "closeToLPG": {
          "title": "Building Surroundings",
          "text": "Remove all combustible elements within a 2-meter radius around hydrocarbon tanks (LPG tanks, gas cylinders, etc.).",
-         "questionId": "Q15"
+         "questionId": "Q14"
      },
      "spacingLess5": {
          "title": "Building Surroundings",
          "text": "Consider separating non-natural combustible elements from each other as much as possible.",
-         "questionId": "Q16"
+         "questionId": "Q15"
      },
      "placedIn20": {
          "title": "Building Surroundings",
          "text": "Consider keeping non-natural combustible elements at least 20 meters away from the forest.",
-         "questionId": "Q17"
+         "questionId": "Q15"
      },
      "vegIn30": {
          "title": "Building Surroundings",
          "text": "Consider conducting a fuel reduction treatment.",
-         "questionId": "Q18"
+         "questionId": "Q16"
      },
      "highFlam": {
          "title": "Building Surroundings",
          "text": "Consider removing highly flammable species within a 30-meter radius of the building or replacing them with more fire-resistant species.",
-         "questionId": "Q19"
+         "questionId": "Q17"
      },
      "contVeg": {
          "title": "Building Surroundings",
          "text": "Manage vegetation within 30 meters of the building by creating horizontal discontinuity between trees and shrubs to prevent fire spread. Consider removing or separating vegetation.",
-         "questionId": "Q20"
+         "questionId": "Q18"
      },
-     "noPurning": {
+     "noPruning": {
          "title": "Building Surroundings",
          "text": "Manage vegetation within 30 meters of the building by creating vertical discontinuity between trees and shrubs to prevent fire spread. Consider removing and pruning the vegetation.",
-         "questionId": "Q21"
+         "questionId": "Q19"
      },
      "lowSurfaceMore10": {
          "title": "Building Surroundings",
          "text": "Keep the height of the vegetation (grass or young shrubs) of the continuous natural fuel zone surrounding the building below 10 cm.",
-         "questionId": "Q22"
+         "questionId": "Q20"
      },
      "deadVeg": {
          "title": "Building Surroundings",
          "text": "Remove dead or pruned vegetation periodically. These fuels are very dry and catch fire easily in case of fire.",
-         "questionId": "Q23"
+         "questionId": "Q21"
      },
      "woodenFence": {
          "title": "Building Surroundings",
          "text": "Consider painting the fence with fire-retardant coatings (e.g., fire-retardant paints) to improve its fire resistance.",
-         "questionId": "Q24"
+         "questionId": "Q22"
      },
      "hedgerowHigh": {
           "title": "Building Surroundings",
           "text": "Consider replacing the highly flammable shrub hedge (e.g., cypress or heather) with a low-flammability or non-flammable hedge (e.g., cherry laurel) and other options for masonry or non-combustible material fences.",
-          "questionId": "Q24"
+          "questionId": "Q22"
      },
      "metalPosts": {
           "title": "Building Surroundings",
           "text": "Keep the fence free of vegetation to prevent the spread of fire between neighboring plots.",
-          "questionId": "Q24"
+          "questionId": "Q22"
      },
      "chainLink": {
           "title": "Building Surroundings",
           "text": "Keep the fence free of vegetation to prevent the spread of fire between neighboring plots.",
-          "questionId": "Q24"
+          "questionId": "Q22"
      }
  }
  

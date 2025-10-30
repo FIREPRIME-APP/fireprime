@@ -456,9 +456,9 @@
         "title": "Entorno del edificio",
         "question": "Fijaos en los árboles y arbustos en un radio de 30 metros alrededor del edificio. ¿Hay discontinuidad vertical entre ellos?",
         "description": "La presencia de ramas bajas de los árboles puede favorecer a la continuidad vertical de combustible si debajo de estas hay vegetación como por ejemplo arbustos o hierba.",
-        "purning": "Sí",
-        "noPurning": "No",
-        "noApplicablePurning": "No aplicable (no hay árboles ni arbustos en un radio de 30 metros alrededor del edificio)"
+        "pruning": "Sí",
+        "noPruning": "No",
+        "noApplicablePruning": "No aplicable (no hay árboles ni arbustos en un radio de 30 metros alrededor del edificio)"
     },
     "Q22": {
         "title": "Entorno del edificio",

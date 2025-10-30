@@ -3,6 +3,7 @@ import 'package:fireprime/notifications/local_notification.dart';
 import 'package:fireprime/pages/information/about_page.dart';
 import 'package:fireprime/constants.dart';
 import 'package:fireprime/firebase/event_manage.dart';
+import 'package:fireprime/pages/questionnaire/test_special_multiple_option.dart';
 import 'package:fireprime/providers/house_provider.dart';
 import 'package:fireprime/firebase/device_manage.dart';
 import 'package:fireprime/pages/house/create_house_page.dart';
@@ -107,6 +108,19 @@ class _HouseListPageState extends State<HouseListPage> {
                           },
                           child: Text(context.tr('test')),
                         ), */
+
+                        /*  ElevatedButton(
+                          onPressed: () {
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (BuildContext context) {
+                                  return const TestQuestionnairePage();
+                                },
+                              ),
+                            );
+                          },
+                          child: Text(context.tr('test')),
+                        ),*/
                         _buildHeader(context),
                         const SizedBox(
                           height: 10,
