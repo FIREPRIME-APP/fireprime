@@ -261,7 +261,7 @@ class Questionnaire {
         'noDelimitation'
       ],
       'otherOption': false,
-      'type': 'multipleChoice',
+      'type': 'singleChoice',
     },
     {
       'stepId': 'Q23',

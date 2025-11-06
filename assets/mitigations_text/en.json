@@ -104,11 +104,6 @@
          "text": "Consider using fireproof coatings (e.g., fire-retardant paints) to improve the fire resistance of the walls.",
          "questionId": "Q10"
      },
-     "7closeToGlazing": {
-         "title": "Building Surroundings",
-         "text": "Consider removing combustibles (vegetation or other non-natural elements) if they are near glass that cannot be protected.",
-         "questionId": "Q11"
-     },
      "5closeToGlazing": {
          "title": "Building Surroundings",
          "text": "Consider removing combustibles (vegetation or other non-natural elements) if they are near glass that cannot be protected.",

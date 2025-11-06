@@ -434,6 +434,14 @@ class PdfCreator {
           tagStyle: tagStyle,
         ),
       );
+      if (section['items'] != null) {
+        for (var item in section['items']) {
+          widgets.add(await HTMLToPdf().convertMarkdown(
+            '- ${item['text']}',
+            tagStyle: tagStyle,
+          ));
+        }
+      }
     }
 
     widgets.add(

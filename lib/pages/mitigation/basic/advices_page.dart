@@ -88,6 +88,7 @@ class _AdvicesPageState extends State<AdvicesPage> {
             p: const TextStyle(fontSize: 15, fontFamily: 'OpenSans'),
             h1: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
             h2: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            h3: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
             listBullet: const TextStyle(fontSize: 15),
           );
 
@@ -115,8 +116,47 @@ class _AdvicesPageState extends State<AdvicesPage> {
                             ),
                             children: [
                               MarkdownBody(
+                                  data: section['intro'] ?? '',
+                                  styleSheet: styleSheet),
+                              const SizedBox(height: 10),
+                              //if (section['content'] != null)
+                              MarkdownBody(
                                   data: section['content'] ?? '',
                                   styleSheet: styleSheet),
+                              if (section['items'] != null) ...[
+                                for (var content in section['items'])
+                                  if (content['image'] != null &&
+                                      content['image']
+                                          .toString()
+                                          .isNotEmpty) ...[
+                                    Column(
+                                      children: [
+                                        Image.asset(
+                                          'assets/advices/icons/${content['image']}',
+                                          fit: BoxFit.contain,
+                                        ),
+                                        if (content['text'] != null &&
+                                            content['text']
+                                                .toString()
+                                                .isNotEmpty)
+                                          Center(
+                                            child: Text(
+                                              content['text'],
+                                              style: const TextStyle(
+                                                  fontSize: 15,
+                                                  fontFamily: 'OpenSans'),
+                                              textAlign: TextAlign.center,
+                                            ),
+                                          ),
+                                        const SizedBox(height: 10),
+                                      ],
+                                    ),
+                                  ] else
+                                    MarkdownBody(
+                                      data: content['text'] ?? '',
+                                      styleSheet: styleSheet,
+                                    ),
+                              ],
                               const SizedBox(height: 10),
                             ],
                             onExpansionChanged: (expanded) {

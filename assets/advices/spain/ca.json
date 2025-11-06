@@ -4,15 +4,136 @@
     "sections": [
         {
             "title": "## Què es pot fer per a protegir la vostra llar dels incendis forestals? ",
-            "content": "\nFranja de 2 m sense vegetació al voltant de la façana\n- 6 m de distància entre arbres perquè no es toquin\n- Teulades, porxos i tendals nets de fulles seques\n- Res de llenya ni materials inflamables a tocar de la casa\n- Combustibles guardats en espais ventilats i protegits\n- Doble vidre i protecció amb persianes no combustibles\n- Xemeneies i reixetes cobertes amb malles metàl·liques\n- Eviteu tanques i porxos de bruc, xiprer o tuia\n- Mànega de reg llarga i flexible a punt\n- Equip d'emergència a punt: documentació, mòbil amb carregador, diners, farmaciola, medicació indispensable, llanterna i ràdio\n- Comproveu que les persones amb qui conviviu saben com actuar\n- Si preveieu dificultats per confinar-vos o evacuar (per exemple, per mobilitat reduïda) informeu les autoritats"
+            "items": [
+                {
+                    "text": "Franja de 2 m sense vegetació al voltant de la façana",
+                    "image": "protect_franja_2m.png"
+                },
+                {
+                    "text": "6 m de distància entre arbres perquè no es toquin",
+                    "image": "protect_distancia_6m.png"
+                },
+                {
+                    "text": "Teulades, porxos i tendals nets de fulles seques",
+                    "image": "protect_teulades_netes.png"
+                },
+                {
+                    "text": "Res de llenya ni materials inflamables a tocar de la casa",
+                    "image": "protect_llenya.png"
+                },
+                {
+                    "text": "Combustibles guardats en espais ventilats i protegits",
+                    "image": "protect_combustibles_ventilats.png"
+                },
+                {
+                    "text": "Doble vidre i protecció amb persianes no combustibles",
+                    "image": "protect_doble_vidre.png"
+                },
+                {
+                    "text": "Xemeneies i reixetes cobertes amb malles metàl·liques",
+                    "image": "protect_xemeneies_reixetes.png"
+                },
+                {
+                    "text": "Eviteu tanques i porxos de bruc, xiprer o tuia",
+                    "image": "protect_evitar_tanques.png"
+                },
+                {
+                    "text": "Mànega de reg llarga i flexible a punt",
+                    "image": "protect_manega_reg.png"
+                },
+                {
+                    "text": "Equip d'emergència a punt: documentació, mòbil amb carregador, diners, farmaciola, medicació indispensable, llanterna i ràdio",
+                    "image": "protect_equip_emergencia.png"
+                },
+                {
+                    "text": "Comproveu que les persones amb qui conviviu saben com actuar",
+                    "image": "protect_persones_actuar.png"
+                },
+                {
+                    "text": "Si preveieu dificultats per confinar-vos o evacuar (per exemple, per mobilitat reduïda) informeu les autoritats",
+                    "image": "protect_informar_autoritats.png"
+                }
+            ]
         },
         {
             "title": "## Què fer si s'acosta l'incendi a casa vostra",
-            "content": "Confinar-se és la millor protecció si arriba l'incendi. Tracteu de mantenir la calma i només evacueu si els serveis d'emergència ho indiquen.\n- Confineu-vos dins de casa amb les persones i animals amb qui conviviu\n- Protegiu-vos amb roba de cotó, de màniga llarga\n- Tingueu a mà l'equip d'emergència\n- Tanqueu totes les portes interiors i exteriors, les finestres i abaixeu persianes\n- Segelleu amb roba humida les entrades de fum, com les juntes de les portes.\n- Desconnecteu el gas, butà o gasoil\n- Apagueu l'aire condicionat fins que l'aire exterior estigui net de fum\n- Si teniu temps, retireu cortines i tendals i allunyeu de la façana els mobles i altres combustibles\n- Deixeu el cotxe al garatge amb les claus posades. Si no, aparqueu-lo a 6 m de la casa\n- Si teniu temps i no és arriscat, remulleu les zones exteriors\n- Deixeu lliures els accessos per als serveis d'emergència\n- Actueu d'acord amb les indicacions dels serveis d'emergència i no sortiu fins que sigui segur fer-ho."
+            "intro": "### Confinar-se és la millor protecció si arriba l'incendi. Tracteu de mantenir la calma i només evacueu si els serveis d'emergència ho indiquen.",
+            "items": [
+                {
+                    "text": "Confineu-vos dins de casa amb les persones i animals amb qui conviviu",
+                    "image": "aprox_dins_casa.png"
+                },
+                {
+                    "text": "Protegiu-vos amb roba de cotó, de màniga llarga",
+                    "image": "aprox_roba_coto.png"
+                },
+                {
+                    "text": "Tingueu a mà l'equip d'emergència",
+                    "image": "aprox_equip_emergencia.png"
+                },
+                {
+                    "text": "Tanqueu totes les portes interiors i exteriors, les finestres i abaixeu persianes",
+                    "image": "aprox_tancar_portes.png"
+                },
+                {
+                    "text": "Segelleu amb roba humida les entrades de fum, com les juntes de les portes",
+                    "image": "aprox_segellar_entrades_fum.png"
+                },
+                {
+                    "text": "Desconnecteu el gas, butà o gasoil",
+                    "image": "aprox_desconnectar_gas.png"
+                },
+                {
+                    "text": "Apagueu l'aire condicionat fins que l'aire exterior estigui net de fum",
+                    "image": "aprox_apagar_aire_condicionat.png"
+                },
+                {
+                    "text": "Si teniu temps, retireu cortines i tendals i allunyeu de la façana els mobles i altres combustibles",
+                    "image": "aprox_retirar_cortines.png"
+                },
+                {
+                    "text": "Deixeu el cotxe al garatge amb les claus posades. Si no, aparqueu-lo a 6 m de la casa",
+                    "image": "aprox_deixar_cotxe_garatge.png"
+                },
+                {
+                    "text": "Si teniu temps i no és arriscat, remulleu les zones exteriors",
+                    "image": "aprox_remullar_zones_exteriors.png"
+                },
+                {
+                    "text": "Deixeu lliures els accessos per als serveis d'emergència",
+                    "image": "aprox_deixar_accessos.png"
+                },
+                {
+                    "text": "Actueu d'acord amb les indicacions dels serveis d'emergència i no sortiu fins que sigui segur fer-ho",
+                    "image": "aprox_seguir_indicacions.png"
+                }
+            ]
         },
         {
             "title": "## Què cal fer si s'ordena evacuar?",
-            "content": "Tot i que el confinament és la mesura per defecte, els serveis d'emergència poden ordenar evacuar si ho consideren necessari.\n- Tanqueu la casa i desconnecteu electricitat i gas \n- Marxeu cap al lloc indicat pels serveis d'emergència\n- Si necessiteu ajuda per evacuar, aviseu els serveis d'emergència\n- Vestiu roba de cotó de màniga llarga, cobriu-vos el cap i porteu calçat adequat\n- Porteu només l'equip d'emergència:  documentació, mòbil amb carregador, diners, farmaciola, medicació indispensable, llanterna i ràdio"
+            "intro": "### Tot i que el confinament és la mesura per defecte, els serveis d'emergència poden ordenar evacuar si ho consideren necessari.",
+            "items": [
+                {
+                    "text": "Tanqueu la casa i desconnecteu electricitat i gas",
+                    "image": "evacuar_tancar_casa.png"
+                },
+                {
+                    "text": "Marxeu cap al lloc indicat pels serveis d'emergència",
+                    "image": "evacuar_lloc_indicat.png"
+                },
+                {
+                    "text": "Si necessiteu ajuda per evacuar, aviseu els serveis d'emergència",
+                    "image": "evacuar_ajuda.png"
+                },
+                {
+                    "text": "Vestiu roba de cotó de màniga llarga, cobriu-vos el cap i porteu calçat adequat",
+                    "image": "evacuar_roba_coto.png"
+                },
+                {
+                    "text": "Porteu només l'equip d'emergència:  documentació, mòbil amb carregador, diners, farmaciola, medicació indispensable, llanterna i ràdio",
+                    "image": "evacuar_equip_emergencia.png"
+                }
+            ]
         }
     ],
     "more_info": "**Trobareu més informació a:** \n [Departament d'Interior i Seguretat Pública](https://interior.gencat.cat/ca/incendis-forestals/inici/)"

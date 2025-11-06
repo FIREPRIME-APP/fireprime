@@ -47,7 +47,7 @@
         },
         {
             "id": "BQ6",
-            "question": "6. Tengo cristales en ventanas y puertas exteriores sin protección, sin persianas ni contraventanas",
+            "question": "Tengo cristales en ventanas y puertas exteriores sin protección, sin persianas ni contraventanas",
             "images": [
                 {
                     "path": "BQ6"
@@ -56,7 +56,7 @@
         },
         {
             "id": "BQ7",
-            "question": "7. Tengo aberturas de ventilación y/o chimeneas sin ninguna protección",
+            "question": "Tengo aberturas de ventilación y/o chimeneas sin ninguna protección",
             "images": [
                 {
                     "path": "BQ7"
