@@ -29,7 +29,12 @@
         },
         {
             "id": "BQ4",
-            "question": "El tejado, el porche o el balcón son de material combustible"
+            "question": "El tejado, el porche o el balcón son de material combustible",
+            "images": [
+                {
+                    "path": "BQ4"
+                }
+            ]
         },
         {
             "id": "BQ5",
@@ -42,7 +47,12 @@
         },
         {
             "id": "BQ6",
-            "question": "6. Tengo cristales en ventanas y puertas exteriores sin protección, sin persianas ni contraventanas"
+            "question": "6. Tengo cristales en ventanas y puertas exteriores sin protección, sin persianas ni contraventanas",
+            "images": [
+                {
+                    "path": "BQ6"
+                }
+            ]
         },
         {
             "id": "BQ7",
@@ -55,7 +65,12 @@
         },
         {
             "id": "BQ8",
-            "question": "Hay acumulación de restos vegetales y/o materiales combustibles (como muebles de plástico o trastos) alrededor de la vivienda"
+            "question": "Hay acumulación de restos vegetales y/o materiales combustibles (como muebles de plástico o trastos) alrededor de la vivienda",
+            "images": [
+                {
+                    "path": "BQ8"
+                }
+            ]
         },
         {
             "id": "BQ9",
@@ -68,7 +83,12 @@
         },
         {
             "id": "BQ10",
-            "question": "Hay un depósito de combustible y/o bombonas de butano cerca del edificio"
+            "question": "Hay un depósito de combustible y/o bombonas de butano cerca del edificio",
+            "images": [
+                {
+                    "path": "BQ10"
+                }
+            ]
         }
     ]
 }

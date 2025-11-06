@@ -29,7 +29,12 @@
         },
         {
             "id": "BQ4",
-            "question": "La teulada, el porxo o el balcó són de material combustible"
+            "question": "La teulada, el porxo o el balcó són de material combustible",
+            "images": [
+                {
+                    "path": "BQ4"
+                }
+            ]
         },
         {
             "id": "BQ5",
@@ -42,7 +47,12 @@
         },
         {
             "id": "BQ6",
-            "question": "Tinc vidres de finestres i portes exteriors sense protecció, sense persianes ni porticons"
+            "question": "Tinc vidres de finestres i portes exteriors sense protecció, sense persianes ni porticons",
+            "images": [
+                {
+                    "path": "BQ6"
+                }
+            ]
         },
         {
             "id": "BQ7",
@@ -55,7 +65,12 @@
         },
         {
             "id": "BQ8",
-            "question": "Hi ha acumulació de restes vegetals i/o materials combustibles (com mobles de plàstic o trastos) al voltant de l'habitatge"
+            "question": "Hi ha acumulació de restes vegetals i/o materials combustibles (com mobles de plàstic o trastos) al voltant de l'habitatge",
+            "images": [
+                {
+                    "path": "BQ8"
+                }
+            ]
         },
         {
             "id": "BQ9",
@@ -68,7 +83,12 @@
         },
         {
             "id": "BQ10",
-            "question": "Hi ha un dipòsit de combustible i/o bombones de butà a prop de l'edifici"
+            "question": "Hi ha un dipòsit de combustible i/o bombones de butà a prop de l'edifici",
+            "images": [
+                {
+                    "path": "BQ10"
+                }
+            ]
         }
     ]
 }

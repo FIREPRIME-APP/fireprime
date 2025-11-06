@@ -145,23 +145,15 @@ class Questionnaire {
     {
       'stepId': 'Q11',
       'type': 'specialMultipleChoice',
-      'textChoices': [
-        '7closeToGlazing',
-        '5closeToGlazing',
-        'closeToRoof',
-        'none'
-      ],
+      'textChoices': ['5closeToGlazing', 'closeToRoof', 'none'],
       'allTextChoices': [
-        '7closeToGlazing',
-        '7farFromGlazing',
         '5closeToGlazing',
         '5farFromGlazing',
         'closeToRoof',
         'farFromRoof'
       ],
-      'initialSelection': ['7farFromGlazing', '5farFromGlazing', 'farFromRoof'],
+      'initialSelection': ['5farFromGlazing', 'farFromRoof'],
       'rules': {
-        '7closeToGlazing': '7farFromGlazing',
         '5closeToGlazing': '5farFromGlazing',
         'closeToRoof': 'farFromRoof',
       },
@@ -252,7 +244,7 @@ class Questionnaire {
     },
     {
       'stepId': 'Q21',
-      'textChoices': ['deadVeg', 'noDeadVeg', 'noApplicableDeadVeg'],
+      'textChoices': ['deadVeg', 'noDeadVeg'],
       'otherOption': false,
       'type': 'singleChoice',
     },
@@ -311,11 +303,11 @@ class Questionnaire {
       'type': 'saveResult',
       'nextStep': 'roof-1',
     },*/
-    {
+    /*{
       'stepId': 'Q5',
       'type': 'saveResult',
       'nextStep': 'Q6',
-    },
+    },*/
     /*{
       'stepId': 'vents-1',
       'type': 'conditional',

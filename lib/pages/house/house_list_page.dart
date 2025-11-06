@@ -3,7 +3,6 @@ import 'package:fireprime/notifications/local_notification.dart';
 import 'package:fireprime/pages/information/about_page.dart';
 import 'package:fireprime/constants.dart';
 import 'package:fireprime/firebase/event_manage.dart';
-import 'package:fireprime/pages/questionnaire/test_special_multiple_option.dart';
 import 'package:fireprime/providers/house_provider.dart';
 import 'package:fireprime/firebase/device_manage.dart';
 import 'package:fireprime/pages/house/create_house_page.dart';

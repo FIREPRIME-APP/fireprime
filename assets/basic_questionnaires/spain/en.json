@@ -29,7 +29,12 @@
         },
         {
             "id": "BQ4",
-            "question": "The roof, porch, or balcony are made of combustible material"
+            "question": "The roof, porch, or balcony are made of combustible material",
+            "images": [
+                {
+                    "path": "BQ4"
+                }
+            ]
         },
         {
             "id": "BQ5",
@@ -42,7 +47,12 @@
         },
         {
             "id": "BQ6",
-            "question": "The windows and exterior doors have no protection - no shutters or blinds"
+            "question": "The windows and exterior doors have no protection - no shutters or blinds",
+            "images": [
+                {
+                    "path": "BQ6"
+                }
+            ]
         },
         {
             "id": "BQ7",
@@ -55,7 +65,12 @@
         },
         {
             "id": "BQ8",
-            "question": "There is an accumulation of vegetation debris and/or combustible materials (such as plastic furniture or junk) around the house"
+            "question": "There is an accumulation of vegetation debris and/or combustible materials (such as plastic furniture or junk) around the house",
+            "images": [
+                {
+                    "path": "BQ8"
+                }
+            ]
         },
         {
             "id": "BQ9",
@@ -68,7 +83,12 @@
         },
         {
             "id": "BQ10",
-            "question": "There is a fuel tank and/or butane gas cylinders near the building"
+            "question": "There is a fuel tank and/or butane gas cylinders near the building",
+            "images": [
+                {
+                    "path": "BQ10"
+                }
+            ]
         }
     ]
 }

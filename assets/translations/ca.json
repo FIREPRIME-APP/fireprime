@@ -296,9 +296,9 @@
     "Q3": {
         "title": "Teulada",
         "question": "La teulada està recoberta amb materials resistents al foc (teules de ceràmica, de formigó, de pissarra, etc.)?",
-        "description": "Si teniu plaques solars a la teulada, aquesta pregunta es refereix al material sobre el qual estan instal·lades.",
+        "description": "Si teniu plaques solars a la teulada, aquesta preguntes refereix al material sobre el qual estan instal·lades",
         "roofFireRated": "Sí",
-        "roofNonFireRated": " No, la teulada està recoberta amb materials combustibles (fusta, tela asfàltica, etc.)"
+        "roofNonFireRated": "No, la teulada està recoberta amb materials combustibles (fusta, tela asfàltica, etc.)"
     },
     "Q4-1": {
         "title": "Teulada",
@@ -361,7 +361,7 @@
     "Q10": {
         "title": "Parets de l'espai semiobert",
         "question": "De quin material està fet l'exterior de la façana de l'edifici que limita amb l'espai semiobert?",
-        "description": "Si hi ha un incendi, els vidres sense protecció en espais semioberts es poden trencar si el foc afecta els materials emmagatzemats en aquests espais. \nLa fusta o els revestiments plàstics són materials combustibles que, en cas d'incendi en l'espai semiobert poden facilitar l'entrada del foc a la casa.",
+        "description": "La fusta o els revestiments plàstics són materials combustibles que, en cas d'incendi en l'espai semiobert poden facilitar l'entrada del foc a la casa.",
         "combustibleEnvelope": "Material combustible com la fusta o els revestiments plàstics",
         "nonCombThin": "Material no combustible com l'acer o l'alumini ",
         "nonCombThick": "Materials no combustibles com els maons o el formigó"
@@ -374,8 +374,7 @@
         "title": "Característiques de l'entorn de l'edifici",
         "question": "Identifiqueu quins elements combustibles teniu a prop de l'edifici. Quines de les següents opcions apliquen?",
         "description": "Els elements combustibles (naturals i no naturals) situats a prop de l'edifici poden encendre's fàcilment en cas d'incendi forestal i transmetre el foc cap a l'habitatge a través de punts vulnerables, com ara vidres sense protecció o components combustibles de l'edifici.",
-        "7closeToGlazing": "Hi ha elements combustibles col·locats a menys de 7 metres de tancaments amb vidre simple no protegits amb persianes.",
-        "5closeToGlazing": "Hi ha elements combustibles col·locats a menys de 5 metres de tancaments amb vidre doble o triple no protegits amb persianes.",
+        "5closeToGlazing": "Hi ha elements combustibles col·locats a menys de 5 metres de tancaments amb vidre no protegits amb persianes",
         "closeToRoof": "Hi ha elements combustibles a menys de 5 metres d'elements combustibles adjacents a la teulada (com ara ràfecs de fusta, canaletes de PVC per a la recollida aigües pluvials). ",
         "none": "Cap de les opcions és aplicable"
     },
@@ -406,7 +405,7 @@
         "question": "Identifiqueu quins elements combustibles no naturals teniu a prop de l'edifici (mobiliari de jardí, casetes d'eines o d'animals, pèrgoles, coberts, cotxes, etc.). Quines de les següents opcions apliquen?",
         "description": "En cas d'incendi, els materials combustibles no naturals poden encendre's i propagar el foc fins a l'edifici si estan massa a prop.",
         "placedIn20": "Hi ha elements combustibles no naturals situats a menys de 20 metres d'una àrea amb vegetació molt inflamable (e.g. matolls molt densos, zones arbrades amb espècies com ara pins, eucaliptus, xiprers, etc.).",
-        "spacingLess5": " No hi ha una separació mínima de 5 metres entre els elements combustibles no naturals.",
+        "spacingLess5": "No hi ha una separació mínima de 5 metres entre els elements combustibles no naturals.",
         "none": "Cap de les opcions és aplicable"
     },
     "Q16": {
@@ -466,7 +465,7 @@
         "chainLink": "Tanca de filferro",
         "concreteMore2": " Tanca o paret d'obra o metàl·lica (amb una alçada mínima de 2 metres) ",
         "concreteLess2": "Tanca/paret d'obra o metàl·lica (amb una alçada inferior a 2 metres)",
-        "noDelimitation": " No hi ha tanca ni cap separació física "
+        "noDelimitation": "No hi ha tanca ni cap separació física "
     },
     "Q23": {
         "title": "Característiques de l'entorn de l'edifici",
@@ -479,10 +478,10 @@
     "Q1-images": {
         "spain-Q1_1": "Exemple de façana amb més d'un 50% de material combustible",
         "spain-Q1_2": "Exemple de façana amb menys d'un 50% de material combustible",
-        "spain-Q1_3": "Exemple de façana que és 0% combustible",
+        "spain-Q1_3": "Exemple de façana que és 0% combustible ",
         "default-Q1_1": "Exemple de façana amb més d'un 50% de material combustible",
         "default-Q1_2": "Exemple de façana amb menys d'un 50% de material combustible",
-        "default-Q1_3": "Exemple de façana que és 0% combustible"
+        "default-Q1_3": "Exemple de façana que és 0% combustible "
     },
     "Q2-images": {
         "spain-Q2_1": "Casa amb la part combustible adjacent a terra",
@@ -495,7 +494,6 @@
         "spain-Q3_2": "Exemple de teulada coberta amb tela asfàltica",
         "default-Q3_1": "Exemple de teules de ceràmica",
         "default-Q3_2": "Exemple de teulada coberta amb tela asfàltica"
-        
     },
     "Q4-1-images": {
         "spain-Q4_1": "Exemple d'espai no segellat i teules en mal estat",
@@ -508,18 +506,18 @@
         "spain-Q4_2": "Exemple de teules d'argila trencades",
         "default-Q4_1": "Exemple d'espai no segellat i teules en mal estat",
         "default-Q4_2": "Exemple de teules d'argila trencades"
-    }, 
+    },
     "Q5-images": {
-        "spain-Q5_1": "D'esquerre a dreta: vidre simple, doble i triple vidre",
-        "default-Q5_1": "D'esquerre a dreta: vidre simple, doble i triple vidre"
+        "spain-Q5_1": "Vidres simple i dobles",
+        "default-Q5_1": "Vidres simple i dobles"
     },
     "Q6-images": {
         "spain-Q6_1": "Persiana de PVC",
-        "spain-Q6_2": "Persiana de fusta",
-        "spain-Q6_3": "Persiana d'alumini",
+        "spain-Q6_2": "Porticons de fusta",
+        "spain-Q6_3": "Tancaments d'alumini",
         "default-Q6_1": "Persiana de PVC",
-        "default-Q6_2": "Persiana de fusta",
-        "default-Q6_3": "Persiana d'alumini"
+        "default-Q6_2": "Porticons de fusta",
+        "default-Q6_3": "Tancaments d'alumini"
     },
     "Q7-images": {
         "spain-Q7_1": "Protecció combustible de PVC d'un orifici de ventilació d'una cuina",
@@ -528,22 +526,20 @@
     "Q8-images": {
         "spain-Q8_1": "Exemples de porxos amb objectes combustibles emmagatzemats",
         "default-Q8_1": "Exemples de porxos amb objectes combustibles emmagatzemats"
-
     },
     "Q9-images": {
         "spain-Q9_1": "Exemple de portes de vidre desprotegides en un espai semiobert",
         "default-Q9_1": "Exemple de portes de vidre desprotegides en un espai semiobert"
     },
-
     "Q10-images": {
         "spain-Q10_1": "Paret que connecta l'espai semiobert amb l'edifici principal, feta d'obra",
         "default-Q10_1": "Paret que connecta l'espai semiobert amb l'edifici principal, feta d'obra"
     },
     "Q11-images": {
-        "spain-Q11_1": "Exemple de vegetació a menys de 5 metres d'una teulada amb un ràfec combustible, penjant sobre aquesta",
-        "spain-Q11_2": "Vegetació a menys de 5 m de vidre desprotegit",
-        "default-Q11_1": "Exemple de vegetació a menys de 5 metres d'una teulada amb un ràfec combustible, penjant sobre aquesta",
-        "default-Q11_2": "Vegetació a menys de 5 m de vidre desprotegit"
+        "spain-Q11_1": "Exemple de vegetació a menys de 5 metres d'una teulada amb elements combustibles",
+        "spain-Q11_2": "Vegetació a prop de finestres desprotegides",
+        "default-Q11_1": "Exemple de vegetació a menys de 5 metres d'una teulada amb elements combustibles",
+        "default-Q11_2": "Vegetació a prop de finestres desprotegides"
     },
     "Q12-images": {
         "spain-Q12_1": "Exemple d'elements combustibles col·locats contra una façana, també combustible",
@@ -560,38 +556,38 @@
         "default-Q14_1": "Exemples de dipòsits de GLP amb elements combustibles situats a menys de 2 metres"
     },
     "Q15-images": {
-        "spain-Q15_1": "Exemple d'elements combustibles no naturals emplaçats a menys de 5 metres entre ells i a tocar de la massa forestal (cotxe i cobert) ",
-        "spain-Q15_2": "Exemple d'elements combustibles no naturals emplaçats a menys de 5 metres entre ells i a tocar de la massa forestal (palets, estructura de fusta adjacent, tanca, bidons, etc.) ",
-        "default-Q15_1": "Exemple d'elements combustibles no naturals emplaçats a menys de 5 metres entre ells i a tocar de la massa forestal (cotxe i cobert) ",
-        "default-Q15_2": "Exemple d'elements combustibles no naturals emplaçats a menys de 5 metres entre ells i a tocar de la massa forestal (palets, estructura de fusta adjacent, tanca, bidons, etc.) " 
+        "spain-Q15_1": "Exemple d'elements combustibles no naturals (cotxe i cobert) emplaçats a menys de 5 metres entre ells i a tocar de la massa forestal",
+        "spain-Q15_2": "Exemple d'elements combustibles no naturals  (palets, estructura de fusta adjacent, tanca, bidons, etc.) emplaçats a menys de 5 metres entre ells i a tocar de la massa forestal",
+        "default-Q15_1": "Exemple d'elements combustibles no naturals (cotxe i cobert) emplaçats a menys de 5 metres entre ells i a tocar de la massa forestal ",
+        "default-Q15_2": "Exemple d'elements combustibles no naturals  (palets, estructura de fusta adjacent, tanca, bidons, etc.) emplaçats a menys de 5 metres entre ells i a tocar de la massa forestal"
     },
     "Q16-images": {
         "spain-Q16_1": "Casa en àrea forestal, sense distància de separació",
         "default-Q16_1": "Casa en àrea forestal, sense distància de separació"
     },
     "Q17-images": {
-        "spain-Q17_1": "Espècies d'arbres molt inflamables, d'esquerra a dreta, pi, eucaliptus i xiprers",
-        "spain-Q17_2": "Llentiscle, arbust moderadament inflamable",
-        "spain-Q17_3": "D'esquerra a dreta olivera i llimoner, arbres poc inflamables",
-        "default-Q17_1": "Espècies d'arbres molt inflamables, d'esquerra a dreta, pi, eucaliptus i xiprers",
-        "default-Q17_2": "Llentiscle, arbust moderadament inflamable",
-        "default-Q17_3": "D'esquerra a dreta olivera i llimoner, arbres poc inflamables"
+        "spain-Q17_1": "Espècies d'arbres molt inflamables, d'esquerra a dreta, pi, eucaliptus i xiprer",
+        "spain-Q17_2": "Alzina (moderadament inflamable)",
+        "spain-Q17_3": "Llimoner (poc inflamable)",
+        "default-Q17_1": "Espècies d'arbres molt inflamables, d'esquerra a dreta, pi, eucaliptus i xiprer",
+        "default-Q17_2": "Alzina (moderadament inflamable)",
+        "default-Q17_3": "Llimoner (poc inflamable)"
     },
     "Q18-images": {
-        "spain-Q18_1": "Entorn d'una vivenda mal gestionat, amb continuitat horitzontal",
-        "default-Q18_1": "Entorn d'una vivenda mal gestionat, amb continuitat horitzontal"
+        "spain-Q18_1": "Exemple de continuïtat horitzontal entre arbustos i arbres",
+        "default-Q18_1": "Exemple de continuïtat horitzontal entre arbustos i arbres"
     },
     "Q19-images": {
-        "spain-Q19_1": "Entorn d'una vivenda ben gestionat, sense continuitat vertical",
-        "default-Q19_1": "Entorn d'una vivenda ben gestionat, sense continuitat vertical"
+        "spain-Q19_1": "Exemple de vegetació ben tractada - no hi ha continuïtat vertical, les copes del arbres no toquen arbustos ni matolls",
+        "default-Q19_1": "Exemple de vegetació ben tractada - no hi ha continuïtat vertical, les copes del arbres no toquen arbustos ni matolls"
     },
     "Q20-images": {
         "spain-Q20_1": "Exemple de jardí amb herba seca de més de 10 cm d'alt",
         "default-Q20_1": "Exemple de jardí amb herba seca de més de 10 cm d'alt"
     },
     "Q21-images": {
-        "spain-Q21_1": "Exemple restes de vegetació",
-        "default-Q21_1": "Exemple restes de vegetació"
+        "spain-Q21_1": "Exemple d'acumulació de vegetació morta",
+        "default-Q21_1": "Exemple d'acumulació de vegetació morta"
     },
     "Q22-images": {
         "spain-Q22_1": "Tanca de fusta",
@@ -599,18 +595,14 @@
         "spain-Q22_3": "Tanca de barrots metàl·lics",
         "spain-Q22_4": "Tanca de filferro",
         "spain-Q22_5": "Paret d'obra de més de 2 m",
-        "spain-Q22_6": "Paret d'obra de menys de 2 m",
-        "spain-Q22_7": "Tanca metàl·lica de 2 m",
-        "default-Q22_1": "Tanca de fusta",
+        "default-Q22_1": "VTanca de fusta",
         "default-Q22_2": "Tanca d'arbusts molt inflamables",
         "default-Q22_3": "Tanca de barrots metàl·lics",
         "default-Q22_4": "Tanca de filferro",
-        "default-Q22_5": "Paret d'obra de més de 2 m",
-        "default-Q22_6": "Paret d'obra de menys de 2 m",
-        "default-Q22_7": "Tanca metàl·lica de 2 m"
+        "default-Q22_5": "Paret d'obra de més de 2 m"
     },
     "Q23-images": {
-        "spain-Q23_1": "D'esquerre a dreta: terreny pla, a mitja pendent i al capdamunt de la carena",
-        "default-Q23_1": "D'esquerre a dreta: terreny pla, a mitja pendent i al capdamunt de la carena"
+        "spain-Q23_1": "D'esquerre a dreta: cases en terreny pla, a mitja pendent i al capdamunt de la carena",
+        "default-Q23_1": "D'esquerre a dreta: cases en terreny pla, a mitja pendent i al capdamunt de la carena"
     }
 }

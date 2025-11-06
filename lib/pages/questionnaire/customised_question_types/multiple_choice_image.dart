@@ -161,7 +161,11 @@ class _CustomViewState extends State<MultipleChoiceImageView> {
             ),
           if (_showDescription) showDescription(),
           //const SizedBox(height: 10),
-          if (widget.images.isNotEmpty) imageWidget(),
+          if (widget.images.isNotEmpty)
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20.0),
+              child: imageWidget(),
+            ),
           Column(
             children: [
               const Divider(

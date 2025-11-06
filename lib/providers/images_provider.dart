@@ -20,8 +20,8 @@ class ImagesProvider with ChangeNotifier {
           .loadString('assets/images/$envNameLower/images_$envNameLower.json');
       print('Loaded images_$envNameLower.json');
     } catch (e) {
-      jsonString = await rootBundle
-          .loadString('assets/images/default/images_default.json');
+      jsonString =
+          await rootBundle.loadString('assets/images/spain/images_spain.json');
     }
     Map<String, dynamic> jsonData = jsonDecode(jsonString);
 
