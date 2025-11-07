@@ -1,8 +1,9 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:fireprime/firebase/event_manage.dart';
+/* import 'package:fireprime/firebase/event_manage.dart';
 import 'package:flutter/gestures.dart';
+ */
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
+//import 'package:url_launcher/url_launcher.dart';
 
 class AboutPage extends StatelessWidget {
   const AboutPage({super.key});
@@ -17,7 +18,7 @@ class AboutPage extends StatelessWidget {
         ),
         leading: IconButton(
           onPressed: () {
-            saveEventdata(screenId: 'about_page', buttonId: 'back');
+            //  saveEventdata(screenId: 'about_page', buttonId: 'back');
             Navigator.of(context).pop();
           },
           icon: const Icon(Icons.arrow_back),

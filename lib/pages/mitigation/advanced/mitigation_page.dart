@@ -1,6 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:fireprime/constants.dart';
-import 'package:fireprime/firebase/event_manage.dart';
+//import 'package:fireprime/firebase/event_manage.dart';
 import 'package:fireprime/pages/house/house_list_page.dart';
 import 'package:fireprime/pages/questionnaire/advanced/mitigation_questionnaire.dart';
 import 'package:fireprime/providers/house_provider.dart';
@@ -43,7 +43,7 @@ class _MitigationPageState extends State<MitigationPage> {
             child: IconButton(
               icon: const Icon(Icons.home),
               onPressed: () {
-                saveEventdata(screenId: 'mitigation_page', buttonId: 'home');
+                //    saveEventdata(screenId: 'mitigation_page', buttonId: 'home');
                 Navigator.of(context).push(
                   MaterialPageRoute(
                     builder: (BuildContext context) {

@@ -1,4 +1,4 @@
-import 'package:easy_localization/easy_localization.dart';
+/*import 'package:easy_localization/easy_localization.dart';
 import 'package:fireprime/autocomplete/google_places_autocomplete.dart';
 import 'package:fireprime/firebase/event_manage.dart';
 import 'package:flutter/material.dart';
@@ -163,3 +163,4 @@ class _AutoCompleteState extends State<AutoCompleteWidget> {
     });
   }
 }
+*/

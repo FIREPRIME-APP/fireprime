@@ -5,7 +5,7 @@ import 'package:fireprime/autocomplete/zip_code.dart';
 //import 'package:fireprime/config.dart';
 import 'package:fireprime/constants.dart';
 //import 'package:fireprime/firebase/api_key_manage.dart';
-import 'package:fireprime/firebase/event_manage.dart';
+//import 'package:fireprime/firebase/event_manage.dart';
 import 'package:fireprime/model/house.dart';
 import 'package:fireprime/providers/house_provider.dart';
 import 'package:fireprime/widgets/utils.dart';
@@ -74,9 +74,10 @@ class _EditHousePageState extends State<EditHousePage> {
               actions: <Widget>[
                 TextButton(
                   onPressed: () {
-                    saveEventdata(
+                    /* saveEventdata(
                         screenId: 'edit_house',
                         buttonId: 'noLatLong_warning_accept');
+                    */
                     Navigator.of(context).pop();
                     house.editHouse(_name.text, _address.text, _zipCode.text);
                     Navigator.of(context).pop();
@@ -85,9 +86,10 @@ class _EditHousePageState extends State<EditHousePage> {
                 ),
                 TextButton(
                   onPressed: () {
-                    saveEventdata(
+                    /*  saveEventdata(
                         screenId: 'edit_house',
                         buttonId: 'noLatLong_warning_try_again');
+                    */
                     Navigator.of(context).pop();
                   },
                   child: Text(context.tr('try_again')),
@@ -103,7 +105,7 @@ class _EditHousePageState extends State<EditHousePage> {
       }
 
       house.editHouse(_name.text, _address.text, _zipCode.text);
-      saveEventdata(screenId: 'edit_house_page', buttonId: 'save_edited_house');
+      //saveEventdata(screenId: 'edit_house_page', buttonId: 'save_edited_house');
 
       Navigator.of(context).pop();
     }
@@ -141,7 +143,7 @@ class _EditHousePageState extends State<EditHousePage> {
         ),
         leading: IconButton(
           onPressed: () {
-            saveEventdata(screenId: 'edit_house_page', buttonId: 'back');
+            // saveEventdata(screenId: 'edit_house_page', buttonId: 'back');
             Navigator.of(context).pop();
           },
           icon: const Icon(Icons.arrow_back),

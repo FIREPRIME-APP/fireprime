@@ -1,13 +1,12 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:fireprime/constants.dart';
-import 'package:fireprime/firebase/event_manage.dart';
+//import 'package:fireprime/firebase/event_manage.dart';
 import 'package:fireprime/model/house.dart';
 import 'package:fireprime/pages/house/choose_mode.dart';
 import 'package:fireprime/pages/house/edit_house_page.dart';
 import 'package:fireprime/providers/house_provider.dart';
 import 'package:fireprime/widgets/card_text.dart';
 import 'package:fireprime/widgets/house_delete_alert.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -25,7 +24,7 @@ class HouseCard extends StatelessWidget {
       width: MediaQuery.of(context).size.width,
       child: GestureDetector(
         onTap: () async {
-          saveEventdata(screenId: 'house_list', buttonId: 'house_card');
+          // saveEventdata(screenId: 'house_list', buttonId: 'house_card');
           houseProvider.setCurrentHouse(houseKey);
           Navigator.of(context).push(
             MaterialPageRoute(
@@ -51,8 +50,9 @@ class HouseCard extends StatelessWidget {
                         icon: const Icon(Icons.more_vert),
                         onSelected: (value) async {
                           if (value == 0) {
-                            saveEventdata(
+                            /*   saveEventdata(
                                 screenId: 'house_page', buttonId: 'edit_house');
+                           */
                             Navigator.of(context).push(
                               MaterialPageRoute(
                                 builder: (BuildContext context) {
@@ -65,9 +65,10 @@ class HouseCard extends StatelessWidget {
                             );
                           } else if (value == 1) {
                             houseProvider.setCurrentHouse(houseKey);
-                            saveEventdata(
+                            /*   saveEventdata(
                                 screenId: 'house_page',
                                 buttonId: 'delete_house');
+                          */
                             await showDialog(
                               context: context,
                               builder: (BuildContext context) {

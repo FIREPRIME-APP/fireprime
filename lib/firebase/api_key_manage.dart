@@ -1,4 +1,4 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
+/*import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:fireprime/config.dart';
 
 Future<void> getApiKey() async {
@@ -10,4 +10,4 @@ Future<void> getApiKey() async {
   Config.API_KEY = apiKeySnapshot.data()?['places'] ?? '';
 
   print('API Key: ${Config.API_KEY}');
-}
+}*/

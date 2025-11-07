@@ -1,6 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:fireprime/constants.dart';
-import 'package:fireprime/firebase/event_manage.dart';
+//import 'package:fireprime/firebase/event_manage.dart';
 import 'package:fireprime/widgets/gauge.dart';
 import 'package:fireprime/model/event_probability.dart';
 import 'package:fireprime/model/risk_assessment.dart';
@@ -89,7 +89,7 @@ class _HistoricalResultsPageState extends State<HistoricalResultsPage> {
   }
 
   void _toggleLinearGauge(var spotIndex) {
-    saveEventdata(screenId: 'historical_result_page', buttonId: 'graphic');
+    //saveEventdata(screenId: 'historical_result_page', buttonId: 'graphic');
     setState(
       () {
         _touchedIndex = spotIndex;
@@ -144,7 +144,7 @@ class _HistoricalResultsPageState extends State<HistoricalResultsPage> {
         ),
         leading: IconButton(
           onPressed: () {
-            saveEventdata(screenId: 'historical_result_page', buttonId: 'back');
+            //saveEventdata(screenId: 'historical_result_page', buttonId: 'back');
             Navigator.of(context).pop();
           },
           icon: const Icon(Icons.arrow_back),
@@ -212,9 +212,10 @@ class _HistoricalResultsPageState extends State<HistoricalResultsPage> {
                               duration: const Duration(milliseconds: 1000),
                               curve: Curves.easeInOut,
                             );
-                            saveEventdata(
+                            /*  saveEventdata(
                                 screenId: 'historical_results',
                                 buttonId: 'details_linear_gauge');
+                           */
                             setState(() {
                               _showDetails = !_showDetails;
                               for (var entry in _showLinearGauge.entries) {
@@ -487,13 +488,15 @@ class _HistoricalResultsPageState extends State<HistoricalResultsPage> {
       setState(() {
         if (_showLinearGauge[key]!) {
           _showLinearGauge[key] = false;
-          saveEventdata(
+          /*  saveEventdata(
               screenId: 'historical_results', buttonId: 'hide_${key}_details');
+        */
         } else {
           _showLinearGauge.updateAll((key, value) => false);
           _showLinearGauge[key] = true;
-          saveEventdata(
+          /* saveEventdata(
               screenId: 'historical_results', buttonId: 'show_${key}_details');
+         */
         }
       });
     }

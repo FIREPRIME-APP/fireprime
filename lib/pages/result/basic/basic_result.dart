@@ -3,7 +3,7 @@ import 'dart:io';
 
 import 'package:easy_localization/easy_localization.dart';
 import 'package:fireprime/constants.dart';
-import 'package:fireprime/firebase/event_manage.dart';
+//import 'package:fireprime/firebase/event_manage.dart';
 import 'package:fireprime/model/basic_result.dart';
 import 'package:fireprime/model/house.dart';
 import 'package:fireprime/pages/house/basic/basic_house.dart';
@@ -182,10 +182,10 @@ class _BasicResultPageState extends State<BasicResultPage> {
                           },
                         );
                         try {
-                          saveEventdata(
+                          /*  saveEventdata(
                               screenId: 'result_page',
                               buttonId: 'download_results');
-
+ */
                           Color riskColor = Utils.getBasicRiskColor(level);
                           String riskLevel = context
                                   .tr('risk_levels.$level')[0]

@@ -1,4 +1,4 @@
-import 'dart:convert';
+/*import 'dart:convert';
 
 import 'package:device_info_plus/device_info_plus.dart';
 import 'dart:io';
@@ -77,4 +77,4 @@ Future<void> saveDeviceData(BuildContext context) async {
       print('Error adding event: $e');
     }
   }
-}
+}*/

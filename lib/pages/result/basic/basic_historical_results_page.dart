@@ -1,5 +1,4 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:fireprime/firebase/event_manage.dart';
 import 'package:fireprime/model/basic_result.dart';
 import 'package:fireprime/widgets/utils.dart';
 import 'package:fl_chart/fl_chart.dart';
@@ -71,7 +70,7 @@ class _BasicHistoricalResultsPageState
         ),
         leading: IconButton(
           onPressed: () {
-            saveEventdata(screenId: 'historical_result_page', buttonId: 'back');
+            // saveEventdata(screenId: 'historical_result_page', buttonId: 'back');
             Navigator.of(context).pop();
           },
           icon: const Icon(Icons.arrow_back),

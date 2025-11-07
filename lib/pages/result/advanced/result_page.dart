@@ -2,7 +2,7 @@ import 'dart:io';
 import 'dart:ui';
 
 import 'package:fireprime/constants.dart';
-import 'package:fireprime/firebase/event_manage.dart';
+//import 'package:fireprime/firebase/event_manage.dart';
 import 'package:fireprime/model/house.dart';
 import 'package:fireprime/pages/mitigation/advanced/mitigation.dart';
 import 'package:fireprime/pages/mitigation/advanced/mitigation_page.dart';
@@ -63,7 +63,7 @@ class _ResultPageState extends State<ResultPage> {
 
   bool _toggleFactors() {
     setState(() {
-      saveEventdata(screenId: 'result_page', buttonId: 'details');
+      //  saveEventdata(screenId: 'result_page', buttonId: 'details');
       _showFactors = !_showFactors;
       for (var entry in _showLinearGauge.entries) {
         _showLinearGauge[entry.key] = false;
@@ -122,15 +122,17 @@ class _ResultPageState extends State<ResultPage> {
       setState(() {
         if (_showLinearGauge[key]!) {
           _showLinearGauge[key] = false;
-          saveEventdata(
+          /*  saveEventdata(
               screenId: 'result_page',
               buttonId: 'hide_${_showLinearGauge[key]}_details');
+        */
         } else {
           _showLinearGauge.updateAll((key, value) => false);
           _showLinearGauge[key] = true;
 
-          saveEventdata(
+          /* saveEventdata(
               screenId: 'result_page', buttonId: 'show_${key}_details');
+        */
         }
       });
     }
@@ -148,7 +150,7 @@ class _ResultPageState extends State<ResultPage> {
         ),
         leading: IconButton(
           onPressed: () {
-            saveEventdata(screenId: 'result_page', buttonId: 'back');
+            //saveEventdata(screenId: 'result_page', buttonId: 'back');
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (BuildContext context) {
@@ -310,9 +312,10 @@ class _ResultPageState extends State<ResultPage> {
                                               : const Color.fromARGB(
                                                   255, 252, 252, 252)),
                                       onPressed: () {
-                                        saveEventdata(
+/*                                         saveEventdata(
                                             screenId: 'result_page',
                                             buttonId: 'show_details');
+                               */
                                         _toggleLinearGauge(entry.key);
                                         scrollCtrl.animateTo(
                                           scrollCtrl.position.extentTotal,
@@ -403,8 +406,9 @@ class _ResultPageState extends State<ResultPage> {
                 style: const TextStyle(color: Colors.white),
               ),
               onPressed: () {
-                saveEventdata(
+                /*    saveEventdata(
                     screenId: 'result_page', buttonId: 'check_improvements');
+              */
                 Navigator.of(context).push(
                   MaterialPageRoute(
                     builder: (BuildContext context) {
@@ -461,9 +465,9 @@ class _ResultPageState extends State<ResultPage> {
                         value.map((e) => e['text']!).toList();
                   });
 
-                  saveEventdata(
+                  /*  saveEventdata(
                       screenId: 'result_page', buttonId: 'download_results');
-
+ */
                   House house =
                       houseProvider.getHouse(houseProvider.currentHouse!);
 

@@ -1,4 +1,4 @@
-import 'package:fireprime/firebase/event_manage.dart';
+//import 'package:fireprime/firebase/event_manage.dart';
 import 'package:flutter/material.dart';
 
 class InputField extends StatefulWidget {
@@ -66,7 +66,7 @@ class _InputFieldState extends State<InputField> {
   void _onFocusChange() {
     print('Focus: ${_focusNode.hasFocus}');
     if (_focusNode.hasFocus) {
-      saveEventdata(screenId: widget.screenId, buttonId: widget.buttonId);
+      //saveEventdata(screenId: widget.screenId, buttonId: widget.buttonId);
     }
   }
 }

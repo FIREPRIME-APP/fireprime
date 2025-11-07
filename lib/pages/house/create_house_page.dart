@@ -1,9 +1,9 @@
 import 'package:diacritic/diacritic.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:fireprime/autocomplete/zip_code.dart';
-import 'package:fireprime/config.dart';
+/* import 'package:fireprime/config.dart';
 import 'package:fireprime/firebase/api_key_manage.dart';
-import 'package:fireprime/firebase/event_manage.dart';
+import 'package:fireprime/firebase/event_manage.dart'; */
 import 'package:fireprime/providers/house_provider.dart';
 import 'package:fireprime/constants.dart';
 import 'package:fireprime/model/house.dart';
@@ -83,7 +83,7 @@ class _CreateHousePageState extends State<CreateHousePage> {
     } else if (_name.text.isNotEmpty &&
         _zipCode.text.isNotEmpty &&
         _selectedEnvironment != null) {
-      saveEventdata(screenId: 'create_house_page', buttonId: 'create_house');
+      // saveEventdata(screenId: 'create_house_page', buttonId: 'create_house');
       Map<String, dynamic> latLong = {};
       showDialog(
         context: context,
@@ -129,9 +129,9 @@ class _CreateHousePageState extends State<CreateHousePage> {
               actions: <Widget>[
                 TextButton(
                   onPressed: () {
-                    saveEventdata(
+                    /*  saveEventdata(
                         screenId: 'create_house_page',
-                        buttonId: 'noLatLong_warning_accept');
+                        buttonId: 'noLatLong_warning_accept'); */
                     Navigator.of(context).pop();
                     House newHouse = House(_name.text, _address.text,
                         _selectedEnvironment!, _zipCode.text);
@@ -142,9 +142,9 @@ class _CreateHousePageState extends State<CreateHousePage> {
                 ),
                 TextButton(
                   onPressed: () {
-                    saveEventdata(
+                    /* saveEventdata(
                         screenId: 'create_house_page',
-                        buttonId: 'noLatLong_warning_try_again');
+                        buttonId: 'noLatLong_warning_try_again'); */
                     Navigator.of(context).pop();
                   },
                   child: Text(context.tr('try_again')),
@@ -181,9 +181,9 @@ class _CreateHousePageState extends State<CreateHousePage> {
   @override
   Widget build(BuildContext context) {
     final Map<String, String> sortedCountries = _getStoredCountries(context);
-    if (Config.API_KEY == '') {
+    /*  if (Config.API_KEY == '') {
       getApiKey();
-    }
+    } */
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -192,7 +192,7 @@ class _CreateHousePageState extends State<CreateHousePage> {
         ),
         leading: IconButton(
           onPressed: () {
-            saveEventdata(screenId: 'create_house_page', buttonId: 'back');
+            //  saveEventdata(screenId: 'create_house_page', buttonId: 'back');
             Navigator.of(context).pop();
           },
           icon: const Icon(Icons.arrow_back),
@@ -233,9 +233,10 @@ class _CreateHousePageState extends State<CreateHousePage> {
                 DropdownButtonFormField<String>(
                   value: _selectedEnvironment,
                   onChanged: (String? newValue) {
-                    saveEventdata(
+                    /*   saveEventdata(
                         screenId: 'create_house_page',
                         buttonId: 'select_country');
+                   */
                     setState(() {
                       _selectedEnvironment = newValue!;
                       _selectedCountryCode = Constants

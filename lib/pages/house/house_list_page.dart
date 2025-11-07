@@ -2,9 +2,9 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:fireprime/notifications/local_notification.dart';
 import 'package:fireprime/pages/information/about_page.dart';
 import 'package:fireprime/constants.dart';
-import 'package:fireprime/firebase/event_manage.dart';
+//import 'package:fireprime/firebase/event_manage.dart';
 import 'package:fireprime/providers/house_provider.dart';
-import 'package:fireprime/firebase/device_manage.dart';
+//import 'package:fireprime/firebase/device_manage.dart';
 import 'package:fireprime/pages/house/create_house_page.dart';
 import 'package:fireprime/pages/language/language_page.dart';
 import 'package:fireprime/widgets/house_card.dart';
@@ -67,12 +67,12 @@ class _HouseListPageState extends State<HouseListPage> {
           } else if (snapshot.hasError) {
             return const Center(child: Text('Error'));
           } else {
-            WidgetsBinding.instance.addPostFrameCallback((_) {
+            /*WidgetsBinding.instance.addPostFrameCallback((_) {
               /*  if (_showPopup) {
                 _showPrivacyPopup(context);
               }*/
-              saveDeviceData(context);
-            });
+              // saveDeviceData(context);
+            });*/
 
             /* var houses = houseProvider.getHouses();
             print('houses:');
@@ -219,7 +219,7 @@ class _HouseListPageState extends State<HouseListPage> {
       const Spacer(),
       IconButton(
         onPressed: () {
-          saveEventdata(screenId: 'house_list', buttonId: 'change_language');
+          //saveEventdata(screenId: 'house_list', buttonId: 'change_language');
           Navigator.of(context).push(
             MaterialPageRoute(
               builder: (BuildContext context) {
@@ -253,7 +253,7 @@ class _HouseListPageState extends State<HouseListPage> {
           style: ElevatedButton.styleFrom(
               backgroundColor: Constants.blueDark, elevation: 5.0),
           onPressed: () {
-            saveEventdata(screenId: 'house_list', buttonId: 'add_house');
+            // saveEventdata(screenId: 'house_list', buttonId: 'add_house');
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (BuildContext context) {
@@ -272,7 +272,7 @@ class _HouseListPageState extends State<HouseListPage> {
           style: ElevatedButton.styleFrom(
               backgroundColor: Constants.blueDark, elevation: 5.0),
           onPressed: () {
-            saveEventdata(screenId: 'house_list', buttonId: 'more_info');
+            //saveEventdata(screenId: 'house_list', buttonId: 'more_info');
             //TODO
             //saveEventdata(screenId: 'house_list', buttonId: 'about');
             Navigator.of(context).push(

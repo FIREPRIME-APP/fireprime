@@ -1,7 +1,7 @@
-import 'dart:ffi';
+//import 'dart:ffi';
 
 import 'package:fireprime/fault_tree/node.dart';
-import 'package:fireprime/firebase/event_manage.dart';
+//import 'package:fireprime/firebase/event_manage.dart';
 import 'package:fireprime/model/event_probability.dart';
 import 'package:fireprime/model/house.dart';
 import 'package:fireprime/model/risk_assessment.dart';
@@ -89,9 +89,9 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                         Map<String, String?> results = {};
 
                         if (result.finishReason == FinishReason.COMPLETED) {
-                          saveEventdata(
+                          /*  saveEventdata(
                               screenId: 'questionnaire_page',
-                              buttonId: 'finish');
+                              buttonId: 'finish'); */
                           results =
                               Questionnaire().adaptedResult(results, result);
 
@@ -125,9 +125,9 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                           );
                         } else {
                           print('finishReason: ${result.finishReason}');
-                          saveEventdata(
+                          /*    saveEventdata(
                               screenId: 'questionnaire_page',
-                              buttonId: 'cancel');
+                              buttonId: 'cancel'); */
                           results =
                               Questionnaire().adaptedResult(answers, result);
 

@@ -1,4 +1,4 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
+/*import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:fireprime/firebase/device_manage.dart';
 
 Future<void> saveAnswerData({
@@ -30,4 +30,4 @@ Future<void> saveAnswerData({
   } catch (e) {
     print('Error adding event: $e');
   }
-}
+}*/

@@ -1,6 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:fireprime/constants.dart';
-import 'package:fireprime/firebase/event_manage.dart';
+//import 'package:fireprime/firebase/event_manage.dart';
 import 'package:fireprime/pages/house/choose_mode.dart';
 import 'package:fireprime/pages/mitigation/advanced/mitigation_page.dart';
 import 'package:fireprime/providers/house_provider.dart';
@@ -56,7 +56,7 @@ class _HousePageState extends State<HousePage> {
         // centerTitle: true,
         leading: IconButton(
           onPressed: () {
-            saveEventdata(screenId: 'house_page', buttonId: 'back');
+            //saveEventdata(screenId: 'house_page', buttonId: 'back');
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (BuildContext context) {
@@ -70,7 +70,7 @@ class _HousePageState extends State<HousePage> {
         actions: [
           IconButton(
             onPressed: () {
-              saveEventdata(screenId: 'house_page', buttonId: 'choose_mode');
+              //saveEventdata(screenId: 'house_page', buttonId: 'choose_mode');
               Navigator.of(context).push(
                 MaterialPageRoute(
                   builder: (BuildContext context) {
@@ -85,7 +85,7 @@ class _HousePageState extends State<HousePage> {
             icon: const Icon(Icons.more_vert),
             onSelected: (value) async {
               if (value == 0) {
-                saveEventdata(screenId: 'house_page', buttonId: 'edit_house');
+                //saveEventdata(screenId: 'house_page', buttonId: 'edit_house');
                 Navigator.of(context).push(
                   MaterialPageRoute(
                     builder: (BuildContext context) {
@@ -96,7 +96,7 @@ class _HousePageState extends State<HousePage> {
                   ),
                 );
               } else if (value == 1) {
-                saveEventdata(screenId: 'house_page', buttonId: 'delete_house');
+                //saveEventdata(screenId: 'house_page', buttonId: 'delete_house');
                 await showDialog(
                   context: context,
                   builder: (BuildContext context) {
@@ -164,9 +164,9 @@ class _HousePageState extends State<HousePage> {
                       buttonText: context.tr('update'),
                       cardColor: const Color.fromARGB(255, 184, 194, 219),
                       onPressed: () {
-                        saveEventdata(
+                        /* saveEventdata(
                             screenId: 'house_page',
-                            buttonId: 'update_questionnaire');
+                            buttonId: 'update_questionnaire');*/
                         Navigator.of(context).push(
                           MaterialPageRoute(
                             builder: (BuildContext context) {
@@ -186,9 +186,9 @@ class _HousePageState extends State<HousePage> {
                       buttonText: context.tr('check'),
                       cardColor: const Color.fromARGB(255, 184, 194, 219),
                       onPressed: () {
-                        saveEventdata(
+                        /*  saveEventdata(
                             screenId: 'house_page',
-                            buttonId: 'start_first_questionnaire');
+                            buttonId: 'start_first_questionnaire');*/
                         Navigator.of(context).push(
                           MaterialPageRoute(
                             builder: (BuildContext context) {
@@ -210,9 +210,9 @@ class _HousePageState extends State<HousePage> {
                       buttonText: context.tr('continue'),
                       cardColor: const Color.fromARGB(255, 184, 194, 219),
                       onPressed: () {
-                        saveEventdata(
+                        /* saveEventdata(
                             screenId: 'house_page',
-                            buttonId: 'continue_questionnaire');
+                            buttonId: 'continue_questionnaire');*/
                         Navigator.of(context).push(
                           MaterialPageRoute(
                             builder: (BuildContext context) {
@@ -246,9 +246,9 @@ class _HousePageState extends State<HousePage> {
                     buttonText: context.tr('check_improvements'),
                     cardColor: const Color.fromARGB(255, 159, 171, 201),
                     onPressed: () {
-                      saveEventdata(
+                      /*  saveEventdata(
                           screenId: 'house_page',
-                          buttonId: 'check_improvements');
+                          buttonId: 'check_improvements');*/
                       if (lastCompletedRiskAssessment != null) {
                         Navigator.of(context).push(
                           MaterialPageRoute(
@@ -270,9 +270,9 @@ class _HousePageState extends State<HousePage> {
                     buttonText: context.tr('my_results'),
                     cardColor: const Color.fromARGB(255, 132, 149, 189),
                     onPressed: () {
-                      saveEventdata(
+                      /* saveEventdata(
                           screenId: 'house_page',
-                          buttonId: 'view_results_history');
+                          buttonId: 'view_results_history');*/
                       List<RiskAssessment> riskAssessments =
                           house.getRiskAssessments();
                       Navigator.of(context).push(
@@ -372,9 +372,9 @@ class _HousePageState extends State<HousePage> {
                             ),
                             ElevatedButton(
                               onPressed: () {
-                                saveEventdata(
+                                /*   saveEventdata(
                                     screenId: 'house_page',
-                                    buttonId: 'viewResults');
+                                    buttonId: 'viewResults');*/
                                 Navigator.of(context).push(
                                   MaterialPageRoute(
                                     builder: (BuildContext context) {
@@ -506,18 +506,18 @@ class _HousePageState extends State<HousePage> {
             actions: <Widget>[
               TextButton(
                 onPressed: () {
-                  saveEventdata(
+                  /*  saveEventdata(
                       screenId: 'house_page',
-                      buttonId: 'noLatLong_warning_accept');
+                      buttonId: 'noLatLong_warning_accept'); */
                   Navigator.of(context).pop();
                 },
                 child: Text(context.tr('accept')),
               ),
               TextButton(
                 onPressed: () {
-                  saveEventdata(
+                  /*  saveEventdata(
                       screenId: 'house_page',
-                      buttonId: 'noLatLong_warning_edit_house');
+                      buttonId: 'noLatLong_warning_edit_house'); */
                   Navigator.of(context).pop();
                   Navigator.of(context).push(
                     MaterialPageRoute(

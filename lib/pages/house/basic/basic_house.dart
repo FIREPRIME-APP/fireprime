@@ -1,6 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:fireprime/constants.dart';
-import 'package:fireprime/firebase/event_manage.dart';
+//import 'package:fireprime/firebase/event_manage.dart';
 import 'package:fireprime/model/basic_result.dart';
 import 'package:fireprime/model/house.dart';
 import 'package:fireprime/pages/house/choose_mode.dart';
@@ -35,7 +35,7 @@ class BasicHousePage extends StatelessWidget {
         ),
         leading: IconButton(
           onPressed: () {
-            saveEventdata(screenId: 'house_page', buttonId: 'back');
+            //saveEventdata(screenId: 'house_page', buttonId: 'back');
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (BuildContext context) {
@@ -63,7 +63,7 @@ class BasicHousePage extends StatelessWidget {
             icon: const Icon(Icons.more_vert),
             onSelected: (value) async {
               if (value == 0) {
-                saveEventdata(screenId: 'house_page', buttonId: 'edit_house');
+                //   saveEventdata(screenId: 'house_page', buttonId: 'edit_house');
                 Navigator.of(context).push(
                   MaterialPageRoute(
                     builder: (BuildContext context) {
@@ -74,7 +74,7 @@ class BasicHousePage extends StatelessWidget {
                   ),
                 );
               } else if (value == 1) {
-                saveEventdata(screenId: 'house_page', buttonId: 'delete_house');
+                //   saveEventdata(screenId: 'house_page', buttonId: 'delete_house');
                 await showDialog(
                   context: context,
                   builder: (BuildContext context) {
@@ -198,9 +198,10 @@ class BasicHousePage extends StatelessWidget {
                                               ),
                                               ElevatedButton(
                                                 onPressed: () {
-                                                  saveEventdata(
+                                                  /*   saveEventdata(
                                                       screenId: 'house_page',
                                                       buttonId: 'viewResults');
+                                                   */
                                                   Navigator.of(context).push(
                                                     MaterialPageRoute(
                                                       builder: (BuildContext
@@ -257,9 +258,10 @@ class BasicHousePage extends StatelessWidget {
                         buttonText: context.tr('update'),
                         cardColor: const Color.fromARGB(255, 184, 194, 219),
                         onPressed: () {
-                          saveEventdata(
+                          /*   saveEventdata(
                               screenId: 'house_page',
                               buttonId: 'update_basic_questionnaire');
+                         */
                           Navigator.push(
                             context,
                             MaterialPageRoute(
@@ -277,9 +279,10 @@ class BasicHousePage extends StatelessWidget {
                         buttonText: context.tr('check'),
                         cardColor: const Color.fromARGB(255, 184, 194, 219),
                         onPressed: () {
-                          saveEventdata(
+                          /*  saveEventdata(
                               screenId: 'house_page',
                               buttonId: 'start_basic_questionnaire');
+                         */
                           Navigator.push(
                             context,
                             MaterialPageRoute(
@@ -297,9 +300,10 @@ class BasicHousePage extends StatelessWidget {
                         buttonText: context.tr('continue'),
                         cardColor: const Color.fromARGB(255, 184, 194, 219),
                         onPressed: () {
-                          saveEventdata(
+                          /*  saveEventdata(
                               screenId: 'house_page',
                               buttonId: 'continue_basic_questionnaire');
+                         */
                           Navigator.push(
                             context,
                             MaterialPageRoute(
@@ -319,9 +323,10 @@ class BasicHousePage extends StatelessWidget {
                       buttonText: context.tr('my_results'),
                       cardColor: const Color.fromARGB(255, 132, 149, 189),
                       onPressed: () {
-                        saveEventdata(
+                        /* saveEventdata(
                             screenId: 'house_page',
                             buttonId: 'view_basic_results_history');
+                       */
                         List<BasicResult> basicResults =
                             house.getBasicResults();
 
@@ -344,9 +349,10 @@ class BasicHousePage extends StatelessWidget {
                       buttonText: context.tr('advices'),
                       cardColor: const Color.fromARGB(255, 159, 171, 201),
                       onPressed: () {
-                        saveEventdata(
+                        /*  saveEventdata(
                             screenId: 'house_page',
                             buttonId: 'view_basic_advices');
+                       */
                         Navigator.push(
                           context,
                           MaterialPageRoute(

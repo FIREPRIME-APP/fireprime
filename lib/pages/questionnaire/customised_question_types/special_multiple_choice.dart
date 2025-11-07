@@ -1,6 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:fireprime/model/customised_image.dart';
-import 'package:fireprime/firebase/event_manage.dart';
+//import 'package:fireprime/firebase/event_manage.dart';
 import 'package:fireprime/widgets/selection_list_tile.dart';
 import 'package:flutter/material.dart' hide Step;
 import 'package:insta_image_viewer/insta_image_viewer.dart';
@@ -104,11 +104,11 @@ class _CustomViewState extends State<MultipleChoiceImageView> {
   }
 
   void _toggleDescription() {
-    if (_showDescription) {
+    /*  if (_showDescription) {
       saveEventdata(screenId: 'questionnaire_page', buttonId: 'hide_help');
     } else {
       saveEventdata(screenId: 'questionnaire_page', buttonId: 'show_help');
-    }
+    } */
     setState(() {
       _showDescription = !_showDescription;
     });
@@ -131,8 +131,9 @@ class _CustomViewState extends State<MultipleChoiceImageView> {
     return StepView(
       step: widget.questionStep,
       resultFunction: () {
-        saveEventdata(
+        /*  saveEventdata(
             screenId: 'questionnaire_page', buttonId: 'next_question');
+        */
         return MultipleChoiceQuestionResult(
           id: widget.questionStep.stepIdentifier,
           startDate: _startDate,

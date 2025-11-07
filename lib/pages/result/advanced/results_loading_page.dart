@@ -1,5 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:fireprime/firebase/answer_manage.dart';
+//import 'package:fireprime/firebase/answer_manage.dart';
 import 'package:fireprime/model/event_probability.dart';
 import 'package:fireprime/model/house.dart';
 import 'package:fireprime/pages/result/advanced/result_page.dart';
@@ -67,7 +67,7 @@ class ResultsLoadingPage extends StatelessWidget {
               });
 
               risk.then((calculatedRisk) {
-                saveAnswerData(
+                /*  saveAnswerData(
                   houseId: house.name,
                   houseAddress: house.address ?? '',
                   answers: answersAdapted,
@@ -75,7 +75,7 @@ class ResultsLoadingPage extends StatelessWidget {
                   long: house.long ?? 0.0,
                   vulnerability: vulnerability,
                   totalRisk: calculatedRisk,
-                );
+                ); */
               });
 
               Navigator.of(context).pushReplacement(
