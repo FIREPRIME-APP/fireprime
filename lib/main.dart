@@ -1,4 +1,6 @@
 //import 'package:cloud_firestore/cloud_firestore.dart';
+import 'dart:io';
+
 import 'package:easy_localization/easy_localization.dart';
 /* import 'package:firebase_app_check/firebase_app_check.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -23,7 +25,7 @@ import 'package:fireprime/providers/language_change_controller.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
-  await MediaStore.ensureInitialized();
+  if (Platform.isAndroid) await MediaStore.ensureInitialized();
   Hive.registerAdapter(HouseAdapter());
   Hive.registerAdapter(RiskAssessmentAdapter());
   Hive.registerAdapter(EventProbabilityAdapter());

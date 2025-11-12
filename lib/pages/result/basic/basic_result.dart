@@ -204,8 +204,8 @@ class _BasicResultPageState extends State<BasicResultPage> {
                             DateFormat('dd-MM-yyyy')
                                 .format(basicResult!.fiDate),
                           );
-                          Navigator.of(context).pop();
                           if (Platform.isIOS) await PdfCreator.openPdf(pdf);
+                          Navigator.of(context).pop();
                         } catch (e) {
                           print('Error generating or opening PDF: $e');
                           ScaffoldMessenger.of(context).showSnackBar(

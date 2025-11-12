@@ -483,10 +483,15 @@ class _ResultPageState extends State<ResultPage> {
                     house,
                     DateFormat('dd-MM-yyyy').format(date),
                   );
-                  Navigator.of(context).pop();
                   if (Platform.isIOS) await PdfCreator.openPdf(pdf);
+                  Navigator.of(context).pop();
                 } catch (e) {
                   print('Error generating or opening PDF: $e');
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text(context.tr('pdf_error')),
+                    ),
+                  );
                   Navigator.of(context).pop();
                 }
               },

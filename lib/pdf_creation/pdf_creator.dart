@@ -149,24 +149,30 @@ class PdfCreator {
     required String pdfName,
     required pw.Document pdf,
   }) async {
-    MediaStore.appFolder = 'FirePrime';
-    final mediaStore = MediaStore();
+    final File pdfFile;
+    if (Platform.isAndroid) {
+      print('saving pdf on android');
+      MediaStore.appFolder = 'FirePrime';
+      final mediaStore = MediaStore();
 
-    final root = Platform.isAndroid
-        ? await getTemporaryDirectory()
-        : await getApplicationDocumentsDirectory();
-    final pdfFile = File('${root.path}/$pdfName');
-    await pdfFile.writeAsBytes(await pdf.save());
-    print('saving pdf: ${pdfFile.path}');
+      final root = await getTemporaryDirectory();
+      pdfFile = File('${root.path}/$pdfName');
+      await pdfFile.writeAsBytes(await pdf.save());
+      print('saving pdf: ${pdfFile.path}');
 
-    final result = await mediaStore.saveFile(
-      tempFilePath: pdfFile.path,
-      dirType: DirType.download,
-      dirName: DirName.download,
-    );
-    if (Platform.isAndroid) await openWithIntent(result!.uri.toString());
-    //final result = await OpenFile.open(pdfFile.path);
-    //print('open file result: ${result.message}');
+      final result = await mediaStore.saveFile(
+        tempFilePath: pdfFile.path,
+        dirType: DirType.download,
+        dirName: DirName.download,
+      );
+      await openWithIntent(result!.uri.toString());
+      //final result = await OpenFile.open(pdfFile.path);
+      //print('open file result: ${result.message}');
+    } else {
+      final root = await getApplicationDocumentsDirectory();
+      pdfFile = File('${root.path}/$pdfName');
+      await pdfFile.writeAsBytes(await pdf.save());
+    }
     return pdfFile;
   }
 
@@ -435,9 +441,14 @@ class PdfCreator {
         ),
       );
       if (section['items'] != null) {
-        for (var item in section['items']) {
+        for (var content in section['items']) {
+          print(content['image']);
+          var image = await getImageFromAssets(
+              'assets/advices/icons/${content['image']}');
+          widgets
+              .add([pw.Image(pw.MemoryImage(image), width: 100, height: 100)]);
           widgets.add(await HTMLToPdf().convertMarkdown(
-            '- ${item['text']}',
+            '- ${content['text']}',
             tagStyle: tagStyle,
           ));
         }
