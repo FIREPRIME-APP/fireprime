@@ -102,12 +102,16 @@ class _HouseListPageState extends State<HouseListPage> {
                       children: [
                         /* ElevatedButton(
                           onPressed: () {
-                            LocalNotification().showNotification(
-                                0, 'Test', 'This is a test notification');
+                            LocalNotification().scheduledNotification(
+                              1,
+                              context.tr('notification_title'),
+                              context.tr('notification_body'),
+                              const Duration(seconds: 5),
+                            );
                           },
                           child: Text(context.tr('test')),
-                        ), */
-
+                        ),
+*/
                         /*  ElevatedButton(
                           onPressed: () {
                             Navigator.of(context).push(

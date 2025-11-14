@@ -66,24 +66,16 @@ class LocalNotification {
   }
 
   Future<void> scheduledNotification(
-      int id, String title, String body, int month) async {
-    tz.initializeTimeZones();
+      int id, String title, String body, Duration duration) async {
+    await flutterLocalNotificationsPlugin.cancel(id);
 
-    final now = tz.TZDateTime.now(tz.local);
-    final nextReminderTime = tz.TZDateTime(
-        tz.local,
-        now.month > month || (now.month == month && now.day > 1)
-            ? now.year + 1
-            : now.year,
-        month,
-        1,
-        9);
+    tz.initializeTimeZones();
 
     const AndroidNotificationDetails androidPlatformChannelSpecifics =
         AndroidNotificationDetails(
-      'scheduled',
-      'scheduled_notification',
-      channelDescription: 'description',
+      'questionnaire_reminder',
+      'questionnaire_reminder_channel',
+      styleInformation: BigTextStyleInformation(''),
       importance: Importance.max,
       priority: Priority.high,
     );
@@ -96,15 +88,15 @@ class LocalNotification {
         iOS: iOSPlatformChannelSpecifics);
 
     await flutterLocalNotificationsPlugin.zonedSchedule(
-      0,
+      id,
       title,
       body,
-      nextReminderTime,
+      tz.TZDateTime.now(tz.local).add(duration),
       platformChannelSpecifics,
       uiLocalNotificationDateInterpretation:
           UILocalNotificationDateInterpretation.absoluteTime,
       matchDateTimeComponents: DateTimeComponents.dateAndTime,
-      androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,
+      androidScheduleMode: AndroidScheduleMode.inexactAllowWhileIdle,
     );
   }
 }

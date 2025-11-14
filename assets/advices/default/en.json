@@ -4,15 +4,136 @@
     "sections": [
         {
             "title": "## How can you protect your home from wildfires?",
-            "content": "\n-  2-metre vegetation-free strip around the house façade\n-  6 metres between trees so that their crowns do not touch\n-  Roofs, porches and awnings free of dry leaves\n-  No firewood or flammable materials close to the house\n-  Fuels stored in protected and ventilated spaces\n-  Double glazing and non-combustible shutters or blinds\n-  Chimneys and vents covered with metal mesh\n-  Avoid fences and porches made of dry brush, cypress or thuja\n-  Long, flexible garden hose ready for use\n-  Emergency kit prepared: ID, phone with charger, cash, first aid kit, essential medication, flashlight and radio\n-  Make sure everyone in your household knows how to respond\n-  If you anticipate difficulty confining or evacuating (e.g., due to reduced mobility), inform the authorities"
+            "items": [
+                {
+                    "text": "2-metre vegetation-free strip around the house façade",
+                    "image": "protect_franja_2m.png"
+                },
+                {
+                    "text": "6 metres between trees so that their crowns do not touch",
+                    "image": "protect_distancia_6m.png"
+                },
+                {
+                    "text": "Roofs, porches and awnings free of dry leaves",
+                    "image": "protect_teulades_netes.png"
+                },
+                {
+                    "text": "No firewood or flammable materials close to the house",
+                    "image": "protect_llenya.png"
+                },
+                {
+                    "text": "Fuels stored in protected and ventilated spaces",
+                    "image": "protect_combustibles_ventilats.png"
+                },
+                {
+                    "text": "Double glazing and non-combustible shutters or blinds",
+                    "image": "protect_doble_vidre.png"
+                },
+                {
+                    "text": "Chimneys and vents covered with metal mesh",
+                    "image": "protect_xemeneies_reixetes.png"
+                },
+                {
+                    "text": "Avoid fences and porches made of dry brush, cypress or thuja",
+                    "image": "protect_evitar_tanques.png"
+                },
+                {
+                    "text": "Long, flexible garden hose ready for use",
+                    "image": "protect_manega_reg.png"
+                },
+                {
+                    "text": "Emergency kit prepared: ID, phone with charger, cash, first aid kit, essential medication, flashlight and radio",
+                    "image": "protect_equip_emergencia.png"
+                },
+                {
+                    "text": "Make sure everyone in your household knows how to respond",
+                    "image": "protect_persones_actuar.png"
+                },
+                {
+                    "text": " If you anticipate difficulty confining or evacuating (e.g., due to reduced mobility), inform the authorities",
+                    "image": "protect_informar_autoritats.png"
+                }
+            ]
         },
         {
             "title": "## What to do if a wildfire approaches your home",
-            "content": "\n-  Shelter inside the house with your household members and pets\n-  Wear long-sleeved cotton clothing\n-  Keep your emergency kit within reach\n-  Close all interior and exterior doors, windows, and lower shutters\n-  Seal any smoke entry points with wet cloths (e.g., door gaps)\n-  Turn off gas, butane or diesel supplies\n-  Turn off air conditioning until the outside air is free of smoke\n-  If time allows, remove curtains and awnings and move furniture away from the façade\n-  Leave your car in the garage with the keys in the ignition; if not, park it at least 6 metres from the house\n-  If it's safe and time permits, thoroughly wet the outer parts of the house\n-  Keep access clear for emergency vehicles\n-  Follow emergency service instructions and do not leave until it is safe to do so"
+            "intro": "### Sheltering in place is the best protection when fire is near. Stay calm and evacuate only if instructed by emergency services.",
+            "items": [
+                {
+                    "text": "Shelter inside the house with your household members and pets",
+                    "image": "aprox_dins_casa.png"
+                },
+                {
+                    "text": "Wear long-sleeved cotton clothing",
+                    "image": "aprox_roba_coto.png"
+                },
+                {
+                    "text": "Keep your emergency kit within reach",
+                    "image": "aprox_equip_emergencia.png"
+                },
+                {
+                    "text": "Close all interior and exterior doors, windows, and lower shutters",
+                    "image": "aprox_tancar_portes.png"
+                },
+                {
+                    "text": "Seal any smoke entry points with wet cloths (e.g., door gaps)",
+                    "image": "aprox_segellar_entrades_fum.png"
+                },
+                {
+                    "text": "Turn off gas, butane or diesel supplies",
+                    "image": "aprox_desconnectar_gas.png"
+                },
+                {
+                    "text": "Turn off air conditioning until the outside air is free of smoke",
+                    "image": "aprox_apagar_aire_condicionat.png"
+                },
+                {
+                    "text": "If time allows, remove curtains and awnings and move furniture away from the façade",
+                    "image": "aprox_retirar_cortines.png"
+                },
+                {
+                    "text": "Leave your car in the garage with the keys in the ignition; if not, park it at least 6 metres from the house",
+                    "image": "aprox_deixar_cotxe_garatge.png"
+                },
+                {
+                    "text": "If it's safe and time permits, thoroughly wet the outer parts of the house",
+                    "image": "aprox_remullar_zones_exteriors.png"
+                },
+                {
+                    "text": "Keep access clear for emergency vehicles",
+                    "image": "aprox_deixar_accessos.png"
+                },
+                {
+                    "text": "Follow emergency service instructions and do not leave until it is safe to do so",
+                    "image": "aprox_seguir_indicacions.png"
+                }
+            ]
         },
         {
             "title": "## What to do if evacuation is ordered",
-            "content": "\n-  Lock the house and disconnect electricity and gas\n-  Go to the location indicated by emergency services\n-  If you need help evacuating, inform emergency responders\n-  Wear long-sleeved cotton clothing, cover your head, and wear appropriate footwear\n-  Bring only your emergency kit: ID, phone with charger, cash, first aid kit, essential medication, flashlight, and radio"
+            "intro": "### Although sheltering is the default option, emergency services may order evacuation if needed:",
+            "items": [
+                {
+                    "text": "Lock the house and disconnect electricity and gas",
+                    "image": "evacuar_tancar_casa.png"
+                },
+                {
+                    "text": "Go to the location indicated by emergency services",
+                    "image": "evacuar_lloc_indicat.png"
+                },
+                {
+                    "text": "If you need help evacuating, inform emergency responders",
+                    "image": "evacuar_ajuda.png"
+                },
+                {
+                    "text": "Wear long-sleeved cotton clothing, cover your head, and wear appropriate footwear",
+                    "image": "evacuar_roba_coto.png"
+                },
+                {
+                    "text": "Bring only your emergency kit: ID, phone with charger, cash, first aid kit, essential medication, flashlight, and radio",
+                    "image": "evacuar_equip_emergencia.png"
+                }
+            ]
         }
     ],
     "more_info": "**You can find more information at:** \n [Department of the Interior and Public Security](https://interior.gencat.cat/ca/incendis-forestals/inici/)"

@@ -5,6 +5,7 @@ import 'package:fireprime/model/customised_image.dart';
 import 'package:fireprime/model/house.dart';
 import 'package:fireprime/model/questionnaire/basic_questionnaire.dart';
 import 'package:fireprime/model/questionnaire/questionnaire.dart';
+import 'package:fireprime/notifications/local_notification.dart';
 import 'package:fireprime/pages/house/basic/basic_house.dart';
 import 'package:fireprime/pages/questionnaire/customised_question_types/customised_intro.dart';
 import 'package:fireprime/pages/result/basic/basic_result.dart';
@@ -104,6 +105,12 @@ class _BasicQuestionnairePageState extends State<BasicQuestionnairePage> {
                         level,
                       );
                       await houseProvider.updateHouse();
+
+                      LocalNotification().scheduledNotification(
+                          1,
+                          context.tr('notification_title'),
+                          context.tr('notification_body'),
+                          const Duration(days: 365));
 
                       print('Task completed with result: $result');
                       Navigator.of(context).push(

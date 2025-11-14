@@ -5,6 +5,7 @@ import 'package:fireprime/fault_tree/node.dart';
 import 'package:fireprime/model/event_probability.dart';
 import 'package:fireprime/model/house.dart';
 import 'package:fireprime/model/risk_assessment.dart';
+import 'package:fireprime/notifications/local_notification.dart';
 import 'package:fireprime/pages/questionnaire/customised_question_types/customised_intro.dart';
 import 'package:fireprime/pages/result/advanced/results_loading_page.dart';
 import 'package:fireprime/providers/house_provider.dart';
@@ -108,6 +109,13 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
 
                           Map<String, EventProbability> allProbabilities =
                               faultTree.getAllNodePorbabilities(topEvent, {});
+
+                          //Notifications
+                          LocalNotification().scheduledNotification(
+                              1,
+                              context.tr('notification_title'),
+                              context.tr('notification_body'),
+                              const Duration(days: 365));
 
                           Navigator.of(context).push(
                             MaterialPageRoute(
