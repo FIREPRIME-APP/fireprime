@@ -23,6 +23,10 @@
 	<key>CFBundleVersion</key>
 	<string>$(FLUTTER_BUILD_NUMBER)</string>
 	<key>CFBundleLocalizations</key>
+	<key>NSCameraUsageDescription</key>
+    <string>This permission is required by internal libraries, although the app does not use the camera directly.</string>
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>This permission is required by internal libraries, although the app does not use the photo library directly.</string>
 	<array>
 	<string>en</string>
 	<string>ca</string>
