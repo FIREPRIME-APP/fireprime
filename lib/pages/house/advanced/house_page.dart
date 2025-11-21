@@ -5,7 +5,6 @@ import 'package:fireprime/pages/house/choose_mode.dart';
 import 'package:fireprime/pages/mitigation/advanced/mitigation_page.dart';
 import 'package:fireprime/providers/house_provider.dart';
 import 'package:fireprime/widgets/button_card.dart';
-import 'package:fireprime/widgets/gauge.dart';
 import 'package:fireprime/pages/house/edit_house_page.dart';
 import 'package:fireprime/pages/house/house_list_page.dart';
 import 'package:fireprime/model/house.dart';
@@ -15,6 +14,7 @@ import 'package:fireprime/pages/questionnaire/advanced/questionnaire_page.dart';
 import 'package:fireprime/pages/result/advanced/historical_results_page.dart';
 import 'package:fireprime/pages/result/advanced/result_page.dart';
 import 'package:fireprime/widgets/card_text.dart';
+import 'package:fireprime/widgets/gauge.dart';
 import 'package:fireprime/widgets/house_delete_alert.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -348,23 +348,38 @@ class _HousePageState extends State<HousePage> {
                                 lastRiskAssessment.risk * 100,
                                 10,
                                 4,
+                                lastRiskAssessment.hazard!,
                               ),
                             ),
                           ),
                           Column(children: [
                             const SizedBox(
-                              height: 75,
+                              height: 85,
                             ),
                             Center(
-                              child: CardText(
-                                title: showHazard
-                                    ? context.tr('risk')
-                                    : context.tr('vulnerability'),
-                                text: (lastRiskAssessment.risk * 100)
-                                    .toStringAsFixed(0),
-                                size: 18,
-                                color:
-                                    null, //Utils.textColor(lastProbability * 100),
+                              child: Column(
+                                children: [
+                                  CardText(
+                                    title: showHazard
+                                        ? context.tr('risk')
+                                        : context.tr('vulnerability'),
+                                    text: (lastRiskAssessment.risk * 100)
+                                        .toStringAsFixed(0),
+                                    size: 18,
+                                    color:
+                                        null, //Utils.textColor(lastProbability * 100),
+                                  ),
+                                  CardText(
+                                    title: context.tr('ideal_risk'),
+                                    text: (Constants.bestValue *
+                                            100 *
+                                            lastRiskAssessment.hazard!)
+                                        .toStringAsFixed(0),
+                                    size: 15,
+                                    color: const Color.fromARGB(
+                                        255, 120, 120, 120),
+                                  ),
+                                ],
                               ),
                             ),
                             const SizedBox(

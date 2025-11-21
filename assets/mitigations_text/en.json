@@ -45,22 +45,22 @@
          "questionId": "Q4-2"
      },
      "singlePane": {
-         "title": "Glass Enclosures",
-         "text": "If you are considering changing the glass, make sure to replace it with double or triple glazing or tempered glass. These types of glass are more resistant to heat from fire.",
+         "title": "Glazing Systems",
+         "text": "If you are considering changing the glazing systems, make sure to replace them with double or triple glazing or tempered glass. These types of glass are more resistant to the heat from fire.",
          "questionId": "Q5"
      },
      "noShutters": {
-         "title": "Glass Enclosures",
-         "text": "Consider installing shutters in front of all glass enclosures. Choose aluminum shutters or other fire-resistant materials (e.g., steel).",
+         "title": "Glazing Systems",
+         "text": "Consider installing shutters in front of all glazing systems. Choose aluminum shutters or other fire-resistant materials (e.g., steel).",
          "questionId": "Q6"
      },
      "woodShutters": {
-         "title": "Glass Enclosures",
+         "title": "Glazing Systems",
          "text": "To improve your home's fire resistance, consider replacing wooden shutters with aluminum ones or other fire-resistant materials (e.g., steel).",
          "questionId": "Q6"
      },
      "pvcShutters": {
-         "title": "Glass Enclosures",
+         "title": "Glazing Systems",
          "text": "To improve your home's fire resistance, consider replacing PVC shutters with aluminum ones or other fire-resistant materials (e.g., steel).",
          "questionId": "Q6"
      },
@@ -80,33 +80,33 @@
          "questionId": "Q7"
      },
      "yesSemiConf": {
-         "title": "Semi-confined Spaces Adjacent to the Building",
-         "text": "Avoid storing combustible materials in semi-confined spaces, such as porches, spaces under terraces or floors, spaces under awnings, or enclosed spaces in sheds adjacent to the building.",
+         "title": "Semi-open Spaces Adjacent to the Building",
+         "text": "Avoid storing combustible materials in semi-open spaces, such as porches, spaces under terraces or floors, spaces under awnings, or enclosed spaces in sheds adjacent to the building.",
          "questionId": "Q8"
      },
      "glazingSystemsSinglePane": {
-         "title": "Semi-confined Spaces Adjacent to the Building",
-         "text": "To reduce your home's vulnerability, consider installing fire-resistant shutters to protect the glass in semi-confined spaces. Choose aluminum or other fire-resistant materials (e.g., steel).",
+         "title": "Semi-open Spaces Adjacent to the Building",
+         "text": "To reduce your home's vulnerability, consider installing fire-resistant shutters to protect the glass in semi-open spaces. Choose aluminum or other fire-resistant materials (e.g., steel).",
          "questionId": "Q9"
      },
      "glazingSystemsMultiplePane": {
-         "title": "Semi-confined Spaces Adjacent to the Building",
-         "text": "To reduce your home's vulnerability, consider installing fire-resistant shutters to protect the glass in semi-confined spaces. Choose aluminum or other fire-resistant materials (e.g., steel).",
+         "title": "Semi-open Spaces Adjacent to the Building",
+         "text": "To reduce your home's vulnerability, consider installing fire-resistant shutters to protect the glass in semi-open spaces. Choose aluminum or other fire-resistant materials (e.g., steel).",
          "questionId": "Q9"
      },
      "glazingSystemsTempered": {
-         "title": "Semi-confined Spaces Adjacent to the Building",
-         "text": "To reduce your home's vulnerability, consider installing fire-resistant shutters to protect the glass in semi-confined spaces. Choose aluminum or other fire-resistant materials (e.g., steel).",
+         "title": "Semi-open Spaces Adjacent to the Building",
+         "text": "To reduce your home's vulnerability, consider installing fire-resistant shutters to protect the glass in semi-open spaces. Choose aluminum or other fire-resistant materials (e.g., steel).",
          "questionId": "Q9"
      },
      "combustibleEnvelope": {
-         "title": "Semi-confined Spaces Adjacent to the Building",
+         "title": "Semi-open Spaces Adjacent to the Building",
          "text": "Consider using fireproof coatings (e.g., fire-retardant paints) to improve the fire resistance of the walls.",
          "questionId": "Q10"
      },
      "5closeToGlazing": {
          "title": "Building Surroundings",
-         "text": "Consider removing combustibles (vegetation or other non-natural elements) if they are near glass that cannot be protected.",
+         "text": "Consider removing combustibles (vegetation or other non-natural elements) if they are near glazing systems that cannot be protected.",
          "questionId": "Q11"
      },
      "closeToRoof": {
@@ -166,7 +166,7 @@
      },
      "deadVeg": {
          "title": "Building Surroundings",
-         "text": "Remove dead or pruned vegetation periodically. These fuels are very dry and catch fire easily in case of fire.",
+         "text": "Remove dead or pruned vegetation periodically. These fuels are very dry and ignite easily in case of fire.",
          "questionId": "Q21"
      },
      "woodenFence": {

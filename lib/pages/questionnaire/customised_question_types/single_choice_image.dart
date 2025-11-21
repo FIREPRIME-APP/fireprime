@@ -4,6 +4,7 @@ import 'package:fireprime/model/customised_image.dart';
 import 'package:fireprime/widgets/selection_list_tile.dart';
 import 'package:flutter/material.dart' hide Step;
 import 'package:insta_image_viewer/insta_image_viewer.dart';
+import 'package:styled_text/styled_text.dart';
 import 'package:survey_kit/survey_kit.dart';
 
 class SingleChoiceImageStep extends Step {
@@ -133,13 +134,17 @@ class _CustomViewState extends State<SingleChoiceImageView> {
       child: Column(
         children: [
           Padding(
-            padding:
-                const EdgeInsets.only(bottom: 5.0, left: 20.0, right: 20.0),
-            child: Text(
-              widget.questionStep.text,
-              style: Theme.of(context).textTheme.bodyMedium,
-            ),
-          ),
+              padding:
+                  const EdgeInsets.only(bottom: 5.0, left: 20.0, right: 20.0),
+              child: StyledText(
+                text: widget.questionStep.text,
+                tags: {
+                  'b': StyledTextTag(
+                    style: const TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                },
+                style: Theme.of(context).textTheme.bodyMedium,
+              )),
           if (widget.questionStep.description.isNotEmpty &&
               widget.questionStep.description != '')
             ElevatedButton(
@@ -172,11 +177,16 @@ class _CustomViewState extends State<SingleChoiceImageView> {
           if (_showDescription /*|| widget.questionStep.alwaysShowDescription*/)
             showDescription(),
           //  const SizedBox(height: 10),
-          if (widget.images.isNotEmpty)
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20.0),
+            child: imageWidget(),
+          ),
+
+          /* if (widget.images.isNotEmpty)
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20.0),
               child: imageWidget(),
-            ),
+            ), */
           Column(
             children: [
               const Divider(
@@ -213,9 +223,14 @@ class _CustomViewState extends State<SingleChoiceImageView> {
       padding: const EdgeInsets.symmetric(horizontal: 20.0),
       child: Column(
         children: [
-          Text(
-            widget.questionStep.description,
+          StyledText(
+            text: widget.questionStep.description,
             style: Theme.of(context).textTheme.bodySmall,
+            tags: {
+              'b': StyledTextTag(
+                style: const TextStyle(fontWeight: FontWeight.bold),
+              ),
+            },
           ),
           //if (widget.images.isNotEmpty) imageWidget(),
           const SizedBox(
@@ -227,51 +242,66 @@ class _CustomViewState extends State<SingleChoiceImageView> {
   }
 
   Widget imageWidget() {
-    return SizedBox(
-      height: 200,
-      child: ListView.separated(
-        padding: const EdgeInsets.only(top: 20.0),
-        scrollDirection: Axis.horizontal,
-        itemCount: widget.images.length,
-        separatorBuilder: (context, _) => const SizedBox(width: 8),
-        itemBuilder: (context, index) {
-          // return FutureBuilder<bool>(
-          //   future: _checkImageExists(widget.images[index].path),
-          //      builder: (context, snapshot) {
-          /*if (snapshot.connectionState != ConnectionState.done) {
-                return const SizedBox(
-                  width: 250,
-                  height: 200,
-                  child: Center(child: CircularProgressIndicator()),
-                );
-              }*/
-//
-          //            if (!snapshot.data!) {
-          //            return Container();
-          //        }
-
-          return Column(
-            children: [
-              Expanded(
-                child: InstaImageViewer(
+    if (widget.images.length == 1) {
+      return Center(
+        child: Padding(
+          padding: const EdgeInsets.only(top: 20.0),
+          child: SizedBox(
+            child: Column(
+              children: [
+                InstaImageViewer(
                   child: Image.asset(
-                    widget.images[index].path,
-                    fit: BoxFit.fitWidth,
+                    widget.images[0].path,
+                    height: 200,
+                    //fit: BoxFit.fitHeight,
                   ),
                 ),
-              ),
-              const SizedBox(height: 4),
-              SizedBox(
-                width: 200,
-                child: Text(widget.images[index].description,
-                    style: Theme.of(context).textTheme.bodySmall,
-                    textAlign: TextAlign.center),
-              ),
-            ],
-          );
-        },
-        //   );
-        //},
+                const SizedBox(height: 4),
+                SizedBox(
+                  width: 200,
+                  child: Text(widget.images[0].description,
+                      style: Theme.of(context).textTheme.bodySmall,
+                      textAlign: TextAlign.center),
+                ),
+              ],
+            ),
+          ),
+        ),
+      );
+    }
+
+    return Center(
+      child: SizedBox(
+        height: 200,
+        child: ListView.separated(
+          padding: const EdgeInsets.only(top: 20.0),
+          scrollDirection: Axis.horizontal,
+          itemCount: widget.images.length,
+          separatorBuilder: (context, _) => const SizedBox(width: 8),
+          itemBuilder: (context, index) {
+            return Column(
+              children: [
+                Expanded(
+                  child: InstaImageViewer(
+                    child: Image.asset(
+                      widget.images[index].path,
+                      fit: BoxFit.fitWidth,
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 4),
+                SizedBox(
+                  width: 200,
+                  child: Text(widget.images[index].description,
+                      style: Theme.of(context).textTheme.bodySmall,
+                      textAlign: TextAlign.center),
+                ),
+              ],
+            );
+          },
+          //   );
+          //},
+        ),
       ),
     );
   }

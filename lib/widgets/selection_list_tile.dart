@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:styled_text/styled_text.dart';
 
 class CustomisedSelectionListTile extends StatelessWidget {
   final String text;
@@ -26,13 +27,18 @@ class CustomisedSelectionListTile extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 14.0),
             child: ListTile(
-              title: Text(
-                text,
+              title: StyledText(
+                text: text,
                 style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                       color: isSelected
                           ? Theme.of(context).primaryColor
                           : Theme.of(context).textTheme.headlineSmall?.color,
                     ),
+                tags: {
+                  'b': StyledTextTag(
+                    style: const TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                },
               ),
               trailing: isSelected
                   ? Icon(

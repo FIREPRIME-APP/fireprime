@@ -175,6 +175,7 @@ class BasicHousePage extends StatelessWidget {
                                                     10,
                                                 10,
                                                 4,
+                                                null,
                                               ),
                                             ),
                                           ),

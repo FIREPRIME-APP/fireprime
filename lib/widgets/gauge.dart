@@ -1,3 +1,5 @@
+import 'package:easy_localization/easy_localization.dart';
+import 'package:fireprime/constants.dart';
 import 'package:fireprime/widgets/card_text.dart';
 import 'package:fireprime/widgets/info_dialog.dart';
 import 'package:fireprime/widgets/utils.dart';
@@ -5,8 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:geekyants_flutter_gauges/geekyants_flutter_gauges.dart';
 
 class Gauge {
-  static RadialGauge radialGauge(
-      double probability, double thickness, double pointerWidth) {
+  static RadialGauge radialGauge(double probability, double thickness,
+      double pointerWidth, double? hazard) {
     return RadialGauge(
       track: RadialTrack(
         start: 0,
@@ -44,13 +46,22 @@ class Gauge {
           tailRadius: thickness,
           needleStyle: NeedleStyle.flatNeedle,
           color: const Color.fromARGB(255, 75, 75, 75),
-        )
+        ),
+      ],
+      shapePointer: [
+        if (hazard != null)
+          RadialShapePointer(
+            value: (Constants.bestValue * 100) * hazard,
+            color: const Color.fromARGB(255, 120, 120, 120),
+            height: 6,
+            width: pointerWidth + 2,
+          ),
       ],
     );
   }
 
-  static Widget gaugeProbabilityText(
-      double probability, String description, double space, String info) {
+  static Widget gaugeProbabilityText(double probability, String description,
+      double space, String info, double hazard, BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(top: 120),
       child: Center(
@@ -78,6 +89,12 @@ class Gauge {
                   fontSize: 13,
                 ),
               ],
+            ),
+            CardText(
+              title: context.tr('ideal_risk'),
+              text: (0.1 * 100 * hazard).toStringAsFixed(0),
+              size: 15,
+              color: const Color.fromARGB(255, 120, 120, 120),
             ),
             /*Padding(
               padding: const EdgeInsets.all(8.0),

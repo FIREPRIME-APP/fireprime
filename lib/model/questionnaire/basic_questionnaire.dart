@@ -26,8 +26,7 @@ class BasicQuestionnaire {
               continue;
             }
             images[q['id']] ??= [];
-            images[q['id']]?.add(CustomisedImage(
-                'assets/images/${area.name}/basic/${image['path']}.png', ''));
+            images[q['id']]?.add(CustomisedImage('${image['path']}', ''));
           }
           print('images: $images');
           questions.add(
@@ -84,7 +83,7 @@ class BasicQuestionnaire {
             .loadString('assets/basic_questionnaires/$area/en.json');
       } catch (e) {
         jsonString = await rootBundle
-            .loadString('assets/basic_questionnaires/default/en.json');
+            .loadString('assets/basic_questionnaires/spain/en.json');
       }
     }
     return jsonDecode(jsonString);

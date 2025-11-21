@@ -155,19 +155,14 @@ class _BasicQuestionnairePageState extends State<BasicQuestionnairePage> {
 
     Locale currentLocale = Localizations.localeOf(context);
     String languageCode = currentLocale.languageCode;
-    print('Current Locale: $currentLocale, Language Code: $languageCode');
     Map<String, dynamic> questionnaireJson =
         await BasicQuestionnaire.loadQuestionnaire(areaCode, languageCode);
-    print('Questionnaire JSON: $questionnaireJson');
     Map<String, dynamic> areaJson = await Area.loadSettings(areaCode);
-    print('Area JSON: $areaJson');
     Area area = Area.fromJson(areaJson);
-    print('Area: $area');
 
     questionnaire = BasicQuestionnaire.fromJson(questionnaireJson, area);
 
     List<Step> steps = [];
-    print('answers: $answers');
     steps.add(
       IntroductionCustomisedStep(
           stepIdentifier: StepIdentifier(id: 'intro'),

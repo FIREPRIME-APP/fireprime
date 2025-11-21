@@ -178,7 +178,10 @@ class _AdvicesPageState extends State<AdvicesPage> {
                       onTapLink: (text, href, title) async {
                         if (href != null) {
                           if (await canLaunchUrl(Uri.parse(href))) {
-                            await launchUrl(Uri.parse(href));
+                            await launchUrl(
+                              Uri.parse(href),
+                              mode: LaunchMode.externalApplication,
+                            );
                           } else {
                             ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(content: Text('Could not launch $href')),

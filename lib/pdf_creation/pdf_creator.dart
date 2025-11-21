@@ -25,10 +25,7 @@ class PdfCreator {
       String riskInfo,
       bool showHazard,
       House house,
-      String date
-      // Uint8List? gaugeImage,
-      // Map<String, Uint8List> linearGaugesImage,
-      ) async {
+      String date) async {
     ScreenshotController screenshotController = ScreenshotController();
 
     final fireprimeLogoBytes =
@@ -42,7 +39,7 @@ class PdfCreator {
         width: 200,
         padding: const wg.EdgeInsets.all(20),
         color: wg.Colors.transparent,
-        child: Gauge.radialGauge(risk * 100, 15, 6),
+        child: Gauge.radialGauge(risk * 100, 15, 6, hazard),
       ),
     );
 
@@ -179,9 +176,9 @@ class PdfCreator {
   static Future<void> openWithIntent(String contentUri) async {
     print(contentUri);
     final intent = AndroidIntent(
-      action: 'action_view',
+      action: 'android.intent.action.VIEW',
       data: contentUri,
-      type: 'application/pdf',
+      type: 'application/*',
       flags: <int>[
         Flag.FLAG_GRANT_READ_URI_PERMISSION,
         Flag.FLAG_ACTIVITY_NEW_TASK,

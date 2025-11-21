@@ -2,10 +2,10 @@
     "questions": [
         {
             "id": "BQ1",
-            "question": "My home is located next to a forest or an area with abundant vegetation",
+            "question": "My home is located less than 50 m from a forest or an area with abundant vegetation",
             "images": [
                 {
-                    "path": "BQ1"
+                    "path": "assets/images/spain/basic/BQ1.png"
                 }
             ]
         },
@@ -14,7 +14,7 @@
             "question": "My home is situated on a slope or at the top of a ridge",
             "images": [
                 {
-                    "path": "BQ2"
+                    "path": "assets/images/spain/basic/BQ2.png"
                 }
             ]
         },
@@ -23,7 +23,7 @@
             "question": "The exterior cladding of my home is made of combustible material (such as wood or plastic)",
             "images": [
                 {
-                    "path": "BQ3"
+                    "path": "assets/images/spain/basic/BQ3.png"
                 }
             ]
         },
@@ -32,7 +32,7 @@
             "question": "The roof, porch, or balcony are made of combustible material",
             "images": [
                 {
-                    "path": "BQ4"
+                    "path": "assets/images/spain/basic/BQ4.png"
                 }
             ]
         },
@@ -41,34 +41,34 @@
             "question": "The windows and exterior doors have single-pane glass",
             "images": [
                 {
-                    "path": "BQ5"
+                    "path": "assets/images/spain/basic/BQ5.png"
                 }
             ]
         },
         {
             "id": "BQ6",
-            "question": "The windows and exterior doors have no protection - no shutters or blinds",
+            "question": "The windows and exterior doors are unprotected (no shutters or blinds)",
             "images": [
                 {
-                    "path": "BQ6"
+                    "path": "assets/images/spain/basic/BQ6.png"
                 }
             ]
         },
         {
             "id": "BQ7",
-            "question": "I have ventilation openings and/or chimneys without any protective cover",
+            "question": "I have ventilation openings without any protective cover",
             "images": [
                 {
-                    "path": "BQ7"
+                    "path": "assets/images/spain/basic/BQ7_v2.png"
                 }
             ]
         },
         {
             "id": "BQ8",
-            "question": "There is an accumulation of vegetation debris and/or combustible materials (such as plastic furniture or junk) around the house",
+            "question": "There is an accumulation of vegetation debris and/or combustible materials (such as plastic furniture or junk) within 30 m of the home",
             "images": [
                 {
-                    "path": "BQ8"
+                    "path": "assets/images/spain/basic/BQ8.png"
                 }
             ]
         },
@@ -77,7 +77,7 @@
             "question": "There is an accumulation of dry leaves and twigs in the gutters and/or on the roof",
             "images": [
                 {
-                    "path": "BQ9"
+                    "path": "assets/images/spain/basic/BQ9.png"
                 }
             ]
         },
@@ -86,7 +86,7 @@
             "question": "There is a fuel tank and/or butane gas cylinders near the building",
             "images": [
                 {
-                    "path": "BQ10"
+                    "path": "assets/images/spain/basic/BQ10.png"
                 }
             ]
         }

@@ -64,7 +64,7 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
               alignment: Alignment.center,
               child: FutureBuilder<Task>(
                 future: getQuestionnaireTask(context, questionnaire.environment,
-                    widget.lastQuestionId, answers),
+                    widget.lastQuestionId, answers), //TODO
                 builder: (BuildContext context, AsyncSnapshot<Task> snapshot) {
                   if (snapshot.connectionState == ConnectionState.done &&
                       snapshot.hasData &&
@@ -279,9 +279,9 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
     steps.add(
       CompletionStep(
         stepIdentifier: StepIdentifier(id: 'completionStep'),
-        title: context.tr('questionnaire_finish_text'),
-        text: context.tr('done'),
-        buttonText: context.tr('check'),
+        title: context.tr('questionnaire_finish_title'),
+        text: '',
+        buttonText: context.tr('questionnaire_finish_button'),
       ),
     );
 

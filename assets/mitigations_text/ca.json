@@ -36,72 +36,72 @@
      },
      "roofPoorlyMaintaned-1": {
           "title": "Teulada",
-          "text": "Assegureu-vos que el recobriment de la teulada està en bon estat, ben col·locat i no hi manquen teules. Retireu de manera regular l'acumulació de residus per evitar ignicions a la teulada en cas d'incendi (e.g., pinassa seca, fullaraca, etc.).",
+          "text": "Assegureu-vos que el recobriment de la teulada està en bon estat, ben col·locat i no hi manquen teules. Retireu de manera regular l'acumulació de residus per evitar ignicions a la teulada en cas d'incendi (e.g. pinassa seca, fullaraca, etc.).",
           "questionId": "Q4-1"
      },
      "roofPoorlyMaintaned-2": {
           "title": "Teulada",
-          "text": "Assegureu-vos que el recobriment de la teulada està en bon estat, ben col·locat i no hi manquen teules. Retireu de manera regular l'acumulació de residus per evitar ignicions a la teulada en cas d'incendi (e.g., pinassa seca, fullaraca, etc.).",
+          "text": "Assegureu-vos que el recobriment de la teulada està en bon estat, ben col·locat i no hi manquen teules. Retireu de manera regular l'acumulació de residus per evitar ignicions a la teulada en cas d'incendi (e.g. pinassa seca, fullaraca, etc.).",
           "questionId": "Q4-2"
      },
      "singlePane": {
           "title": "Tancaments de vidre",
-          "text": "Si us plantegeu canviar els vidres, assegureu-vos de fer-ho per vidres dobles o triples o bé per vidres temperats. Aquests tipus de vidre són els més resistents a la calor emesa pel foc.",
+          "text": "Si us plantegeu canviar els vidres, assegureu-vos de fer-ho per vidres dobles o triples o bé per vidres trempats. Aquests tipus de vidre són els més resistents a la calor emesa pel foc.",
           "questionId": "Q5"
      },
      "noShutters": {
           "title": "Tancaments de vidre",
-          "text": "Considereu posar persianes davant de tots els tancaments de vidre. Escolliu persianes d'alumini o d'altres materials resistents al foc (e.g., acer).",
+          "text": "Considereu posar persianes davant de tots els tancaments de vidre. Escolliu persianes d'alumini o d'altres materials resistents al foc (e.g. acer).",
           "questionId": "Q6"
      },
      "woodShutters": {
           "title": "Tancaments de vidre",
-          "text": "Per millorar la resistència al foc de casa vostra, considereu canviar les persianes per unes d'alumini o d'altres materials resistents al foc (e.g., acer).",
+          "text": "Per millorar la resistència al foc de casa vostra, considereu canviar les persianes per unes d'alumini o d'altres materials resistents al foc (e.g. acer).",
           "questionId": "Q6"
      },
      "pvcShutters": {
           "title": "Tancaments de vidre",
-          "text": "Per millorar la resistència al foc de casa vostra, considereu canviar les persianes per unes d'alumini o d'altres materials resistents al foc (e.g., acer).",
+          "text": "Per millorar la resistència al foc de casa vostra, considereu canviar les persianes per unes d'alumini o d'altres materials resistents al foc (e.g. acer).",
           "questionId": "Q6"
      },
      "noVentProtection": {
           "title": "Ventilacions",
-          "text": "Protegiu les ventilacions amb reixes metàl·liques inoxidables i no combustibles (e.g., d'alumini, acer galvanitzat, acer inoxidable, coure o recobriments intumescents).",
+          "text": "Protegiu les ventilacions amb reixes metàl·liques inoxidables i no combustibles (e.g. d'alumini, acer galvanitzat, acer inoxidable, coure o recobriments intumescents).",
           "questionId": "Q7"
      },
      "ventCombProtection": {
           "title": "Ventilacions",
-          "text": "Considereu canviar la protecció de la ventilació per reixes metàl·liques inoxidables i no combustibles (e.g., d'alumini, acer galvanitzat, acer inoxidable, coure o recobriments intumescents).",
+          "text": "Considereu canviar la protecció de la ventilació per reixes metàl·liques inoxidables i no combustibles (e.g. d'alumini, acer galvanitzat, acer inoxidable, coure o recobriments intumescents).",
           "questionId": "Q7"
      },
      "nonCombBadCond": {
           "title": "Ventilacions",
-          "text": "Considereu canviar la protecció de la ventilació per reixes metàl·liques inoxidables i no combustibles (e.g., d'alumini, acer galvanitzat, acer inoxidable, coure o recobriments intumescents).",
+          "text": "Considereu canviar la protecció de la ventilació per reixes metàl·liques inoxidables i no combustibles (e.g. d'alumini, acer galvanitzat, acer inoxidable, coure o recobriments intumescents).",
           "questionId": "Q7"
      },
      "yesSemiConf": {
-          "title": "Espais semiconfinats adjacents a l'edifici",
-          "text": "Eviteu emmagatzemar materials combustibles en espais semi-confinats, com ara porxos, espais sota terrasses o entarimats, espais sota tendals, o espais tancats en coberts adjacents a l'edifici.",
+          "title": "Espais semioberts adjacents a l'edifici",
+          "text": "Eviteu emmagatzemar materials combustibles en espais semioberts, com ara porxos, espais sota terrasses o entarimats, espais sota tendals, o espais tancats en coberts adjacents a l'edifici.",
           "questionId": "Q8"
      },
      "glazingSystemsSinglePane": {
-          "title": "Espais semiconfinats adjacents a l'edifici",
-          "text": "Per reduir la vulnerabilitat de casa vostra, considereu instal·lar persianes resistents al foc per protegir els vidres dels espais semiconfinats. Escolliu l'alumini o altres materials resistents al foc (e.g. acer).",
+          "title": "Espais semioberts adjacents a l'edifici",
+          "text": "Per reduir la vulnerabilitat de casa vostra, considereu instal·lar persianes resistents al foc per protegir els vidres dels espais semioberts. Escolliu l'alumini o altres materials resistents al foc (e.g. acer).",
           "questionId": "Q9"
      },
      "glazingSystemsMultiplePane": {
-          "title": "Espais semiconfinats adjacents a l'edifici",
-          "text": "Per reduir la vulnerabilitat de casa vostra, considereu instal·lar persianes resistents al foc per protegir els vidres dels espais semiconfinats. Escolliu l'alumini o altres materials resistents al foc (e.g. acer).",
+          "title": "Espais semioberts adjacents a l'edifici",
+          "text": "Per reduir la vulnerabilitat de casa vostra, considereu instal·lar persianes resistents al foc per protegir els vidres dels espais semioberts. Escolliu l'alumini o altres materials resistents al foc (e.g. acer).",
           "questionId": "Q9"
      },
      "glazingSystemsTempered": {
-          "title": "Espais semiconfinats adjacents a l'edifici",
-          "text": "Per reduir la vulnerabilitat de casa vostra, considereu instal·lar persianes resistents al foc per protegir els vidres dels espais semiconfinats. Escolliu l'alumini o altres materials resistents al foc (e.g. acer).",
+          "title": "Espais semioberts adjacents a l'edifici",
+          "text": "Per reduir la vulnerabilitat de casa vostra, considereu instal·lar persianes resistents al foc per protegir els vidres dels espais semioberts. Escolliu l'alumini o altres materials resistents al foc (e.g. acer).",
           "questionId": "Q9"
      },
      "combustibleEnvelope": {
-          "title": "Espais semiconfinats adjacents a l'edifici",
-          "text": "Considereu emprar recobriments ignífugs (e.g., pintures retardants del foc), per millorar la resistència al foc de les parets.",
+          "title": "Espais semioberts adjacents a l'edifici",
+          "text": "Considereu emprar recobriments ignífugs (e.g. pintures retardants del foc), per millorar la resistència al foc de les parets.",
           "questionId": "Q10"
      },
      "5closeToGlazing": {
@@ -146,7 +146,9 @@
      },
      "highFlam": {
           "title": "Entorn de l'edifici",
-          "text": "Considereu enretirar les espècies molt inflamables en un radi de 30 m al voltant de l'edifici o substituir-les per altres espècies més resistents al foc.",
+          "text": "Considereu enretirar les espècies molt inflamables en un radi de 30 m al voltant de l'edifici o substituir-les per altres espècies més resistents al foc. Podeu consultar aquesta guia de pirojardinería:",
+          "url": "https://interior.gencat.cat/web/.content/home/030_arees_dactuacio/bombers/foc_forestal/publicacions_tecniques_i_normativa/guies_tecniques/prevencio_i_extincio/2020_Guia_de_pirojardineria_ca.pdf",
+          "url_text": "Guia de pirojardineria",
           "questionId": "Q17"
      },
      "contVeg": {

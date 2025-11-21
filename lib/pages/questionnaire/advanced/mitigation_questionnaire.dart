@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:fireprime/fault_tree/fault_tree.dart';
 import 'package:fireprime/model/event_probability.dart';
+import 'package:fireprime/model/house.dart';
 import 'package:fireprime/model/questionnaire/questionnaire.dart';
 import 'package:fireprime/pages/result/advanced/results_loading_page.dart';
 import 'package:fireprime/providers/house_provider.dart';
@@ -138,7 +139,6 @@ class _MitigationQuestionnaireState extends State<MitigationQuestionnaire> {
                     );*/
 
                     //  Navigator.of(context).pop();
-                    //TODO SI TENIA UN CUESTIONARIO EMPEZADO?
                   },
                 );
               } else if (snapshot.hasError) {
@@ -158,10 +158,14 @@ class _MitigationQuestionnaireState extends State<MitigationQuestionnaire> {
   }
 
   Future<Task> getTask(String questionId, Map<String, String?> answers) async {
+    HouseProvider houseCtrl =
+        Provider.of<HouseProvider>(context, listen: false);
+    House currentHouse = houseCtrl.getHouse(houseCtrl.currentHouse!);
+    String environment = currentHouse.environment;
     var imgCtrl = Provider.of<ImagesProvider>(context, listen: false);
 
     if (imgCtrl.images.isEmpty) {
-      await imgCtrl.getImagesJSON(Questionnaire().environment);
+      await imgCtrl.getImagesJSON(environment); //TODO
     }
 
     navigation = await getQuestionsNavigation(questionId);
@@ -189,15 +193,6 @@ class _MitigationQuestionnaireState extends State<MitigationQuestionnaire> {
         Questionnaire().questions.where((element) {
       return affectedQuestions.contains(element['stepId']);
     }).toList();
-    /*List<Map<String, dynamic>> questions = [];
-
-    for (var qId in questionsId) {
-      for (var question in Questionnaire().questions) {
-        if (question['stepId'] == qId) {
-          questions.add(question);
-        }
-      }
-    }*/
 
     print('Questions: $questions');
     for (var question in questions) {
@@ -221,6 +216,20 @@ class _MitigationQuestionnaireState extends State<MitigationQuestionnaire> {
           answers: answers,
           buttonText: context.tr('next'),
         ));
+      } else if (question['type'] == 'specialMultipleChoice') {
+        steps.add(
+          Questionnaire().buildSpecialMultipleChoiceImageStep(
+            stepId: question['stepId'],
+            textChoices: question['textChoices'],
+            allTextChoices: question['allTextChoices'],
+            rules: question['rules'],
+            initialSelection: question['initialSelection'],
+            specialSelection: question['specialSelection'],
+            context: context,
+            answers: answers,
+            buttonText: context.tr('next'),
+          ),
+        );
       }
     }
 

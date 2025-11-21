@@ -4,6 +4,7 @@ import 'package:fireprime/model/customised_image.dart';
 import 'package:fireprime/widgets/selection_list_tile.dart';
 import 'package:flutter/material.dart' hide Step;
 import 'package:insta_image_viewer/insta_image_viewer.dart';
+import 'package:styled_text/styled_text.dart';
 import 'package:survey_kit/survey_kit.dart';
 
 class SpecialMultipleChoiceImageStep extends Step {
@@ -160,8 +161,13 @@ class _CustomViewState extends State<MultipleChoiceImageView> {
           Padding(
             padding:
                 const EdgeInsets.only(bottom: 5.0, left: 20.0, right: 20.0),
-            child: Text(
-              widget.questionStep.text,
+            child: StyledText(
+              text: widget.questionStep.text,
+              tags: {
+                'b': StyledTextTag(
+                  style: const TextStyle(fontWeight: FontWeight.bold),
+                ),
+              },
               style: Theme.of(context).textTheme.bodyMedium,
             ),
           ),
@@ -181,11 +187,15 @@ class _CustomViewState extends State<MultipleChoiceImageView> {
             ),
           if (_showDescription) showDescription(),
           //const SizedBox(height: 10),
-          if (widget.images.isNotEmpty)
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20.0),
+            child: imageWidget(),
+          ),
+          /* if (widget.images.isNotEmpty)
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20.0),
               child: imageWidget(),
-            ),
+            ), */
           Column(
             children: [
               const Divider(
@@ -351,9 +361,14 @@ class _CustomViewState extends State<MultipleChoiceImageView> {
       padding: const EdgeInsets.symmetric(horizontal: 20.0),
       child: Column(
         children: [
-          Text(
-            widget.questionStep.description,
+          StyledText(
+            text: widget.questionStep.description,
             style: Theme.of(context).textTheme.bodySmall,
+            tags: {
+              'b': StyledTextTag(
+                style: const TextStyle(fontWeight: FontWeight.bold),
+              ),
+            },
           ),
           //if (widget.images.isNotEmpty) imageWidget(),
           const SizedBox(
@@ -365,6 +380,33 @@ class _CustomViewState extends State<MultipleChoiceImageView> {
   }
 
   Widget imageWidget() {
+    if (widget.images.length == 1) {
+      return Center(
+        child: Padding(
+          padding: const EdgeInsets.only(top: 20.0),
+          child: SizedBox(
+            child: Column(
+              children: [
+                InstaImageViewer(
+                  child: Image.asset(
+                    widget.images[0].path,
+                    height: 200,
+                    //fit: BoxFit.fitHeight,
+                  ),
+                ),
+                const SizedBox(height: 4),
+                SizedBox(
+                  width: 200,
+                  child: Text(widget.images[0].description,
+                      style: Theme.of(context).textTheme.bodySmall,
+                      textAlign: TextAlign.center),
+                ),
+              ],
+            ),
+          ),
+        ),
+      );
+    }
     return SizedBox(
       height: 200,
       child: ListView.separated(

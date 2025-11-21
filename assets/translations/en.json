@@ -77,6 +77,7 @@
     "risk": "Risk",
     "vulnerability": "Vulnerability",
     "no_results_available": "No results available",
+    "ideal_risk": "Ideal risk",
 
     "start_questionnaire_intro": "Check your house risk with a questionnaire!",
     "update_questionnaire_intro": "Update your answers of the questionnaire",
@@ -85,25 +86,26 @@
     "mitigation_intro": "Check the improvements to reduce the risk of your house",
     "check_improvements": "Check improvements!",
 
-    "advices_title": "Preparation and Safety Tips",
-    "advices_intro": "Preparation and safety tips in case of fire",
+    "advices_title": "Preparedness and Safety Tips",
+    "advices_intro": "Preparedness and safety tips in case of fire",
 
     "results_history_intro": "Check your results history",
 
     "details": "Details",
     "check": "Check",
     "update": "Update",
-    "advices": "Advices",
+    "advices": "Preparedness and Safety Tips",
     "continue": "Continue",
     "my_results": "My results",
 
-    "advanced_mode_title": "Advanced mode questionnaire",
+    "advanced_mode_title": "Advanced questionnaire",
 
     "questionnaire": "INSTRUCTIONS",
     "questionnaire_intro": "· The questionnaire consists of 23 questions with multiple answer options. Unless otherwise indicated, you should select only one. \n· It includes images and explanations to help you understand some technical concepts. \n· If in doubt, choose the option that best describes your situation. \n· Take your time: it may take up to 30 minutes, as you’ll need to carefully observe the façade and surroundings of your home. You can complete it at different times. \n· Answer based on the condition of your home during the months of highest wildfire risk. \n·It is recommended to repeat the assessment at least once a year or after significant changes to the house or its surroundings. \n·The questionnaire is divided into two parts: building and surroundings.",
     "next": "Next",
     "start": "Start",
-    "questionnaire_finish_text": "Check your results!", 
+    "questionnaire_finish_title": "Questionnaire completed!",
+    "questionnaire_finish_button": "Check your results",
 
     "help": "Help",
 
@@ -118,7 +120,7 @@
     "result_intro": "Risk level",
     "vulnerability_intro": "Vulnerability level",
 
-    "hazard_info": "This value depends on your house localization.",
+    "hazard_info": "This value depends on your house location.",
     "hazard": "Wildfire risk",
     "house_vulnerability": "Your house vulnerability",
     "hide": "Hide",
@@ -136,7 +138,7 @@
     "shutter_failure": "Shutter",
     "glazing_systems": "Glass enclosure",
     "vents": "Ventilation",
-    "semi_confined": "Semi-confined space",
+    "semi_confined": "Semi-open space",
     "fuels_glazing_systems": "Combustibles in front of glass enclosures",
     "fuels_roof": "Combustibles near the roof",
     "fuels_combustible_facade": "Combustibles in contact with the facade",
@@ -171,20 +173,20 @@
     
     "hazard_vulnerability_text": {
         "extreme_high_text": "Your home is located in an area {hazard_level} to wildfires and is {vulnerability_level} to them. As a result, its risk level is {risk}. Follow the provided recommendations to improve your home's resilience and reduce the likelihood of it burning.",
-        "extreme_moderate_text": "Your home is located in an area {hazard_level} to wildfires and is {vulnerability_level} to them. As a result, its risk level is {risk}. Follow the provided recommendations to reduce the likelihood of it burning and keep doing the maintenance of the property.",
+        "extreme_moderate_text": "Your home is located in an area {hazard_level} to wildfires and is {vulnerability_level} to them. As a result, its risk level is {risk}. Follow the provided recommendations to reduce the likelihood of it burning and keep up with regular property maintenance.",
         "high_moderate_text": "Your home is located in an area {hazard_level} to wildfires and is {vulnerability_level} to them. As a result, its risk level is {risk}. Try to follow the provided recommendations to improve your home's resilience and reduce the likelihood of it burning.",
-        "moderate_text": "Your home is located in an area {hazard_level} to wildfires and is {vulnerability_level} to them. As a result, its risk level is {risk}. Try to follow the provided recommendations to reduce the likelihood of it burning and keep doing the maintenance of the property.",
+        "moderate_text": "Your home is located in an area {hazard_level} to wildfires and is {vulnerability_level} to them. As a result, its risk level is {risk}. Try to follow the provided recommendations to reduce the likelihood of it burning and keep up with regular property maintenance.",
         "low_extreme_high_text": "Your home is located in an area {hazard_level} to wildfires but is {vulnerability_level} to them. As a result, its risk level is {risk}. Try to follow the provided recommendations to improve your home's resilience and reduce the likelihood of it burning.",
-        "extreme_low_text": "Your home is located in an area {hazard_level} to wildfires and is {vulnerability_level} to them. As a result, its risk level is {risk}. Keep your house in good condition to maintain its good resistance against wildfires and if possible, try to follow the recommendations provided.",
-        "low_moderate_text": "Your home is located in an area {hazard_level} to wildfires but is {vulnerability_level} to them. As a result, its risk level is {risk}. Keep your house in good condition to maintain its good resistance against wildfires and if possible, try to follow the recommendations provided.",
-        "low_text": "Your home is located in an area {hazard_level} to wildfires and is {vulnerability_level} to them. As a result, its risk level is {risk}. Keep your house in good condition to maintain its good resistance against wildfires."
+        "extreme_low_text": "Your home is located in an area {hazard_level} to wildfires and is {vulnerability_level} to them. As a result, its risk level is {risk}. Keep your house in good condition to maintain its good resistance against wildfires and if possible, try to follow the provided recommendations.",
+        "low_moderate_text": "Your home is located in an area {hazard_level} to wildfires but is {vulnerability_level} to them. As a result, its risk level is {risk}. Keep your house in good condition to maintain its good resistance against wildfires and if possible, try to follow the providedrecommendations.",
+        "low_text": "Your home is located in an area {hazard_level} to wildfires and is {vulnerability_level} to them. As a result, its risk level is {risk}. Keep your house in good condition to ensure it remains resistant to wildfires."
     },
 
     "vulnerability_text": {
         "extreme_text": "Your home is {vulnerability_level} to wildfires. As a result, its risk level is {risk}. Follow the provided recommendations to improve your home's resilience and reduce the likelihood of it burning.",
         "high_text": "Your home is {vulnerability_level} to wildfires. As a result, its risk level is {risk}. Try to follow the provided recommendations to improve your home's resilience and reduce the likelihood of it burning.",
-        "moderate_text": "Your home is {vulnerability_level} to wildfires. As a result, its risk level is {risk}. Follow the provided recommendations to reduce the likelihood of it burning and keep doing the maintenance of the property.",
-        "low_text": "Your home is {vulnerability_level} to wildfires. As a result, its risk level is {risk}. Keep doing the maintenance of your house to maintain its good resistance against wildfires and if possible, try to follow the recommendations provided."
+        "moderate_text": "Your home is {vulnerability_level} to wildfires. As a result, its risk level is {risk}. Follow the provided recommendations to reduce the likelihood of it burning and keep up with regular property maintenance.",
+        "low_text": "Your home is {vulnerability_level} to wildfires. As a result, its risk level is {risk}. Keep doing the maintenance of your house to maintain its good resistance against wildfires and if possible, try to follow the provided recommendations."
     },
 
     "hazard_levels": {
@@ -273,7 +275,7 @@
     },
     "Q1": {
         "title": "Facade materials",
-        "question": "What percentage of the facade (exterior walls and balconies, excluding shutters, windows and porches) is made of combustible materials?",
+        "question": "What percentage of the <b>facade</b> (exterior walls and balconies, excluding shutters, windows and porches) is made of <b>combustible materials</b>?",
         "description": "Wood or facade covering materials made from plastics or polymers are combustible while concrete, stone or bricks are non-combustible, fire-resistant.",
         "100comb": "100% combustible",
         "more50comb": "More than or equal to 50% combustible",
@@ -282,49 +284,49 @@
     },
     "Q2": {
         "title": "Facade materials",
-        "question": "Is the combustible part of the facade adjacent to the ground?",
+        "question": "Is the <b>combustible</b> part of the facade <b>adjacent to the ground</b>?",
         "description": "If the combustible part of the facade is adjacent to the ground, it will be more likely to ignite if fire reaches it.",
         "height0": "Yes",
-        "height0to20": "No, the fuel part is at a height between 0 and 20 cm from the ground",
-        "height21to40": "No, the fuel part is between 21 and 40 cm above the ground",
-        "height41to60": "No, the fuel part is between 41 and 60 cm above the ground",
-        "height61to80": "No, the fuel part is between 61 and 80 cm above the ground",
+        "height0to20": "No, the combustible part is at a height between 0 and 20 cm from the ground",
+        "height21to40": "No, the combustible part is between 21 and 40 cm above the ground",
+        "height41to60": "No, the combustible part is between 41 and 60 cm above the ground",
+        "height61to80": "No, the combustible part is between 61 and 80 cm above the ground",
         "height81to100": "No, the combustible part is at a height between 81 cm and 1 m from the ground",
-        "heightMore100": "No, the fuel part is at a height greater than 1 m"
+        "heightMore100": "No, the combustible part is at a height greater than 1 m"
     },
     "Q3": {
         "title": "Roof",
-        "question": "Is the roof covered with fire-resistant materials (ceramic tiles, concrete tiles, slate tiles, etc.)?",
+        "question": "Is the <b>roof</b> covered with <b>fire-resistant materials</b> (ceramic tiles, concrete tiles, slate tiles, etc.)?",
         "description": "If you have solar panels on the roof, this question refers to the material on which they are installed.",
         "roofFireRated": "Yes",
-        "roofNonFireRated": "No, the roof is covered with combustible materials (wood, asphalt shingles, etc.)"
+        "roofNonFireRated": "No, the roof is covered with combustible materials (wood, asphalt shingles, etc.) or there is a skylight"
     },
     "Q4-1": {
         "title": "Roof",
-        "question": "Does the roof have any of the following characteristics? Broken or missing shingles, exposed insulation, or unsealed spaces between the roof and the facade.",
-        "description": "A roof in poor condition can allow embers from fire smoke to pass through and cause a fire inside the house.",
+        "question": "Does the <b>roof</b> present any of the following characteristics? <b>Broken</b> or missing shingles, exposed insulation, or <b>unsealed spaces</b> between the roof and the facade.",
+        "description": "A roof in poor condition can allow embers from the fire to pass through and cause a fire inside the house.",
         "roofPoorlyMaintaned-1": "Yes",
         "roofWellMaintained-1": "No"
     },
     "Q4-2": {
         "title": "Roof",
-        "question": "Does the roof have any of the following characteristics? Broken or missing shingles, exposed insulation, or unsealed spaces between the roof and the facade.",
-        "description": "A roof in poor condition can allow embers from fire smoke to pass through and cause a fire inside the house.",
+        "question": "Does the <b>roof</b> present any of the following characteristics? <b>Broken</b> or missing shingles, exposed insulation, or <b>unsealed spaces</b> between the roof and the facade.",
+        "description": "A roof in poor condition can allow embers from the fire to pass through and cause a fire inside the house.",
         "roofPoorlyMaintaned-2": "Yes",
         "roofWellMaintained-2": "No"
     },
     "Q5": {
         "title": "Glazing systems",
-        "question": "What is the most common type of glass in building enclosures?",
-        "description": "Glass is a material vulnerable to fire. One way to improve its resistance is to use glass made up of several sheets (double or triple glazing) or with special treatments (such as tempered glass). If your building has more than one type of glass enclosure, select the most representative one.",
+        "question": "What is <b>the most common type of glass</b> in the building's enclosures?",
+        "description": "Glass is a material vulnerable to fire. One way to improve its resistance is to use glazings made up of several panes (double or triple glazing) or with special treatments (such as tempered glass). If your building has more than one type of glazing, select the most representative one.",
         "singlePane": "Single pane",
         "doublePane": "Double or Multiple pane",
         "tempered": "Tempered glass"
     },
     "Q6": {
         "title": "Glazing systems",
-        "question": "Are glass enclosures protected with shutters? If so, what is the most common material for shutters (choose the option that best describes your situation)?",
-        "description": "Blinds can protect windows from the effects of fire. It should be noted that to block the heat emitted by a fire, blinds and their slats must be completely closed.",
+        "question": "Are glazing systems <b>protected</b> with <b>shutters</b>? If so, what is the most common material for shutters (choose the option that best describes your situation)?",
+        "description": "Shutters can protect windows from the effects of fire. It should be noted that to block the heat emitted by a fire, shutters and their slats must be completely closed.",
         "noShutters": "No",
         "woodShutters": "Wood",
         "aluminiumShutters": "Aluminium",
@@ -333,8 +335,8 @@
     },
     "Q7": {
         "title": "Ventilations",
-        "question": "What kind of protection do the ventilation openings have?",
-        "description": "Ventilations are openings located in the roof or in the kitchen, designed to facilitate ventilation of interior spaces. If you have more than one (protected or not), choose the answer that best represents your case.",
+        "question": "What kind of <b>protection</b> is installed on the ventilation <b>openings</b>?",
+        "description": "Ventilations are openings located in the roof, walls or in the kitchen, designed to facilitate ventilation of interior spaces. If you have more than one (protected or not), choose the answer that best represents your case.",
         "noVents": "There are no vents",
         "noVentProtection": "Vents have no protection",
         "ventCombProtection": "Protection is combustible",
@@ -343,14 +345,14 @@
     },
     "Q8": {
         "title": "Semi-open spaces adjacent to the building",
-        "question": "Are there any semi-open spaces adjacent to the building (with at least one wall in common), such as porches, sheds, or spaces under terraces, that contain combustible objects inside?",
-        "description": "Semi-open spaces are partially covered areas, adjacent to the building, such as porches, spaces under terraces, awnings or sheds, where combustible elements (furniture, wood, etc.) often accumulate. If fire reaches them, the accumulation of heat can be significant.",
+        "question": "Are there any <b>semi-open spaces</b> adjacent to the building (with at least one wall in common), such as porches, sheds, or spaces under terraces, that contain combustible objects?",
+        "description": "Semi-open spaces are partially covered areas, adjacent to the building, such as porches, spaces under terraces, awnings or sheds, where combustible elements (furniture, wood, etc.) are often accumulated. If fire reaches them, these elements, the accumulation of heat can be significant.",
         "yesSemiConf": "Yes",
         "noSemiConf": "No"
     },
     "Q9": {
-        "title": "Glass enclosures in semi-open spaces",
-        "question": "Are there any unprotected glass enclosures (such as windows or doors) that connect the semi-open space with the interior of the building?",
+        "title": "Glazing systems in semi-open spaces",
+        "question": "Are there any unprotected <b>glazing</b> systems (such as windows or doors) that connect the <b>semi-open space</b> with the interior of the building?",
         "description": "In the event of a fire, unprotected glass in semi-open spaces can break if the fire affects materials stored in these spaces.",
         "glazingSystemsSinglePane": "Yes, with single glazing",
         "glazingSystemsMultiplePane": "Yes, with double or triple glazing",
@@ -366,96 +368,96 @@
         "nonCombThick": "Non-combustible materials such as bricks or concrete"
     },
     "I2": {
-        "title": "Questions about the environment",
-        "text": "Combustible elements near the building are those that can catch fire during a wildfire. Examples of natural combustible elements include cypress hedges, dry grass, shrubs, trees, etc. Lawns or green grass are not considered combustible. Examples of non-natural combustible elements include garden furniture, tool or animal sheds, pergolas, wooden decking, outbuildings, vehicles, etc. Additionally, the slope of the terrain and the proximity to the forest are also key factors that influence the fire risk of the property."
+        "title": "Questions about the surroundings",
+        "text": "Combustible elements near the building are those that ignite fire during a wildfire. Examples of natural combustible elements include cypress hedges, dry grass, shrubs, trees, etc. Lawns or green grass are not considered combustible. Examples of non-natural combustible elements include garden furniture, tool or animal sheds, pergolas, wooden decking, outbuildings, vehicles, etc. Additionally, the slope of the terrain and the proximity to the forest are also key factors that influence the fire risk of the property."
     },
     "Q11": {
-        "title": "Characteristics of the building environment",
-        "question": "Identify what combustible elements you have near the building. Which of the following options apply?",
-        "description": "Combustible elements (natural and unnatural) located near the building can easily ignite in the event of a forest fire and transmit the fire to the home through vulnerable points, such as unprotected glass or combustible components of the building.",
-        "5closeToGlazing": "There are combustible elements placed less than 5 meters from enclosures with glass that are not protected by shutters.",
-        "closeToRoof": "There are combustible elements within 5 meters of adjacent combustible elements on the roof (such as wooden eaves, PVC gutters for rainwater collection).",
+        "title": "Characteristics of the building's surroundings",
+        "question": "Identify what <b>combustible elements</b> are located <b>near the building</b>. Which of the following options apply (you can select more than one answer)?",
+        "description": "Combustible elements (natural and non-natural) located near the building can easily ignite in the event of a forest fire and spread the fire to the home through vulnerable points, such as unprotected glazing or combustible components of the building.",
+        "5closeToGlazing": "There are <b>combustible elements</b> placed <b>less than 5 meters</b> from glazing systems that are not protected by shutters.",
+        "closeToRoof": "There are <b>combustible elements</b> within 5 meters of <b>adjacent combustible elements on the roof</b> (such as wooden eaves, PVC gutters for rainwater collection).",
         "none": "None of the options are applicable"
     },
     "Q12": {
-        "title": "Characteristics of the building environment",
-        "question": "Do you have combustible elements in direct contact with the facade? (if you have wooden flooring adjacent to a fully or partially combustible facade, take it into account in the analysis).",
-        "description": "If there is a fire and embers reach it, combustible materials located next to a combustible facade can easily cause the fire to enter the house.",
+        "title": "Characteristics of the building's surroundings",
+        "question": "Are there <b>combustible elements in direct contact with the facade</b>? (if you have wooden flooring adjacent to a fully or partially combustible facade, take it into account in the analysis).",
+        "description": "If there is a fire and embers reach these combustible elements, their ignition can easily cause the fire to enter the house through the combustible facade.",
         "fuelsAgainstFacade": "Yes",
         "fuelsNotAgainstFacade": "No"
     },
     "Q13": {
-        "title": "Characteristics of the building environment",
-        "question": "Do you have a continuous area of natural fuel (dry grass, young bushes, leaf litter) that reaches the facade? (if you have artificial grass, take it into account in the analysis).",
+        "title": "Characteristics of the building's surroundings",
+        "question": "Is there a <b>continuous area</b> of natural fuel (dry grass, young bushes, leaf litter) that <b>reaches the facade</b>? (if you have artificial grass, take it into account in the analysis).",
         "description": "An example of a continuous combustible surface is a garden with dry grass. Green grass or lawn is not combustible.",
         "contSurf": "Yes",
         "discontSurf": "No"
     },
     "Q14": {
-        "title": "Characteristics of the building environment",
-        "question": "Are there combustible elements (natural or unnatural), located less than 2 meters from a hydrocarbon tank (LPG, diesel or gas cylinders with a volume greater than 0.5 m3)?",
-        "description": "If there is a fire and embers reach it, combustible materials located near a hydrocarbon tank can put the tank at risk and cause a firestorm.",
+        "title": "Characteristics of the building's surroundings",
+        "question": "Are there <b>combustible elements</b> (natural or non-natural), located <b>less than 2 meters</b> from a <b>hydrocarbon tank</b> (LPG, diesel or gas cylinders with a volume greater than 0.5 m3)?",
+        "description": "If there is a fire, combustible materials located near a hydrocarbon tank can ignite and put the tank at risk and cause a jet fire.",
         "farFromLPG": "No",
         "closeToLPG": "Yes",
-        "noLPG": "Not applicable, no hydrocarbon tank"
+        "noLPG": "Not applicable, there is no hydrocarbon tank"
     },
     "Q15": {
-        "title": "Characteristics of the building environment",
-        "question": "Identify what non-natural combustible elements you have near the building (garden furniture, tool or animal sheds, pergolas, sheds, cars, etc.). Which of the following options apply?",
-        "description": "In the event of a fire, non-natural combustible materials can ignite and spread the fire to the building if they are too close.",
-        "placedIn20": "There are unnatural combustible elements located less than 20 meters from an area with highly flammable vegetation (e.g. very dense scrub, wooded areas with species such as pines, eucalyptus, cypresses, etc.).",
-        "spacingLess5": "There is no minimum 5-meter spacing between non-natural combustible elements.",
+        "title": "Characteristics of the building's surroundings",
+        "question": "Identify what <b>non-natural combustible elements</b> are located near the building (garden furniture, tool or animal sheds, pergolas, sheds, cars, etc.). Which of the following options apply (you can select more than one answer)?",
+        "description": "In the event of a fire, non-natural combustible materials can ignite. If these materials are located close to eachother, the fire can spread from one to another and reach the building.",
+        "placedIn20": "There are unnatural combustible elements located <b>less than 20 meters from an area with highly flammable vegetation</b> (e.g., very dense shrubs, forested areas with species such as pines, eucalyptus, cypresses, etc.).",
+        "spacingLess5": "Non-natural combustible elements are placed <b>within 5 m of eachother</b>.",
         "none": "None of the options are applicable"
     },
     "Q16": {
-        "title": "Characteristics of the building environment",
-        "question": "Is the building located within 30 meters of a forest area (e.g. do you consider pasture, scrub or forest areas as forest areas)?",
-        "description": "A forest area refers to a continuous area of pasture, scrub or forest of a certain extent. Unbuilt plots adjacent to the building, where vegetation has grown, should also be taken into account in the analysis.",
+        "title": "Characteristics of the building's surroundings",
+        "question": "Is the building located <b>within 30 meters</b> of a <b>forested area</b> (e.g., pastures, shrubs or woodland)?",
+        "description": "A forested area refers to a continuous area of pasture, shrubs or woodlands of a certain extent. Unbuilt plots adjacent to the building, where vegetation has grown, should also be taken into account in the analysis.",
         "noVegIn30": "No",
         "vegIn30": "Yes"
     },
     "Q17": {
-        "title": "Characteristics of the building environment",
-        "question": "Look at the trees and shrubs within a 30-meter radius around the building. What type of vegetation predominates there?",
-        "description": "The degree of flammability of plant species determines how the fire will behave. Species such as pines or eucalyptus generate larger and more intense flames, while fruit trees, which are less flammable, burn with smaller flames.",
+        "title": "Characteristics of the building's surroundings",
+        "question": "Look at the trees and shrubs within a <b>30-meter radius</b> around the building. What <b>type of vegetation</b> is predominant?",
+        "description": "The degree of flammability of plant species determines how the fire will behave. Species such as pine trees or eucalyptus generate larger and more intense flames, while fruit trees, which are less flammable, burn with smaller flames.",
         "highFlam": "Highly flammable (pines, eucalyptus, cypresses, etc.)",
         "mediumFlam": "Moderately flammable (holm oak, mastic, oak, etc.)",
         "lowFlam": "Lowly flammable (olive trees, citrus, etc.)",
         "noVeg": "Not applicable (there are no trees or shrubs within a 30 meter radius around the building)"
     },
     "Q18": {
-        "title": "Characteristics of the building environment",
-        "question": "Look at the trees and shrubs within a 30-meter radius around the building. Is there horizontal continuity between them?",
-        "description": "Horizontal continuity refers to the presence of vegetation connected or very close together in the horizontal plane, without empty spaces between the different elements. This arrangement makes it easier for fire to spread quickly from one point to another on the ground surface or at low altitude.",
+        "title": "Characteristics of the building's surroundings",
+        "question": "Look at the trees and shrubs within a 30-meter radius around the building. Is there <b>horizontal continuity</b> between them?",
+        "description": "Horizontal continuity refers to the presence of vegetation connected or very close together in the horizontal plane, without empty spaces between the different elements. This arrangement makes it easier for fire to spread quickly from one point to another on the ground surface or at low heights.",
         "discontVeg": "Yes",
         "contVeg": "No",
         "noApplicableDiscVeg": "Not applicable (there are no trees or shrubs within a 30 meter radius around the building)"
     },
     "Q19": {
-        "title": "Characteristics of the building environment",
-        "question": "Look at the trees and shrubs within a 30-meter radius around the building. Is there vertical continuity between them?",
-        "description": "Vertical vegetation continuity is the connection between different layers of vegetation—such as grass, shrubs, and trees—that form a kind of natural \"staircase\". This arrangement makes it easier for fire to spread from the ground to the canopy, making the fire more intense and difficult to control.",
+        "title": "Characteristics of the building's surroundings",
+        "question": "Look at the trees and shrubs within a 30-meter radius around the building. Is there <b>vertical continuity</b> between them?",
+        "description": "Vertical vegetation continuity is the connection between different layers of vegetation—such as grass, shrubs, and trees—that form a kind of natural \"staircase\". This arrangement makes it easier for the fire to spread from the ground to the canopy, making the fire more intense and difficult to control.",
         "noPruning": "No",
         "pruning": "Yes",
         "noApplicablePruning": "Not applicable (there are no trees or shrubs within a 30 meter radius around the building)"
     },
     "Q20": {
-        "title": "Characteristics of the building environment",
-        "question": "How high is the continuous area of natural fuel (dry grass, young bushes, leaf litter) surrounding the building?",
+        "title": "Characteristics of the building's surroundings",
+        "question": "How <b>high</b> is the continuous area of natural fuel (dry grass, young bushes, leaf litter) surrounding the building?",
         "description": "If there is very tall dry grass, it can spread the fire quite intensely and easily reach the building.",
         "lowSurfaceLess10": "Less than 10 cm high",
         "lowSurfaceMore10": "More than 10 cm high"
     },
     "Q21": {
-        "title": "Characteristics of the building environment",
-        "question": "Is there an accumulation of dead vegetation or vegetation debris (leaves, pruning debris) within 30 meters of the building?",
+        "title": "Characteristics of the building's surroundings",
+        "question": "Is there an <b>accumulation</b> of <b>dead vegetation or vegetation debris</b> (leaves, pruning debris) within 30 meters of the building?",
         "description": "The accumulation of dry or dead fuel can burn easily and contribute to the spread of fire into the building.",
         "deadVeg": "Yes",
         "noDeadVeg": "No"
     },
     "Q22": {
-        "title": "Characteristics of the building environment",
-        "question": "Analyze the boundary elements on your plot. What is the predominant boundary?",
+        "title": "Characteristics of the building's surroundings",
+        "question": "Analyze the <b>boundary elements</b> on your plot. What is the <b>predominant boundary</b>?",
         "description": "Fences made of combustible materials can facilitate the spread of fire into the building and between neighbors",
         "woodenFence": "Wooden Fence",
         "hedgerowHigh": "Hedgerow of highly flammable shrubs (cypress, heather, etc.)",
@@ -467,8 +469,8 @@
         "noDelimitation": "There is no fence or physical separation"
     },
     "Q23": {
-        "title": "Characteristics of the building environment",
-        "question": "What type of terrain is your plot of land in?",
+        "title": "Characteristics of the building's surroundings",
+        "question": "What type of <b>terrain</b> is your plot of land located on?",
         "description": "Houses located mid-slope or on a ridge are more vulnerable, as the fire intensifies as it moves up the slope.",
         "flatTerrain": "On flat terrain",
         "midSlope": "Mid-slope",
@@ -476,136 +478,100 @@
     },
 
     "Q1-images": {
-        "spain-Q1_1": "Example of facade with more than 50% combustible material",
-        "spain-Q1_2": "Example of facade with less than 50% combustible material",
-        "spain-Q1_3": "Example of a facade that is 0% combustible",
-        "default-Q1_1": "Example of facade with more than 50% combustible material",
-        "default-Q1_2": "Example of facade with less than 50% combustible material",
-        "default-Q1_3": "Example of a facade that is 0% combustible"
+        "spain-Q1_1": "Facade with more than 50% combustible material",
+        "spain-Q1_2": "Facade with less than 50% combustible material",
+        "spain-Q1_3": "Facade that is 0% combustible"
     },
     "Q2-images": {
-        "spain-Q2_1": "House with the combustible part adjacent to the ground",
-        "spain-Q2_2": "House with the combustible part of the facade more than 1 meter above the ground.",
-        "default-Q2_1": "House with the combustible part adjacent to the ground",
-        "default-Q2_2": "House with the combustible part of the facade more than 1 meter above the ground."
-
+        "spain-Q2_1": "House with the combustible part of the facade adjacent to the ground",
+        "spain-Q2_2": "House with the combustible part of the facade more than 1 meter above the ground."
     },
     "Q3-images": {
-        "spain-Q3_1": "Example of ceramic tiles",
-        "spain-Q3_2": "Example of roof covered with asphalt fabric",
-        "default-Q3_1": "Example of ceramic tiles",
-        "default-Q3_2": "Example of roof covered with asphalt fabric"
+        "spain-Q3_1": "Ceramic tiles",
+        "spain-Q3_2": "Roof covered with asphalt fabric",
+        "spain-Q3_3": "Skylight"
     },
     "Q4-1-images": {
-        "spain-Q4_1": "Example of unsealed space and roof tiles in poor condition",
-        "spain-Q4_2": "Example of broken clay tiles",
-        "default-Q4_1": "Example of unsealed space and roof tiles in poor condition",
-        "default-Q4_2": "Example of broken clay tiles"
+        "spain-Q4_1": "usealed space and roof tiles in poor condition",
+        "spain-Q4_2": "Broken clay tiles"
     },
     "Q4-2-images": {
-        "spain-Q4_1": "Example of unsealed space and roof tiles in poor condition",
-        "spain-Q4_2": "Example of broken clay tiles",
-        "default-Q4_1": "Example of unsealed space and roof tiles in poor condition",
-        "default-Q4_2": "Example of broken clay tiles"
+        "spain-Q4_1": "Unsealed space and roof tiles in poor condition",
+        "spain-Q4_2": "Broken clay tiles"
     },
     "Q5-images": {
-        "spain-Q5_1": "Single and double glazing",
-        "default-Q5_1": "Single and double glazing"
+        "spain-Q5_1": "Single and double glazing"
     },
     "Q6-images": {
         "spain-Q6_1": "PVC shutter",
         "spain-Q6_2": "Wooden shutter",
-        "spain-Q6_3": "Aluminum shutter",
-        "default-Q6_1": "PVC shutter",
-        "default-Q6_2": "Wooden shutter",
-        "default-Q6_3": "Aluminum shutter"
+        "spain-Q6_3": "Aluminum shutter"
     },
     "Q7-images": {
         "spain-Q7_1": "PVC combustible protection of a kitchen ventilation hole",
-        "default-Q7_1": "PVC combustible protection of a kitchen ventilation hole"
+        "spain-Q7_2": "Wall ventilations without protection"
     },
     "Q8-images": {
-        "spain-Q8_1": "Examples of porches with combustible objects stored",
-        "default-Q8_1": "Examples of porches with combustible objects stored"
-
+        "spain-Q8_1": "Examples of porches in which combustible objects are stored",
+        "spain-Q8_2": "Examples of porches in which combustible objects are stored"    
     },
     "Q9-images": {
-        "spain-Q9_1": "Example of unprotected glass doors in a semi-open space",
-        "default-Q9_1": "Example of unprotected glass doors in a semi-open space"
+        "spain-Q9_1": "Example of unprotected glass doors in a semi-open space"
     },
-
     "Q10-images": {
         "spain-Q10_1": "Wall connecting the semi-open space with the main building, made of masonry",
         "default-Q10_1": "Wall connecting the semi-open space with the main building, made of masonry"
     },
     "Q11-images": {
-        "spain-Q11_1": "Example of vegetation less than 5 meters from a roof with a combustible eaves, hanging over it",
-        "spain-Q11_2": "Vegetation within 5 m of unprotected glass",
-        "default-Q11_1": "Example of vegetation less than 5 meters from a roof with a combustible eaves, hanging over it",
-        "default-Q11_2": "Vegetation within 5 m of unprotected glass"
+        "spain-Q11_1": "Vegetation located less than 5 meters from a roof with combustible eaves",
+        "spain-Q11_2": "Vegetation within 5 m of unprotected glazing"
     },
     "Q12-images": {
-        "spain-Q12_1": "Example of combustible elements placed against a facade, also combustible",
-        "default-Q12_1": "Example of combustible elements placed against a facade, also combustible"
+        "spain-Q12_1": "Combustible elements placed against a facade that also combustible",
+        "spain-Q12_2": "Combustible elements placed against a facade that also combustible"
     },
     "Q13-images": {
-        "spain-Q13_1": "Natural fuel continuous zone example",
-        "spain-Q13_2": "Example of natural fuel discontinuity, with a concrete separation",
-        "default-Q13_1": "Natural fuel continuous zone example",
-        "default-Q13_2": "Example of natural fuel discontinuity, with a concrete separation"
+        "spain-Q13_1": "Continuous of natural fuels",
+        "spain-Q13_2": "Natural fuel discontinuity, with a concrete separation between the home and the vegetation"
     },
     "Q14-images": {
-        "spain-Q14_1": "Examples of LPG tanks with combustible elements located less than 2 meters away",
-        "default-Q14_1": "Examples of LPG tanks with combustible elements located less than 2 meters away"
+        "spain-Q14_1": "LPG tanks with combustible elements located less than 2 meters away",
+        "spain-Q14_2": "LPG tanks with combustible elements located less than 2 meters away"
     },
     "Q15-images": {
-        "spain-Q15_1": "Example of non-natural combustible elements (car and shed) placed less than 5 meters apart and next to the forest mass.",
-        "spain-Q15_2": "Example of non-natural combustible elements (pallets, adjacent wooden structure, fence, barrels, etc.) placed less than 5 meters apart and next to the forest mass.",
-        "default-Q15_1": "Example of non-natural combustible elements (car and shed) placed less than 5 meters apart and next to the forest mass.",
-        "default-Q15_2": "Example of non-natural combustible elements (pallets, adjacent wooden structure, fence, barrels, etc.) placed less than 5 meters apart and next to the forest mass."
+        "spain-Q15_1": "Non-natural combustible elements (car and shed) placed less than 5 meters apart and next to the forested area.",
+        "spain-Q15_2": "Non-natural combustible elements (pallets, adjacent wooden structure, fence, barrels, etc.) placed less than 5 meters apart and next to the forested area."
     },
     "Q16-images": {
-        "spain-Q16_1": "House in forest area, no separation distance",
-        "default-Q16_1": "House in forest area, no separation distance"
+        "spain-Q16_1": "House in forest area, no separation distance"
     },
     "Q17-images": {
-        "spain-Q17_1": "Highly flammable tree species, from left to right: pine, eucalyptus, and cypress",
-        "spain-Q17_2": "Holm oak (moderately flammable)",
-        "spain-Q17_3": "Lemon tree (slightly flammable)",
-        "default-Q17_1": "Highly flammable tree species, from left to right: pine, eucalyptus, and cypress",
-        "default-Q17_2": "Holm oak (moderately flammable)",
-        "default-Q17_3": "Lemon tree (slightly flammable)"
+        "spain-Q17_1": "Pine tree (highly flammable)",
+        "spain-Q17_2": "Eucalyptus (highly flammable)",
+        "spain-Q17_3": "Cypress (highly flammable)",
+        "spain-Q17_4": "Holm oak (moderately flammable)",
+        "spain-Q17_5": "Lemon tree (slightly flammable)"
     },
     "Q18-images": {
-        "spain-Q18_1": "Example of horizontal continuity between shrubs and trees",
-        "default-Q18_1": "Example of horizontal continuity between shrubs and trees"
+        "spain-Q18_1": "Horizontal continuity between shrubs and trees"
     },
     "Q19-images": {
-        "spain-Q19_1": "Example of well-managed vegetation: there is no vertical continuity; the tree canopies do not touch the shrubs or bushes",
-        "default-Q19_1": "Example of well-managed vegetation: there is no vertical continuity; the tree canopies do not touch the shrubs or bushes"
+        "spain-Q19_1": "Well-managed vegetation: there is no vertical continuity; the tree canopies are not in contact with the shrubs"
     },
     "Q20-images": {
-        "spain-Q20_1": "Example of garden with dry grass more than 10 cm high",
-        "default-Q20_1": "Example of garden with dry grass more than 10 cm high"
-    },
+        "spain-Q20_1": "Garden with dry grass with a height of more than 10 cm"    },
     "Q21-images": {
-        "spain-Q21_1": "Example of dead vegetation accumulation",
-        "default-Q21_1": "Example of dead vegetation accumulation"
+        "spain-Q21_1": "Accumulation of dead vegetation",
+        "spain-Q21_2": "Accumulation of dead vegetation"
     },
     "Q22-images": {
         "spain-Q22_1": "Wooden fence",
         "spain-Q22_2": "Fence made of highly flammable shrubs",
         "spain-Q22_3": "Metal bar fence",
         "spain-Q22_4": "Wire fence",
-        "spain-Q22_5": "Masonry wall over 2 m high",
-        "default-Q22_1": "Wooden fence",
-        "default-Q22_2": "Fence made of highly flammable shrubs",
-        "default-Q22_3": "Metal bar fence",
-        "default-Q22_4": "Wire fence",
-        "default-Q22_5": "Masonry wall over 2 m high"
+        "spain-Q22_5": "Masonry wall over 2 m high"
     },
     "Q23-images": {
-        "spain-Q23_1": "From left to right: houses on flat terrain, on a slope, and on top of the ridge",
-        "default-Q23_1": "From left to right: houses on flat terrain, on a slope, and on top of the ridge"
+        "spain-Q23_1": "From left to right: houses on flat terrain, on a slope, and on top of the ridge"
     }
 }

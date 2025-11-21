@@ -7,6 +7,7 @@ import 'package:fireprime/providers/house_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:fireprime/pages/mitigation/advanced/mitigation.dart';
 import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class MitigationPage extends StatefulWidget {
   //final Map<String, String?> answers;
@@ -124,6 +125,36 @@ class _MitigationPageState extends State<MitigationPage> {
                               ],
                             ),
                           ),
+                          if (mitigationDetail['url'] != '') ...[
+                            Padding(
+                              padding: const EdgeInsets.fromLTRB(35, 5, 26, 0),
+                              child: Align(
+                                alignment: Alignment.centerLeft,
+                                child: GestureDetector(
+                                  onTap: () async {
+                                    final url =
+                                        Uri.parse(mitigationDetail['url']!);
+                                    if (await canLaunchUrl(url)) {
+                                      await launchUrl(url,
+                                          mode: LaunchMode.externalApplication);
+                                    } else {
+                                      print('Error launching URL: $url');
+                                    }
+                                  },
+                                  child: Text(
+                                    mitigationDetail['url_text'] != ''
+                                        ? mitigationDetail['url_text']!
+                                        : mitigationDetail['url']!,
+                                    style: const TextStyle(
+                                      fontSize: 15,
+                                      color: Colors.blue,
+                                      decoration: TextDecoration.underline,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
                           if (mitigationDetail['questionId'] != '') ...[
                             Padding(
                               padding:

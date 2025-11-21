@@ -28,13 +28,17 @@ class Mitigation {
             mitigationTexts[mitigation.value['title']] = [
               {
                 'text': mitigation.value['text'],
-                'questionId': mitigation.value['questionId'] ?? ''
+                'questionId': mitigation.value['questionId'] ?? '',
+                'url': mitigation.value['url'] ?? '',
+                'url_text': mitigation.value['url_text'] ?? ''
               }
             ];
           } else {
             mitigationTexts[mitigation.value['title']]!.add({
               'text': mitigation.value['text'],
-              'questionId': mitigation.value['questionId'] ?? ''
+              'questionId': mitigation.value['questionId'] ?? '',
+              'url': mitigation.value['url'] ?? '',
+              'url_text': mitigation.value['url_text'] ?? ''
             });
           }
         }

@@ -182,7 +182,7 @@ class _ResultPageState extends State<ResultPage> {
                       width: 200,
                       padding: const EdgeInsets.all(20),
                       color: Colors.transparent,
-                      child: Gauge.radialGauge(risk * 100, 15, 6),
+                      child: Gauge.radialGauge(risk * 100, 15, 6, hazard),
                     ),
                   ),
                   Gauge.gaugeProbabilityText(
@@ -193,9 +193,11 @@ class _ResultPageState extends State<ResultPage> {
                     20,
                     getRiskInfo(hazard * 100, vulnerability * 100, risk * 100,
                         context, _showHazard),
+                    hazard,
+                    context,
                   ),
                   Padding(
-                    padding: const EdgeInsets.fromLTRB(20, 0, 10, 20),
+                    padding: const EdgeInsets.fromLTRB(20, 10, 10, 20),
                     child: Column(
                       children: [
                         const SizedBox(
