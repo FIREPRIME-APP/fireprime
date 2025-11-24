@@ -430,16 +430,16 @@
         "title": "Característiques de l'entorn de l'edifici",
         "question": "Fixeu-vos en els arbres i arbustos en un radi de 30 metres al voltant de l'edifici. Hi ha <b>continuïtat horitzontal</b> entre ells?",
         "description": "La continuïtat horitzontal fa referència a la presència de vegetació connectada o molt propera entre si en el pla horitzontal, sense espais buits entre els diferents elements. Aquesta disposició facilita que el foc es propagui ràpidament d'un punt a un altre per la superfície o a poca alçada.",
-        "discontVeg": "Sí",
-        "contVeg": "No",
+        "discontVeg": "No",
+        "contVeg": "Sí",
         "noApplicableDiscVeg": "No aplicable (no hi ha arbres ni arbustos en un radi de 30 metres al voltant de l'edifici)"
     },
     "Q19": {
         "title": "Característiques de l'entorn de l'edifici",
         "question": "Fixeu-vos en els arbres i arbustos en un radi de 30 metres al voltant de l'edifici. Hi ha <b>continuïtat vertical</b> entre ells?",
         "description": "La continuïtat vertical de la vegetació és la connexió entre diferents estrats de vegetació —com ara herba, arbustos i arbres— que formen una mena d'\"escala\" natural. Aquesta disposició facilita que el foc es propagui des del sòl fins a les capçades, fent que l'incendi sigui més intens i difícil de controlar.",
-        "pruning": "Sí",
-        "noPruning": "No",
+        "pruning": "No",
+        "noPruning": "Sí",
         "noApplicablePruning": "No aplicable (no hi ha arbres ni arbustos en un radi de 30 metres al voltant de l'edifici)"
     },
     "Q20": {

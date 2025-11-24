@@ -425,16 +425,16 @@
         "title": "Características del entorno del edificio",
         "question": "Observe los árboles y arbustos en un radio de 30 metros alrededor del edificio. ¿Hay <b>continuidad horizontal</b> entre ellos?",
         "description": "La continuidad horizontal se refiere a la presencia de vegetación conectada o muy próxima entre sí en el plano horizontal, sin espacios vacíos entre los distintos elementos. Esta disposición facilita que el fuego se propague rápidamente de un punto a otro por la superficie o a poca altura.",
-        "discontVeg": "Sí",
-        "contVeg": "No",
+        "discontVeg": "No",
+        "contVeg": "Sí",
         "noApplicableDiscVeg": "No aplicable (no hay árboles ni arbustos en un radio de 30 metros alrededor del edificio)"
     },
     "Q19": {
         "title": "Características del entorno del edificio",
         "question": "Observe los árboles y arbustos en un radio de 30 metros alrededor del edificio. ¿Hay <b>continuidad vertical</b> entre ellos?",
         "description": "La continuidad vertical de la vegetación es la conexión entre diferentes estratos de vegetación —como hierba, arbustos y árboles— que forman una especie de \"escala\" natural. Esta disposición facilita que el fuego se propague desde el suelo hasta las copas, haciendo que el incendio sea más intenso y difícil de controlar.",
-        "pruning": "Sí",
-        "noPruning": "No",
+        "pruning": "No",
+        "noPruning": "Sí",
         "noApplicablePruning": "No aplicable (no hay árboles ni arbustos en un radio de 30 metros alrededor del edificio)"
     },
     "Q20": {
