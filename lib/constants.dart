@@ -111,8 +111,5 @@ class Constants {
     "vaticanCity": "va",
   };
 
-  static const List<String> areaCodes = [
-    'spain',
-    'austria',
-  ];
+  static const List<String> areaCodes = ['spain', 'austria', 'sweden'];
 }

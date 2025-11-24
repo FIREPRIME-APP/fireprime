@@ -102,16 +102,19 @@ flutter:
   #  - assets/images/austria/
     - assets/images/spain/basic/
     - assets/images/austria/basic/
+    - assets/images/sweden/basic/
     - assets/images/logos/
     - assets/translations/
     - assets/mitigations_text/
     - assets/basic_questionnaires/default/
     - assets/basic_questionnaires/spain/
     - assets/basic_questionnaires/austria/
+    - assets/basic_questionnaires/sweden/
     - assets/advices/spain/
     - assets/advices/spain/pdf/
     - assets/advices/default/
     - assets/advices/austria/
+    - assets/advices/sweden/
     - assets/advices/icons/
   #   - images/a_dot_ham.jpeg
 
