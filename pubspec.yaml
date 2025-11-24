@@ -109,6 +109,7 @@ flutter:
     - assets/basic_questionnaires/spain/
     - assets/basic_questionnaires/austria/
     - assets/advices/spain/
+    - assets/advices/spain/pdf/
     - assets/advices/default/
     - assets/advices/austria/
     - assets/advices/icons/

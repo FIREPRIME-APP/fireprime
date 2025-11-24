@@ -77,6 +77,7 @@
     "vulnerability": "Vulnerabilidad",  
     "no_results_available": "No hay resultados",
     "ideal_risk": "Riesgo ideal",
+    "ideal_risk_info": "Dado el peligro de incendio en la zona donde se encuentra, puede aspirar a este nivel mínimo de riesgo si aplica todas las mejoras recomendadas",
 
     "start_questionnaire_intro": "¡Compruebe el riesgo de su casa con un cuestionario!",
     "update_questionnaire_intro": "Actualice las respuestas del cuestionario",
@@ -84,7 +85,8 @@
     
     "advices_title": "Consejos de preparación y seguridad",
     "advices_intro": "Consejos de preparación y seguridad en caso de incendio",
-
+    "download_advices": "Descarga en pdf", 
+    
     "results_history_intro": "Consulte su historial de resultados",
     
     "details": "Detalles",

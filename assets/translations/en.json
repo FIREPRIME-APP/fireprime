@@ -78,6 +78,7 @@
     "vulnerability": "Vulnerability",
     "no_results_available": "No results available",
     "ideal_risk": "Ideal risk",
+    "ideal_risk_info": "Given the wildfire hazard in your area, you can aim for this minimum risk level if you apply all the recommended improvements",
 
     "start_questionnaire_intro": "Check your house risk with a questionnaire!",
     "update_questionnaire_intro": "Update your answers of the questionnaire",
@@ -88,6 +89,7 @@
 
     "advices_title": "Preparedness and Safety Tips",
     "advices_intro": "Preparedness and safety tips in case of fire",
+    "download_advices": "Download as pdf", 
 
     "results_history_intro": "Check your results history",
 

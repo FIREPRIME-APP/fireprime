@@ -16,6 +16,7 @@ import 'package:fireprime/pages/result/advanced/result_page.dart';
 import 'package:fireprime/widgets/card_text.dart';
 import 'package:fireprime/widgets/gauge.dart';
 import 'package:fireprime/widgets/house_delete_alert.dart';
+import 'package:fireprime/widgets/info_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -327,9 +328,11 @@ class _HousePageState extends State<HousePage> {
               ),
               if (lastRiskAssessment != null) ...[
                 CardText(
-                    title: context.tr('date'),
-                    text: dateFormat.format(lastRiskAssessment.fiDate),
-                    size: 15),
+                  title: context.tr('date'),
+                  text: dateFormat.format(lastRiskAssessment.fiDate),
+                  size: 15,
+                  textBold: false,
+                ),
                 const SizedBox(
                   height: 10,
                 ),
@@ -365,19 +368,45 @@ class _HousePageState extends State<HousePage> {
                                         : context.tr('vulnerability'),
                                     text: (lastRiskAssessment.risk * 100)
                                         .toStringAsFixed(0),
-                                    size: 18,
+                                    size: 20,
                                     color:
                                         null, //Utils.textColor(lastProbability * 100),
+                                    textBold: true,
                                   ),
-                                  CardText(
-                                    title: context.tr('ideal_risk'),
-                                    text: (Constants.bestValue *
-                                            100 *
-                                            lastRiskAssessment.hazard!)
-                                        .toStringAsFixed(0),
-                                    size: 15,
-                                    color: const Color.fromARGB(
-                                        255, 120, 120, 120),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Container(
+                                        width: 12,
+                                        height: 12,
+                                        decoration: const BoxDecoration(
+                                          color: Color.fromARGB(
+                                              255, 120, 120, 120),
+                                          shape: BoxShape.circle,
+                                        ),
+                                      ),
+                                      const SizedBox(width: 8),
+                                      CardText(
+                                        title: context.tr('ideal_risk'),
+                                        text: (Constants.bestValue *
+                                                100 *
+                                                lastRiskAssessment.hazard!)
+                                            .toStringAsFixed(0),
+                                        size: 15,
+                                        color: const Color.fromARGB(
+                                            255, 120, 120, 120),
+                                        textBold: false,
+                                      ),
+                                      const SizedBox(
+                                        width: 5,
+                                      ),
+                                      InfoDialog(
+                                        icon: Icons.info_outline,
+                                        iconSize: 18.0,
+                                        text: context.tr('ideal_risk_info'),
+                                        fontSize: 13,
+                                      ),
+                                    ],
                                   ),
                                 ],
                               ),

@@ -557,4 +557,29 @@ class PdfCreator {
       ),
     );
   }
+
+  static Future<File> savePdfByBytes(
+      {required String pdfName, required pdf}) async {
+    final File pdfFile;
+    if (Platform.isAndroid) {
+      MediaStore.appFolder = 'FirePrime';
+      final mediaStore = MediaStore();
+
+      final root = await getTemporaryDirectory();
+      pdfFile = File('${root.path}/$pdfName');
+      await pdfFile.writeAsBytes(pdf.buffer.asUint8List());
+
+      final result = await mediaStore.saveFile(
+        tempFilePath: pdfFile.path,
+        dirType: DirType.download,
+        dirName: DirName.download,
+      );
+      await openWithIntent(result!.uri.toString());
+    } else {
+      final root = await getApplicationDocumentsDirectory();
+      pdfFile = File('${root.path}/$pdfName');
+      await pdfFile.writeAsBytes(pdf.buffer.asUint8List());
+    }
+    return pdfFile;
+  }
 }

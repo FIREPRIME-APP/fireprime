@@ -78,6 +78,7 @@
     "vulnerability": "Vulnerabilitat",
     "no_results_available": "No hi ha resultats",
     "ideal_risk": "Risc ideal",
+    "ideal_risk_info": "Donat el perill d'incendi de la zona on us trobeu, podeu aspirar a a aquest valor mínim de risc si apliqueu totes les millores",
 
     "start_questionnaire_intro": "Comproveu el risc de l'habitatge amb un qüestionari!",
     "update_questionnaire_intro": "Actualitzeu les respostes del qüestionari",
@@ -88,6 +89,7 @@
 
     "advices_title": "Consells de preparació i seguretat",
     "advices_intro": "Consells de preparació i seguretat en cas d'incendi",
+    "download_advices": "Descarrega en pdf", 
 
     "results_history_intro": "Consulteu el teu històric de resultats",
 

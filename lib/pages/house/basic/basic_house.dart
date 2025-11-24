@@ -149,11 +149,13 @@ class BasicHousePage extends StatelessWidget {
                               ),
                               if (lastCompletedBasicResult != null) ...[
                                 CardText(
-                                    title: context.tr('date'),
-                                    text: dateFormat.format(
-                                        lastCompletedBasicResult.fiDate),
-                                    size: 15,
-                                    color: Colors.black),
+                                  title: context.tr('date'),
+                                  text: dateFormat
+                                      .format(lastCompletedBasicResult.fiDate),
+                                  size: 15,
+                                  color: Colors.black,
+                                  textBold: false,
+                                ),
                                 const SizedBox(
                                   height: 10,
                                 ),
@@ -190,8 +192,9 @@ class BasicHousePage extends StatelessWidget {
                                                   text:
                                                       '${lastCompletedBasicResult.risk}/10',
                                                   size: 18,
-                                                  color:
-                                                      null, //Utils.textColor(lastProbability * 100),
+                                                  color: null,
+                                                  textBold:
+                                                      false, //Utils.textColor(lastProbability * 100),
                                                 ),
                                               ),
                                               const SizedBox(
