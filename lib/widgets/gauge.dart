@@ -60,8 +60,14 @@ class Gauge {
     );
   }
 
-  static Widget gaugeProbabilityText(double probability, String description,
-      double space, String info, double hazard, BuildContext context) {
+  static Widget gaugeProbabilityText(
+      double probability,
+      String description,
+      double space,
+      String info,
+      double hazard,
+      BuildContext context,
+      String ideal_risk_info) {
     return Padding(
       padding: const EdgeInsets.only(top: 120),
       child: Center(
@@ -90,11 +96,33 @@ class Gauge {
                 ),
               ],
             ),
-            CardText(
-              title: context.tr('ideal_risk'),
-              text: (0.1 * 100 * hazard).toStringAsFixed(0),
-              size: 15,
-              color: const Color.fromARGB(255, 120, 120, 120),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  width: 15,
+                  height: 15,
+                  decoration: const BoxDecoration(
+                    color: Color.fromARGB(255, 120, 120, 120),
+                    shape: BoxShape.circle,
+                  ),
+                ),
+                const SizedBox(width: 8),
+                CardText(
+                  title: context.tr('ideal_risk'),
+                  text: (0.1 * 100 * hazard).toStringAsFixed(0),
+                  size: 15,
+                  color: const Color.fromARGB(255, 120, 120, 120),
+                  textBold: false,
+                ),
+                const SizedBox(width: 5),
+                InfoDialog(
+                  icon: Icons.info_outline,
+                  iconSize: 18.0,
+                  text: ideal_risk_info,
+                  fontSize: 13,
+                ),
+              ],
             ),
             /*Padding(
               padding: const EdgeInsets.all(8.0),
@@ -130,6 +158,7 @@ class Gauge {
                   text: probability.toStringAsFixed(0),
                   size: 15,
                   color: Colors.black,
+                  textBold: false,
                   /* '$title: ${probability.toStringAsFixed(0)}',
                   style: const TextStyle(
                       fontSize: 15, fontWeight: FontWeight.bold),*/

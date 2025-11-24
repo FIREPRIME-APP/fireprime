@@ -214,7 +214,10 @@ class Questionnaire {
     }, */
     {
       'stepId': 'Q16',
-      'textChoices': ['vegIn30', 'noVegIn30'],
+      'textChoices': [
+        'vegIn30',
+        'noVegIn30',
+      ],
       'otherOption': false,
       'type': 'singleChoice',
     },
@@ -226,13 +229,13 @@ class Questionnaire {
     },
     {
       'stepId': 'Q18',
-      'textChoices': ['discontVeg', 'contVeg', 'noApplicableDiscVeg'],
+      'textChoices': ['contVeg', 'discontVeg', 'noApplicableDiscVeg'],
       'otherOption': false,
       'type': 'singleChoice',
     },
     {
       'stepId': 'Q19',
-      'textChoices': ['pruning', 'noPruning', 'noApplicablePruning'],
+      'textChoices': ['noPruning', 'pruning', 'noApplicablePruning'],
       'otherOption': false,
       'type': 'singleChoice',
     },

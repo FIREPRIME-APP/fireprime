@@ -195,6 +195,7 @@ class _ResultPageState extends State<ResultPage> {
                         context, _showHazard),
                     hazard,
                     context,
+                    context.tr('ideal_risk_info'),
                   ),
                   Padding(
                     padding: const EdgeInsets.fromLTRB(20, 10, 10, 20),
@@ -211,10 +212,12 @@ class _ResultPageState extends State<ResultPage> {
                           Row(
                             children: [
                               CardText(
-                                  title: context.tr('hazard'),
-                                  text: (hazard * 100).toStringAsFixed(0),
-                                  size: 15,
-                                  color: Colors.black),
+                                title: context.tr('hazard'),
+                                text: (hazard * 100).toStringAsFixed(0),
+                                size: 15,
+                                color: Colors.black,
+                                textBold: false,
+                              ),
                               const SizedBox(
                                 width: 5,
                               ),
@@ -241,8 +244,9 @@ class _ResultPageState extends State<ResultPage> {
                                   text:
                                       (vulnerability * 100).toStringAsFixed(0),
                                   size: 15,
-                                  color:
-                                      null, //Utils.textColor(vulnerability * 100)
+                                  color: null,
+                                  textBold:
+                                      false, //Utils.textColor(vulnerability * 100)
                                 ),
                               ),
                               const SizedBox(
@@ -294,11 +298,13 @@ class _ResultPageState extends State<ResultPage> {
                                   children: [
                                     Expanded(
                                       child: CardText(
-                                          title: context.tr(entry.key),
-                                          text: (entry.value.probability * 100)
-                                              .toStringAsFixed(0),
-                                          size: 15,
-                                          color: null),
+                                        title: context.tr(entry.key),
+                                        text: (entry.value.probability * 100)
+                                            .toStringAsFixed(0),
+                                        size: 15,
+                                        color: null,
+                                        textBold: false,
+                                      ),
                                     ),
                                     const SizedBox(
                                       width: 10,

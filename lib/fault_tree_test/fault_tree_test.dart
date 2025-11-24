@@ -147,6 +147,168 @@ void main() {
     });
   });*/
 
+  group(
+    'Fault Tree Weight Test WORST CASE',
+    () {
+      test('Façade', () {
+        var results = {
+          "Q1": "100comb",
+          "Q2": "height0",
+        };
+
+        FaultTree().setSelectedOptions(results);
+        Node? node = FaultTree().getNode('façade');
+
+        double expectedResult = 0.867;
+
+        expect(node?.calculateProbability().toStringAsFixed(3),
+            expectedResult.toStringAsFixed(3));
+      });
+      test('Roof', () {
+        var results = {
+          "Q3": "roofNonFireRated",
+          "Q4": "roofPoorlyMaintaned-1",
+        };
+
+        FaultTree().setSelectedOptions(results);
+        Node? node = FaultTree().getNode('roof');
+
+        double expectedResult = 0.741;
+
+        expect(node?.calculateProbability().toStringAsFixed(3),
+            expectedResult.toStringAsFixed(3));
+      });
+      test('Glazing Systems', () {
+        var results = {
+          "Q5": "singlePane",
+          "Q6": "noShutters",
+        };
+
+        FaultTree().setSelectedOptions(results);
+        Node? node = FaultTree().getNode('glazing_systems');
+
+        double expectedResult = 0.825;
+
+        expect(node?.calculateProbability().toStringAsFixed(3),
+            expectedResult.toStringAsFixed(3));
+      });
+      test('Vents', () {
+        var results = {
+          'Q7': 'noVentProtection',
+        };
+        FaultTree().setSelectedOptions(results);
+        Node? node = FaultTree().getNode('vents');
+        double expectedResult = 0.677;
+        expect(node?.calculateProbability().toStringAsFixed(3),
+            expectedResult.toStringAsFixed(3));
+      });
+      test('Semi-Confined', () {
+        var results = {
+          "Q8": "yesSemiConf",
+          "Q9": "glazingSystemsSinglePane",
+          "Q10": "combustibleEnvelope",
+        };
+
+        FaultTree().setSelectedOptions(results);
+        Node? node = FaultTree().getNode('semi_confined');
+
+        double expectedResult = 0.956;
+
+        expect(node?.calculateProbability().toStringAsFixed(3),
+            expectedResult.toStringAsFixed(3));
+      });
+      test('Fuels close to building', () {
+        var results = {
+          "Q11": "5closeToGlazing,closeToRoof",
+          "Q12": "fuelsNotAgainstFacade",
+          "Q13": "contSurf",
+        };
+
+        FaultTree().setSelectedOptions(results);
+        Node? node = FaultTree().getNode('fuels_close_to_building');
+
+        double expectedResult = 0.996;
+
+        expect(node?.calculateProbability().toStringAsFixed(3),
+            expectedResult.toStringAsFixed(3));
+      });
+      test('Artificial fuels', () {
+        var results = {
+          "Q14": "closeToLPG",
+          "Q15": "spacingLess5,placedIn20",
+        };
+
+        FaultTree().setSelectedOptions(results);
+        Node? node = FaultTree().getNode('artificial_fuels');
+
+        double expectedResult = 0.967;
+
+        expect(node?.calculateProbability().toStringAsFixed(3),
+            expectedResult.toStringAsFixed(3));
+      });
+      test('Vegetation', () {
+        var results = {
+          "Q16": "vegIn30",
+          "Q17": "highFlam",
+          "Q18": "contVeg",
+          "Q19": "noPruning",
+          "Q20": "lowSurfaceLess10",
+          "Q21": "deadVeg",
+        };
+
+        FaultTree().setSelectedOptions(results);
+        Node? node = FaultTree().getNode('vegetation');
+
+        double expectedResult = 0.999;
+
+        expect(node?.calculateProbability().toStringAsFixed(3),
+            expectedResult.toStringAsFixed(3));
+      });
+
+      test('property permieter', () {
+        var results = {
+          "Q22": "hedgerowHigh",
+        };
+        FaultTree().setSelectedOptions(results);
+        Node? node = FaultTree().getNode('property_perimeter');
+        double expectedResult = 0.8;
+        expect(node?.calculateProbability().toStringAsFixed(3),
+            expectedResult.toStringAsFixed(3));
+      });
+      test('slope', () {
+        var results = {
+          "Q23": "upperSlope",
+        };
+        FaultTree().setSelectedOptions(results);
+        Node? node = FaultTree().getNode('slope');
+        double expectedResult = 0.5;
+        expect(node?.calculateProbability().toStringAsFixed(3),
+            expectedResult.toStringAsFixed(3));
+      });
+    },
+  );
+
+  group('Fault Tree Weight test BEST CASE', () {
+    test('Vegetation', () {
+      var results = {
+        "Q16": "noVegIn30",
+        "Q17": "lowFlam",
+        "Q18": "discontVeg",
+        "Q19": "pruning",
+        "Q20": "noLowSurface",
+        "Q21": "noDeadVeg",
+      };
+
+      FaultTree().setSelectedOptions(results);
+      Node? node = FaultTree().getNode('vegetation');
+
+      double expectedResult = 0.119;
+
+      expect(node?.calculateProbability().toStringAsFixed(3),
+          expectedResult.toStringAsFixed(3));
+    });
+  });
+
   group('Fault Tree Test', () {
     test('Fault Tree Test WORST CASE', () {
       var results = {

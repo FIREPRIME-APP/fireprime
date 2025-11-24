@@ -118,10 +118,12 @@ class HouseCard extends StatelessWidget {
                       children: [
                         if (house.address != null && house.address != '') ...[
                           CardText(
-                              title: context.tr('address'),
-                              text: house.address!,
-                              size: 15,
-                              color: Colors.black),
+                            title: context.tr('address'),
+                            text: house.address!,
+                            size: 15,
+                            color: Colors.black,
+                            textBold: false,
+                          ),
                           const SizedBox(height: 10.0),
                         ],
                         if (house.zipCode != null) ...[
@@ -130,17 +132,20 @@ class HouseCard extends StatelessWidget {
                             text: house.zipCode!,
                             size: 15,
                             color: Colors.black,
+                            textBold: false,
                           ),
                           const SizedBox(
                             height: 10,
                           ),
                         ],
                         CardText(
-                            title: context.tr('country'),
-                            text: context
-                                .tr('european_countries.${house.environment}'),
-                            size: 15,
-                            color: Colors.black),
+                          title: context.tr('country'),
+                          text: context
+                              .tr('european_countries.${house.environment}'),
+                          size: 15,
+                          color: Colors.black,
+                          textBold: false,
+                        ),
                         const SizedBox(height: 10.0),
                       ],
                     ),

@@ -77,6 +77,7 @@
     "vulnerability": "Vulnerabilidad",  
     "no_results_available": "No hay resultados",
     "ideal_risk": "Riesgo ideal",
+    "ideal_risk_info": "Dado el peligro de incendio en la zona donde se encuentra, puede aspirar a este nivel mínimo de riesgo si aplica todas las mejoras recomendadas",
 
     "start_questionnaire_intro": "¡Compruebe el riesgo de su casa con un cuestionario!",
     "update_questionnaire_intro": "Actualice las respuestas del cuestionario",
@@ -84,7 +85,8 @@
     
     "advices_title": "Consejos de preparación y seguridad",
     "advices_intro": "Consejos de preparación y seguridad en caso de incendio",
-
+    "download_advices": "Descarga en pdf", 
+    
     "results_history_intro": "Consulte su historial de resultados",
     
     "details": "Detalles",
@@ -425,16 +427,16 @@
         "title": "Características del entorno del edificio",
         "question": "Observe los árboles y arbustos en un radio de 30 metros alrededor del edificio. ¿Hay <b>continuidad horizontal</b> entre ellos?",
         "description": "La continuidad horizontal se refiere a la presencia de vegetación conectada o muy próxima entre sí en el plano horizontal, sin espacios vacíos entre los distintos elementos. Esta disposición facilita que el fuego se propague rápidamente de un punto a otro por la superficie o a poca altura.",
-        "discontVeg": "Sí",
-        "contVeg": "No",
+        "discontVeg": "No",
+        "contVeg": "Sí",
         "noApplicableDiscVeg": "No aplicable (no hay árboles ni arbustos en un radio de 30 metros alrededor del edificio)"
     },
     "Q19": {
         "title": "Características del entorno del edificio",
         "question": "Observe los árboles y arbustos en un radio de 30 metros alrededor del edificio. ¿Hay <b>continuidad vertical</b> entre ellos?",
         "description": "La continuidad vertical de la vegetación es la conexión entre diferentes estratos de vegetación —como hierba, arbustos y árboles— que forman una especie de \"escala\" natural. Esta disposición facilita que el fuego se propague desde el suelo hasta las copas, haciendo que el incendio sea más intenso y difícil de controlar.",
-        "pruning": "Sí",
-        "noPruning": "No",
+        "pruning": "No",
+        "noPruning": "Sí",
         "noApplicablePruning": "No aplicable (no hay árboles ni arbustos en un radio de 30 metros alrededor del edificio)"
     },
     "Q20": {

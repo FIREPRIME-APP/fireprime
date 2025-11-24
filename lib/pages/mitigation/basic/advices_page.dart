@@ -1,6 +1,9 @@
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:easy_localization/easy_localization.dart';
+import 'package:fireprime/constants.dart';
+import 'package:fireprime/pdf_creation/pdf_creator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
@@ -190,6 +193,71 @@ class _AdvicesPageState extends State<AdvicesPage> {
                         }
                       },
                     ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    if (widget.area == 'spain')
+                      Center(
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                              backgroundColor: Constants.blueDark,
+                              elevation: 5.0),
+                          child: Text(
+                            context.tr('download_advices'),
+                            style: const TextStyle(color: Colors.white),
+                          ),
+                          onPressed: () async {
+                            showDialog(
+                              context: context,
+                              barrierDismissible: false,
+                              builder: (context) {
+                                return AlertDialog(
+                                    content: Container(
+                                  height: 80,
+                                  width: 200,
+                                  color: Colors.blueGrey[50],
+                                  child: Center(
+                                      child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      const CircularProgressIndicator(),
+                                      const SizedBox(height: 10),
+                                      Text(
+                                        context.tr('downloading'),
+                                      ),
+                                    ],
+                                  )),
+                                ));
+                              },
+                            );
+                            try {
+                              ByteData pdf =
+                                  await loadAdvicesPdf(context, widget.area);
+                              print('loading pdf');
+                              print(pdf.runtimeType);
+                              String timestamp = DateTime.now()
+                                  .toIso8601String()
+                                  .replaceAll(':', '-');
+                              File file = await PdfCreator.savePdfByBytes(
+                                  pdfName:
+                                      'Preparedness_and_Safety_Tips_$timestamp.pdf',
+                                  pdf: pdf);
+
+                              if (Platform.isIOS) PdfCreator.openPdf(file);
+
+                              Navigator.of(context).pop();
+                            } catch (e) {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  content: Text(context.tr('pdf_error')),
+                                ),
+                              );
+                              Navigator.of(context).pop();
+                            }
+                          },
+                        ),
+                      ),
+                    const SizedBox(height: 10),
                   ]),
             ),
           );
@@ -212,6 +280,20 @@ class _AdvicesPageState extends State<AdvicesPage> {
         const defaultPath = 'assets/advices/default/en.json';
         return jsonDecode(await rootBundle.loadString(defaultPath));
       }
+    }
+  }
+
+  Future<ByteData> loadAdvicesPdf(BuildContext context, String area) async {
+    final localeCode = context.locale.languageCode;
+    final path = 'assets/advices/$area/pdf/$localeCode.pdf';
+
+    print(path);
+
+    try {
+      return await rootBundle.load(path);
+    } catch (e) {
+      const defaultPath = 'assets/advices/spain/en.pdf';
+      return await rootBundle.load(defaultPath);
     }
   }
 /*

@@ -34,7 +34,8 @@ class FaultTree {
     if (faultTree['type'] == 'event') {
       if (faultTree.containsKey('gate')) {
         Gate gate = _parseTree(faultTree['gate'][0]) as Gate;
-        return IntermediateEvent(faultTree['event_id'], gate);
+        return IntermediateEvent(
+            faultTree['event_id'], gate, faultTree['weight'] ?? 1);
       } else {
         BasicEvent(faultTree['event_id'], faultTree['probability']);
         if (faultTree['depends_on'] != null) {
@@ -54,23 +55,24 @@ class FaultTree {
       if (faultTree.containsKey('weight')) {
         if (faultTree['type'] == 'xor_gate') {
           return XorGate(
-              faultTree['gate_id'], inputEvents, faultTree['weight']);
+              faultTree['gate_id'], inputEvents /* , faultTree['weight'] */);
         } else if (faultTree['type'] == 'and_gate') {
           return AndGate(
-              faultTree['gate_id'], inputEvents, faultTree['weight']);
+              faultTree['gate_id'], inputEvents /* , faultTree['weight'] */);
         } else if (faultTree['type'] == 'or_gate') {
-          return OrGate(faultTree['gate_id'], inputEvents, faultTree['weight']);
+          return OrGate(
+              faultTree['gate_id'], inputEvents /* , faultTree['weight'] */);
         } else {
           throw Exception(
               'Does not exist this type of gate: ${faultTree['type']}');
         }
       } else {
         if (faultTree['type'] == 'xor_gate') {
-          return XorGate(faultTree['gate_id'], inputEvents, 1.0);
+          return XorGate(faultTree['gate_id'], inputEvents /* , 1.0 */);
         } else if (faultTree['type'] == 'and_gate') {
-          return AndGate(faultTree['gate_id'], inputEvents, 1.0);
+          return AndGate(faultTree['gate_id'], inputEvents /* , 1.0 */);
         } else if (faultTree['type'] == 'or_gate') {
-          return OrGate(faultTree['gate_id'], inputEvents, 1.0);
+          return OrGate(faultTree['gate_id'], inputEvents /* , 1.0 */);
         } else {
           throw Exception(
               'Does not exist this type of gate: ${faultTree['type']}');

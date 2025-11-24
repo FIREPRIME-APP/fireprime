@@ -1,0 +1,94 @@
+{
+    "questions": [
+        {
+            "id": "BQ1",
+            "question": "My house is located near a coniferous forest area or an area with tall grass",
+            "images": [
+                {
+                    "path": "assets/images/sweden/basic/BQ1.png"
+                }
+            ]
+        },
+        {
+            "id": "BQ2",
+            "question": "My house is situated on a slope or at the top of a hill",
+            "images": [
+                {
+                    "path": "assets/images/sweden/basic/BQ2.png"
+                }
+            ]
+        },
+        {
+            "id": "BQ3",
+            "question": "The exterior walls of my house are combustible",
+            "images": [
+                {
+                    "path": "assets/images/sweden/basic/BQ3.png"
+                }
+            ]
+        },
+        {
+            "id": "BQ4",
+            "question": "The roof, veranda, or balcony is combustible",
+            "images": [
+                {
+                    "path": "assets/images/sweden/basic/BQ4.png"
+                }
+            ]
+        },
+        {
+            "id": "BQ5",
+            "question": "I have single-glazed windows, either on the main building or on outbuildings",
+            "images": [
+                {
+                    "path": "assets/images/sweden/basic/BQ5.png"
+                }
+            ]
+        },
+{
+            "id": "BQ6",
+            "question": "There is tall grass or flammable vegetation adjacent to parts of the house",
+            "images": [
+                {
+                    "path": "assets/images/sweden/basic/BQ6.png"
+                }
+            ]
+        },
+        {
+            "id": "BQ7",
+            "question": "I have ventilation openings without protective covers",
+            "images": [
+                {
+                    "path": "assets/images/sweden/basic/BQ7.png"
+                }
+            ]
+        },
+        {
+            "id": "BQ8",
+            "question": "There is coniferous trees (e.g., Thuja or Cupressus) or plenty of other flammable materials ajacent to the house",
+            "images": [
+                {
+                    "path": "assets/images/sweden/basic/BQ8.png"
+                }
+            ]
+        },
+        {
+            "id": "BQ9",
+            "question": "There is a significant amount of dead vegetation on the roof or in the gutters",
+            "images": [
+                {
+                    "path": "assets/images/sweden/basic/BQ9.png"
+                }
+            ]
+        },
+        {
+            "id": "BQ10",
+            "question": "I have outbuilding(s) located close to surrounding vegetation",
+            "images": [
+                {
+                    "path": "assets/images/sweden/basic/BQ10.png"
+                }
+            ]
+        }
+    ]
+}

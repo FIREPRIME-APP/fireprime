@@ -2,7 +2,7 @@ import 'package:fireprime/fault_tree/gates/gate.dart';
 import 'package:fireprime/fault_tree/selectedOptions.dart';
 
 class XorGate extends Gate {
-  XorGate(super.id, super.inputEvents, super.weight) {
+  XorGate(super.id, super.inputEvents /* , super.weight */) {
     super.gateType = 'xor_gate';
   }
 
@@ -28,6 +28,6 @@ class XorGate extends Gate {
       }
     }*/
 
-    return probability * weight;
+    return probability /* * weight */;
   }
 }

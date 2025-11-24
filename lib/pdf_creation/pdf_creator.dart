@@ -27,13 +27,14 @@ class PdfCreator {
       House house,
       String date) async {
     ScreenshotController screenshotController = ScreenshotController();
+    final sw = Stopwatch()..start();
 
-    final fireprimeLogoBytes =
-        await getImageFromAssets('assets/images/logos/FIREPRIME_Logo_A.png');
+    final assetsFutures = Future.wait([
+      getImageFromAssets('assets/images/logos/FIREPRIME_Logo_A.png'),
+      getImageFromAssets('assets/images/logos/ue.png')
+    ]);
 
-    final ueLogoBytes = await getImageFromAssets('assets/images/logos/ue.png');
-
-    Uint8List gaugeImage = await screenshotController.captureFromWidget(
+    final gaugeImageFuture = screenshotController.captureFromWidget(
       wg.Container(
         height: 200,
         width: 200,
@@ -43,21 +44,39 @@ class PdfCreator {
       ),
     );
 
-    Uint8List hazardImage = await screenshotController.captureFromWidget(
+    final hazardImageFuture = screenshotController.captureFromWidget(
       Gauge.linearGauge(hazard * 100, 10, 7, 20, null, false, 8),
     );
 
-    Uint8List vulnerabilityImage = await screenshotController.captureFromWidget(
+    final vulnerabilityImageFuture = screenshotController.captureFromWidget(
       Gauge.linearGauge(vulnerability * 100, 10, 7, 20, null, false, 8),
     );
 
-    Map<String, Uint8List> linearGaugesImage =
-        await linearGauges(subProbabilities, screenshotController);
+    final linearGaugeImageFuture =
+        linearGauges(subProbabilities, screenshotController);
 
-    print(linearGaugesImage.keys);
+    final results = await Future.wait([
+      assetsFutures,
+      gaugeImageFuture,
+      hazardImageFuture,
+      vulnerabilityImageFuture,
+      linearGaugeImageFuture,
+    ]);
+
+    final fireprimeLogoBytes = (results[0] as List)[0] as Uint8List;
+    final ueLogoBytes = (results[0] as List)[1] as Uint8List;
+    final gaugeImage = results[1] as Uint8List;
+    final hazardImage = results[2] as Uint8List;
+    final vulnerabilityImage = results[3] as Uint8List;
+    final linearGaugesImage = results[4] as Map<String, Uint8List>;
 
     final List<pw.Widget> subProbWidgets =
         getSubProbWidgets(linearGaugesImage, subProbabilities);
+
+    print(
+        "All images (including linear gauges) tardó: ${sw.elapsedMilliseconds} ms");
+
+    sw.reset();
 
     final pdf = pw.Document();
     pdf.addPage(
@@ -139,6 +158,7 @@ class PdfCreator {
       ),
     );
     String timestamp = DateTime.now().toIso8601String().replaceAll(':', '-');
+    //  return pdf;
     return savePdf(pdfName: 'advanced_results_$timestamp.pdf', pdf: pdf);
   }
 
@@ -163,8 +183,6 @@ class PdfCreator {
         dirName: DirName.download,
       );
       await openWithIntent(result!.uri.toString());
-      //final result = await OpenFile.open(pdfFile.path);
-      //print('open file result: ${result.message}');
     } else {
       final root = await getApplicationDocumentsDirectory();
       pdfFile = File('${root.path}/$pdfName');
@@ -173,6 +191,44 @@ class PdfCreator {
     return pdfFile;
   }
 
+  /* static Future<File> savePdfiOS({
+    required String pdfName,
+    required pw.Document pdf,
+  }) async {
+    final File pdfFile;
+
+    final root = await getApplicationDocumentsDirectory();
+    pdfFile = File('${root.path}/$pdfName');
+    await pdfFile.writeAsBytes(await pdf.save());
+
+    return pdfFile;
+  }
+
+  static Future<SaveInfo?> savePdfAndroid({
+    required String pdfName,
+    required pw.Document pdf,
+  }) async {
+    final File pdfFile;
+    if (Platform.isAndroid) {
+      print('saving pdf on android');
+      MediaStore.appFolder = 'FirePrime';
+      final mediaStore = MediaStore();
+
+      final root = await getTemporaryDirectory();
+      pdfFile = File('${root.path}/$pdfName');
+      await pdfFile.writeAsBytes(await pdf.save());
+      print('saving pdf: ${pdfFile.path}');
+
+      return await mediaStore.saveFile(
+        tempFilePath: pdfFile.path,
+        dirType: DirType.download,
+        dirName: DirName.download,
+      );
+      // await openWithIntent(result!.uri.toString());
+    }
+    return null;
+  }
+ */
   static Future<void> openWithIntent(String contentUri) async {
     print(contentUri);
     final intent = AndroidIntent(
@@ -343,8 +399,12 @@ class PdfCreator {
         await getImageFromAssets('assets/images/logos/FIREPRIME_Logo_A.png');
     final ueLogoBytes = await getImageFromAssets('assets/images/logos/ue.png');
 
+    final sw = Stopwatch()..start();
+
     final List<List<pw.Widget>> markDownWidgets =
         await _getMarkdownWidgets(markdownText);
+
+    print('text basic: ${sw.elapsedMilliseconds} ms');
     pdf.addPage(
       pw.MultiPage(
         pageFormat: PdfPageFormat.a4,
@@ -496,5 +556,30 @@ class PdfCreator {
         ],
       ),
     );
+  }
+
+  static Future<File> savePdfByBytes(
+      {required String pdfName, required pdf}) async {
+    final File pdfFile;
+    if (Platform.isAndroid) {
+      MediaStore.appFolder = 'FirePrime';
+      final mediaStore = MediaStore();
+
+      final root = await getTemporaryDirectory();
+      pdfFile = File('${root.path}/$pdfName');
+      await pdfFile.writeAsBytes(pdf.buffer.asUint8List());
+
+      final result = await mediaStore.saveFile(
+        tempFilePath: pdfFile.path,
+        dirType: DirType.download,
+        dirName: DirName.download,
+      );
+      await openWithIntent(result!.uri.toString());
+    } else {
+      final root = await getApplicationDocumentsDirectory();
+      pdfFile = File('${root.path}/$pdfName');
+      await pdfFile.writeAsBytes(pdf.buffer.asUint8List());
+    }
+    return pdfFile;
   }
 }

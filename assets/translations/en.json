@@ -78,6 +78,7 @@
     "vulnerability": "Vulnerability",
     "no_results_available": "No results available",
     "ideal_risk": "Ideal risk",
+    "ideal_risk_info": "Given the wildfire hazard in your area, you can aim for this minimum risk level if you apply all the recommended improvements",
 
     "start_questionnaire_intro": "Check your house risk with a questionnaire!",
     "update_questionnaire_intro": "Update your answers of the questionnaire",
@@ -88,6 +89,7 @@
 
     "advices_title": "Preparedness and Safety Tips",
     "advices_intro": "Preparedness and safety tips in case of fire",
+    "download_advices": "Download as pdf", 
 
     "results_history_intro": "Check your results history",
 
@@ -383,8 +385,8 @@
         "title": "Characteristics of the building's surroundings",
         "question": "Are there <b>combustible elements in direct contact with the facade</b>? (if you have wooden flooring adjacent to a fully or partially combustible facade, take it into account in the analysis).",
         "description": "If there is a fire and embers reach these combustible elements, their ignition can easily cause the fire to enter the house through the combustible facade.",
-        "fuelsAgainstFacade": "Yes",
-        "fuelsNotAgainstFacade": "No"
+        "fuelsAgainstFacade": "No",
+        "fuelsNotAgainstFacade": "Yes"
     },
     "Q13": {
         "title": "Characteristics of the building's surroundings",
@@ -429,16 +431,16 @@
         "title": "Characteristics of the building's surroundings",
         "question": "Look at the trees and shrubs within a 30-meter radius around the building. Is there <b>horizontal continuity</b> between them?",
         "description": "Horizontal continuity refers to the presence of vegetation connected or very close together in the horizontal plane, without empty spaces between the different elements. This arrangement makes it easier for fire to spread quickly from one point to another on the ground surface or at low heights.",
-        "discontVeg": "Yes",
-        "contVeg": "No",
+        "discontVeg": "No",
+        "contVeg": "Yes",
         "noApplicableDiscVeg": "Not applicable (there are no trees or shrubs within a 30 meter radius around the building)"
     },
     "Q19": {
         "title": "Characteristics of the building's surroundings",
         "question": "Look at the trees and shrubs within a 30-meter radius around the building. Is there <b>vertical continuity</b> between them?",
         "description": "Vertical vegetation continuity is the connection between different layers of vegetation—such as grass, shrubs, and trees—that form a kind of natural \"staircase\". This arrangement makes it easier for the fire to spread from the ground to the canopy, making the fire more intense and difficult to control.",
-        "noPruning": "No",
-        "pruning": "Yes",
+        "noPruning": "Yes",
+        "pruning": "No",
         "noApplicablePruning": "Not applicable (there are no trees or shrubs within a 30 meter radius around the building)"
     },
     "Q20": {
