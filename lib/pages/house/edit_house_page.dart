@@ -62,12 +62,45 @@ class _EditHousePageState extends State<EditHousePage> {
         Utils.snackBar(context.tr('warning_house_name_exists')),
       );
     } else if (_name.text.isNotEmpty && _zipCode.text.isNotEmpty) {
-      Map<String, dynamic> latLong = await ZipCode()
-          .getLatLongByZipCode(_zipCode.text, _selectedCountryCode!);
+      Map<String, dynamic> latLong = {};
+      showDialog(
+        context: context,
+        barrierDismissible: false,
+        builder: (BuildContext context) {
+          return AlertDialog(
+              content: Container(
+            height: 80,
+            width: 200,
+            color: Colors.blueGrey[50],
+            child: Center(
+                child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const CircularProgressIndicator(),
+                const SizedBox(height: 10),
+                Text(
+                  context.tr('loading'),
+                ),
+              ],
+            )),
+          ));
+        },
+      );
+      try {
+        latLong = await ZipCode()
+            .getLatLongByZipCode(_zipCode.text, _selectedCountryCode!);
+        Navigator.of(context).pop();
+      } catch (e) {
+        Navigator.of(context).pop();
+      }
+      print('latLong: $latLong');
+
       if (latLong.isEmpty) {
+        print('unable to get latLong');
         showDialog(
           context: context,
           builder: (BuildContext context) {
+            print('showing unable to get latLong dialog');
             return AlertDialog(
               title: Text(context.tr('unable_to_get_latlong_title')),
               content: Text(context.tr('unable_to_get_latlong_message')),
@@ -102,12 +135,13 @@ class _EditHousePageState extends State<EditHousePage> {
         House currentHouse = house.getHouse(house.currentHouse!);
         currentHouse.lat = double.parse(latLong['latitude']);
         currentHouse.long = double.parse(latLong['longitude']);
+        house.editHouse(_name.text, _address.text, _zipCode.text);
+        Navigator.of(context).pop();
       }
 
-      house.editHouse(_name.text, _address.text, _zipCode.text);
       //saveEventdata(screenId: 'edit_house_page', buttonId: 'save_edited_house');
 
-      Navigator.of(context).pop();
+      //Navigator.of(context).pop();
     }
   }
 

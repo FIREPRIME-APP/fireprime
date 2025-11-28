@@ -1,3 +1,246 @@
 {
-  
+    "Q1": [
+        {
+            "path": "assets/images/austria/Q1_1.png",
+            "description": "austria-Q1_1"
+        },
+        {
+            "path": "assets/images/austria/Q1_2.png",
+            "description": "austria-Q1_2"
+        },
+        {
+            "path": "assets/images/austria/Q1_3.png",
+            "description": "austria-Q1_3"
+        }
+    ],
+    "Q2": [
+        {
+            "path": "assets/images/austria/Q2_1.png",
+            "description": "austria-Q2_1"
+        }
+    ],
+    "Q3": [
+        {
+            "path": "assets/images/austria/Q3_1.png",
+            "description": "austria-Q3_1"
+        },
+        {
+            "path": "assets/images/austria/Q3_2.png",
+            "description": "austria-Q3_2"
+        }
+    ],
+    "Q4-1": [
+        {
+            "path": "assets/images/austria/Q4_1.png",
+            "description": "austria-Q4_1"
+        },
+        {
+            "path": "assets/images/austria/Q4_2.png",
+            "description": "austria-Q4_2"
+        }
+    ],
+    "Q4-2": [
+        {
+            "path": "assets/images/austria/Q4_1.png",
+            "description": "austria-Q4_1"
+        },
+        {
+            "path": "assets/images/austria/Q4_2.png",
+            "description": "austria-Q4_2"
+        }
+    ],
+    "Q5": [
+        {
+            "path": "assets/images/austria/Q5_1.png",
+            "description": "austria-Q5_1"
+        }
+    ],
+    "Q6": [
+        {
+            "path": "assets/images/austria/Q6_1.png",
+            "description": "austria-Q6_1"
+        },
+        {
+            "path": "assets/images/austria/Q6_2.png",
+            "description": "austria-Q6_2"
+        },
+        {
+            "path": "assets/images/austria/Q6_3.png",
+            "description": "austria-Q6_3"
+        }
+    ],
+    "Q7": [
+        {
+            "path": "assets/images/austria/Q7_1.png",
+            "description": "austria-Q7_1"
+        }
+    ],
+    "Q8": [
+        {
+            "path": "assets/images/austria/Q8_1.png",
+            "description": "austria-Q8_1"
+        },
+        {
+            "path": "assets/images/austria/Q8_2.png",
+            "description": "austria-Q8_2"
+        }
+    ],
+    "Q9": [
+        {
+            "path": "assets/images/austria/Q9_1.png",
+            "description": "austria-Q9_1"
+        }
+    ],
+    "Q10": [
+        {
+            "path": "assets/images/austria/Q10_1.png",
+            "description": "austria-Q10_1"
+        }
+    ],
+    "Q11": [
+        {
+            "path": "assets/images/austria/Q11_1.png",
+            "description": "austria-Q11_1"
+        },
+        {
+            "path": "assets/images/austria/Q11_2.png",
+            "description": "austria-Q11_2"
+        }
+    ],
+    "Q12": [
+        {
+            "path": "assets/images/austria/Q12_1.png",
+            "description": "austria-Q12_1"
+        }
+    ],
+    "Q13": [
+        {
+            "path": "assets/images/austria/Q13_1.png",
+            "description": "austria-Q13_1"
+        },
+        {
+            "path": "assets/images/austria/Q13_2.png",
+            "description": "austria-Q13_2"
+        }
+    ],
+    "Q14": [
+        {
+            "path": "assets/images/austria/Q14_1.png",
+            "description": "austria-Q14_1"
+        },
+        {
+            "path": "assets/images/austria/Q14_2.png",
+            "description": "austria-Q14_2"
+        }
+    ],
+    "Q15": [
+        {
+            "path": "assets/images/austria/Q15_1.png",
+            "description": "austria-Q15_1"
+        },
+        {
+            "path": "assets/images/austria/Q15_2.png",
+            "description": "austria-Q15_2"
+        },
+        {
+            "path": "assets/images/austria/Q15_3.png",
+            "description": "austria-Q15_3"
+        }
+    ],
+    "Q16": [
+        {
+            "path": "assets/images/austria/Q16_1.png",
+            "description": "austria-Q16_1"
+        }
+    ],
+    "Q17":[
+        {
+            "path": "assets/images/austria/Q17_1.png",
+            "description": "austria-Q17_1"
+        },
+        {
+            "path": "assets/images/austria/Q17_2.png",
+            "description": "austria-Q17_2"
+        },
+        {
+            "path": "assets/images/austria/Q17_3.png",
+            "description": "austria-Q17_3"
+        },
+        {
+            "path": "assets/images/austria/Q17_4.png",
+            "description": "austria-Q17_4"
+        },
+        {
+            "path": "assets/images/austria/Q17_5.png",
+            "description": "austria-Q17_5"
+        },
+        {
+            "path": "assets/images/austria/Q17_6.png",
+            "description": "austria-Q17_6"
+        }
+    ],
+    "Q18": [
+        {
+            "path": "assets/images/austria/Q18_1.png",
+            "description": "austria-Q18_1"
+        }
+    ],
+    "Q19": [
+        {
+            "path": "assets/images/austria/Q19_1.png",
+            "description": "austria-Q19_1"
+        }
+    ],
+    "Q20": [
+        {
+            "path": "assets/images/austria/Q20_1.png",
+            "description": "austria-Q20_1"
+        }
+    ],
+    "Q21": [
+        {
+            "path": "assets/images/austria/Q21_1.png",
+            "description": "austria-Q21_1"
+        },
+        {
+            "path": "assets/images/austria/Q21_2.png",
+            "description": "austria-Q21_2"
+        }
+    ],
+    "Q22": [
+        {
+            "path": "assets/images/austria/Q22_1.png",
+            "description": "austria-Q22_1"
+        },
+        {
+            "path": "assets/images/austria/Q22_2.png",
+            "description": "austria-Q22_2"
+        },
+        {
+            "path": "assets/images/austria/Q22_3.png",
+            "description": "austria-Q22_3"
+        },
+        {
+            "path": "assets/images/austria/Q22_4.png",
+            "description": "austria-Q22_4"
+        },
+        {
+            "path": "assets/images/austria/Q22_5.png",
+            "description": "austria-Q22_5"
+        },
+        {
+            "path": "assets/images/austria/Q22_6.png",
+            "description": "austria-Q22_6"
+        },
+        {
+            "path": "assets/images/austria/Q22_7.png",
+            "description": "austria-Q22_7"
+        }
+    ],
+    "Q23": [
+        {
+            "path": "assets/images/austria/Q23_1.png",
+            "description": "austria-Q23_1"
+        }
+    ]
 }

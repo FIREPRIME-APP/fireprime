@@ -99,7 +99,7 @@ flutter:
     - assets/
     - assets/images/spain/
     - assets/images/default/
-  #  - assets/images/austria/
+    - assets/images/austria/
     - assets/images/spain/basic/
     - assets/images/austria/basic/
     - assets/images/sweden/basic/

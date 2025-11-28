@@ -49,6 +49,10 @@ class HouseCard extends StatelessWidget {
                       PopupMenuButton<int>(
                         icon: const Icon(Icons.more_vert),
                         onSelected: (value) async {
+                          WidgetsBinding.instance.addPostFrameCallback((_) {
+                            houseProvider.setCurrentHouse(houseKey);
+                          });
+
                           if (value == 0) {
                             /*   saveEventdata(
                                 screenId: 'house_page', buttonId: 'edit_house');
@@ -56,7 +60,6 @@ class HouseCard extends StatelessWidget {
                             Navigator.of(context).push(
                               MaterialPageRoute(
                                 builder: (BuildContext context) {
-                                  houseProvider.setCurrentHouse(houseKey);
                                   return EditHousePage(
                                     currentHouse: houseKey,
                                   );
@@ -64,7 +67,6 @@ class HouseCard extends StatelessWidget {
                               ),
                             );
                           } else if (value == 1) {
-                            houseProvider.setCurrentHouse(houseKey);
                             /*   saveEventdata(
                                 screenId: 'house_page',
                                 buttonId: 'delete_house');

@@ -123,7 +123,7 @@
     "vulnerability_intro": "Vulnerability level",
 
     "hazard_info": "This value depends on your house location.",
-    "hazard": "Wildfire risk",
+    "hazard": "Wildfire hazard",
     "house_vulnerability": "Your house vulnerability",
     "hide": "Hide",
 
@@ -482,98 +482,147 @@
     "Q1-images": {
         "spain-Q1_1": "Facade with more than 50% combustible material",
         "spain-Q1_2": "Facade with less than 50% combustible material",
-        "spain-Q1_3": "Facade that is 0% combustible"
+        "spain-Q1_3": "Facade that is 0% combustible",
+        "austria-Q1_1": "Facade with more than 50% combustible material",
+        "austria-Q1_2": "Facade with less than 50% combustible material",
+        "austria-Q1_3": "Facade that is 0% combustible"
     },
     "Q2-images": {
         "spain-Q2_1": "House with the combustible part of the facade adjacent to the ground",
-        "spain-Q2_2": "House with the combustible part of the facade more than 1 meter above the ground."
+        "spain-Q2_2": "House with the combustible part of the facade more than 1 meter above the ground.",  
+        "austria-Q2_1": "House with the combustible part of the facade more than 1 meter above the ground."
     },
     "Q3-images": {
         "spain-Q3_1": "Ceramic tiles",
         "spain-Q3_2": "Roof covered with asphalt fabric",
-        "spain-Q3_3": "Skylight"
+        "spain-Q3_3": "Skylight",
+        "austria-Q3_1": "Example of clay bricks",
+        "austria-Q3_2": "Example of slate tiles"
     },
     "Q4-1-images": {
-        "spain-Q4_1": "usealed space and roof tiles in poor condition",
-        "spain-Q4_2": "Broken clay tiles"
+        "spain-Q4_1": "Unsealed space and roof tiles in poor condition",
+        "spain-Q4_2": "Broken clay tiles",
+        "austria-Q4_1": "Example of dirt accumulation in the gutters",
+        "austria-Q4_2": "Example of intact and damaged clay tiles"
     },
     "Q4-2-images": {
         "spain-Q4_1": "Unsealed space and roof tiles in poor condition",
-        "spain-Q4_2": "Broken clay tiles"
+        "spain-Q4_2": "Broken clay tiles",
+        "austria-Q4_1": "Example of dirt accumulation in the gutters",
+        "austria-Q4_2": "Example of intact and damaged clay tiles"
     },
     "Q5-images": {
-        "spain-Q5_1": "Single and double glazing"
+        "spain-Q5_1": "Single and double glazing",
+        "austria-Q5_1": "Single and double glazing"
     },
     "Q6-images": {
         "spain-Q6_1": "PVC shutter",
         "spain-Q6_2": "Wooden shutter",
-        "spain-Q6_3": "Aluminum shutter"
+        "spain-Q6_3": "Aluminum shutter",
+        "austria-Q6_1": "PVC shutter",
+        "austria-Q6_2": "Wooden shutter",
+        "austria-Q6_3": "Aluminum shutter"
     },
     "Q7-images": {
         "spain-Q7_1": "PVC combustible protection of a kitchen ventilation hole",
-        "spain-Q7_2": "Wall ventilations without protection"
+        "spain-Q7_2": "Wall ventilations without protection",
+        "austria-Q7_1": "Example of a kitchen ventilation guard"
     },
     "Q8-images": {
         "spain-Q8_1": "Examples of porches in which combustible objects are stored",
-        "spain-Q8_2": "Examples of porches in which combustible objects are stored"    
+        "spain-Q8_2": "Examples of porches in which combustible objects are stored",
+        "austria-Q8_1": "Examples of porches in which combustible objects are stored",
+        "austria-Q8_2": "Examples of porches in which combustible objects are stored"    
     },
     "Q9-images": {
-        "spain-Q9_1": "Example of unprotected glass doors in a semi-open space"
+        "spain-Q9_1": "Example of unprotected glass doors in a semi-open space",
+        "austria-Q9_1": "Example of unprotected glass doors in a semi-open space"
     },
     "Q10-images": {
         "spain-Q10_1": "Wall connecting the semi-open space with the main building, made of masonry",
-        "default-Q10_1": "Wall connecting the semi-open space with the main building, made of masonry"
+        "austria-Q10_1": "Wall connecting the semi-open space with the main building, made of masonry"
     },
     "Q11-images": {
         "spain-Q11_1": "Vegetation located less than 5 meters from a roof with combustible eaves",
-        "spain-Q11_2": "Vegetation within 5 m of unprotected glazing"
+        "spain-Q11_2": "Vegetation within 5 m of unprotected glazing",
+        "austria-Q11_1": "Vegetation in the immediate vicinity of unprotected windows",
+        "austria-Q11_2": "An example of vegetation less than 5 meters from a roof with combustible gutters are trees with branches touching the roof or gutters"
     },
     "Q12-images": {
         "spain-Q12_1": "Combustible elements placed against a facade that also combustible",
-        "spain-Q12_2": "Combustible elements placed against a facade that also combustible"
+        "spain-Q12_2": "Combustible elements placed against a facade that also combustible",
+        "austria-Q12_1": "Combustible elements placed against a facade that also combustible"
     },
     "Q13-images": {
         "spain-Q13_1": "Continuous of natural fuels",
-        "spain-Q13_2": "Natural fuel discontinuity, with a concrete separation between the home and the vegetation"
+        "spain-Q13_2": "Natural fuel discontinuity, with a concrete separation between the home and the vegetation",
+        "austria-Q13_1": "Continuous of natural fuels",
+        "austria-Q13_2": "Natural fuel discontinuity, with a concrete separation between the home and the vegetation"
     },
     "Q14-images": {
         "spain-Q14_1": "LPG tanks with combustible elements located less than 2 meters away",
-        "spain-Q14_2": "LPG tanks with combustible elements located less than 2 meters away"
+        "spain-Q14_2": "LPG tanks with combustible elements located less than 2 meters away",
+        "austria-Q14_1": "LPG tanks with combustible elements located less than 2 meters away",
+        "austria-Q14_2": "LPG tanks with combustible elements located less than 2 meters away"
     },
     "Q15-images": {
         "spain-Q15_1": "Non-natural combustible elements (car and shed) placed less than 5 meters apart and next to the forested area.",
-        "spain-Q15_2": "Non-natural combustible elements (pallets, adjacent wooden structure, fence, barrels, etc.) placed less than 5 meters apart and next to the forested area."
+        "spain-Q15_2": "Non-natural combustible elements (pallets, adjacent wooden structure, fence, barrels, etc.) placed less than 5 meters apart and next to the forested area.",
+        "austria-Q15_1": "Example of non-natural fuels less than 5 meters apart",
+        "austria-Q15_2": "Examples of combustible items less than 20 meters from a forest",
+        "austria-Q15_3": "Examples of combustible items less than 20 meters from a forest"
     },
     "Q16-images": {
-        "spain-Q16_1": "House in forest area, no separation distance"
+        "spain-Q16_1": "House in forest area, no separation distance",
+        "austria-Q16_1": "House in forest area, no separation distance"
     },
     "Q17-images": {
         "spain-Q17_1": "Pine tree (highly flammable)",
         "spain-Q17_2": "Eucalyptus (highly flammable)",
         "spain-Q17_3": "Cypress (highly flammable)",
         "spain-Q17_4": "Holm oak (moderately flammable)",
-        "spain-Q17_5": "Lemon tree (slightly flammable)"
+        "spain-Q17_5": "Lemon tree (slightly flammable)",
+        "austria-Q17_1": "Pine, tree species with high flammability",
+        "austria-Q17_2": "Juniper, tree species with high flammability",
+        "austria-Q17_3": "Cypress, tree species with high flammability",
+        "austria-Q17_4": "Hazel bush, a shrub with medium flammability",
+        "austria-Q17_5": "Norway maple, species with low flammability",
+        "austria-Q17_6": "Beech, species with low flammability"
     },
     "Q18-images": {
-        "spain-Q18_1": "Horizontal continuity between shrubs and trees"
+        "spain-Q18_1": "Horizontal continuity between shrubs and trees",
+        "austria-Q18_1": "Horizontal continuity between shrubs and trees"
     },
     "Q19-images": {
-        "spain-Q19_1": "Well-managed vegetation: there is no vertical continuity; the tree canopies are not in contact with the shrubs"
+        "spain-Q19_1": "Well-managed vegetation: there is no vertical continuity; the tree canopies are not in contact with the shrubs",
+        "austria-Q19_1": "Example of vertical continuity"
     },
     "Q20-images": {
-        "spain-Q20_1": "Garden with dry grass with a height of more than 10 cm"    },
+        "spain-Q20_1": "Garden with dry grass with a height of more than 10 cm",
+        "austria-Q20_1": "Example of a lawn with grass taller than 10 cm"
+    },
     "Q21-images": {
         "spain-Q21_1": "Accumulation of dead vegetation",
-        "spain-Q21_2": "Accumulation of dead vegetation"
+        "spain-Q21_2": "Accumulation of dead vegetation",
+        "austria-Q21_1": "Accumulation of dead vegetation",
+        "austria-Q21_2": "Accumulation of dead vegetation"
     },
     "Q22-images": {
         "spain-Q22_1": "Wooden fence",
         "spain-Q22_2": "Fence made of highly flammable shrubs",
         "spain-Q22_3": "Metal bar fence",
         "spain-Q22_4": "Wire fence",
-        "spain-Q22_5": "Masonry wall over 2 m high"
+        "spain-Q22_5": "Masonry wall over 2 m high",
+        "austria-Q22_1": "Wooden fence",
+        "austria-Q22_2": "Hedge with high flammability",
+        "austria-Q22_3": "Metal post fence",
+        "austria-Q22_4": "Chain-link fence",
+        "austria-Q22_5": "2 m high concrete or brick wall",
+        "austria-Q22_6": "Concrete or brick wall less than 2 m high",
+        "austria-Q22_7": "2 m metal fence"
     },
     "Q23-images": {
-        "spain-Q23_1": "From left to right: houses on flat terrain, on a slope, and on top of the ridge"
+        "spain-Q23_1": "From left to right: houses on flat terrain, on a slope, and on top of the ridge",
+        "austria-Q23_1": "From left to right: houses on flat terrain, on a slope, and on top of the ridge"
     }
 }
