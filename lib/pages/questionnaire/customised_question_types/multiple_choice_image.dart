@@ -1,0 +1,363 @@
+import 'package:easy_localization/easy_localization.dart';
+import 'package:fireprime/model/customised_image.dart';
+//import 'package:fireprime/firebase/event_manage.dart';
+import 'package:fireprime/widgets/selection_list_tile.dart';
+import 'package:flutter/material.dart' hide Step;
+import 'package:insta_image_viewer/insta_image_viewer.dart';
+import 'package:styled_text/styled_text.dart';
+import 'package:styled_text/widgets/styled_text.dart';
+import 'package:survey_kit/survey_kit.dart';
+
+class MultipleChoiceImageStep extends Step {
+  final String title;
+  final String text;
+  final String description;
+  final List<CustomisedImage> images;
+  final AnswerFormat answerFormat;
+  final bool otherOption;
+
+  MultipleChoiceImageStep({
+    required super.stepIdentifier,
+    super.isOptional = false,
+    required this.title,
+    required this.text,
+    required this.description,
+    required this.otherOption,
+    required this.images,
+    required this.answerFormat,
+    required super.buttonText,
+  });
+
+  @override
+  Widget createView({required QuestionResult? questionResult}) {
+    final key = ObjectKey(stepIdentifier.id);
+    return MultipleChoiceImageView(
+        key: key,
+        questionStep: this,
+        result: questionResult as MultipleChoiceQuestionResult?,
+        images: images);
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    throw UnimplementedError();
+  }
+}
+
+class MultipleChoiceImageView extends StatefulWidget {
+  final MultipleChoiceImageStep questionStep;
+  final MultipleChoiceQuestionResult? result;
+  final List<CustomisedImage> images;
+
+  const MultipleChoiceImageView({
+    super.key,
+    required this.questionStep,
+    required this.result,
+    required this.images,
+  });
+
+  @override
+  State<MultipleChoiceImageView> createState() => _CustomViewState();
+}
+
+class _CustomViewState extends State<MultipleChoiceImageView> {
+  late final DateTime _startDate;
+  late final MultipleChoiceAnswerFormat _multipleChoiceAnswerFormat;
+
+  bool _showDescription = false;
+
+  List<TextChoice> _selectedChoices = [];
+
+  @override
+  void initState() {
+    super.initState();
+    _multipleChoiceAnswerFormat =
+        widget.questionStep.answerFormat as MultipleChoiceAnswerFormat;
+    _selectedChoices =
+        widget.result?.result ?? _multipleChoiceAnswerFormat.defaultSelection;
+    _startDate = DateTime.now();
+  }
+
+  void _toggleDescription() {
+    /*  if (_showDescription) {
+      //saveEventdata(screenId: 'questionnaire_page', buttonId: 'hide_help');
+    } else {
+     // saveEventdata(screenId: 'questionnaire_page', buttonId: 'show_help');
+    } */
+    setState(() {
+      _showDescription = !_showDescription;
+    });
+  }
+
+  /*void _toggleEditing() {
+    setState(() {
+      _isEditing = !_isEditing;
+    });
+  }*/
+
+  /*@override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }*/
+
+  @override
+  Widget build(BuildContext context) {
+    return StepView(
+      step: widget.questionStep,
+      resultFunction: () {
+        /*    saveEventdata(
+            screenId: 'questionnaire_page', buttonId: 'next_question');
+      */
+        return MultipleChoiceQuestionResult(
+          id: widget.questionStep.stepIdentifier,
+          startDate: _startDate,
+          endDate: DateTime.now(),
+          valueIdentifier:
+              _selectedChoices.map((choices) => choices.value).join(','),
+          result: _selectedChoices,
+        );
+      },
+      isValid: widget.questionStep.isOptional || _selectedChoices.isNotEmpty,
+      title: widget.questionStep.title.isNotEmpty
+          ? Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                widget.questionStep.title,
+                style: Theme.of(context).textTheme.titleLarge,
+                textAlign: TextAlign.center,
+              ),
+            )
+          : const SizedBox.shrink(),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding:
+                const EdgeInsets.only(bottom: 5.0, left: 20.0, right: 20.0),
+            child: StyledText(
+              text: widget.questionStep.text,
+              tags: {
+                'b': StyledTextTag(
+                  style: const TextStyle(fontWeight: FontWeight.bold),
+                ),
+              },
+              style: Theme.of(context).textTheme.bodyMedium,
+            ),
+          ),
+          const SizedBox(height: 10),
+          /* Padding(
+            padding: const EdgeInsets.only(left: 20.0),
+            child: const Text('max_multiple_choices',
+                    // '${context.tr('max_multiple_choices', _multipleChoiceAnswerFormat.maxAnswers)}',
+                    style: TextStyle(fontSize: 13),
+                    textAlign: TextAlign.justify)
+                .tr(args: [_multipleChoiceAnswerFormat.maxAnswers.toString()]),
+          ),*/
+          if (widget.questionStep.description.isNotEmpty &&
+              widget.questionStep.description != '')
+            ElevatedButton(
+              onPressed: _toggleDescription,
+              style: ElevatedButton.styleFrom(
+                backgroundColor: _showDescription
+                    ? const Color.fromARGB(255, 223, 225, 228)
+                    : const Color.fromARGB(255, 252, 252, 252),
+              ),
+              child: Text(
+                context.tr('help'),
+              ),
+            ),
+          if (_showDescription) showDescription(),
+          //const SizedBox(height: 10),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20.0),
+            child: imageWidget(),
+          ),
+          Column(
+            children: [
+              const Divider(
+                color: Colors.grey,
+              ),
+              ..._multipleChoiceAnswerFormat.textChoices.map(
+                (TextChoice tc) {
+                  return CustomisedSelectionListTile(
+                    text: tc.text,
+                    onTap: () {
+                      setState(() {
+                        if (_selectedChoices.contains(tc)) {
+                          _selectedChoices.remove(tc);
+                        } else {
+                          if (_multipleChoiceAnswerFormat.maxAnswers >
+                              _selectedChoices.length) {
+                            _selectedChoices = [..._selectedChoices, tc];
+                          }
+                        }
+                      });
+                      /*  if (_selectedChoice == tc) {
+                        _selectedChoice = null;
+                      } else {
+                        _selectedChoice = tc;
+                      }
+                      setState(() {});
+                      _isEditing = false;*/
+                    },
+                    isSelected: _selectedChoices.contains(tc),
+                  );
+                },
+              ),
+              /* if (widget.questionStep.otherOption)
+                Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 14.0),
+                      child: ListTile(
+                        title: _isEditing
+                            ? TextField(
+                                enabled: _isEditing,
+                                style:
+                                    Theme.of(context).textTheme.headlineSmall,
+                                decoration: InputDecoration(
+                                    hintText: context.tr('other')),
+                                onSubmitted: (editedText) {
+                                  setState(() {
+                                    _selectedChoice = TextChoice(
+                                        text: editedText, value: editedText);
+                                    _editableText = editedText;
+                                    _isEditing = false;
+                                  });
+                                  print(editedText);
+                                },
+                                controller:
+                                    TextEditingController(text: _editableText),
+                              )
+                            : Text(
+                                _editableText.isEmpty
+                                    ? context.tr('other')
+                                    : _editableText,
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .headlineSmall
+                                    ?.copyWith(
+                                      color:
+                                          _selectedChoice?.text == _editableText
+                                              ? Theme.of(context).primaryColor
+                                              : Theme.of(context)
+                                                  .textTheme
+                                                  .headlineSmall
+                                                  ?.color,
+                                    ),
+                              ),
+                        onTap: () {
+                          _toggleEditing();
+                          if (_selectedChoice == null ||
+                              _selectedChoice?.text != _editableText) {
+                            setState(() {
+                              _selectedChoice = TextChoice(
+                                  text: _editableText, value: _editableText);
+                            });
+                          }
+                        },
+                        trailing: _selectedChoice?.text == _editableText
+                            ? Icon(Icons.check,
+                                size: 32, color: Theme.of(context).primaryColor)
+                            : const SizedBox(
+                                width: 32,
+                                height: 32,
+                              ),
+                      ),
+                    ),
+                    const Divider(
+                      color: Colors.grey,
+                    )
+                  ],
+                ),*/
+            ],
+          )
+        ],
+      ),
+    );
+  }
+
+  Widget showDescription() {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20.0),
+      child: Column(
+        children: [
+          StyledText(
+            text: widget.questionStep.description,
+            style: Theme.of(context).textTheme.bodySmall,
+            tags: {
+              'b': StyledTextTag(
+                style: const TextStyle(fontWeight: FontWeight.bold),
+              ),
+            },
+          ),
+          //if (widget.images.isNotEmpty) imageWidget(),
+          const SizedBox(
+            height: 20,
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget imageWidget() {
+    if (widget.images.length == 1) {
+      return Center(
+        child: Padding(
+          padding: const EdgeInsets.only(top: 20.0),
+          child: SizedBox(
+            child: Column(
+              children: [
+                InstaImageViewer(
+                  child: Image.asset(
+                    widget.images[0].path,
+                    height: 200,
+                    //fit: BoxFit.fitHeight,
+                  ),
+                ),
+                const SizedBox(height: 4),
+                SizedBox(
+                  width: 200,
+                  child: Text(widget.images[0].description,
+                      style: Theme.of(context).textTheme.bodySmall,
+                      textAlign: TextAlign.center),
+                ),
+              ],
+            ),
+          ),
+        ),
+      );
+    }
+    return SizedBox(
+      height: 200,
+      child: ListView.separated(
+        padding: const EdgeInsets.only(top: 20.0),
+        scrollDirection: Axis.horizontal,
+        itemCount: widget.images.length,
+        separatorBuilder: (context, _) => const SizedBox(width: 8),
+        itemBuilder: (context, index) {
+          return Column(
+            children: [
+              Expanded(
+                child: InstaImageViewer(
+                  child: Image.asset(
+                    widget.images[index].path,
+                    fit: BoxFit.fitWidth,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 4),
+              SizedBox(
+                width: 200,
+                child: Text(widget.images[index].description,
+                    style: Theme.of(context).textTheme.bodySmall,
+                    textAlign: TextAlign.center),
+              ),
+            ],
+          );
+        },
+      ),
+    );
+  }
+}

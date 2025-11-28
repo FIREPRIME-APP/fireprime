@@ -5,11 +5,13 @@ class CardText extends StatelessWidget {
   final String text;
   final double size;
   final Color? color;
+  final bool textBold;
   const CardText(
       {super.key,
       required this.title,
       required this.text,
       required this.size,
+      required this.textBold,
       this.color});
 
   @override
@@ -26,9 +28,9 @@ class CardText extends StatelessWidget {
           TextSpan(
             text: text,
             style: TextStyle(
-              fontFamily: 'OpenSans',
-              color: color ?? Colors.black,
-            ),
+                fontFamily: 'OpenSans',
+                color: color ?? Colors.black,
+                fontWeight: textBold ? FontWeight.bold : FontWeight.normal),
           )
         ],
       ),

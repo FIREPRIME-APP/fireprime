@@ -1,0 +1,94 @@
+{
+    "questions": [
+        {
+            "id": "BQ1",
+            "question": "Mi vivienda está a menos de 50 m de un bosque o zona con abundante vegetación",
+            "images": [
+                {
+                    "path": "assets/images/spain/basic/BQ1.png"
+                }
+            ]
+        },
+        {
+            "id": "BQ2",
+            "question": "Mi vivienda está situada en una ladera o en la cima de una cresta",
+            "images": [
+                {
+                    "path": "assets/images/spain/basic/BQ2.png"
+                }
+            ]
+        },
+        {
+            "id": "BQ3",
+            "question": "El revestimiento exterior de mi vivienda es de material combustible (como madera o plástico)",
+            "images": [
+                {
+                    "path": "assets/images/spain/basic/BQ3.png"
+                }
+            ]
+        },
+        {
+            "id": "BQ4",
+            "question": "El tejado, el porche o el balcón son de material combustible",
+            "images": [
+                {
+                    "path": "assets/images/spain/basic/BQ4.png"
+                }
+            ]
+        },
+        {
+            "id": "BQ5",
+            "question": "Los cristales de las ventanas y puertas exteriores son de una sola hoja o lámina",
+            "images": [
+                {
+                    "path": "assets/images/spain/basic/BQ5.png"
+                }
+            ]
+        },
+        {
+            "id": "BQ6",
+            "question": "Tengo cristales en ventanas y puertas exteriores sin protección, sin persianas ni contraventanas",
+            "images": [
+                {
+                    "path": "assets/images/spain/basic/BQ6.png"
+                }
+            ]
+        },
+        {
+            "id": "BQ7",
+            "question": "Tengo aberturas de ventilación sin ninguna protección",
+            "images": [
+                {
+                    "path": "assets/images/spain/basic/BQ7_v2.png"
+                }
+            ]
+        },
+        {
+            "id": "BQ8",
+            "question": "Hay acumulación de restos vegetales y/o materiales combustibles (como muebles de plástico o trastos) a menos de 30 m de la vivienda",
+            "images": [
+                {
+                    "path": "assets/images/spain/basic/BQ8.png"
+                }
+            ]
+        },
+        {
+            "id": "BQ9",
+            "question": "Hay acumulación de hojas secas y ramitas en los canalones de desagüe y/o en el tejado",
+            "images": [
+                {
+                    "path": "assets/images/spain/basic/BQ9.png"
+                }
+            ]
+        },
+        {
+            "id": "BQ10",
+            "question": "Hay un depósito de combustible y/o bombonas de butano cerca del edificio",
+            "images": [
+                {
+                    "path": "assets/images/spain/basic/BQ10.png"
+                }
+            ]
+        }
+    ]
+}

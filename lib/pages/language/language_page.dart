@@ -1,4 +1,4 @@
-import 'package:fireprime/firebase/event_manage.dart';
+//import 'package:fireprime/firebase/event_manage.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:fireprime/providers/language_change_controller.dart';
@@ -28,8 +28,8 @@ class _LanguagePageState extends State<LanguagePage> {
       context.tr('english'),
       context.tr('spanish'),
       context.tr('catalan'),
-      // context.tr('german'),
-      /*context.tr('swedish')*/
+      context.tr('german'),
+      context.tr('swedish')
     ];
     return Scaffold(
       appBar: AppBar(
@@ -71,25 +71,24 @@ class _LanguagePageState extends State<LanguagePage> {
                       : null,
                   onTap: () {
                     if (index == 0) {
-                      saveEventdata(screenId: 'language_page', buttonId: 'en');
+                      // saveEventdata(screenId: 'language_page', buttonId: 'en');
                       language.changeLanguage(
                           const Locale('en'), index, context);
                     } else if (index == 1) {
-                      saveEventdata(screenId: 'language_page', buttonId: 'es');
+                      // saveEventdata(screenId: 'language_page', buttonId: 'es');
                       language.changeLanguage(
                           const Locale('es'), index, context);
                     } else if (index == 2) {
-                      saveEventdata(screenId: 'language_page', buttonId: 'ca');
+                      // saveEventdata(screenId: 'language_page', buttonId: 'ca');
                       language.changeLanguage(
                           const Locale('ca'), index, context);
-                      /* } else if (index == 3) {
-                      saveEventdata(screenId: 'language_page', buttonId: 'de');
+                    } else if (index == 3) {
+                      // saveEventdata(screenId: 'language_page', buttonId: 'de');
                       language.changeLanguage(
-                         const Locale('de'), index, context);*/
-                      //}
-                      /*else if (index == 4) {
-                      provider.changeLanguage(
-                          const Locale('sv'), index, context);*/
+                          const Locale('de'), index, context);
+                    } else if (index == 4) {
+                      language.changeLanguage(
+                          const Locale('sv'), index, context);
                     } else {
                       language.changeLanguage(
                           const Locale('en'), index, context);

@@ -8,8 +8,13 @@ Future<double> getHazard(double lat, double long) async {
   String longInf = (long - 0.01).toStringAsFixed(6);
   String longSup = (long + 0.01).toStringAsFixed(6);
 
+  print(lat);
+  print(long);
+  print(latInf);
+  print(longInf);
+
   String baseUrl =
-      'https://maps.effis.emergency.copernicus.eu/effis?map=/mnt/efs/mapfiles/wfra.map&REQUEST=GetFeatureInfo&INFO_FORMAT=text/html&CRS=EPSG:4326&VERSION=1.3.0&LAYERS=danger-by-weather-fwi30-days&QUERY_LAYERS=danger-by-weather-fwi30-days&SERVICE=wms&width=800&height=800&x=400&y=400&BBOX=$latInf,$longInf,$latSup,$longSup';
+      'https://maps.effis.emergency.copernicus.eu/effis?map=/mnt/nfs/mapfiles/wfra.map&REQUEST=GetFeatureInfo&INFO_FORMAT=text/html&CRS=EPSG:4326&STYLES=&VERSION=1.3.0&LAYERS=danger-by-weather-fwi30-days&QUERY_LAYERS=danger-by-weather-fwi30-days&SERVICE=wms&width=800&height=800&x=400&y=400&BBOX=$latInf,$longInf,$latSup,$longSup';
   Uri url = Uri.parse(baseUrl);
   /*if (country == 'spain') {
     url = Uri.parse(
@@ -28,6 +33,7 @@ Future<double> getHazard(double lat, double long) async {
 
     if (response.statusCode == 200) {
       final data = response.body;
+      print('response.body: ${response.body}');
       double hazard = getHazardValue(data);
       print('hazard-value: $hazard');
       return hazard;
@@ -42,14 +48,17 @@ Future<double> getHazard(double lat, double long) async {
 }
 
 double getHazardValue(String data) {
-  final regex = RegExp(r'(\d+\.\d+)'); // Captura cualquier número con decimales
+  final regex = RegExp(r'(\d+\.\d+)');
+
   final value = regex.firstMatch(data);
+  print('VALUE: $value');
+  print('data: $data');
 
   if (value != null) {
     double hazard = double.parse(value.group(1)!);
     print('Hazard value: $hazard');
     return hazard;
   } else {
-    return 1.0;
+    return -1.0;
   }
 }

@@ -1,4 +1,4 @@
-import 'package:easy_localization/easy_localization.dart';
+/*import 'package:easy_localization/easy_localization.dart';
 import 'package:fireprime/autocomplete/google_places_autocomplete.dart';
 import 'package:fireprime/firebase/event_manage.dart';
 import 'package:flutter/material.dart';
@@ -12,9 +12,9 @@ class AutoCompleteWidget extends StatefulWidget {
       required this.screenId,
       required this.selectedCountryCode});
 
-  final String apiKey;
+  final String apiKey; //TODO NO CAL
   final TextEditingController controller;
-  final Function(String) onPlaceSelected;
+  final Function(String) onPlaceSelected; //TODO NO CAL
   final String screenId;
   final String selectedCountryCode;
 
@@ -23,7 +23,7 @@ class AutoCompleteWidget extends StatefulWidget {
 }
 
 class _AutoCompleteState extends State<AutoCompleteWidget> {
-  bool showSuggestions = false;
+  bool showSuggestions = false; //TODO NO CAL
   late FocusNode _focusNode;
   bool isEditing = false;
   bool addressVerified = false;
@@ -51,7 +51,7 @@ class _AutoCompleteState extends State<AutoCompleteWidget> {
       children: [
         Row(
           children: [
-            Text('* ${context.tr('address')}:',
+            Text('* ${context.tr('zipCode')}:',
                 style:
                     const TextStyle(fontSize: 15, fontWeight: FontWeight.bold)),
           ],
@@ -163,3 +163,4 @@ class _AutoCompleteState extends State<AutoCompleteWidget> {
     });
   }
 }
+*/

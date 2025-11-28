@@ -1,7 +1,7 @@
 import 'package:fireprime/fault_tree/gates/gate.dart';
 
 class AndGate extends Gate {
-  AndGate(super.id, super.inputEvents) {
+  AndGate(super.id, super.inputEvents /*, super.weight */) {
     super.gateType = 'and_gate';
   }
 
@@ -13,6 +13,6 @@ class AndGate extends Gate {
         probability *= event.calculateProbability();
       }
     }
-    return probability;
+    return probability /* * weight */;
   }
 }

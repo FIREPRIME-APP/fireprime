@@ -1,13 +1,15 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:fireprime/notifications/local_notification.dart';
 import 'package:fireprime/pages/information/about_page.dart';
 import 'package:fireprime/constants.dart';
-import 'package:fireprime/firebase/event_manage.dart';
+//import 'package:fireprime/firebase/event_manage.dart';
 import 'package:fireprime/providers/house_provider.dart';
-import 'package:fireprime/firebase/device_manage.dart';
+//import 'package:fireprime/firebase/device_manage.dart';
 import 'package:fireprime/pages/house/create_house_page.dart';
 import 'package:fireprime/pages/language/language_page.dart';
 import 'package:fireprime/widgets/house_card.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:provider/provider.dart';
 //import 'package:shared_preferences/shared_preferences.dart';
 
@@ -20,9 +22,14 @@ class HouseListPage extends StatefulWidget {
 
 class _HouseListPageState extends State<HouseListPage> {
   // bool _showPopup = false;
+  final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
+      FlutterLocalNotificationsPlugin();
 
   @override
   void initState() {
+    //notifications...
+    LocalNotification().init();
+    print('LocalNotification initialized');
     super.initState();
 
     // _checkIfAcceptedPrivacy();
@@ -60,12 +67,12 @@ class _HouseListPageState extends State<HouseListPage> {
           } else if (snapshot.hasError) {
             return const Center(child: Text('Error'));
           } else {
-            WidgetsBinding.instance.addPostFrameCallback((_) {
+            /*WidgetsBinding.instance.addPostFrameCallback((_) {
               /*  if (_showPopup) {
                 _showPrivacyPopup(context);
               }*/
-              saveDeviceData(context);
-            });
+              // saveDeviceData(context);
+            });*/
 
             /* var houses = houseProvider.getHouses();
             print('houses:');
@@ -91,10 +98,52 @@ class _HouseListPageState extends State<HouseListPage> {
                         20,
                         MediaQuery.of(context).padding.bottom + 20),
                     child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
+                        /* ElevatedButton(
+                          onPressed: () {
+                            LocalNotification().scheduledNotification(
+                              1,
+                              context.tr('notification_title'),
+                              context.tr('notification_body'),
+                              const Duration(seconds: 5),
+                            );
+                          },
+                          child: Text(context.tr('test')),
+                        ),
+*/
+                        /*  ElevatedButton(
+                          onPressed: () {
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (BuildContext context) {
+                                  return const TestQuestionnairePage();
+                                },
+                              ),
+                            );
+                          },
+                          child: Text(context.tr('test')),
+                        ),*/
                         _buildHeader(context),
                         const SizedBox(
-                          height: 20.0,
+                          height: 10,
+                        ),
+                        _buildIntro(context, houses.isEmpty),
+
+                        /* ElevatedButton(
+                          child: Text('Basic'),
+                          onPressed: () {
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (BuildContext context) {
+                                  return const AreaSelection();
+                                },
+                              ),
+                            );
+                          },
+                        ),*/
+                        const SizedBox(
+                          height: 10.0,
                         ),
                         if (houses.isNotEmpty)
                           ...houses.entries.map(
@@ -120,22 +169,61 @@ class _HouseListPageState extends State<HouseListPage> {
     );
   }
 
+  Widget _buildIntro(BuildContext context, bool showInstructions) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 5.0),
+          child: Text(
+            context.tr('fireprime_intro'),
+            style: const TextStyle(fontSize: 14.0, color: Colors.black),
+          ),
+        ),
+        const SizedBox(height: 10.0),
+        if (showInstructions)
+          Card(
+            color: Colors.blueGrey[50],
+            surfaceTintColor: Colors.white,
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                children: [
+                  const Icon(Icons.info_outline),
+                  const SizedBox(width: 8.0),
+                  Expanded(
+                    child: Text(
+                      context.tr('instructions_intro'),
+                      style: const TextStyle(
+                          fontSize: 12.0, color: Colors.black54),
+                      textAlign: TextAlign.start,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+      ],
+    );
+  }
+
   Widget _buildHeader(BuildContext context) {
     return Row(children: [
-      const Expanded(
-        child: Center(
-          child: Image(
-            image: AssetImage(
-              Constants.logoA,
-            ),
-            fit: BoxFit.contain,
+      const Center(
+        child: Image(
+          image: AssetImage(
+            Constants.logoA,
           ),
+          height: 60,
+          width: 200,
+          fit: BoxFit.contain,
         ),
       ),
       const Spacer(),
       IconButton(
         onPressed: () {
-          saveEventdata(screenId: 'house_list', buttonId: 'change_language');
+          //saveEventdata(screenId: 'house_list', buttonId: 'change_language');
           Navigator.of(context).push(
             MaterialPageRoute(
               builder: (BuildContext context) {
@@ -169,7 +257,7 @@ class _HouseListPageState extends State<HouseListPage> {
           style: ElevatedButton.styleFrom(
               backgroundColor: Constants.blueDark, elevation: 5.0),
           onPressed: () {
-            saveEventdata(screenId: 'house_list', buttonId: 'add_house');
+            // saveEventdata(screenId: 'house_list', buttonId: 'add_house');
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (BuildContext context) {
@@ -188,7 +276,7 @@ class _HouseListPageState extends State<HouseListPage> {
           style: ElevatedButton.styleFrom(
               backgroundColor: Constants.blueDark, elevation: 5.0),
           onPressed: () {
-            saveEventdata(screenId: 'house_list', buttonId: 'more_info');
+            //saveEventdata(screenId: 'house_list', buttonId: 'more_info');
             //TODO
             //saveEventdata(screenId: 'house_list', buttonId: 'about');
             Navigator.of(context).push(

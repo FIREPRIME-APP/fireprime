@@ -1,7 +1,569 @@
 {
+    "add_house": "Wohnort hinzufügen",
+    "more_info": "Über diese App",
+    "fireprime_intro": "FIREPRIME ist eine App, mit der Sie das Waldbrandrisiko für Ihr Zuhause selbst einschätzen können. Sie können zwei Arten von Bewertungen durchführen: eine grundlegende und eine erweiterte. Außerdem erhalten Sie wichtige Hinweise zur Vorbereitung und Sicherheit.",
+    "instructions_intro": "Um zu beginnen, geben Sie den Standort Ihres Hauses ein.",
+    
+    "notification_title": "Erinnerung",
+    "notification_body": "Vor einem Jahr haben Sie den Fragebogen zur Selbsteinschätzung des Brandrisikos ausgefüllt. Machen Sie die Bewertung erneut, um zu sehen, ob Ihre Verbesserungen die Verwundbarkeit Ihres Hauses verringert haben.",
+
+    "language_page_title": "Spracheinstellungen",
+
     "english": "Englisch",
     "spanish": "Spanisch",
     "catalan": "Katalanisch",
     "german": "Deutsch",
-    "swedish": "Schwedisch"
+    "swedish": "Schwedisch",
+
+    "more_info_title": "Über Fireprime",
+    "fireprime": "Fireprime",
+    "about_text": "Diese App wurde von UPC-GESSI entwickelt. Der integrierte Risikoanalyse-Algorithmus wurde von UPC-CERTEC, RISE und BOKU erstellt. Die eingegebenen Daten werden lokal auf dem Gerät gespeichert und nicht an Dritte weitergegeben. Die Daten können gelöscht werden, indem die App deinstalliert wird.",
+    "about_text_eu": "Finanziert durch die Europäische Union. Die geäußerten Ansichten und Meinungen sind jedoch ausschließlich die der Autoren und spiegeln nicht unbedingt die der Europäischen Union oder der GD ECHO wider. Weder die Europäische Union noch die bewilligende Behörde können für den Inhalt verantwortlich gemacht werden.",
+
+    "contact_us": "Kontaktieren Sie uns",
+    "contact_us_text": "Hinterlassen Sie uns eine Nachricht, wenn Sie Fragen oder Anmerkungen zur App haben. Geben Sie Ihre E-Mail-Adresse an, und wir melden uns in Kürze bei Ihnen.",
+
+    "choose_mode_title": "Wählen Sie den Bewertungsmodus",
+    "basic_mode_intro1": "Die grundlegende Bewertung ",
+    "basic_mode_intro2": "ist eine schnelle und einfache Option, die sich an Bewohner in Gebieten mit Waldbrandrisiko richtet. Sie besteht aus ",
+    "basic_mode_intro3": "10 Ja-/Nein-Fragen ",
+    "basic_mode_intro4": "zur Umgebung und Bauweise der Wohnung.",
+    "basic_mode": "Grundlegende Bewertung",
+    "basic": "Grundlegend",
+
+    "advanced_mode_intro1": "Die erweiterte Bewertung ",
+    "advanced_mode_intro2": "richtet sich sowohl an Fachleute als auch an Bewohner, die eine vertiefte Analyse wünschen. Sie umfasst ",
+    "advanced_mode_intro3": "23 Multiple-Choice-Fragen ",
+    "advanced_mode_intro4": "zur Lage des Hauses, zum Umgang mit brennbarem Material in der Nähe und zu den Baumaterialien. Das Ergebnis ist ein numerischer Wert, der die Wahrscheinlichkeit angibt, dass das Haus im Falle eines Brandes beschädigt wird - unter der Annahme, dass keine Löschmaßnahmen ergriffen werden. Das Ergebnis wird von ",
+    "advanced_mode_intro5": "personalisierten Empfehlungen ",
+    "advanced_mode_intro6": "personalisierten Empfehlungen.",
+    "advanced_mode": "Erweiterte Bewertung",
+    "advanced": "Erweiterte",
+
+    "add_house_intro": "Geben Sie die Informationen Ihres Hauses ein",
+    "name": "Name", 
+    "address": "Adresse", 
+    "country": "Land", 
+    "zip code": "Postleitzahl", 
+    "warning_unfilled_name": "Bitte geben Sie den Namen des Hauses ein", 
+    "warning_unselected_country": "Bitte wählen Sie das Land des Hauses aus", 
+    "warning_unfilled_zip_code": "Bitte geben Sie die Postleitzahl ein", 
+    "warning_house_name_exists": "Hausname bereits vergeben", 
+    "unable_to_get_latlong_title": "Standort kann nicht ermittelt werden", 
+    "unable_to_get_latlong_message": "Für dieses Haus sind keine Standortinformationen vorhanden. Bitte überprüfen Sie Ihre Internetverbindung und versuchen Sie, die Postleitzahl zu bearbeiten. Sie können fortfahren ohne Standortangabe, aber die Ergebnisse können ungenau sein.", 
+    "loading": "Lädt",
+    
+    "try_again": "Erneut versuchen",
+    "accept": "Akzeptieren",
+    "close": "Schließen",
+
+    "delete_house_warning_intro": "Sind Sie sicher, dass Sie dieses Haus löschen möchten?",
+    "delete_house_warning_text": "Durch das Löschen des Hauses werden auch alle Informationen zu den Risikobewertungen gelöscht und können nicht wiederhergestellt werden.",
+
+    "delete_house": "Haus löschen",
+    "cancel": "Abbrechen",
+    "delete": "Löschen",
+
+    "edit_house_intro": "Bearbeiten Sie die Informationen Ihres Hauses",
+
+    "edit_house": "Haus bearbeiten",
+    "save": "Speichern",
+    "edit": "Bearbeiten",
+
+    "last_evaluation": "Letzte Bewertung",
+    "date": "Datum",
+    "risk": "Risiko",
+    "vulnerability": "Schadenanfälligkeit",
+    "no_results_available": "Keine Ergebnisse verfügbar",
+    "ideal_risk": "Ideales Risiko",
+    "ideal_risk_info": "Angesichts der Brandgefahr in Ihrer Region können Sie diesen minimalen Risikowert anstreben, wenn Sie alle Verbesserungen umsetzen.",
+    
+    "start_questionnaire_intro": "Überprüfen Sie das Risiko Ihres Hauses mit einem Fragebogen!",
+    "update_questionnaire_intro": "Aktualisieren Sie Ihre Antworten im Fragebogen",
+    "continue_questionnaire_intro": "Fahren Sie mit dem Fragebogen fort, um das Risiko Ihres Hauses zu überprüfen",
+    "mitigation_intro": "Sehen Sie sich die Verbesserungen zur Reduzierung des Wohnrisikos an",
+    "check_improvements": "Überprüfen Sie Verbesserungen!",
+    
+    "advices_title": "Vorbereitungs- und Sicherheitstipps", 
+    "advices_intro": "Vorbereitungs- und Sicherheitstipps für den Brandfall",
+
+    "results_history_intro": "Überprüfen Sie Ihre Ergebnis-Historie",
+
+    "details": "Details",
+    "check": "Überprüfen",
+    "update": "Aktualisieren",
+    "continue": "Fortsetzen",
+    "advices": "Tipps",
+    "my_results": "Meine Ergebnisse",
+
+    "advanced_mode_title": "Fragebogen im erweiterten Modus",
+
+    "questionnaire": "ANLEITUNG",
+    "questionnaire_intro": "· Der Fragebogen besteht aus 23 Fragen mit mehreren Antwortmöglichkeiten. Sofern nicht anders angegeben, wählen Sie nur eine Option aus. \n· Er enthält Bilder und Erklärungen, um technische Begriffe besser zu verstehen. \n· Im Zweifelsfall wählen Sie die Option, die Ihre Situation am besten beschreibt. \n· Nehmen Sie sich ausreichend Zeit: Die Beantwortung kann bis zu 30 Minuten dauern, da Fassade und Umgebung sorgfältig beobachtet werden müssen. Sie können den Fragebogen auch in mehreren Etappen ausfüllen. \n· Antworten Sie unter Berücksichtigung des Zustands Ihres Hauses in den Monaten mit dem höchsten Waldbrandrisiko. \n· Es wird empfohlen, die Selbsteinschätzung mindestens einmal jährlich oder nach wesentlichen Änderungen am Haus oder in der Umgebung zu wiederholen.\n· Der Fragebogen ist in zwei Teile gegliedert: Gebäude und Umgebung.",
+    "start": "Starten",
+    "next": "Weiter",
+    "questionnaire_finish_title": "Fragebogen abgeschlossen!",
+    "questionnaire_finish_button": "Ergebnisse überprüfen",
+
+    "help": "Hilfe",
+
+    "basic_questionnaire_title": "Grundlegender Fragebogen",
+    "basic_questionnaire_intro": "Bewerten Sie die Verwundbarkeit Ihres Hauses, indem Sie mit Ja oder Nein auf einen Fragebogen mit 10 Fragen antworten. \n  Wählen Sie im Zweifelsfall die Option, die Ihre Situation am besten beschreibt.",
+
+    "yes": "Ja",
+    "no": "Nein",
+
+    "calculating": "Ergebnis wird berechnet",
+    "result": "Ergebnis",
+    "risk_level": "Risikostufe",
+    "vulnerability_level": "Anfälligkeitsstufe",
+
+    "hazard_info": "Dieser Wert hängt von der Lage Ihres Hauses ab",
+    "hazard": "Waldbrandrisiko",
+    "house_vulnerability": "Schadenanfälligkeit Ihres Hauses",
+    "hide": "Ausblenden",
+
+    "downloading": "Wird heruntergeladen",
+
+    "exterior_envelope": "Fassadenmaterialien",
+    "non_combustible_foundation": "Fassadenbereich in Bodennähe",
+    "façade": "Fassade",
+    "roof_material": "Dachmaterial",
+    "roof_maintenance-1": "Dachwartung",
+    "roof_maintenance-2": "Dachwartung",
+    "roof": "Dach",
+    "glazing_failure": "Verglasung",
+    "shutter_failure": "Rollladen",
+    "glazing_systems": "Verglasung",
+    "vents": "Belüftung",
+    "semi_confined": "Halbgeschlossener Bereich",
+    "fuels_glazing_systems": "Brennbare Materialien vor Verglasungen",
+    "fuels_roof": "Brennbare Materialien in Dachnähe",
+    "fuels_combustible_facade": "Brennbare Materialien an der Fassade",
+    "surface_fuels": "Kontinuierliche Gras- oder Strauchfläche",
+    "fuels_close_to_building": "Risiko durch brennbare Materialien in Gebäudenähe",
+    "fuelsLPG": "Brennbare Materialien in der Nähe von Kohlenwasserstofftanks",
+    "space_art_fuels": "Abstand zwischen nicht natürlichen brennbaren Materialien",
+    "fuel_close_to_trees": "Nicht natürliche Brennstoffe in der Nähe hochentzündlicher Vegetation",
+    "artificial_fuels": "Nicht natürliche Brennstoffe innerhalb des Grundstücks",
+    "wildland_vegetation": "Natürliche Vegetation",
+    "vegetation_type": "Brennbarkeitsstufe der Vegetation",
+    "vegetation_continuity": "Horizontale Kontinuität der Vegetation",
+    "tree_pruning": "Vertikale Kontinuität der Vegetation",
+    "surface_fuel_depth": "Höhe der kontinuierlichen Gras- oder Strauchfläche",
+    "dead_vegetation": "Abgestorbene Vegetation",
+    "vegetation": "Natürliche Brennstoffe innerhalb des Grundstücks",
+    "property_perimeter": "Grundstücksgrenze",
+    "slope": "Geländeneigung",
+    "structural_vulnerabilities": "Strukturelle Anfälligkeiten",
+    "fire_reaches_building": "Risiko der Brandausbreitung zum Gebäude",
+
+    "results_download": "Ergebnisse herunterladen",
+
+    "advanced_result_pdf_title": "Ergebnis der erweiterten Waldbrandrisikobewertung",
+    "basic_result_pdf_title": "Ergebnis der grundlegenden Waldbrandrisikobewertung",
+    "house": "Haus",
+
+    "mitigation_title": "Verbesserungen",
+    "save_answers": "Antwort speichern und den Fragebogen aktualisieren",
+
+    "improve": "Verbessern",
+    "done": "Fertig",
+
+     "hazard_vulnerability_text": {
+        "extreme_high_text": "Ihr Zuhause befindet sich in einem Gebiet mit einer {hazard_level} Gefährdung durch Waldbrände und weist eine {vulnerability_level} Anfälligkeit gegenüber diesen auf. Daher ergibt sich ein {risk} Risikoniveau. Befolgen Sie die bereitgestellten Empfehlungen, um die Widerstandsfähigkeit Ihres Hauses zu verbessern und die Wahrscheinlichkeit eines Brandes zu verringern.",
+        "extreme_moderate_text": "Ihr Haus befindet sich in einem Gebiet mit einer {hazard_level} Gefährdung durch Waldbrände und weist eine {vulnerability_level} Anfälligkeit gegenüber diesen auf. Daher ergibt sich ein {risk} Risikoniveau. Befolgen Sie die bereitgestellten Empfehlungen, um die Wahrscheinlichkeit eines Brandes zu verringern, und führen Sie die Instandhaltung Ihres Grundstücks weiterhin regelmäßig durch.",
+        "high_moderate_text": "Ihr Haus befindet sich in einem Gebiet mit einer {hazard_level} Gefährdung durch Waldbrände und weist eine {vulnerability_level} Anfälligkeit gegenüber diesen auf. Daher ergibt sich ein {risk} Risikoniveau. Versuchen Sie, die bereitgestellten Empfehlungen zu befolgen, um die Widerstandsfähigkeit Ihres Hauses zu verbessern und die Wahrscheinlichkeit eines Brandes zu verringern.",
+        "moderate_text": "Ihr Haus befindet sich in einem Gebiet mit einer {hazard_level} Gefährdung durch Waldbrände und weist eine {vulnerability_level} Anfälligkeit gegenüber diesen auf. Daher ergibt sich ein {risk} Risikoniveau. Versuchen Sie, die bereitgestellten Empfehlungen zu befolgen, um die Wahrscheinlichkeit eines Brandes zu verringern, und führen Sie die Instandhaltung Ihres Grundstücks weiterhin regelmäßig durch.",
+        "low_extreme_high_text": "Ihr Haus befindet sich in einem Gebiet mit einer {hazard_level} Gefährdung durch Waldbrände, ist jedoch {vulnerability_level} gegenüber diesen. Daher ergibt sich ein {risk} Risikoniveau. Versuchen Sie, die bereitgestellten Empfehlungen zu befolgen, um die Widerstandsfähigkeit Ihres Hauses zu verbessern und die Wahrscheinlichkeit eines Brandes zu verringern.",
+        "extreme_low_text": "Ihr Haus befindet sich in einem Gebiet mit einer {hazard_level} Gefährdung durch Waldbrände und weist eine {vulnerability_level} Anfälligkeit gegenüber diesen auf. Daher ergibt sich ein {risk} Risikoniveau. Halten Sie Ihr Haus in gutem Zustand, um seine gute Widerstandsfähigkeit gegenüber Waldbränden zu erhalten, und befolgen Sie nach Möglichkeit die bereitgestellten Empfehlungen.",
+        "low_moderate_text": "Ihr Haus befindet sich in einem Gebiet mit einer {hazard_level} Gefährdung durch Waldbrände, ist jedoch {vulnerability_level} gegenüber diesen. Daher ergibt sich ein {risk} Risikoniveau. Halten Sie Ihr Haus in gutem Zustand, um seine gute Widerstandsfähigkeit gegenüber Waldbränden zu erhalten, und befolgen Sie nach Möglichkeit die bereitgestellten Empfehlungen.",
+        "low_text": "Ihr Haus befindet sich in einem Gebiet mit einer {hazard_level} Gefährdung durch Waldbrände und weist eine {vulnerability_level} Anfälligkeit gegenüber diesen auf. Daher ergibt sich ein {risk} Risikoniveau. Halten Sie Ihr Haus in gutem Zustand, um seine gute Widerstandsfähigkeit gegenüber Waldbränden zu erhalten."
+    },
+
+    "vulnerability_text": {
+       "extreme_text": "Ihr Haus ist {vulnerability_level} gegenüber Waldbränden. Daher ergibt sich ein {risk} Risikoniveau. Befolgen Sie die bereitgestellten Empfehlungen, um die Widerstandsfähigkeit Ihres Hauses zu verbessern und die Wahrscheinlichkeit eines Brandes zu verringern.",
+        "high_text": "Ihr Haus ist {vulnerability_level} gegenüber Waldbränden. Daher ergibt sich ein {risk} Risikoniveau. Versuchen Sie, die bereitgestellten Empfehlungen zu befolgen, um die Widerstandsfähigkeit Ihres Hauses zu verbessern und die Wahrscheinlichkeit eines Brandes zu verringern.",
+        "moderate_text": "Ihr Haus ist {vulnerability_level} gegenüber Waldbränden. Daher ergibt sich ein {risk} Risikoniveau. Befolgen Sie die bereitgestellten Empfehlungen, um die Wahrscheinlichkeit eines Brandes zu verringern, und führen Sie die Instandhaltung Ihres Grundstücks weiterhin regelmäßig durch.",
+        "low_text": "Ihr Haus ist {vulnerability_level} gegenüber Waldbränden. Daher ergibt sich ein {risk} Risikoniveau. Führen Sie die Instandhaltung Ihres Hauses weiterhin regelmäßig durch, um seine gute Widerstandsfähigkeit gegenüber Waldbränden zu erhalten, und befolgen Sie nach Möglichkeit die bereitgestellten Empfehlungen."
+    },
+
+    "hazard_levels": {
+        "extreme": "äußerst anfällig",
+        "high": "stark anfällig",
+        "moderate": "anfällig",
+        "low": "nicht anfällig"
+    },
+
+    "vulnerability_levels": {
+        "extreme": "hochgradig anfällig",
+        "high": "sehr anfällig",
+        "moderate": "anfällig",
+        "low": "wenig anfällig"
+    },
+    
+    "risk_levels": {
+        "extreme": "extrem",
+        "high": "hoch",
+        "moderate": "mäßig",
+        "low": "niedrig"
+    },
+
+    "european_countries": {
+        "albania": "Albanien",
+        "andorra": "Andorra",
+        "armenia": "Armenien",
+        "austria": "Österreich",
+        "azerbaijan": "Aserbaidschan",
+        "belarus": "Belarus",
+        "belgium": "Belgien",
+        "bosniaHerzegovina": "Bosnien und Herzegowina",
+        "bulgaria": "Bulgarien",
+        "croatia": "Kroatien",
+        "cyprus": "Zypern",
+        "czechia": "Tschechien",
+        "denmark": "Dänemark",
+        "estonia": "Estland",
+        "finland": "Finnland",
+        "france": "Frankreich",
+        "georgia": "Georgien",
+        "germany": "Deutschland",
+        "greece": "Griechenland",
+        "hungary": "Ungarn",
+        "iceland": "Island",
+        "ireland": "Irland",
+        "italy": "Italien",
+        "latvia": "Lettland",
+        "liechtenstein": "Liechtenstein",
+        "lithuania": "Litauen",
+        "luxembourg": "Luxemburg",
+        "malta": "Malta",
+        "moldova": "Moldau",
+        "monaco": "Monaco",
+        "montenegro": "Montenegro",
+        "netherlands": "Niederlande",
+        "northMacedonia": "Nordmazedonien",
+        "norway": "Norwegen",
+        "poland": "Polen",
+        "portugal": "Portugal",
+        "romania": "Rumänien",
+        "russia": "Russland",
+        "sanmarino": "San Marino",
+        "serbia": "Serbien",
+        "slovakia": "Slowakei",
+        "slovenia": "Slowenien",
+        "spain": "Spanien",
+        "sweden": "Schweden",
+        "switzerland": "Schweiz",
+        "turkey": "Türkei",
+        "ukraine": "Ukraine",
+        "unitedKingdom": "Vereinigtes Königreich",
+        "vaticanCity": "Vatikanstadt"
+    },
+
+    "I1": {
+        "title": "Fragen zum Gebäude",
+        "text": "Die Baumaterialien und -elemente von Gebäuden in der Wald-Siedlungs-Grenze können Schwachstellen aufweisen, die das Eindringen von Feuer begünstigen. In diesem ersten Teil sollte die gesamte Gebäudehülle überprüft werden, um solche Schwachstellen zu erkennen."
+    },
+    "Q1": {
+        "title": "Fassadenmaterialien",
+        "question": "Welcher Prozentsatz der Außenfassade des Gebäudes (d.h. Außenwände, Balkone - ohne Fensterläden und Veranden) besteht aus brennbaren Materialien?",
+        "description": "Holz oder Materialien zur Verkleidung der Außenwände, die aus Kunststoffen oder Polymeren bestehen, sind brennbar, während Beton, Stein oder Ziegel nicht brennbar sind.",
+        "100comb": "100 % brennbar",
+        "more50comb": "Mehr als oder gleich 50 % brennbar",
+        "less50comb": "Weniger als 50 % brennbar",
+        "0comb": "0 % brennbar"
+    },
+    "Q2": {
+        "title": "Fassadenmaterialien",
+        "question": "Befindet sich der brennbare Teil der Fassade in unmittelbarem Kontakt mit dem Boden?",
+        "description": "Das Fundament eines Gebäudes ist das Teil der Fassade, das mit dem Boden in Verbindung steht.",
+        "height0": "Ja",
+        "height0to20": "Nein, der brennbare Teil befindet sich zwischen 0 und 20 cm über dem Boden",
+        "height21to40": "Nein, der brennbare Teil befindet sich zwischen 21 und 40 cm über dem Boden",
+        "height41to60": "Nein, der brennbare Teil befindet sich zwischen 41 und 60 cm über dem Boden",
+        "height61to80": "Nein, der brennbare Teil befindet sich zwischen 61 und 80 cm über dem Boden",
+        "height81to100": "Nein, der brennbare Teil befindet sich zwischen 80 cm und 1 m über dem Boden",
+        "heightMore100": "Nein, der brennbare Teil befindet sich mehr als 1 m über dem Boden"
+    },
+    "Q3": {
+        "title": "Dach",
+        "question": "Besteht die Dachdeckung oder -konstruktion aus feuerfesten Materialien (z. B. Tonziegel, Betondachziegel, Glasfaser-Schindeln, Schieferplatten, etc.)?",
+        "description": "If you have solar panels on the roof, this question refers to the material on which they are installed.",
+        "roofFireRated": "Ja",
+        "roofNonFireRated": "Nein, einige Teile bestehen aus nicht feuerbeständigen Materialien (z. B. Holz)."
+    },
+    "Q4-1": {
+        "title": "Dach",
+        "question": "Weist Ihr Dach eines der folgenden Merkmale auf? Beschädigte oder fehlende Ziegel; freiliegende Dacheindeckung (der Teil des Daches, auf dem die Ziegel verlegt sind); nicht abgedichtete Lücken zwischen dem Dach und den Außenwänden; die Reinigung von Schmutz, der sich auf dem Dach oder in den Rinnen ansammelt, erfolgt nicht regelmäßig.",
+        "description": "A roof in poor condition can allow embers from the fire to pass through and cause a fire inside the house.",
+        "roofPoorlyMaintaned-1": "Ja",
+        "roofWellMaintained-1": "Nein"
+    },
+    "Q4-2": {
+        "title": "Dach",
+        "question": "Weist Ihr Dach eines der folgenden Merkmale auf? Beschädigte oder fehlende Ziegel; freiliegende Dacheindeckung (der Teil des Daches, auf dem die Ziegel verlegt sind); nicht abgedichtete Lücken zwischen dem Dach und den Außenwänden; die Reinigung von Schmutz, der sich auf dem Dach oder in den Rinnen ansammelt, erfolgt nicht regelmäßig.",
+        "description": "A roof in poor condition can allow embers from the fire to pass through and cause a fire inside the house.",
+        "roofPoorlyMaintaned-2": "Ja",
+        "roofWellMaintained-2": "Nein"
+    },
+    "Q5": {
+        "title": "Verglasungssysteme",
+        "question": "Welche Verglasungsart wurde am häufigsten für Fenster und Türen aus Glas verwendet?",
+        "description": "Glas ist sehr anfällig für Feuer. Eine Möglichkeit, seine Widerstandsfähigkeit zu verbessern, besteht darin, verschiedene Glasscheiben zu installieren (Doppel-/Dreifachverglasung) oder speziell behandeltes Glas zu verwenden (Sicherheitsglas). Wenn Ihr Gebäude mehr als ein Verglasungssystem aufweist, wählen Sie das repräsentativste.",
+        "singlePane": "Einzelscheibe",
+        "doublePane": "Doppel-/Dreifachverglasung",
+        "tempered": "Sicherheitsglas"
+    },
+    "Q6": {
+        "title": "Verglasungssysteme",
+        "question": "Sind alle Verglasungssysteme mit Rollläden geschützt? Wenn ja, aus welchem Material bestehen die Rollläden?",
+        "description": "Rollläden können die Verglasung vor den Auswirkungen eines Feuers schützen. Wichtig: Um die Wärme des Feuers abzuhalten, müssen die Rollläden vollständig geschlossen sein.",
+        "noShutters": "Nicht alle Verglasungssysteme sind mit Rollläden geschützt",
+        "woodShutters": "Holz",
+        "aluminiumShutters": "Aluminium",
+        "pvcShutters": "PVC",
+        "fireRatedShutters": "Feuerbeständige Materialien"
+    },
+    "Q7": {
+        "title": "Belüftung",
+        "question": "Welcher Schutz wird vor Belüftungsöffnungen angebracht?",
+        "description": "Belüftungsöffnungen sind Öffnungen auf Dächern, wie zum Beispiel bei Schornsteinen und Wänden, die dazu dienen, Dachböden oder Küchen zu belüften. Falls es verschiedene Belüftungen (geschützt oder ungeschützt) gibt, wählen Sie bitte die passendste Antwort aus.",
+        "noVents": "Es gibt keine Lüftungsöffnungen",
+        "noVentProtection": "Es gibt keinen Lüftungsschutz",
+        "ventCombProtection": "Der Schutz ist brennbar",
+        "nonCombGoodCond": "Der Schutz ist nicht brennbar, aber verrostet oder beschädigt",
+        "nonCombBadCond": "Der Schutz ist nicht brennbar und in gutem Zustand (keine Schäden)"
+    },
+    "Q8": {
+        "title": "Teilweise geschlossener Raum neben dem Haus",
+        "question": "Gibt es einen teilweise geschlossenen Raum neben Ihrem Haus (d.h. mit mindestens einer gemeinsamen Wand zum Haus), der brennbare Gegenstände enthält?",
+        "description": "Teilweise geschlossene Räume sind teils offene Bereiche, wie zum Beispiel unter Terrassen, Veranden, Decks, Dachüberständen oder Carports, oder auch Räume in offenen Schuppen, in denen sich normalerweise brennbare Elemente wie Gartenmöbel, Brennholz usw. befinden.",
+        "yesSemiConf": "Ja",
+        "noSemiConf": "Nein"
+    },
+    "Q9": {
+        "title": "Vorhandensein von Verglasungssystemen in teilweise geschlossenen Räumen",
+        "question": "Gibt es ungeschützte (d.h. ohne Rollläden) Verglasungssysteme (z. B. Glastüren oder Fenster), die den teilweise geschlossenen Raum mit dem Inneren des Gebäudes verbinden?",
+        "description": "In the event of a fire, unprotected glass in semi-open spaces can break if the fire affects materials stored in these spaces.",
+        "glazingSystemsSinglePane": "Ja, mit Einfachverglasung",
+        "glazingSystemsMultiplePane": "Ja, mit Mehrfachverglasung",
+        "glazingSystemsTempered": "Ja, mit Sicherheitsverglasung",
+        "noGlazingSystems": "Nein"
+    },
+    "Q10": {
+        "title": "Wände von teilweise geschlossenen Räumen",
+        "question": "Aus welchen Materialien bestehen die Wände, die mit dem Gebäude verbunden sind?",
+        "description": "In the event of a fire, unprotected glass in semi-open spaces can break if the fire affects the materials stored in these spaces. \nWood or plastic cladding are combustible materials that, in the event of a fire in the semi-open space, can facilitate the entry of fire into the house.",
+        "combustibleEnvelope": "Brennbare Materialien (z. B. Holz, Vinylverkleidung)",
+        "nonCombThin": "Nicht brennbare Materialien wie Aluminium oder Stahl (z. B. Rollläden ohne Verglasung - wie bei einem Garagentor)",
+        "nonCombThick": "Nicht brennbare Materialien wie Ziegel oder Beton"
+    },
+    "I2": {
+        "title": "Fragen zur Umgebung",
+        "text": "Brennbare Elemente in der Nähe des Gebäudes sind solche, die bei einem Brand Feuer fangen können. Beispiele für natürliche brennbare Materialien sind Zypressenhecken, trockenes Gras, Sträucher, Bäume usw. Rasen oder grünes Gras gelten nicht als brennbar. Beispiele für nicht-natürliche brennbare Elemente sind Gartenmöbel, Geräte- oder Tierhütten, Pergolen, Holzterrassen, Schuppen, Fahrzeuge usw. Zudem haben die Hangneigung des Geländes und die Nähe zum Wald einen wesentlichen Einfluss auf das Brandrisiko des Grundstücks."
+    },
+    "Q11": {
+        "title": "Brennstoffe in der Nähe des Gebäudes",
+        "question": "Identifizieren Sie, welche <b>brennbaren Elemente</b> sich <b>in der Nähe des Gebäudes</b> befinden. Welche der folgenden Optionen treffen zu (mehrere Antworten möglich)?",
+        "description": "Brennbare Elemente (natürliche und nicht-natürliche) in der Nähe des Gebäudes können bei einem Waldbrand leicht entzündet werden und das Feuer über verwundbare Stellen wie ungeschützte Verglasungen oder brennbare Gebäudeteile auf das Haus übertragen.",
+        "5closeToGlazing": "Es befinden sich <b>brennbare Elemente</b> in einem Abstand von <b>weniger als 5 Metern</b> zu Verglasungssystemen, die nicht durch Rollläden geschützt sind.",
+        "closeToRoof": "Es befinden sich <b>brennbare Elemente</b> in einem Abstand von weniger als 5 Metern zu <b>brennbaren Elementen am Dach</b> (z. B. hölzerne Dachüberstände, PVC-Dachrinnen zur Regenwassersammlung).",
+        "none": "Keine der Optionen trifft zu"
+    },
+    "Q12": {
+        "title": "Brennstoffe in der Nähe des Gebäudes",
+        "question": "Gibt es brennbare Elemente, die die Fassade berühren (berücksichtigen Sie auch Holzdecks, die an eine vollständige oder teilweise brennbare Fassade angrenzen)?",
+        "description": "If there is a fire and embers reach these combustible elements, their ignition can easily cause the fire to enter the house through the combustible facade.",
+        "fuelsAgainstFacade": "Nein, es sind keine brennbaren Materialien an der Fassade befestigt",
+        "fuelsNotAgainstFacade": "Ja"
+    },
+    "Q13": {
+        "title": "Brennstoffe in der Nähe des Gebäudes",
+        "question": "Befindet sich eine zusammenhängende Fläche mit Gras oder anderen brennbaren Materialien innerhalb von 10 Metern vom Gebäude entfernt?",
+        "description": "Ein Beispiel für eine zusammenhängende Fläche mit brennbaren Materialien ist ein Rasen ohne Unterbrechungen im 10-Meter-Radius rund um das Gebäude.",
+        "contSurf": "Ja",
+        "discontSurf": "Nein, es gibt eine Unterbrechung zwischen verschiedenen Brennstoffarten"
+    },
+    "Q14": {
+        "title": "Brennstoffe in der Nähe des Gebäudes",
+        "question": "Werden alle brennbaren Materialien wie Vegetation, Lagerräume, Holzdecks oder Veranden mindestens 2 m von einem oberirdischen Flüssiggas (LPG)-Tank entfernt, einschließlich Kanistern mit einem Gesamtvolumen von mehr als 0,5 m³?",
+        "description": "If there is a fire, combustible materials located near a hydrocarbon tank can ignite and put the tank at risk and cause a jet fire.",
+        "farFromLPG": "Ja",
+        "closeToLPG": "Nein",
+        "noLPG": "Nicht zutreffend"
+    },
+    "Q15": {
+        "title": "Brennstoffe in der Nähe des Gebäudes",
+        "question": "Identifizieren Sie, welche <b>nicht-natürlichen brennbaren Elemente</b> sich in der Nähe des Gebäudes befinden (Gartenmöbel, Werkzeug- oder Tierunterstände, Pergolen, Schuppen, Autos usw.). Welche der folgenden Optionen treffen zu (mehrere Antworten möglich)?",
+        "description": "Im Falle eines Brandes können nicht-natürliche brennbare Materialien Feuer fangen. Wenn sich diese Materialien nahe beieinander befinden, kann sich das Feuer von einem zum anderen ausbreiten und das Gebäude erreichen.",
+        "placedIn20": "Es befinden sich unnatürliche brennbare Elemente <b>weniger als 20 Meter von einem Bereich mit hochentzündlicher Vegetation</b> entfernt (z. B. sehr dichte Sträucher, bewaldete Flächen mit Arten wie Kiefern, Eukalyptus, Zypressen usw.).",
+        "spacingLess5": "Nicht-natürliche brennbare Elemente befinden sich <b>weniger als 5 m voneinander entfernt</b>.",
+        "none": "Keine der Optionen trifft zu"
+    },
+    "Q16": {
+        "title": "Brennstoffe in der Nähe des Gebäudes",
+        "question": "Befindet sich das Gebäude weniger als 30 Meter von einem bewaldeten Gebiet entfernt (z. B. auch Weiden, Strauchland oder Wälder)",
+        "description": "A forested area refers to a continuous area of pasture, shrubs or woodlands of a certain extent. Unbuilt plots adjacent to the building, where vegetation has grown, should also be taken into account in the analysis.",
+        "noVegIn30": "Ja",
+        "vegIn30": "Nein"
+    },
+    "Q17": {
+        "title": "Brennstoffe in der Nähe des Gebäudes",
+        "question": "Schauen Sie sich die Bäume und Sträucher im Umkreis von 30 Metern um das Gebäude an. Welche Art von Vegetation ist dort vorherrschend?",
+        "description": "The degree of flammability of plant species determines how the fire will behave. Species such as pine trees or eucalyptus generate larger and more intense flames, while fruit trees, which are less flammable, burn with smaller flames.",
+        "highFlam": "Sehr brennbar (z. B. Kiefer, Thuja, Wachholder, Zypresse)",
+        "mediumFlam": "Mäßig brennbar (z. B. Holunder, Haselnuss)",
+        "lowFlam": "Wenig brennbar (z. B. Ahorn, Buche)",
+        "noVeg": "Nicht zutreffend (Keine Bäume oder Sträucher im Umkreis von 30 Metern um das Gebäude)"
+    },
+    "Q18": {
+        "title": "Brennstoffe in der Nähe des Gebäudes",
+        "question": "Schauen Sie sich die Bäume und Sträucher im Umkreis von 30 Metern um das Gebäude an. Gibt es erkennbare horizontale Lücken in der Vegetation?",
+        "description": "Horizontal continuity refers to the presence of vegetation connected or very close together in the horizontal plane, without empty spaces between the different elements. This arrangement makes it easier for fire to spread quickly from one point to another on the ground surface or at low heights.",
+        "discontVeg": "Ja",
+        "contVeg": "Nein",
+        "noApplicableDiscVeg": "Nicht zutreffend (Keine Bäume oder Sträucher im Umkreis von 30 Metern um das Gebäude)"
+    },
+    "Q19": {
+        "title": "Brennstoffe in der Nähe des Gebäudes",
+        "question": "Schauen Sie sich die Bäume und Sträucher im Umkreis von 30 Metern um das Gebäude an. Gibt es erkennbare vertikale Lücken in der Vegetation?",
+        "description": "Vertical vegetation continuity is the connection between different layers of vegetation—such as grass, shrubs, and trees—that form a kind of natural \"staircase\". This arrangement makes it easier for the fire to spread from the ground to the canopy, making the fire more intense and difficult to control.",
+        "noPruning": "Nein",
+        "pruning": "Ja",
+        "noApplicablePruning": "Nicht zutreffend (Keine Bäume oder Sträucher im Umkreis von 30 Metern um das Gebäude)"
+    },
+    "Q20": {
+        "title": "Brennstoffe in der Nähe des Gebäudes",
+        "question": "Ist die kontinuierliche natürliche Vegetationshöhe höher als 10 cm (Gras oder junge Sträucher), die das Gebäude umgibt?",
+        "description": "If there is very tall dry grass, it can spread the fire quite intensely and easily reach the building.",
+        "lowSurfaceLess10": "Nein",
+        "lowSurfaceMore10": "Ja"
+    },
+    "Q21": {
+        "title": "Brennstoffe in der Nähe des Gebäudes",
+        "question": "Befinden sich abgestorbene Pflanzen oder pflanzliche Überreste im Umkreis von 30 m um das Gebäude?",
+        "description": "The accumulation of dry or dead fuel can burn easily and contribute to the spread of fire into the building.",
+        "deadVeg": "Ja",
+        "noDeadVeg": "Nein"
+    },
+    "Q22": {
+        "title": "Brennstoffe in der Nähe des Gebäudes",
+        "question": "Was ist die vorherrschende Abgrenzung zwischen Ihrem Grundstück und den benachbarten Grundstücken?",
+        "description": "Fences made of combustible materials can facilitate the spread of fire into the building and between neighbors",
+        "woodenFence": "Holzzaun",
+        "hedgerowHigh": "Hecken (sehr brennbar - z. B. Zypresse)",
+        "hedgerowLow": "Hecken (geringe Brennbarkeit)",
+        "metalPosts": "Zaun mit Metallpfosten",
+        "chainLink": "Maschendrahtzaun",
+        "concreteMore2": "Beton-, Ziegel- oder Metallzaun/Mauer (mindestens 2 m hoch)",
+        "concreteLess2": "Beton-, Ziegel- oder Metallzaun/Mauer (weniger als 2 m hoch)",
+        "noDelimitation": "Es gibt keinen Zaun oder physische Abgrenzung "
+    },
+    "Q23": {
+        "title": "Brennstoffe in der Nähe des Gebäudes",
+        "question": "Wie ist das Gelände auf Ihrem Grundstück beschaffen?",
+        "description": "Houses located mid-slope or on a ridge are more vulnerable, as the fire intensifies as it moves up the slope.",
+        "flatTerrain": "Flach",
+        "midSlope": "Mittlere Neigung",
+        "upperSlope": "Steilhang"
+    },
+
+    "Q1-images": {
+        "austria-Q1_1": "Beispiel für eine Fassade, die zu mehr als 50 % aus brennbaren Baustoffen besteht",
+        "austria-Q1_2": "Beispiel für eine Fassade, die zu weniger als 50 % aus brennbaren Baustoffen besteht",
+        "austria-Q1_3": "Beispiel für eine Fassade, die zu 0 % aus brennbaren Baustoffen besteht"
+    },
+    "Q2-images": {
+        "austria-Q2_1": "Haus mit dem brennbaren Teil der Fassade in einer Höhe von mehr als 1 m"
+    },
+    "Q3-images": {
+        "austria-Q3_1": "Beispiel für Tonziegel",
+        "austria-Q3_2": "Beispiel für Schieferplatten"
+    },
+    "Q4-1-images": {
+        "austria-Q4_1": "Beispiel für Schmutzansammlungen in den Rinnen",
+        "austria-Q4_2": "Beispiel für intakte und beschädigte Tonziegel"
+    },
+    "Q4-2-images": {
+        "austria-Q4_1": "Beispiel für Schmutzansammlungen in den Rinnen",
+        "austria-Q4_2": "Beispiel für intakte und beschädigte Tonziegel"
+    },
+    "Q5-images": {
+        "austria-Q5_1": "Von links nach rechts: Einfachverglasung, Doppelverglasung, Dreifachverglasung"
+    },
+    "Q6-images": {
+        "austria-Q6_1": "PVC-Rollladen",
+        "austria-Q6_2": "Holzrollladen",
+        "austria-Q6_3": "Aluminium-Rollladen"
+    },
+    "Q7-images": {
+        "austria-Q7_1": "Beispiel für einen Lüftungsschutz in der Küche"
+    },
+    "Q8-images": {
+        "austria-Q8_1": "Beispiele für Veranden, in denen brennbare Elemente gelagert werden",
+        "austria-Q8_2": "Beispiele für Veranden, in denen brennbare Elemente gelagert werden"    
+    },
+    "Q9-images": {
+        "austria-Q9_1": "Beispiel für ungeschützte Glastüren in einem teilweise geschlossenen Raum"
+    },
+    "Q10-images": {
+        "austria-Q10_1": "Die Wände, die den teilweise geschlossenen Raum mit dem Hauptgebäude verbinden, bestehen aus nicht brennbaren Materialien"
+    },
+    "Q11-images": {
+        "austria-Q11_1": "Vegetation in unmittelbarer Nähe ungeschützter Fenster",
+        "austria-Q11_2": "Ein Beispiel für Vegetation, die weniger als 5 Meter von einem Dach mit brennbaren Rinnen entfernt ist, sind Bäume mit Ästen, die das Dach oder die Rinnen berühren"
+    },
+    "Q12-images": {
+        "austria-Q12_1": "Beispiel für brennbare Elemente, die an einer brennbaren Fassade gelagert sind"
+    },
+    "Q13-images": {
+        "austria-Q13_1": "Beispiel für eine zusammenhängende Zone mit natürlichen Brennstoffen im 10-Meter-Radius",
+        "austria-Q13_2": "Beispiel für die Unterbrechung natürlicher Brennstoffe mit einer Betontrennung"
+    },
+    "Q14-images": {
+        "austria-Q14_1": "Beispiel für LPG-Tanks, bei denen sich brennbare Materialien in weniger als 2 Metern Entfernung befinden",
+        "austria-Q14_2": "Beispiel für LPG-Tanks, bei denen sich brennbare Materialien in weniger als 2 Metern Entfernung befinden"
+    },
+    "Q15-images": {
+        "austria-Q15_1": "Beispiel für nicht-natürliche Brennstoffe, die weniger als 5 m voneinander entfernt sind",
+        "austria-Q15_2": "Beispiele für brennbare Elemente, die weniger als 20 m von einem Wald entfernt sind",
+        "austria-Q15_3": "Beispiele für brennbare Elemente, die weniger als 20 m von einem Wald entfernt sind"
+    },
+    "Q16-images": {
+        "austria-Q16_1": "Häuser in einem bewaldeten Gebiet ohne Abstand"
+    },
+    "Q17-images": {
+        "austria-Q17_1": "Kiefer, Baumarten mit hoher Brennbarkeit",
+        "austria-Q17_2": "Wachholder, Baumarten mit hoher Brennbarkeit",
+        "austria-Q17_3": "Zypresse,Baumarten mit hoher Brennbarkeit",
+        "austria-Q17_4": "Haselnussstrauch, ein Strauch mit mittlerer Brennbarkeit.",
+        "austria-Q17_5": "Spitzahorn, Arten mit geringer Brennbarkeit",
+        "austria-Q17_6": "Buche, Arten mit geringer Brennbarkeit"
+    },
+    "Q18-images": {
+        "austria-Q18_1": "Beispiel für eine horizontale Kontinuität zwischen Sträuchern und Bäumen"
+    },
+    "Q19-images": {
+        "austria-Q19_1": "Beispiel für vertikale Kontinuität"
+    },
+    "Q20-images": {
+        "austria-Q20_1": "Beispiel für einen Rasen mit Gras, das höher als 10 cm ist"
+    },
+    "Q21-images": {
+        "austria-Q21_1": "Beispiele für abgestorbene Vegetation und pflanzliche Rückstände",
+        "austria-Q21_2": "Beispiele für abgestorbene Vegetation und pflanzliche Rückstände"
+    },
+    "Q22-images": {
+        "austria-Q22_1": "Holzzaun",
+        "austria-Q22_2": "Hecke mit hoher Brennbarkeit",
+        "austria-Q22_3": "Metallpfostenzaun",
+        "austria-Q22_4": "Maschendrahtzaun",
+        "austria-Q22_5": "2 m hoher Beton- oder Ziegelmauer",
+        "austria-Q22_6": "Weniger als 2 m hohe Beton- oder Ziegelmauer",
+        "austria-Q22_7": "2 m Metallzaun"
+    },
+    "Q23-images": {
+        "austria-Q23_1": "Von links nach rechts: Flach, mittlere Neigung, Steilhang"
+    }
 }

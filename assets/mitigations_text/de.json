@@ -1,0 +1,193 @@
+{
+     "height0": {
+         "title": "Fassadenmaterialien",
+         "text": "Prüfen Sie Möglichkeiten, die Feuerbeständigkeit brennbarer Fassadenmaterialien zu verbessern (z. B. feuerhemmende Farben, Schutzpaneele usw.).",
+         "questionId": "Q2"
+     },
+     "height0to20": {
+         "title": "Fassadenmaterialien",
+         "text": "Prüfen Sie Möglichkeiten, die Feuerbeständigkeit brennbarer Fassadenmaterialien zu verbessern (z. B. feuerhemmende Farben, Schutzpaneele usw.).",
+         "questionId": "Q2"
+     },
+     "height21to40": {
+         "title": "Fassadenmaterialien",
+         "text": "Prüfen Sie Möglichkeiten, die Feuerbeständigkeit brennbarer Fassadenmaterialien zu verbessern (z. B. feuerhemmende Farben, Schutzpaneele usw.).",
+         "questionId": "Q2"
+     },
+     "height41to60": {
+         "title": "Fassadenmaterialien",
+         "text": "Prüfen Sie Möglichkeiten, die Feuerbeständigkeit brennbarer Fassadenmaterialien zu verbessern (z. B. feuerhemmende Farben, Schutzpaneele usw.).",
+         "questionId": "Q2"
+     },
+     "height61to80": {
+         "title": "Fassadenmaterialien",
+         "text": "Prüfen Sie Möglichkeiten, die Feuerbeständigkeit brennbarer Fassadenmaterialien zu verbessern (z. B. feuerhemmende Farben, Schutzpaneele usw.).",
+         "questionId": "Q2"
+     },
+     "height81to100": {
+         "title": "Fassadenmaterialien",
+         "text": "Prüfen Sie Möglichkeiten, die Feuerbeständigkeit brennbarer Fassadenmaterialien zu verbessern (z. B. feuerhemmende Farben, Schutzpaneele usw.).",
+         "questionId": "Q2"
+     },
+     "roofNonFireRated": {
+         "title": "Dach",
+         "text": "Prüfen Sie Möglichkeiten, die Feueranfälligkeit brennbarer Dachmaterialien zu verbessern (z. B. feuerhemmende Farben usw.). Wenn Sie eine Dacheindeckung ersetzen möchten, verwenden Sie feuerbeständige Materialien wie Keramik- oder Betonziegel.",
+         "questionId": "Q3"
+     },
+     "roofPoorlyMaintaned-1": {
+         "title": "Dach",
+         "text": "Stellen Sie sicher, dass die Dacheindeckung in gutem Zustand und korrekt verlegt ist und keine Ziegel fehlen. Entfernen Sie regelmäßig angesammelte Ablagerungen, um im Brandfall eine Entzündung auf dem Dach zu vermeiden (z. B. trockene Kiefernnadeln, Blätter usw.).",
+         "questionId": "Q4-1"
+     },
+     "roofPoorlyMaintaned-2": {
+         "title": "Dach",
+         "text": "Stellen Sie sicher, dass die Dacheindeckung in gutem Zustand und korrekt verlegt ist und keine Ziegel fehlen. Entfernen Sie regelmäßig angesammelte Ablagerungen, um im Brandfall eine Entzündung auf dem Dach zu vermeiden (z. B. trockene Kiefernnadeln, Blätter usw.).",
+         "questionId": "Q4-2"
+     },
+     "singlePane": {
+         "title": "Verglasungssysteme",
+         "text": "Wenn Sie überlegen, das Glas zu ersetzen, stellen Sie sicher, dass Sie Doppel- oder Dreifachverglasung bzw. Einscheibensicherheitsglas verwenden. Diese Glasarten sind widerstandsfähiger gegen Hitze im Brandfall.",
+         "questionId": "Q5"
+     },
+     "noShutters": {
+         "title": "Verglasungssysteme",
+         "text": "Prüfen Sie, ob Sie vor allen Verglasungen Rollläden installieren können. Wählen Sie Aluminiumrollläden oder andere feuerbeständige Materialien (z. B. Stahl).",
+         "questionId": "Q6"
+     },
+     "woodShutters": {
+         "title": "Verglasungssysteme",
+         "text": "Um die Feueranfälligkeit Ihres Hauses zu verbessern, sollten Sie erwägen, Holzrollläden durch Aluminiumrollläden oder andere feuerbeständige Materialien (z. B. Stahl) zu ersetzen.",
+         "questionId": "Q6"
+     },
+     "pvcShutters": {
+         "title": "Verglasungssysteme",
+         "text": "Um die Feueranfälligkeit Ihres Hauses zu verbessern, sollten Sie erwägen, PVC-Rollläden durch Aluminiumrollläden oder andere feuerbeständige Materialien (z. B. Stahl) zu ersetzen.",
+         "questionId": "Q6"
+     },
+     "noVentProtection": {
+         "title": "Belüftung",
+         "text": "Schützen Sie die Belüftungen mit nicht brennbaren, rostfreien Metallgittern (z. B. Aluminium, verzinkter Stahl, Edelstahl, Kupfer oder intumeszierende Beschichtungen).",
+         "questionId": "Q7"
+     },
+     "ventCombProtection": {
+         "title": "Belüftung",
+         "text": "Erwägen Sie, den Schutz der Belüftung durch nicht brennbare, rostfreie Metallgitter zu ersetzen (z. B. Aluminium, verzinkter Stahl, Edelstahl, Kupfer oder intumeszierende Beschichtungen).",
+         "questionId": "Q7"
+     },
+     "nonCombBadCond": {
+         "title": "Belüftung",
+         "text": "Erwägen Sie, den Schutz der Belüftung durch nicht brennbare, rostfreie Metallgitter zu ersetzen (z. B. Aluminium, verzinkter Stahl, Edelstahl, Kupfer oder intumeszierende Beschichtungen).",
+         "questionId": "Q7"
+     },
+     "yesSemiConf": {
+         "title": "Teilweise geschlossener Raum neben dem Haus",
+         "text": "Vermeiden Sie die Lagerung brennbarer Materialien in Teilweise geschlossener Raum neben dem Haus, wie z. B. auf Veranden, in Räumen unter Terrassen oder Böden, in Bereichen unter Markisen oder in geschlossenen Räumen in Schuppen, die an das Gebäude angrenzen.",
+         "questionId": "Q8"
+     },
+     "glazingSystemsSinglePane": {
+         "title": "Teilweise geschlossener Raum neben dem Haus",
+         "text": "Um die Anfälligkeit Ihres Hauses zu verringern, sollten Sie erwägen, feuerbeständige Rollläden zum Schutz der Verglasung in Teilweise geschlossener Raum neben dem Haus zu installieren. Wählen Sie Aluminium oder andere feuerbeständige Materialien (z. B. Stahl).",
+         "questionId": "Q9"
+     },
+     "glazingSystemsMultiplePane": {
+         "title": "Teilweise geschlossener Raum neben dem Haus",
+         "text": "Um die Anfälligkeit Ihres Hauses zu verringern, sollten Sie erwägen, feuerbeständige Rollläden zum Schutz der Verglasung in Teilweise geschlossener Raum neben dem Haus zu installieren. Wählen Sie Aluminium oder andere feuerbeständige Materialien (z. B. Stahl).",
+         "questionId": "Q9"
+     },
+     "glazingSystemsTempered": {
+         "title": "Teilweise geschlossener Raum neben dem Haus",
+         "text": "Um die Anfälligkeit Ihres Hauses zu verringern, sollten Sie erwägen, feuerbeständige Rollläden zum Schutz der Verglasung in Teilweise geschlossener Raum neben dem Haus zu installieren. Wählen Sie Aluminium oder andere feuerbeständige Materialien (z. B. Stahl).",
+         "questionId": "Q9"
+     },
+     "combustibleEnvelope": {
+         "title": "Teilweise geschlossener Raum neben dem Haus",
+         "text": "Erwägen Sie die Verwendung feuerfester Beschichtungen (z. B. feuerhemmende Farben), um die Feuerresistenz der Wände zu verbessern.",
+         "questionId": "Q10"
+     },
+     "5closeToGlazing": {
+         "title": "Brennstoffe in der Nähe des Gebäudes",
+         "text": "Erwägen Sie, brennbare Materialien (Pflanzen oder andere nicht natürliche Elemente) zu entfernen, wenn sie sich in der Nähe von Glas befinden, das nicht geschützt werden kann.",
+         "questionId": "Q11"
+     },
+     "closeToRoof": {
+         "title": "Brennstoffe in der Nähe des Gebäudes",
+         "text": "Erwägen Sie, brennbare Materialien (Pflanzen oder andere nicht natürliche Elemente) zu entfernen, wenn sie sich in der Nähe brennbarer Bauteile am Dach befinden (z. B. hölzerne Dachränder, PVC-Rinnen zur Regenwassersammlung).",
+         "questionId": "Q11"
+     },
+     "fuelsNotAgainstFacade": {
+         "title": "Brennstoffe in der Nähe des Gebäudes",
+         "text": "Erwägen Sie, brennbare Materialien (Pflanzen oder andere nicht natürliche Elemente) in der Nähe der Fassade zu entfernen. Wenn Sie eine Holzterrasse haben, sollten Sie deren Feuerresistenz verbessern (z. B. mit feuerhemmenden Farben, Schutzbeschichtungen usw.).",
+         "questionId": "Q12"
+     },
+     "contSurf": {
+         "title": "Brennstoffe in der Nähe des Gebäudes",
+         "text": "Erwägen Sie, die Kontinuität natürlicher Brennstoffe durch Kies- oder Kopfsteinpflasterflächen zu unterbrechen.",
+         "questionId": "Q13"
+     },
+     "closeToLPG": {
+         "title": "Brennstoffe in der Nähe des Gebäudes",
+         "text": "Entfernen Sie alle brennbaren Materialien innerhalb eines 2-Meter-Radius um Kohlenwasserstofftanks (LPG-Tanks, Gasflaschen usw.).",
+         "questionId": "Q14"
+     },
+     "spacingLess5": {
+         "title": "Brennstoffe in der Nähe des Gebäudes",
+         "text": "Erwägen Sie, nicht natürliche brennbare Elemente möglichst weit voneinander zu trennen.",
+         "questionId": "Q15"
+     },
+     "placedIn20": {
+         "title": "Brennstoffe in der Nähe des Gebäudes",
+         "text": "Erwägen Sie, nicht natürliche brennbare Elemente mindestens 20 Meter vom Wald entfernt aufzubewahren.",
+         "questionId": "Q15"
+     },
+     "vegIn30": {
+         "title": "Brennstoffe in der Nähe des Gebäudes",
+         "text": "Erwägen Sie, eine Brennstoffreduktionsmaßnahme durchzuführen.",
+         "questionId": "Q16"
+     },
+     "highFlam": {
+         "title": "Brennstoffe in der Nähe des Gebäudes",
+         "text": "Erwägen Sie, hochentzündliche Pflanzenarten innerhalb eines 30-Meter-Radius um das Gebäude zu entfernen oder durch feuerresistentere Arten zu ersetzen.",
+         "questionId": "Q17"
+     },
+     "contVeg": {
+         "title": "Brennstoffe in der Nähe des Gebäudes",
+         "text": "Pflegen Sie die Vegetation innerhalb von 30 Metern um das Gebäude, indem Sie eine horizontale Unterbrechung zwischen Bäumen und Sträuchern schaffen, um die Ausbreitung von Bränden zu verhindern. Erwägen Sie, Vegetation zu entfernen oder zu trennen.",
+         "questionId": "Q18"
+     },
+     "noPruning": {
+         "title": "Brennstoffe in der Nähe des Gebäudes",
+         "text": "Pflegen Sie die Vegetation innerhalb von 30 Metern um das Gebäude, indem Sie eine vertikale Unterbrechung zwischen Bäumen und Sträuchern schaffen, um die Ausbreitung von Bränden zu verhindern. Erwägen Sie, die Vegetation zu entfernen und zurückzuschneiden.",
+         "questionId": "Q19"
+     },
+     "lowSurfaceMore10": {
+         "title": "Brennstoffe in der Nähe des Gebäudes",
+         "text": "Halten Sie die Höhe der Vegetation (Gras oder junge Sträucher) in der Zone des kontinuierlichen natürlichen Brennstoffs rund um das Gebäude unter 10 cm.",
+         "questionId": "Q20"
+     },
+     "deadVeg": {
+         "title": "Brennstoffe in der Nähe des Gebäudes",
+         "text": "Entfernen Sie regelmäßig abgestorbene oder zurückgeschnittene Vegetation. Diese Brennstoffe sind sehr trocken und entzünden sich im Brandfall leicht.",
+         "questionId": "Q21"
+     },
+     "woodenFence": {
+         "title": "Brennstoffe in der Nähe des Gebäudes",
+         "text": "Erwägen Sie, den Zaun mit feuerhemmenden Beschichtungen (z. B. feuerhemmende Farben) zu streichen, um seine Feuerresistenz zu verbessern.",
+         "questionId": "Q22"
+     },
+     "hedgerowHigh": {
+          "title": "Brennstoffe in der Nähe des Gebäudes",
+          "text": "Erwägen Sie, die stark entzündliche Heckenpflanzung (z. B. Zypressen oder Heide) durch eine wenig oder nicht brennbare Hecke (z. B. Kirschlorbeer) zu ersetzen und andere Optionen wie Mauern oder Zäune aus nicht brennbarem Material zu prüfen.",
+          "questionId": "Q22"
+     },
+     "metalPosts": {
+          "title": "Brennstoffe in der Nähe des Gebäudes",
+          "text": "Halten Sie den Zaun frei von Vegetation, um die Ausbreitung von Bränden zwischen benachbarten Grundstücken zu verhindern.",
+          "questionId": "Q22"
+     },
+     "chainLink": {
+          "title": "Brennstoffe in der Nähe des Gebäudes",
+          "text": "Halten Sie den Zaun frei von Vegetation, um die Ausbreitung von Bränden zwischen benachbarten Grundstücken zu verhindern.",
+          "questionId": "Q22"
+     }
+ }
+ 

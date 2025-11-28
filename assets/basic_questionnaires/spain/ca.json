@@ -1,0 +1,94 @@
+{
+    "questions": [
+        {
+            "id": "BQ1",
+            "question": "El meu habitatge es troba a menys de 50 m d'un bosc o zona amb abundant vegetació",
+            "images": [
+                {
+                    "path": "assets/images/spain/basic/BQ1.png"
+                }
+            ]
+        },
+        {
+            "id": "BQ2",
+            "question": "El meu habitatge està situat a mitja pendent o al capdamunt d'una carena",
+            "images": [
+                {
+                    "path": "assets/images/spain/basic/BQ2.png"
+                }
+            ]
+        },
+        {
+            "id": "BQ3",
+            "question": "El revestiment exterior del meu habitatge és de material combustible (com fusta o plàstic)",
+            "images": [
+                {
+                    "path": "assets/images/spain/basic/BQ3.png"
+                }
+            ]
+        },
+        {
+            "id": "BQ4",
+            "question": "La teulada, el porxo o el balcó són de material combustible",
+            "images": [
+                {
+                    "path": "assets/images/spain/basic/BQ4.png"
+                }
+            ]
+        },
+        {
+            "id": "BQ5",
+            "question": "Els vidres de finestres i portes exteriors són d'una sola fulla o làmina",
+            "images": [
+                {
+                    "path": "assets/images/spain/basic/BQ5.png"
+                }
+            ]
+        },
+        {
+            "id": "BQ6",
+            "question": "Tinc vidres de finestres i portes exteriors sense protecció, sense persianes ni porticons",
+            "images": [
+                {
+                    "path": "assets/images/spain/basic/BQ6.png"
+                }
+            ]
+        },
+        {
+            "id": "BQ7",
+            "question": "Tinc obertures de ventilació sense cap protecció",
+            "images": [
+                {
+                    "path": "assets/images/spain/basic/BQ7_v2.png"
+                }
+            ]
+        },
+        {
+            "id": "BQ8",
+            "question": "Hi ha acumulació de restes vegetals i/o materials combustibles (com mobles de plàstic o trastos) a menys de 30 m de l'habitatge",
+            "images": [
+                {
+                    "path": "assets/images/spain/basic/BQ8.png"
+                }
+            ]
+        },
+        {
+            "id": "BQ9",
+            "question": "Hi ha acumulació de fullaraca i branquillons a les canaletes de desaiguat i/o a la teulada",
+            "images": [
+                {
+                    "path": "assets/images/spain/basic/BQ9.png"
+                }
+            ]
+        },
+        {
+            "id": "BQ10",
+            "question": "Hi ha un dipòsit de combustible i/o bombones de butà a prop de l'edifici",
+            "images": [
+                {
+                    "path": "assets/images/spain/basic/BQ10.png"
+                }
+            ]
+        }
+    ]
+}

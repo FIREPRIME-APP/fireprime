@@ -5,6 +5,8 @@ class Constants {
 
   static const String logoA = 'assets/images/logos/FIREPRIME_Logo_A.png';
 
+  static const double bestValue = 0.1;
+
   static const List<String> europeanCountries = [
     'albania',
     'andorra',
@@ -108,4 +110,6 @@ class Constants {
     "unitedKingdom": "gb",
     "vaticanCity": "va",
   };
+
+  static const List<String> areaCodes = ['spain', 'austria', 'sweden'];
 }

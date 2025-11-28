@@ -13,6 +13,19 @@ class Utils {
     }
   }
 
+  static Color getBasicRiskColor(String level) {
+    print('level: $level');
+    if (level == 'low') {
+      return Colors.green[100]!;
+    } else if (level == 'moderate') {
+      return Colors.orange[100]!;
+    } else if (level == 'high') {
+      return Colors.red[100]!;
+    } else {
+      return Colors.grey[100]!;
+    }
+  }
+
   static LinearGradient linearGradientProb(double probability) {
     List<Color> colors = [Colors.lightGreen, Colors.green];
     if (probability > 45) {

@@ -1,0 +1,229 @@
+import 'package:easy_localization/easy_localization.dart';
+import 'package:fireprime/model/area.dart';
+import 'package:fireprime/model/basic_result.dart';
+import 'package:fireprime/model/customised_image.dart';
+import 'package:fireprime/model/house.dart';
+import 'package:fireprime/model/questionnaire/basic_questionnaire.dart';
+import 'package:fireprime/model/questionnaire/questionnaire.dart';
+import 'package:fireprime/notifications/local_notification.dart';
+import 'package:fireprime/pages/house/basic/basic_house.dart';
+import 'package:fireprime/pages/questionnaire/customised_question_types/customised_intro.dart';
+import 'package:fireprime/pages/result/basic/basic_result.dart';
+import 'package:fireprime/providers/house_provider.dart';
+import 'package:flutter/material.dart' hide Step;
+import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
+import 'package:survey_kit/survey_kit.dart';
+
+class BasicQuestionnairePage extends StatefulWidget {
+  const BasicQuestionnairePage({
+    super.key,
+  });
+
+  @override
+  State<BasicQuestionnairePage> createState() => _BasicQuestionnairePageState();
+}
+
+class _BasicQuestionnairePageState extends State<BasicQuestionnairePage> {
+  late BasicQuestionnaire questionnaire;
+
+  @override
+  Widget build(BuildContext context) {
+    return Consumer<HouseProvider>(builder: (context, houseProvider, child) {
+      Map<String, String?> answers = {};
+      House? house;
+      BasicResult? basicResult;
+      if (houseProvider.currentHouse != null) {
+        house = houseProvider.getHouse(houseProvider.currentHouse!);
+        if (house.basicResultIds != null && house.basicResultIds!.isNotEmpty) {
+          basicResult = houseProvider.getLastBasicResult();
+          if (basicResult?.answers != null) {
+            answers = basicResult!.answers;
+          }
+        }
+      }
+      return Scaffold(
+        body: Container(
+          color: Colors.white,
+          child: FutureBuilder<Task>(
+            future: getTask(
+              context,
+              house?.environment ?? 'default',
+              answers,
+            ),
+            builder: (BuildContext context, AsyncSnapshot<Task> snapshot) {
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                return const CircularProgressIndicator();
+              } else if (snapshot.hasError) {
+                return Text('Error: ${snapshot.error}');
+              } else {
+                final task = snapshot.data;
+
+                return SurveyKit(
+                  task: task!,
+                  showProgress: true,
+                  surveyController: SurveyController(
+                    onNextStep: (context, resultFunction) {
+                      return true;
+                    },
+                    onStepBack: (context, resultFunction) {
+                      return true;
+                    },
+                    onCloseSurvey: (context, resultFunction) => true,
+                  ),
+                  localizations: <String, String>{
+                    'cancel': context.tr('cancel'),
+                    'next': context.tr('next')
+                  },
+                  surveyProgressbarConfiguration: SurveyProgressConfiguration(
+                    backgroundColor: Colors.white,
+                    showLabel: true,
+                    label: (from, to) => Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        '[$from / $to]',
+                        style: const TextStyle(
+                            color: Colors.black, fontSize: 13.0),
+                      ),
+                    ),
+                    progressbarColor: Colors.grey.shade200,
+                  ),
+                  onResult: (result) async {
+                    Map<String, String?> adaptedAnswers = {};
+                    if (result.finishReason == FinishReason.COMPLETED) {
+                      Map<String, String?> adaptedAnswers =
+                          Questionnaire().adaptedResult({}, result);
+                      int risk = questionnaire.getResult(adaptedAnswers);
+                      String level = questionnaire.getRiskLevel(risk);
+                      print(risk);
+                      await houseProvider.setBasicAnswers(
+                          result.startDate, adaptedAnswers, 'Completed');
+                      await houseProvider.setBasicCompleted(
+                        true,
+                        risk,
+                        result.endDate,
+                        level,
+                      );
+                      await houseProvider.updateHouse();
+
+                      LocalNotification().scheduledNotification(
+                          1,
+                          context.tr('notification_title'),
+                          context.tr('notification_body'),
+                          const Duration(days: 365));
+
+                      print('Task completed with result: $result');
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (BuildContext context) {
+                            print('basic result page');
+                            return const BasicResultPage();
+                          },
+                        ),
+                      );
+                      // print('Risk Level: $riskLevel');
+                    } else {
+                      print('Task not completed, result: $result');
+                      adaptedAnswers =
+                          Questionnaire().adaptedResult(answers, result);
+                      await houseProvider.setBasicAnswers(
+                          result.startDate, adaptedAnswers, 'Not completed');
+                      print('---');
+                      houseProvider.updateHouse();
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (BuildContext context) {
+                            print('return');
+                            return const BasicHousePage();
+                          },
+                        ),
+                      );
+                    }
+                  },
+                );
+              }
+            },
+          ),
+        ),
+      );
+    });
+  }
+
+  Future<Task> getTask(BuildContext context, String areaCode,
+      Map<String, String?> answers) async {
+    if (!context.mounted) throw Exception('Context is not mounted');
+
+    Locale currentLocale = Localizations.localeOf(context);
+    String languageCode = currentLocale.languageCode;
+    Map<String, dynamic> questionnaireJson =
+        await BasicQuestionnaire.loadQuestionnaire(areaCode, languageCode);
+    Map<String, dynamic> areaJson = await Area.loadSettings(areaCode);
+    Area area = Area.fromJson(areaJson);
+
+    questionnaire = BasicQuestionnaire.fromJson(questionnaireJson, area);
+
+    List<Step> steps = [];
+    steps.add(
+      IntroductionCustomisedStep(
+          stepIdentifier: StepIdentifier(id: 'intro'),
+          title: context.tr('basic_questionnaire_title'),
+          text: context.tr('basic_questionnaire_intro'),
+          showAppBar: false,
+          buttonText: context.tr('start')),
+      /*InstructionStep(
+        stepIdentifier: StepIdentifier(id: 'intro'),
+        title: context.tr('basic_questionnaire_title'),
+        text: context.tr('basic_questionnaire_intro'),
+      ),*/
+    );
+
+    for (var question in questionnaire.questions) {
+      String questionId = question['id']!;
+      String questionText = question['question']!;
+      String? description = question['description'];
+      String? title = question['title'];
+
+      steps.add(
+        Questionnaire().buildSingleChoiceImageStep(
+          stepId: questionId,
+          text: questionText,
+          description: description,
+          title: title,
+          otherOption: false,
+          context: context,
+          answers: answers,
+          textChoices: ['yes', 'no'],
+          images: await getValidImages(questionnaire.images[questionId] ?? []),
+          alwaysShowDescription: true,
+          buttonText: context.tr('next'),
+        ),
+      );
+      print(steps);
+    }
+
+    final NavigableTask task =
+        NavigableTask(id: TaskIdentifier(), steps: steps);
+    return Future<Task>.value(task);
+  }
+
+  Future<bool> _checkImageExists(String path) async {
+    try {
+      await rootBundle.load(path);
+      return true;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  Future<List<CustomisedImage>> getValidImages(
+      List<CustomisedImage> images) async {
+    final List<CustomisedImage> validImages = [];
+    if (images.isEmpty) return validImages;
+    for (final image in images) {
+      if (await _checkImageExists(image.path)) {
+        validImages.add(image);
+      }
+    }
+    return validImages;
+  }
+}

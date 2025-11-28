@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 class InfoDialog extends StatefulWidget {
@@ -15,8 +16,6 @@ class InfoDialog extends StatefulWidget {
     required this.iconSize,
     required this.text,
     required this.fontSize,
-    // required this.top,
-    // required this.left,
   });
 
   @override
@@ -36,9 +35,7 @@ class _InfoDialogState extends State<InfoDialog> {
     _removeOverlay();
     final RenderBox renderBox =
         _buttonKey.currentContext!.findRenderObject() as RenderBox;
-    final Offset position =
-        renderBox.localToGlobal(Offset.zero); // Posición en la pantalla
-    //final Size size = renderBox.size; // Tamaño del botón
+    final Offset position = renderBox.localToGlobal(Offset.zero);
     _overlayEntry = OverlayEntry(
       builder: (context) => Positioned(
         top: position.dy + 30,
@@ -74,11 +71,41 @@ class _InfoDialogState extends State<InfoDialog> {
     });
   }
 
+  Future<void> _showInfoDialog() {
+    return showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          content: Padding(
+            padding: const EdgeInsets.fromLTRB(0, 8.0, 0, 0),
+            child: Text(
+              widget.text,
+              style: const TextStyle(
+                color: Colors.black,
+                fontSize: 13,
+                fontFamily: 'OpenSans',
+              ),
+              // softWrap: true,
+            ),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: Text(context.tr('close')),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       key: _buttonKey,
-      onTap: () => _showTooltip(context),
+      onTap: () => _showInfoDialog(),
       child: Icon(widget.icon, size: widget.iconSize),
     );
   }

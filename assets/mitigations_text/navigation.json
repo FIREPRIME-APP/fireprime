@@ -1,0 +1,54 @@
+{
+  "Q3": {
+    "roofNonFireRated": {
+      "add": ["Q4-2"],
+      "navigation": {
+        "roofNonFireRated": "complete",
+        "roofFireRated": "Q4-2"
+      },
+      "delete": ["Q4-2"]
+    },
+    "roofFireRated": {
+      "add": ["Q4-1"],
+      "navigation": {
+        "roofNonFireRated": "Q4-1",
+        "roofFireRated": "complete"
+      },
+      "delete": ["Q4-1"]
+    }
+  },
+  "Q8": {
+    "yesSemiConf": {
+      "add": ["Q9", "Q10"],
+      "navigation": {
+        "yesSemiConf": "complete",
+        "noSemiConf": "complete"
+      }
+    }, 
+    "noSemiConf": {
+      "add": ["Q9", "Q10"],
+      "navigation": {
+        "yesSemiConf": "Q9",
+        "noSemiConf": "complete"
+      },
+      "delete": ["Q9", "Q10"]
+    }
+  },
+  "Q14": {
+    "contSurf": {
+      "add": ["Q20"],
+      "navigation": {
+        "contSurf": "complete",
+        "discontSurf": "complete"
+      }
+    },
+    "discontSurf": {
+      "add": ["Q20"],
+      "navigation": {
+        "contSurf": "Q20",
+        "discontSurf": "complete"
+      },
+      "delete": ["Q20"] 
+    }
+  }
+}

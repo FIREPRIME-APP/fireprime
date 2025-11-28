@@ -1,4 +1,4 @@
-import 'package:fireprime/firebase/event_manage.dart';
+//import 'package:fireprime/firebase/event_manage.dart';
 import 'package:flutter/material.dart';
 
 class InputField extends StatefulWidget {
@@ -6,6 +6,7 @@ class InputField extends StatefulWidget {
   final TextEditingController controller;
   final String screenId;
   final String buttonId;
+  final int? maxLength;
 
   const InputField({
     super.key,
@@ -13,6 +14,7 @@ class InputField extends StatefulWidget {
     required this.controller,
     required this.screenId,
     required this.buttonId,
+    this.maxLength,
   });
 
   @override
@@ -54,6 +56,7 @@ class _InputFieldState extends State<InputField> {
                 borderRadius: BorderRadius.all(Radius.circular(10.0)),
               ),
             ),
+            maxLength: widget.maxLength,
           ),
         ],
       ),
@@ -63,7 +66,7 @@ class _InputFieldState extends State<InputField> {
   void _onFocusChange() {
     print('Focus: ${_focusNode.hasFocus}');
     if (_focusNode.hasFocus) {
-      saveEventdata(screenId: widget.screenId, buttonId: widget.buttonId);
+      //saveEventdata(screenId: widget.screenId, buttonId: widget.buttonId);
     }
   }
 }

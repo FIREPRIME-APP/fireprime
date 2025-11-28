@@ -1,3 +1,5 @@
+import 'package:easy_localization/easy_localization.dart';
+import 'package:fireprime/constants.dart';
 import 'package:fireprime/widgets/card_text.dart';
 import 'package:fireprime/widgets/info_dialog.dart';
 import 'package:fireprime/widgets/utils.dart';
@@ -5,8 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:geekyants_flutter_gauges/geekyants_flutter_gauges.dart';
 
 class Gauge {
-  static RadialGauge radialGauge(
-      double probability, double thickness, double pointerWidth) {
+  static RadialGauge radialGauge(double probability, double thickness,
+      double pointerWidth, double? hazard) {
     return RadialGauge(
       track: RadialTrack(
         start: 0,
@@ -44,13 +46,28 @@ class Gauge {
           tailRadius: thickness,
           needleStyle: NeedleStyle.flatNeedle,
           color: const Color.fromARGB(255, 75, 75, 75),
-        )
+        ),
+      ],
+      shapePointer: [
+        if (hazard != null)
+          RadialShapePointer(
+            value: (Constants.bestValue * 100) * hazard,
+            color: const Color.fromARGB(255, 120, 120, 120),
+            height: 6,
+            width: pointerWidth + 2,
+          ),
       ],
     );
   }
 
   static Widget gaugeProbabilityText(
-      double probability, String description, double space, String info) {
+      double probability,
+      String description,
+      double space,
+      String info,
+      double hazard,
+      BuildContext context,
+      String ideal_risk_info) {
     return Padding(
       padding: const EdgeInsets.only(top: 120),
       child: Center(
@@ -75,6 +92,34 @@ class Gauge {
                   icon: Icons.info_outline,
                   iconSize: 20.0,
                   text: info,
+                  fontSize: 13,
+                ),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  width: 15,
+                  height: 15,
+                  decoration: const BoxDecoration(
+                    color: Color.fromARGB(255, 120, 120, 120),
+                    shape: BoxShape.circle,
+                  ),
+                ),
+                const SizedBox(width: 8),
+                CardText(
+                  title: context.tr('ideal_risk'),
+                  text: (0.1 * 100 * hazard).toStringAsFixed(0),
+                  size: 15,
+                  color: const Color.fromARGB(255, 120, 120, 120),
+                  textBold: false,
+                ),
+                const SizedBox(width: 5),
+                InfoDialog(
+                  icon: Icons.info_outline,
+                  iconSize: 18.0,
+                  text: ideal_risk_info,
                   fontSize: 13,
                 ),
               ],
@@ -113,6 +158,7 @@ class Gauge {
                   text: probability.toStringAsFixed(0),
                   size: 15,
                   color: Colors.black,
+                  textBold: false,
                   /* '$title: ${probability.toStringAsFixed(0)}',
                   style: const TextStyle(
                       fontSize: 15, fontWeight: FontWeight.bold),*/
@@ -128,8 +174,8 @@ class Gauge {
             ],
           ),
         ),
-        linearGauge(
-            probability, pointerSize, thickness, borderRadius, lastProbability),
+        linearGauge(probability, pointerSize, thickness, borderRadius,
+            lastProbability, true, 12),
         const SizedBox(height: 10),
       ],
     );
@@ -153,11 +199,18 @@ class Gauge {
     }
   }
 
-  static Widget linearGauge(double probability, double pointerSize,
-      double thickness, double borderRadius, double? lastProbability) {
+  static Widget linearGauge(
+      double probability,
+      double pointerSize,
+      double thickness,
+      double borderRadius,
+      double? lastProbability,
+      bool enableAnimation,
+      double labelSize) {
     return LinearGauge(
       gaugeOrientation: GaugeOrientation.horizontal,
       rulers: RulerStyle(
+        textStyle: TextStyle(color: Colors.black, fontSize: labelSize),
         rulerPosition: RulerPosition.bottom,
         showPrimaryRulers: false,
         showSecondaryRulers: false,
@@ -171,6 +224,7 @@ class Gauge {
           color: Utils.pointerColor(probability),
           shape: PointerShape.circle,
           pointerPosition: PointerPosition.center,
+          enableAnimation: enableAnimation,
           animationType: Easing.legacyDecelerate,
         )
       ],
@@ -188,7 +242,7 @@ class Gauge {
           valueBarThickness: thickness,
           borderRadius: borderRadius,
           edgeStyle: LinearEdgeStyle.bothCurve,
-          enableAnimation: true,
+          enableAnimation: enableAnimation,
           animationType: Easing.legacyDecelerate,
         ),
       ],

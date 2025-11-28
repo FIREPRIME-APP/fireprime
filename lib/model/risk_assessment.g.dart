@@ -20,6 +20,7 @@ class RiskAssessmentAdapter extends TypeAdapter<RiskAssessment> {
       fields[0] as DateTime,
       fields[1] as String,
       (fields[2] as Map).cast<String, String?>(),
+      fields[11] as String?,
     )
       ..completed = fields[3] as bool
       ..fiDate = fields[4] as DateTime
@@ -35,7 +36,7 @@ class RiskAssessmentAdapter extends TypeAdapter<RiskAssessment> {
   @override
   void write(BinaryWriter writer, RiskAssessment obj) {
     writer
-      ..writeByte(11)
+      ..writeByte(12)
       ..writeByte(0)
       ..write(obj.iniDate)
       ..writeByte(1)
@@ -57,7 +58,9 @@ class RiskAssessmentAdapter extends TypeAdapter<RiskAssessment> {
       ..writeByte(9)
       ..write(obj.vulnerability)
       ..writeByte(10)
-      ..write(obj.hazard);
+      ..write(obj.hazard)
+      ..writeByte(11)
+      ..write(obj.lastStepId);
   }
 
   @override

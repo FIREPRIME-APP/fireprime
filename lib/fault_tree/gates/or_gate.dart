@@ -1,4 +1,5 @@
 import 'package:fireprime/fault_tree/events/basic_event.dart';
+import 'package:fireprime/fault_tree/events/intermediate_event.dart';
 import 'package:fireprime/fault_tree/gates/gate.dart';
 import 'package:fireprime/fault_tree/node.dart';
 import 'package:fireprime/fault_tree/selectedOptions.dart';
@@ -6,7 +7,7 @@ import 'package:fireprime/fault_tree/selectedOptions.dart';
 class OrGate extends Gate {
   List<Node> selectedInputs = [];
 
-  OrGate(super.id, super.inputEvents) {
+  OrGate(super.id, super.inputEvents /* , super.weight */) {
     super.gateType = 'or_gate';
   }
 
@@ -39,10 +40,15 @@ class OrGate extends Gate {
           print(probability);
         }
       } else {*/
-      probability *= (1 - event.calculateProbability());
+      if (event is IntermediateEvent) {
+        probability *= (1 - (event.calculateProbability() * event.weight));
+      } else {
+        probability *= (1 - (event.calculateProbability()));
+      }
+
       //}
       //probability *= (1 - event.calculateProbability());
     }
-    return probability = 1 - probability;
+    return probability = (1 - probability) /* * weight */;
   }
 }

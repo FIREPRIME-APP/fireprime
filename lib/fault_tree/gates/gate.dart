@@ -3,7 +3,9 @@ import 'package:fireprime/fault_tree/node.dart';
 class Gate extends Node {
   List<Node> inputEvents;
   String gateType = 'gate';
-  Gate(super.id, this.inputEvents);
+  //double weight = 1.0;
+
+  Gate(super.id, this.inputEvents /* , this.weight */);
 
   @override
   double calculateProbability() {

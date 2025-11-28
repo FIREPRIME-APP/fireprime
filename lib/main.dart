@@ -1,11 +1,13 @@
-//import 'dart:io';
-import 'package:cloud_firestore/cloud_firestore.dart';
+//import 'package:cloud_firestore/cloud_firestore.dart';
+import 'dart:io';
+
 import 'package:easy_localization/easy_localization.dart';
-import 'package:firebase_app_check/firebase_app_check.dart';
+/* import 'package:firebase_app_check/firebase_app_check.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:fireprime/firebase/api_key_manage.dart';
+import 'package:fireprime/firebase/api_key_manage.dart'; */
+import 'package:fireprime/model/basic_result.dart';
 import 'package:fireprime/model/event_probability.dart';
-import 'package:fireprime/pages/no_auth.dart';
+//mport 'package:fireprime/pages/no_auth.dart';
 import 'package:fireprime/providers/house_provider.dart';
 import 'package:fireprime/providers/images_provider.dart';
 import 'package:fireprime/fault_tree/fault_tree.dart';
@@ -15,18 +17,21 @@ import 'package:fireprime/model/risk_assessment.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart' hide Step;
 import 'package:hive/hive.dart';
+import 'package:media_store_plus/media_store_plus.dart';
 import 'package:provider/provider.dart';
 import 'package:fireprime/providers/language_change_controller.dart';
-import 'firebase/firebase_options.dart';
+//import 'firebase/firebase_options.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
+  if (Platform.isAndroid) await MediaStore.ensureInitialized();
   Hive.registerAdapter(HouseAdapter());
   Hive.registerAdapter(RiskAssessmentAdapter());
   Hive.registerAdapter(EventProbabilityAdapter());
+  Hive.registerAdapter(BasicResultAdapter());
 
-  try {
+  /* try {
     await Firebase.initializeApp(
       options: DefaultFirebaseOptions.currentPlatform,
     );
@@ -34,8 +39,6 @@ void main() async {
     print('Error initializing Firebase: $e');
   }
   await FirebaseAppCheck.instance.activate(
-    //androidProvider: AndroidProvider.playIntegrity,
-    //appleProvider: AppleProvider.deviceCheck,
     androidProvider: AndroidProvider.debug,
   );
 
@@ -53,8 +56,24 @@ void main() async {
   bool auth = snapshot.data()!['auth'];
 
   await getApiKey();
-
-  if (auth) {
+*/
+  // if (auth) {
+  runApp(
+    EasyLocalization(
+      supportedLocales: const [
+        Locale('en'),
+        Locale('ca'),
+        Locale('es'),
+        Locale('de'),
+        Locale('sv')
+      ],
+      path: 'assets/translations',
+      fallbackLocale: const Locale('en'),
+      useFallbackTranslations: true,
+      child: const MyApp(),
+    ),
+  );
+/*  } else {
     runApp(
       EasyLocalization(
         supportedLocales: const [
@@ -62,29 +81,14 @@ void main() async {
           Locale('ca'),
           Locale('es'),
           Locale('de'),
-          //Locale('sv')
-        ],
-        path: 'assets/translations',
-        fallbackLocale: const Locale('en'),
-        child: const MyApp(),
-      ),
-    );
-  } else {
-    runApp(
-      EasyLocalization(
-        supportedLocales: const [
-          Locale('en'),
-          Locale('ca'),
-          Locale('es'),
-          Locale('de'),
-          //Locale('sv')
+          Locale('sv')
         ],
         path: 'assets/translations',
         fallbackLocale: const Locale('en'),
         child: const NoAuth(),
       ),
     );
-  }
+  }*/
 }
 
 class MyApp extends StatelessWidget {
@@ -289,18 +293,9 @@ class MyApp extends StatelessWidget {
                   .copyWith(background: Colors.white),
             ),
             localizationsDelegates: context.localizationDelegates,
-            /*const [
-              //AppLocalizations.delegate, 
-              GlobalMaterialLocalizations.delegate,
-              GlobalWidgetsLocalizations.delegate,
-              GlobalCupertinoLocalizations.delegate,
-            ],*/
+
             supportedLocales: context.supportedLocales,
-            /*const [
-              Locale('en'),
-              Locale('es'),
-              Locale('ca'),
-            ],*/
+
             locale: provider.appLocale, //provider.appLocale,
             home: FutureBuilder<void>(
               future: _loadFaultTree(),

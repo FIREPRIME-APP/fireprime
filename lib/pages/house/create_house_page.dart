@@ -1,9 +1,9 @@
+import 'package:diacritic/diacritic.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:fireprime/autocomplete/autocomplete.dart';
-import 'package:fireprime/autocomplete/google_places_autocomplete.dart';
-import 'package:fireprime/config.dart';
+import 'package:fireprime/autocomplete/zip_code.dart';
+/* import 'package:fireprime/config.dart';
 import 'package:fireprime/firebase/api_key_manage.dart';
-import 'package:fireprime/firebase/event_manage.dart';
+import 'package:fireprime/firebase/event_manage.dart'; */
 import 'package:fireprime/providers/house_provider.dart';
 import 'package:fireprime/constants.dart';
 import 'package:fireprime/model/house.dart';
@@ -22,6 +22,7 @@ class CreateHousePage extends StatefulWidget {
 class _CreateHousePageState extends State<CreateHousePage> {
   final TextEditingController _name = TextEditingController();
   final TextEditingController _address = TextEditingController();
+  final TextEditingController _zipCode = TextEditingController();
 
   Map<String, String> countries = {};
 
@@ -29,20 +30,21 @@ class _CreateHousePageState extends State<CreateHousePage> {
 
   bool _enabled = false;
 
-  String? _selectedPlace;
+  //String? _selectedPlace;
   String? _selectedCountryCode;
 
   @override
   void initState() {
     super.initState();
     _name.addListener(_checkInput);
-    _address.addListener(_checkInput);
+    _zipCode.addListener(_checkInput);
+    // _address.addListener(_checkInput);
   }
 
   void _checkInput() {
     setState(() {
       if (_name.text.isNotEmpty &&
-          _address.text.isNotEmpty &&
+          _zipCode.text.isNotEmpty &&
           _selectedEnvironment != null) {
         _enabled = true;
       } else {
@@ -59,7 +61,8 @@ class _CreateHousePageState extends State<CreateHousePage> {
     return Map.fromEntries(
       countries.entries.toList()
         ..sort(
-          (e1, e2) => e1.value.compareTo(e2.value),
+          (e1, e2) =>
+              removeDiacritics(e1.value).compareTo(removeDiacritics(e2.value)),
         ),
     );
   }
@@ -69,10 +72,6 @@ class _CreateHousePageState extends State<CreateHousePage> {
       ScaffoldMessenger.of(context).showSnackBar(
         Utils.snackBar(context.tr('warning_unfilled_name')),
       );
-    } else if (_address.text.isEmpty) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        Utils.snackBar(context.tr('warning_unfilled_address')),
-      );
     } else if (_selectedEnvironment == null) {
       ScaffoldMessenger.of(context).showSnackBar(
         Utils.snackBar(context.tr('warning_unselected_country')),
@@ -81,12 +80,43 @@ class _CreateHousePageState extends State<CreateHousePage> {
       ScaffoldMessenger.of(context).showSnackBar(
         Utils.snackBar(context.tr('warning_house_name_exists')),
       );
-    } else if (_address.text.isNotEmpty &&
-        _name.text.isNotEmpty &&
+    } else if (_name.text.isNotEmpty &&
+        _zipCode.text.isNotEmpty &&
         _selectedEnvironment != null) {
-      saveEventdata(screenId: 'create_house_page', buttonId: 'create_house');
+      // saveEventdata(screenId: 'create_house_page', buttonId: 'create_house');
+      Map<String, dynamic> latLong = {};
+      showDialog(
+        context: context,
+        barrierDismissible: false,
+        builder: (BuildContext context) {
+          return AlertDialog(
+              content: Container(
+            height: 80,
+            width: 200,
+            color: Colors.blueGrey[50],
+            child: Center(
+                child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const CircularProgressIndicator(),
+                const SizedBox(height: 10),
+                Text(
+                  context.tr('loading'),
+                ),
+              ],
+            )),
+          ));
+        },
+      );
+      try {
+        latLong = await ZipCode()
+            .getLatLongByZipCode(_zipCode.text, _selectedCountryCode!);
+        Navigator.of(context).pop();
+      } catch (e) {
+        Navigator.of(context).pop();
+      }
 
-      if (_selectedPlace == null) {
+      if (latLong.isEmpty) {
         showDialog(
           context: context,
           builder: (BuildContext context) {
@@ -99,12 +129,12 @@ class _CreateHousePageState extends State<CreateHousePage> {
               actions: <Widget>[
                 TextButton(
                   onPressed: () {
-                    saveEventdata(
+                    /*  saveEventdata(
                         screenId: 'create_house_page',
-                        buttonId: 'noLatLong_warning_accept');
+                        buttonId: 'noLatLong_warning_accept'); */
                     Navigator.of(context).pop();
-                    House newHouse =
-                        House(_name.text, _address.text, _selectedEnvironment!);
+                    House newHouse = House(_name.text, _address.text,
+                        _selectedEnvironment!, _zipCode.text);
                     house.addHouse(newHouse);
                     Navigator.of(context).pop();
                   },
@@ -112,9 +142,9 @@ class _CreateHousePageState extends State<CreateHousePage> {
                 ),
                 TextButton(
                   onPressed: () {
-                    saveEventdata(
+                    /* saveEventdata(
                         screenId: 'create_house_page',
-                        buttonId: 'noLatLong_warning_try_again');
+                        buttonId: 'noLatLong_warning_try_again'); */
                     Navigator.of(context).pop();
                   },
                   child: Text(context.tr('try_again')),
@@ -124,8 +154,19 @@ class _CreateHousePageState extends State<CreateHousePage> {
           },
         );
       } else {
+        House newHouse = House(
+            _name.text, _address.text, _selectedEnvironment!, _zipCode.text);
+        newHouse.lat = double.parse(latLong['latitude']);
+        newHouse.long = double.parse(latLong['longitude']);
+        house.addHouse(newHouse);
+        Navigator.of(context).pop();
+      }
+      /*
+      if (_selectedPlace == null) {
+      } else {
         Map<String, dynamic> latLong = await GooglePlacesAutoComplete()
             .getLatLong(_selectedPlace!, Config.API_KEY);
+        //TODO afegir zipcode com a atribut de la casa, es necessari o es pot adjuntar amb l'string de address?
         House newHouse =
             House(_name.text, _address.text, _selectedEnvironment!);
         newHouse.lat = latLong['latitude'];
@@ -133,17 +174,16 @@ class _CreateHousePageState extends State<CreateHousePage> {
         house.addHouse(newHouse);
 
         Navigator.of(context).pop();
-      }
+      }*/
     }
   }
 
   @override
   Widget build(BuildContext context) {
     final Map<String, String> sortedCountries = _getStoredCountries(context);
-    if (Config.API_KEY == '') {
+    /*  if (Config.API_KEY == '') {
       getApiKey();
-    }
-
+    } */
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -152,7 +192,7 @@ class _CreateHousePageState extends State<CreateHousePage> {
         ),
         leading: IconButton(
           onPressed: () {
-            saveEventdata(screenId: 'create_house_page', buttonId: 'back');
+            //  saveEventdata(screenId: 'create_house_page', buttonId: 'back');
             Navigator.of(context).pop();
           },
           icon: const Icon(Icons.arrow_back),
@@ -175,6 +215,7 @@ class _CreateHousePageState extends State<CreateHousePage> {
                   controller: _name,
                   screenId: 'create_house_page',
                   buttonId: 'name',
+                  maxLength: 16,
                 ),
                 const SizedBox(height: 10.0),
                 /*InputField(
@@ -192,9 +233,10 @@ class _CreateHousePageState extends State<CreateHousePage> {
                 DropdownButtonFormField<String>(
                   value: _selectedEnvironment,
                   onChanged: (String? newValue) {
-                    saveEventdata(
+                    /*   saveEventdata(
                         screenId: 'create_house_page',
                         buttonId: 'select_country');
+                   */
                     setState(() {
                       _selectedEnvironment = newValue!;
                       _selectedCountryCode = Constants
@@ -215,17 +257,31 @@ class _CreateHousePageState extends State<CreateHousePage> {
                   ),
                 ),
                 const SizedBox(height: 10.0),
-                if (_selectedCountryCode != null)
-                  AutoCompleteWidget(
-                    apiKey: Config.API_KEY,
+                if (_selectedCountryCode != null) ...[
+                  InputField(
+                    label: '*  ${context.tr('zip_code')}:',
+                    controller: _zipCode,
+                    screenId: 'create_house_page',
+                    buttonId: 'zip_code',
+                  ),
+                  const SizedBox(height: 10.0),
+                  InputField(
+                    label: '${context.tr('address')}:',
                     controller: _address,
+                    screenId: 'create_house_page',
+                    buttonId: 'address',
+                  ),
+                  /*AutoCompleteWidget(
+                    apiKey: Config.API_KEY,
+                    controller: _zipCode,
                     onPlaceSelected: (placeId) => setState(() {
                       _selectedPlace = placeId;
                     }),
                     screenId: 'create_house_page',
                     selectedCountryCode: _selectedCountryCode!,
-                  ),
-                const SizedBox(height: 20.0),
+                  ),*/
+                  const SizedBox(height: 20.0),
+                ],
                 Center(
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(

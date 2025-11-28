@@ -4,8 +4,9 @@ import 'package:fireprime/fault_tree/node.dart';
 class IntermediateEvent extends Node {
   double probability = 0.0;
   Gate gate;
+  double weight = 1.0;
 
-  IntermediateEvent(super.id, this.gate);
+  IntermediateEvent(super.id, this.gate, this.weight);
 
   @override
   double calculateProbability() {

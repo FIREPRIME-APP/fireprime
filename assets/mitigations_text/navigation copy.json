@@ -1,0 +1,38 @@
+{
+  "Q3": {
+    "afectedQuestions": ["Q4-1", "Q4-2"],
+    "navigation": {
+      "roofFireRated": "Q4-2",
+      "roofNonFireRated": "Q4-1"      
+    },
+    "affectedQuestionsNavigation": {
+      "Q4-1": {
+        "roofPoorlyMaintaned-1": "complete",
+        "roofWellMaintained-1": "complete"
+      }
+    },
+    "roofFireRated": {
+      "delete": ["Q4-1"]
+    },
+    "roofNonFireRated": {
+      "delete": ["Q4-2"]
+    }
+    
+  },
+  "Q8": {
+    "yesSemiConf": {
+      "add": ["Q9", "Q10"]
+    }, 
+    "noSemiConf": {
+      "delete": ["Q9", "Q10"]
+    }
+  },
+  "Q14": {
+    "contSurf": {
+      "add": ["Q22"]
+    },
+    "discontSurf": {
+      "delete": ["Q22"]
+    }
+  }
+}

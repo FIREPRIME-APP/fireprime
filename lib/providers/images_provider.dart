@@ -15,13 +15,11 @@ class ImagesProvider with ChangeNotifier {
     String jsonString;
 
     try {
-      print('Loading images_$envNameLower.json');
       jsonString = await rootBundle
           .loadString('assets/images/$envNameLower/images_$envNameLower.json');
-      print('Loaded images_$envNameLower.json');
     } catch (e) {
-      jsonString = await rootBundle
-          .loadString('assets/images/default/images_default.json');
+      jsonString =
+          await rootBundle.loadString('assets/images/spain/images_spain.json');
     }
     Map<String, dynamic> jsonData = jsonDecode(jsonString);
 
@@ -50,7 +48,6 @@ class ImagesProvider with ChangeNotifier {
         imagePath.add(CustomisedImage(images[question]![i].path, description));
       }
     }
-
     return imagePath;
   }
 }

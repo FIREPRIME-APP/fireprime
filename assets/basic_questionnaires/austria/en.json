@@ -1,0 +1,96 @@
+{
+    "questions": [
+        {
+            "id": "BQ1",
+            "question": "My home is located right next to a forested area.",
+            "images": [
+                {
+                    "path": "assets/images/austria/basic/BQ1.png"
+                }
+            ]
+        },
+        {
+            "id": "BQ2",
+            "question": "There are trees touching the façade or the roof of my house.",
+            "images": [
+                {
+                    "path": "assets/images/austria/basic/BQ2.png"
+                }
+            ]
+        },
+        {
+            "id": "BQ3",
+            "question": "The exterior cladding of my house is made of combustible material.",
+            "images": [
+                {
+                    "path": "assets/images/austria/basic/BQ3.png"
+                }
+            ]
+        },
+        {
+            "id": "BQ4",
+            "question": "The roof, porch, or balcony are made of combustible material.",
+            "images": [
+                {
+                    "path": "assets/images/austria/basic/BQ4.png"
+                }
+            ]
+        },
+        {
+            "id": "BQ5",
+            "question": "The windows of my home are not classified (fire protection class according to OENORM) ",
+            "images": [
+                {
+                    "path": "assets/images/austria/basic/BQ5.png"
+                }
+            ]
+        },
+{
+            "id": "BQ6",
+            "question": "My windows are unprotected, without shutters or external blinds.",
+            "images": [
+                {
+                    "path": "assets/images/austria/basic/BQ6_1.png"
+                },
+                {
+                    "path": "assets/images/austria/basic/BQ6_2.png"
+                }
+            ]
+        },
+        {
+            "id": "BQ7",
+            "question": "I have ventilation openings with no protection.",
+            "images": [
+                {
+                    "path": "assets/images/austria/basic/BQ7.png"
+                }
+            ]
+        },
+        {
+            "id": "BQ8",
+            "question": "There is an accumulation of plant debris and combustible materials around the home.",
+            "images": [
+                {
+                    "path": "assets/images/austria/basic/BQ8_1.png"
+                },
+                {
+                    "path": "assets/images/austria/basic/BQ8_2.png"
+                }
+            ]
+        },
+        {
+            "id": "BQ9",
+            "question": "There is an accumulation of leaves and twigs in the gutters and/or on the roof.",
+            "images": []
+        },
+        {
+            "id": "BQ10",
+            "question": "There is no fence/wall surrounding my building or there is a combustible fence/hedge surrounding my building.",
+            "images": [
+                {
+                    "path": "assets/images/austria/basic/BQ10.png"
+                }
+            ]
+        }
+    ]
+}

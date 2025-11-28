@@ -1,147 +1,193 @@
 {
      "height0": {
          "title": "Facade Materials",
-         "text": "Consider options to improve the fire resistance of combustible facade materials (e.g., fire-retardant paints, protective panels, etc.)."
+         "text": "Consider options to improve the fire resistance of combustible facade materials (e.g., fire-retardant paints, protective panels, etc.).",
+         "questionId": "Q2"
      },
      "height0to20": {
          "title": "Facade Materials",
-         "text": "Consider options to improve the fire resistance of combustible facade materials (e.g., fire-retardant paints, protective panels, etc.)."
+         "text": "Consider options to improve the fire resistance of combustible facade materials (e.g., fire-retardant paints, protective panels, etc.).",
+         "questionId": "Q2"
      },
      "height21to40": {
          "title": "Facade Materials",
-         "text": "Consider options to improve the fire resistance of combustible facade materials (e.g., fire-retardant paints, protective panels, etc.)."
+         "text": "Consider options to improve the fire resistance of combustible facade materials (e.g., fire-retardant paints, protective panels, etc.).",
+         "questionId": "Q2"
      },
      "height41to60": {
          "title": "Facade Materials",
-         "text": "Consider options to improve the fire resistance of combustible facade materials (e.g., fire-retardant paints, protective panels, etc.)."
+         "text": "Consider options to improve the fire resistance of combustible facade materials (e.g., fire-retardant paints, protective panels, etc.).",
+         "questionId": "Q2"
      },
      "height61to80": {
          "title": "Facade Materials",
-         "text": "Consider options to improve the fire resistance of combustible facade materials (e.g., fire-retardant paints, protective panels, etc.)."
+         "text": "Consider options to improve the fire resistance of combustible facade materials (e.g., fire-retardant paints, protective panels, etc.).",
+         "questionId": "Q2"
      },
      "height81to100": {
          "title": "Facade Materials",
-         "text": "Consider options to improve the fire resistance of combustible facade materials (e.g., fire-retardant paints, protective panels, etc.)."
+         "text": "Consider options to improve the fire resistance of combustible facade materials (e.g., fire-retardant paints, protective panels, etc.).",
+         "questionId": "Q2"
      },
      "roofNonFireRated": {
          "title": "Roof",
-         "text": "Consider options to improve the fire resistance of combustible roofing materials (e.g., fire-retardant paints, etc.). If you're considering changing the roof covering, replace it with fire-resistant materials like ceramic or concrete tiles."
+         "text": "Consider options to improve the fire resistance of combustible roofing materials (e.g., fire-retardant paints, etc.). If you're considering changing the roof covering, replace it with fire-resistant materials like ceramic or concrete tiles.",
+         "questionId": "Q3"
      },
      "roofPoorlyMaintaned-1": {
          "title": "Roof",
-         "text": "Ensure that the roof covering is in good condition, properly placed, and that no tiles are missing. Regularly remove the accumulation of debris to avoid ignition on the roof in case of fire (e.g., dry pine needles, leaves, etc.)."
+         "text": "Ensure that the roof covering is in good condition, properly placed, and that no tiles are missing. Regularly remove the accumulation of debris to avoid ignition on the roof in case of fire (e.g., dry pine needles, leaves, etc.).",
+         "questionId": "Q4-1"
      },
      "roofPoorlyMaintaned-2": {
          "title": "Roof",
-         "text": "Ensure that the roof covering is in good condition, properly placed, and that no tiles are missing. Regularly remove the accumulation of debris to avoid ignition on the roof in case of fire (e.g., dry pine needles, leaves, etc.)."
+         "text": "Ensure that the roof covering is in good condition, properly placed, and that no tiles are missing. Regularly remove the accumulation of debris to avoid ignition on the roof in case of fire (e.g., dry pine needles, leaves, etc.).",
+         "questionId": "Q4-2"
      },
      "singlePane": {
-         "title": "Glass Enclosures",
-         "text": "If you are considering changing the glass, make sure to replace it with double or triple glazing or tempered glass. These types of glass are more resistant to heat from fire."
+         "title": "Glazing Systems",
+         "text": "If you are considering changing the glazing systems, make sure to replace them with double or triple glazing or tempered glass. These types of glass are more resistant to the heat from fire.",
+         "questionId": "Q5"
      },
      "noShutters": {
-         "title": "Glass Enclosures",
-         "text": "Consider installing shutters in front of all glass enclosures. Choose aluminum shutters or other fire-resistant materials (e.g., steel)."
+         "title": "Glazing Systems",
+         "text": "Consider installing shutters in front of all glazing systems. Choose aluminum shutters or other fire-resistant materials (e.g., steel).",
+         "questionId": "Q6"
      },
      "woodShutters": {
-         "title": "Glass Enclosures",
-         "text": "To improve your home's fire resistance, consider replacing wooden shutters with aluminum ones or other fire-resistant materials (e.g., steel)."
+         "title": "Glazing Systems",
+         "text": "To improve your home's fire resistance, consider replacing wooden shutters with aluminum ones or other fire-resistant materials (e.g., steel).",
+         "questionId": "Q6"
      },
      "pvcShutters": {
-         "title": "Glass Enclosures",
-         "text": "To improve your home's fire resistance, consider replacing PVC shutters with aluminum ones or other fire-resistant materials (e.g., steel)."
+         "title": "Glazing Systems",
+         "text": "To improve your home's fire resistance, consider replacing PVC shutters with aluminum ones or other fire-resistant materials (e.g., steel).",
+         "questionId": "Q6"
      },
      "noVentProtection": {
          "title": "Ventilations",
-         "text": "Protect the ventilations with non-combustible, stainless metal grilles (e.g., aluminum, galvanized steel, stainless steel, copper, or intumescent coatings)."
+         "text": "Protect the ventilations with non-combustible, stainless metal grilles (e.g., aluminum, galvanized steel, stainless steel, copper, or intumescent coatings).",
+         "questionId": "Q7"
      },
      "ventCombProtection": {
          "title": "Ventilations",
-         "text": "Consider replacing the ventilation protection with non-combustible, stainless metal grilles (e.g., aluminum, galvanized steel, stainless steel, copper, or intumescent coatings)."
+         "text": "Consider replacing the ventilation protection with non-combustible, stainless metal grilles (e.g., aluminum, galvanized steel, stainless steel, copper, or intumescent coatings).",
+         "questionId": "Q7"
      },
      "nonCombBadCond": {
          "title": "Ventilations",
-         "text": "Consider replacing the ventilation protection with non-combustible, stainless metal grilles (e.g., aluminum, galvanized steel, stainless steel, copper, or intumescent coatings)."
+         "text": "Consider replacing the ventilation protection with non-combustible, stainless metal grilles (e.g., aluminum, galvanized steel, stainless steel, copper, or intumescent coatings).",
+         "questionId": "Q7"
      },
      "yesSemiConf": {
-         "title": "Semi-confined Spaces Adjacent to the Building",
-         "text": "Avoid storing combustible materials in semi-confined spaces, such as porches, spaces under terraces or floors, spaces under awnings, or enclosed spaces in sheds adjacent to the building."
+         "title": "Semi-open Spaces Adjacent to the Building",
+         "text": "Avoid storing combustible materials in semi-open spaces, such as porches, spaces under terraces or floors, spaces under awnings, or enclosed spaces in sheds adjacent to the building.",
+         "questionId": "Q8"
      },
      "glazingSystemsSinglePane": {
-         "title": "Semi-confined Spaces Adjacent to the Building",
-         "text": "To reduce your home's vulnerability, consider installing fire-resistant shutters to protect the glass in semi-confined spaces. Choose aluminum or other fire-resistant materials (e.g., steel)."
+         "title": "Semi-open Spaces Adjacent to the Building",
+         "text": "To reduce your home's vulnerability, consider installing fire-resistant shutters to protect the glass in semi-open spaces. Choose aluminum or other fire-resistant materials (e.g., steel).",
+         "questionId": "Q9"
      },
      "glazingSystemsMultiplePane": {
-         "title": "Semi-confined Spaces Adjacent to the Building",
-         "text": "To reduce your home's vulnerability, consider installing fire-resistant shutters to protect the glass in semi-confined spaces. Choose aluminum or other fire-resistant materials (e.g., steel)."
+         "title": "Semi-open Spaces Adjacent to the Building",
+         "text": "To reduce your home's vulnerability, consider installing fire-resistant shutters to protect the glass in semi-open spaces. Choose aluminum or other fire-resistant materials (e.g., steel).",
+         "questionId": "Q9"
      },
      "glazingSystemsTempered": {
-         "title": "Semi-confined Spaces Adjacent to the Building",
-         "text": "To reduce your home's vulnerability, consider installing fire-resistant shutters to protect the glass in semi-confined spaces. Choose aluminum or other fire-resistant materials (e.g., steel)."
+         "title": "Semi-open Spaces Adjacent to the Building",
+         "text": "To reduce your home's vulnerability, consider installing fire-resistant shutters to protect the glass in semi-open spaces. Choose aluminum or other fire-resistant materials (e.g., steel).",
+         "questionId": "Q9"
      },
      "combustibleEnvelope": {
-         "title": "Semi-confined Spaces Adjacent to the Building",
-         "text": "Consider using fireproof coatings (e.g., fire-retardant paints) to improve the fire resistance of the walls."
-     },
-     "7closeToGlazing": {
-         "title": "Building Surroundings",
-         "text": "Consider removing combustibles (vegetation or other non-natural elements) if they are near glass that cannot be protected."
+         "title": "Semi-open Spaces Adjacent to the Building",
+         "text": "Consider using fireproof coatings (e.g., fire-retardant paints) to improve the fire resistance of the walls.",
+         "questionId": "Q10"
      },
      "5closeToGlazing": {
          "title": "Building Surroundings",
-         "text": "Consider removing combustibles (vegetation or other non-natural elements) if they are near glass that cannot be protected."
+         "text": "Consider removing combustibles (vegetation or other non-natural elements) if they are near glazing systems that cannot be protected.",
+         "questionId": "Q11"
      },
      "closeToRoof": {
          "title": "Building Surroundings",
-         "text": "Consider removing combustibles (vegetation or other non-natural elements) if they are near combustible elements adjacent to the roof (e.g., wooden eaves, PVC gutters for collecting rainwater)."
+         "text": "Consider removing combustibles (vegetation or other non-natural elements) if they are near combustible elements adjacent to the roof (e.g., wooden eaves, PVC gutters for collecting rainwater).",
+         "questionId": "Q11"
      },
      "fuelsNotAgainstFacade": {
          "title": "Building Surroundings",
-         "text": "Consider removing combustibles (vegetation or other non-natural elements) adjacent to the facade. If you have a wooden decking, consider improving its fire resistance (e.g., with fire-retardant paints, protective coatings, etc.)."
+         "text": "Consider removing combustibles (vegetation or other non-natural elements) adjacent to the facade. If you have a wooden decking, consider improving its fire resistance (e.g., with fire-retardant paints, protective coatings, etc.).",
+         "questionId": "Q12"
      },
      "contSurf": {
          "title": "Building Surroundings",
-         "text": "Consider breaking the continuity of natural fuel with gravel or cobblestone beds."
+         "text": "Consider breaking the continuity of natural fuel with gravel or cobblestone beds.",
+         "questionId": "Q13"
      },
      "closeToLPG": {
          "title": "Building Surroundings",
-         "text": "Remove all combustible elements within a 2-meter radius around hydrocarbon tanks (LPG tanks, gas cylinders, etc.)."
+         "text": "Remove all combustible elements within a 2-meter radius around hydrocarbon tanks (LPG tanks, gas cylinders, etc.).",
+         "questionId": "Q14"
      },
      "spacingLess5": {
          "title": "Building Surroundings",
-         "text": "Consider separating non-natural combustible elements from each other as much as possible."
+         "text": "Consider separating non-natural combustible elements from each other as much as possible.",
+         "questionId": "Q15"
      },
      "placedIn20": {
          "title": "Building Surroundings",
-         "text": "Consider keeping non-natural combustible elements at least 20 meters away from the forest."
+         "text": "Consider keeping non-natural combustible elements at least 20 meters away from the forest.",
+         "questionId": "Q15"
      },
      "vegIn30": {
          "title": "Building Surroundings",
-         "text": "Consider conducting a fuel reduction treatment."
+         "text": "Consider conducting a fuel reduction treatment.",
+         "questionId": "Q16"
      },
      "highFlam": {
          "title": "Building Surroundings",
-         "text": "Consider removing highly flammable species within a 30-meter radius of the building or replacing them with more fire-resistant species."
+         "text": "Consider removing highly flammable species within a 30-meter radius of the building or replacing them with more fire-resistant species.",
+         "questionId": "Q17"
      },
      "contVeg": {
          "title": "Building Surroundings",
-         "text": "Manage vegetation within 30 meters of the building by creating horizontal discontinuity between trees and shrubs to prevent fire spread. Consider removing or separating vegetation."
+         "text": "Manage vegetation within 30 meters of the building by creating horizontal discontinuity between trees and shrubs to prevent fire spread. Consider removing or separating vegetation.",
+         "questionId": "Q18"
      },
-     "noPurning": {
+     "noPruning": {
          "title": "Building Surroundings",
-         "text": "Manage vegetation within 30 meters of the building by creating vertical discontinuity between trees and shrubs to prevent fire spread. Consider removing and pruning the vegetation."
+         "text": "Manage vegetation within 30 meters of the building by creating vertical discontinuity between trees and shrubs to prevent fire spread. Consider removing and pruning the vegetation.",
+         "questionId": "Q19"
      },
      "lowSurfaceMore10": {
          "title": "Building Surroundings",
-         "text": "Keep the height of the vegetation (grass or young shrubs) of the continuous natural fuel zone surrounding the building below 10 cm."
+         "text": "Keep the height of the vegetation (grass or young shrubs) of the continuous natural fuel zone surrounding the building below 10 cm.",
+         "questionId": "Q20"
      },
      "deadVeg": {
          "title": "Building Surroundings",
-         "text": "Remove dead or pruned vegetation periodically. These fuels are very dry and catch fire easily in case of fire."
+         "text": "Remove dead or pruned vegetation periodically. These fuels are very dry and ignite easily in case of fire.",
+         "questionId": "Q21"
      },
      "woodenFence": {
          "title": "Building Surroundings",
-         "text": "Consider painting the fence with fire-retardant coatings (e.g., fire-retardant paints) to improve its fire resistance."
+         "text": "Consider painting the fence with fire-retardant coatings (e.g., fire-retardant paints) to improve its fire resistance.",
+         "questionId": "Q22"
+     },
+     "hedgerowHigh": {
+          "title": "Building Surroundings",
+          "text": "Consider replacing the highly flammable shrub hedge (e.g., cypress or heather) with a low-flammability or non-flammable hedge (e.g., cherry laurel) and other options for masonry or non-combustible material fences.",
+          "questionId": "Q22"
+     },
+     "metalPosts": {
+          "title": "Building Surroundings",
+          "text": "Keep the fence free of vegetation to prevent the spread of fire between neighboring plots.",
+          "questionId": "Q22"
+     },
+     "chainLink": {
+          "title": "Building Surroundings",
+          "text": "Keep the fence free of vegetation to prevent the spread of fire between neighboring plots.",
+          "questionId": "Q22"
      }
  }
  

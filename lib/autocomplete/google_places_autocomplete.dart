@@ -1,4 +1,4 @@
-import 'dart:convert';
+/*import 'dart:convert';
 
 import 'package:http/http.dart' as http;
 
@@ -6,6 +6,8 @@ class GooglePlacesAutoComplete {
   Future<List<dynamic>> getPredictions(String input, String apiKey,
       String languageCode, String countryCode) async {
     String baseURL = 'https://places.googleapis.com/v1/places:autocomplete/';
+
+    print('in Google places');
 
     var response = await http.post(Uri.parse(baseURL), body: {
       'input': input,
@@ -15,12 +17,14 @@ class GooglePlacesAutoComplete {
       "X-Goog-Api-Key": apiKey,
     });
     if (response.statusCode == 200) {
+      print('Response: ${response.body}');
       if (json.decode(response.body)['suggestions'] != null) {
         final suggestions = await json.decode(response.body)['suggestions'];
         return suggestions;
       }
       return [];
     } else {
+      print('Error: ${response.statusCode} - ${response.body}');
       return [];
     }
   }
@@ -41,3 +45,4 @@ class GooglePlacesAutoComplete {
     }
   }
 }
+*/

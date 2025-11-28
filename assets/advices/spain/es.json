@@ -1,0 +1,140 @@
+{
+    "title": "# Consejos de preparación y seguridad en caso de incendio",
+    "content": "**Consejos basados en las recomendaciones oficiales de los Bombers de la Generalitat de Catalunya.** En caso de incendio, sigue siempre las instrucciones de las autoridades locales e infórmate a través de:\n- Alertas de Protección Civil en el móvil\n- Bomberos y cuerpos de seguridad a cargo del incendio\n- Redes sociales oficiales: para Cataluña: @emergenciescat, @bomberscat, @agentsruralscat\n- Medios de comunicación",
+    "sections": [
+        {
+            "title": "## ¿Qué se puede hacer para proteger tu hogar de los incendios forestales?",
+            "items": [
+                {
+                    "text": " Franja de 2 m sin vegetación alrededor de la fachada",
+                    "image": "protect_franja_2m.png"
+                },
+                {
+                    "text": "6 m de distancia entre árboles para que no se toquen",
+                    "image": "protect_distancia_6m.png"
+                },
+                {
+                    "text": "Tejados, porches y toldos limpios de hojas secas",
+                    "image": "protect_teulades_netes.png"
+                },
+                {
+                    "text": "Nada de leña ni materiales inflamables junto a la casa",
+                    "image": "protect_llenya.png"
+                },
+                {
+                    "text": "Combustibles guardados en espacios ventilados y protegidos",
+                    "image": "protect_combustibles_ventilats.png"
+                },
+                {
+                    "text": "Doble acristalamiento y protección con persianas no combustibles",
+                    "image": "protect_doble_vidre.png"
+                },
+                {
+                    "text": "Chimeneas y rejillas cubiertas con mallas metálicas",
+                    "image": "protect_xemeneies_reixetes.png"
+                },
+                {
+                    "text": "Evita vallas y porches de brezo, ciprés o tuya",
+                    "image": "protect_evitar_tanques.png"
+                },
+                {
+                    "text": "Manguera de riego larga y flexible preparada",
+                    "image": "protect_manega_reg.png"
+                },
+                {
+                    "text": "Equipo de emergencia a punto: documentación, móvil con cargador, dinero, botiquín, medicación indispensable, linterna y radio",
+                    "image": "protect_equip_emergencia.png"
+                },
+                {
+                    "text": "Asegúrate de que las personas con las que convives saben cómo actuar",
+                    "image": "protect_persones_actuar.png"
+                },
+                {
+                    "text": " Si prevés dificultades para confinarte o evacuar (por ejemplo, por movilidad reducida), informa a las autoridades",
+                    "image": "protect_informar_autoritats.png"
+                }
+            ]
+        },
+        {
+            "title": "## ¿Qué hacer si el incendio se acerca a tu casa?",
+            "intro": "### Confinarse es la mejor protección si el incendio se aproxima. Trata de mantener la calma y solo evacúa si lo indican los servicios de emergencia.",
+            "items": [
+                {
+                    "text": "Refúgiate dentro de casa con las personas y animales con los que convivas",
+                    "image": "aprox_dins_casa.png"
+                },
+                {
+                    "text": "Protégete con ropa de algodón de manga larga",
+                    "image": "aprox_roba_coto.png"
+                },
+                {
+                    "text": "Ten a mano el equipo de emergencia",
+                    "image": "aprox_equip_emergencia.png"
+                },
+                {
+                    "text": "Cierra todas las puertas interiores y exteriores y ventanas y baja las persianas",
+                    "image": "aprox_tancar_portes.png"
+                },
+                {
+                    "text": "Sella con ropa húmeda las posibles entradas de humo, como las juntas de las puertas",
+                    "image": "aprox_segellar_entrades_fum.png"
+                },
+                {
+                    "text": "Desconecta el gas, butano o gasóleo",
+                    "image": "aprox_desconnectar_gas.png"
+                },
+                {
+                    "text": "Apaga el aire acondicionado hasta que el aire exterior esté limpio de humo",
+                    "image": "aprox_apagar_aire_condicionat.png"
+                },
+                {
+                    "text": "Si tienes tiempo, retira cortinas y toldos, y aleja de la fachada los muebles y otros materiales combustibles",
+                    "image": "aprox_retirar_cortines.png"
+                },
+                {
+                    "text": "Deja el coche en el garaje con las llaves puestas; si no tienes garaje, aparca a 6 m de la casa",
+                    "image": "aprox_deixar_cotxe_garatge.png"
+                },
+                {
+                    "text": "Si es posible y no supone un riesgo, moja bien las zonas exteriores",
+                    "image": "aprox_remullar_zones_exteriors.png"
+                },
+                {
+                    "text": "Deja libres los accesos para los servicios de emergencia",
+                    "image": "aprox_deixar_accessos.png"
+                },
+                {
+                    "text": "Sigue las indicaciones de los equipos de emergencia y no salgas de casa hasta que sea seguro hacerlo",
+                    "image": "aprox_seguir_indicacions.png"
+                }
+            ]
+        },
+        {
+            "title": "## ¿Qué hacer si se ordena evacuar?",
+            "intro": "### Aunque el confinamiento es la medida por defecto, los servicios de emergencia pueden ordenar la evacuación si lo consideran necesario:",
+            "items": [
+                {
+                    "text": "Cierra la casa y desconecta la electricidad y el gas",
+                    "image": "evacuar_tancar_casa.png"
+                },
+                {
+                    "text": "Dirígete al lugar indicado por los servicios de emergencia",
+                    "image": "evacuar_lloc_indicat.png"
+                },
+                {
+                    "text": "Si necesitas ayuda para evacuar, avisa a los servicios de emergencia",
+                    "image": "evacuar_ajuda.png"
+                },
+                {
+                    "text": "Viste ropa de algodón de manga larga, cúbrete la cabeza y usa calzado adecuado",
+                    "image": "evacuar_roba_coto.png"
+                },
+                {
+                    "text": "Lleva solo el equipo de emergencia: documentación, móvil con cargador, dinero, botiquín, medicación indispensable, linterna y radio",
+                    "image": "evacuar_equip_emergencia.png"
+                }
+            ]
+        }
+    ],
+    "more_info": "**Encontrarás más información en:** \n[Departamiento de Interiores y Seguridad Pública](https://interior.gencat.cat/ca/incendis-forestals/inici/)"
+}

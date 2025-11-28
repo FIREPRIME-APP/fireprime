@@ -19,6 +19,7 @@
                                         {
                                             "type": "event",
                                             "event_id": "façade",
+                                            "weight": 0.73,
                                             "gate": [
                                                 {
                                                     "type": "and_gate",
@@ -109,6 +110,7 @@
                                         {
                                             "type": "event",
                                             "event_id": "roof",
+                                            "weight": 0.86,
                                             "gate": [
                                                 {
                                                     "type": "and_gate",
@@ -187,6 +189,7 @@
                                         {
                                             "type": "event",
                                             "event_id": "glazing_systems",
+                                            "weight": 0.73,
                                             "gate": [
                                                 {
                                                     "type": "and_gate",
@@ -263,6 +266,7 @@
                                         {
                                             "type": "event",
                                             "event_id": "vents",
+                                            "weight": 0.95,
                                             "gate": [
                                                 {
                                                     "type": "xor_gate",
@@ -300,6 +304,7 @@
                                         {
                                             "type": "event",
                                             "event_id": "semi_confined",
+                                            "weight": 0.73,
                                             "gate": [
                                                 {
                                                     "type": "or_gate",
@@ -359,6 +364,7 @@
                                         {
                                             "type": "event",
                                             "event_id": "fuels_close_to_building",
+                                            "weight": 0.7,
                                             "gate": [
                                                 {
                                                     "type": "or_gate",
@@ -468,7 +474,6 @@
                                                                             "event_id": "discontSurf",
                                                                             "probability": 0.0
                                                                         }
-                                                                        
                                                                     ]
                                                                 }
                                                             ]
@@ -480,6 +485,7 @@
                                         {
                                             "type": "event",
                                             "event_id": "artificial_fuels",
+                                            "weight": 0.825,
                                             "gate": [
                                                 {
                                                     "type": "or_gate",
@@ -520,7 +526,6 @@
                                                                     "type": "xor_gate",
                                                                     "gate_id": "space_art_fuels",
                                                                     "input_events": [
-                                                                        
                                                                         {
                                                                             "type": "event",
                                                                             "event_id": "spacingMore5",
@@ -574,6 +579,7 @@
                                         {
                                             "type": "event",
                                             "event_id": "vegetation",
+                                            "weight": 0.825,
                                             "gate": [
                                                 {
                                                     "type": "or_gate",
@@ -595,7 +601,7 @@
                                                                         {
                                                                             "type": "event",
                                                                             "event_id": "vegIn30",
-                                                                            "probability": 0.648
+                                                                            "probability": 0.828
                                                                         }
                                                                     ]
                                                                 }
@@ -629,7 +635,6 @@
                                                                             "event_id": "noVeg",
                                                                             "probability": 0.0
                                                                         }
-                                                                        
                                                                     ]
                                                                 }
                                                             ]
@@ -699,7 +704,7 @@
                                                                         {
                                                                             "type": "event",
                                                                             "event_id": "deadVeg",
-                                                                            "probability": 0.828
+                                                                            "probability": 0.683
                                                                         },
                                                                         {
                                                                             "type": "event",
@@ -725,18 +730,17 @@
                                                                     "input_events": [
                                                                         {
                                                                             "type": "event",
-                                                                            "event_id": "noPurning",
+                                                                            "event_id": "noPruning",
                                                                             "probability": 0.683
                                                                         },
                                                                         {
                                                                             "type": "event",
-                                                                            "event_id": "purning",
+                                                                            "event_id": "pruning",
                                                                             "probability": 0.025
                                                                         },
-                                                                     
                                                                         {
                                                                             "type": "event",
-                                                                            "event_id": "noApplicablePurning",
+                                                                            "event_id": "noApplicablePruning",
                                                                             "probability": 0.0
                                                                         }
                                                                     ]
@@ -750,9 +754,10 @@
                                         {
                                             "type": "event",
                                             "event_id": "property_perimeter",
+                                            "weight": 0.95,
                                             "gate": [
                                                 {
-                                                    "type": "or_gate",
+                                                    "type": "xor_gate",
                                                     "gate_id": "property_perimeter",
                                                     "input_events": [
                                                         {
@@ -802,6 +807,7 @@
                                         {
                                             "type": "event",
                                             "event_id": "slope",
+                                            "weight": 0.7,
                                             "gate": [
                                                 {
                                                     "type": "xor_gate",
@@ -826,7 +832,6 @@
                                                 }
                                             ]
                                         }
-
                                     ]
                                 }
                             ]
